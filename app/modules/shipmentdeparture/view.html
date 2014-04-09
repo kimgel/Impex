@@ -1,0 +1,183 @@
+<div ng-include="'modules/common/header/view'"></div>
+<div ng-include="'modules/common/sidenav/view-main'"></div>
+<div id="content" ng-controller="ShipmentDepartureCtrl">
+    <div ng-include="'modules/common/wizard/import'"></div>
+    <div class="row">
+        <div class="col-7">
+            <div class="box">
+                <div class="box-header">
+                    <h2><i class="fa fa-ticket"></i>Shipment Departure</h2>
+                </div>
+                <div class="box-content">
+                    <form role="form">
+                        <div class="form-group">
+                            <label class="control-label">Bill of Lading No.</label>
+                            <div class="controls">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Commercial Invoice No.</label>
+                            <div class="controls">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="control-label">Actual Date of Departure</label>
+                                    <div class="controls">
+                                        <div class="input-group date" ng-controller="DatePicker">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input type="text" class="form-control" datepicker-popup="{{dateFormat}}" ng-model="model.adod" show-weeks="showWeeks" show-button-bar="showButtonBar" is-open="opened" datepicker-options="dateOptions" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="control-label">Actual Date of Arrival</label>
+                                    <div class="controls">
+                                        <div class="input-group date" ng-controller="DatePicker">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input type="text" class="form-control" datepicker-popup="{{dateFormat}}" ng-model="model.adoa" show-weeks="showWeeks" show-button-bar="showButtonBar" is-open="opened" datepicker-options="dateOptions" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Port of Arrival</label>
+                            <select class="form-control">
+                                <option>POM</option>
+                                <option>MICP</option>
+                            </select>
+                        </div>
+
+                        <div class="form-actions highlight">
+                            <button type="button" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn">Clear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-file-o"></i>Required Documents</h2>
+                </div>
+                <div class="box-content">
+                    <ul class="upload-docs">
+                        <li>
+                            <span class="status">
+                                <span class="desc">Document-Filename-01.doc</span>
+                                <span class="label label-danger">Not uploaded</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="status">
+                                <span class="desc">Document-Filename-02.doc</span>
+                                <span class="label label-danger">Not uploaded</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="status">
+                                <span class="desc">Document-Filename-03.doc</span>
+                                <span class="label label-danger">Not uploaded</span>
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="form-actions highlight">
+                        <form>
+                            <span class="fileUpload btn btn-primary">
+                                <span class="fa fa-plus-circle"></span>Attach documents
+                                <input type="file" ng-file-select="onFileSelect($files)" />
+                            </span>
+                        </form>
+                        <p id="fileUploadError" class="text-danger hide"></p>
+                        <div class="list-group hide" id="files"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">1: Planner</h4>
+            </div>
+            <div class="modal-body">
+                <strong>Summary</strong>
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td>Impex / PO number</td>
+                            <td>2201</td>
+                        </tr>
+                        <tr>
+                            <td>PO Date</td>
+                            <td>03/20/2014</td>
+                        </tr>
+                        <tr>
+                            <td>Item Description</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>With Regulatory</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Supplier Name</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Supplier Address</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Broker Code / Name</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Email Broker</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul class="upload-docs">
+                    <li>
+                        <span class="status">
+                            <span class="desc">Document-Filename-01.doc</span>
+                            <span class="label label-success">Uploaded</span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="status">
+                            <span class="desc">Document-Filename-02.doc</span>
+                            <span class="label label-danger">Not uploaded</span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="status">
+                            <span class="desc">Document-Filename-03.doc</span>
+                            <span class="label label-danger">Not uploaded</span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

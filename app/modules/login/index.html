@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <div class="login-box" ng-controller="LoginCtrl">
+                <h2>Login to your account</h2>
+                <form class="form-horizontal" name="form" ng-submit="login(form)" novalidate>
+                    <fieldset>
+                        <input class="input-large col-12" name="username" type="text" placeholder="type username" ng-model="user.username" />
+
+                        <input class="input-large col-12" name="password" type="password" placeholder="type password" ng-model="user.password" />
+
+                        <div class="clearfix"></div>
+
+                        <label class="remember" for="remember">
+                            <input type="checkbox" id="remember" />Remember me</label>
+
+                        <div class="clearfix"></div>
+
+                        <button type="submit" class="btn btn-primary col-12">Login</button>
+                    </fieldset>
+                    <hr>
+                    <div class="form-group has-error">
+                        <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && submitted">
+                            Please enter your email and password.
+                        </p>
+                        <p class="help-block">{{ errors.other }}</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

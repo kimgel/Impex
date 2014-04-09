@@ -1,0 +1,61 @@
+<div ng-include="'modules/common/header/view'"></div>
+<div ng-include="'modules/common/sidenav/view-settings'"></div>
+<div id="content">
+    <div class="row">
+        <div class="col-7">
+            <div class="box" ng-controller="BrokerAdd">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-cog"></i>Add Broker</h2>
+                </div>
+                <div class="box-content" >
+                    <form role="form" name="form" ng-submit="submit(form)" novalidate>
+                        <div class="form-group">
+                            <label class="control-label">Broker No.</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="broker.no">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Broker Name</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="broker.name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Address</label>
+                            <div class="controls">
+                                <textarea class="form-control" ng-model="broker.address"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Contact Person</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="broker.contact">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Email Address</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="broker.email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Telephone No.</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="broker.tel">
+                            </div>
+                        </div>
+                        <div class="form-actions highlight">
+                            <button type="submit" class="btn btn-primary">Add</button>
+                            <button type="reset" class="btn">Clear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            
+        </div>
+    </div>
+</div>

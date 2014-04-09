@@ -1,0 +1,31 @@
+<header class="navbar">
+    <a class="navbar-brand" href="/">
+        <span>Impex System</span>
+    </a>    
+    <div class="nav-no-collapse header-nav">        
+        <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+                <a class="btn account dropdown-toggle" data-toggle="dropdown" data-target="#">
+                    <div class="avatar">
+                        <img src="assets/images/avatar.jpg" alt="Avatar">
+                    </div>
+                    <div class="user">
+                        <span class="hello">Welcome!</span>
+                        <span class="name">Administrator</span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-menu-title"></li>
+                    <li>
+                        <a href="/settings">
+                            <i class="fa fa-cogs"></i>Settings</a>
+                    </li>
+                    <li ng-controller="LogOutCtrl">
+                        <a href="javascript:;" ng-click="logout()">
+                            <i class="fa fa-sign-out"></i>Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
