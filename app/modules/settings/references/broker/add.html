@@ -9,46 +9,51 @@
                         <i class="fa fa-cog"></i>Add Broker</h2>
                 </div>
                 <div class="box-content" >
-                    <form role="form" name="form" ng-submit="submit(form)" novalidate>
+                    <form role="form" name="form" novalidate>
                         <div class="form-group">
                             <label class="control-label">Broker No.</label>
                             <div class="controls">
-                                <input type="text" class="form-control" ng-model="broker.no">
+                                <input type="text" class="form-control" name="no" ng-model="broker.no" required>
+                                <span class="label label-danger pull-right" ng-show="form.no.$error.required">{{form.no.message}}</span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Broker Name</label>
                             <div class="controls">
-                                <input type="text" class="form-control" ng-model="broker.name">
+                                <input type="text" class="form-control" name="name" ng-model="broker.name" required>
+                                <span class="label label-danger pull-right" ng-show="form.name.$error.required">{{form.name.message}}</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Address</label>
+                            <label class="control-label">Broker Address</label>
                             <div class="controls">
-                                <textarea class="form-control" ng-model="broker.address"></textarea>
+                                <input type="text" class="form-control" name="address" ng-model="broker.address" required>
+                                <span class="label label-danger pull-right" ng-show="form.address.$error.required">{{form.address.message}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Telephone no.</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" name="tel" ng-model="broker.tel" required>
+                                <span class="label label-danger pull-right" ng-show="form.tel.$error.required">{{form.tel.message}}</span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Contact Person</label>
                             <div class="controls">
-                                <input type="text" class="form-control" ng-model="broker.contact">
+                                <input type="text" class="form-control" name="contact" ng-model="broker.contact">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Email Address</label>
                             <div class="controls">
-                                <input type="text" class="form-control" ng-model="broker.email">
+                                <input type="text" class="form-control" name="email" ng-model="broker.email">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label">Telephone No.</label>
-                            <div class="controls">
-                                <input type="text" class="form-control" ng-model="broker.tel">
-                            </div>
-                        </div>
+                        
                         <div class="form-actions highlight">
-                            <button type="submit" class="btn btn-primary">Add</button>
-                            <button type="reset" class="btn">Clear</button>
+                            <button ng-click="submit(form)" class="btn btn-primary">Add</button>
+                            <button ng-click="clear()" class="btn">Clear</button>
                         </div>
                     </form>
                 </div>
