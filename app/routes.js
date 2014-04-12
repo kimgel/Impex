@@ -3,16 +3,8 @@
 define([], function() {
     return {
         defaultRoutePath: '/',
-        routes: {
-            //Global
-            '/': {
-                templateUrl: '/modules/statusboard/index.html',
-                dependencies: [
-                    'modules/statusboard/index'
-                ]
-                ,authenticate: true
-            }
-            ,'/login': {
+        routes: {            
+            '/login': {
                 templateUrl: '/modules/login/index.html',
                 dependencies: [
                     'modules/login/index'
@@ -21,20 +13,29 @@ define([], function() {
 
             //Modules
 
+            //Home
+            ,'/': {
+                templateUrl: '/modules/statusboard/index.html',
+                dependencies: [
+                    'modules/statusboard/index'
+                ]
+                ,authenticate: true
+            }
+
             //Settings - References - Item     
             ,'/settings/references/item': {
                 templateUrl: '/modules/settings/references/item/list.html',
                 dependencies: [
                     'modules/settings/references/item/list'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
             ,'/settings/references/item/add': {
                 templateUrl: '/modules/settings/references/item/add.html',
                 dependencies: [
                     'modules/settings/references/item/add'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
 
             //Settings - References - Broker            
@@ -43,14 +44,14 @@ define([], function() {
                 dependencies: [
                     'modules/settings/references/broker/list'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
             ,'/settings/references/broker/add': {
                 templateUrl: '/modules/settings/references/broker/add.html',
                 dependencies: [
                     'modules/settings/references/broker/add'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
 
             //Settings - References - Supplier            
@@ -59,7 +60,7 @@ define([], function() {
                 dependencies: [
                     'modules/settings/references/supplier/controller'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
 
             //Initiate Import - Planner
@@ -68,14 +69,14 @@ define([], function() {
                 dependencies: [
                     'modules/initiateimport/planner/create'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
             ,'/initiateimport/planner/view': {
                 templateUrl: '/modules/initiateimport/planner/view.html',
                 dependencies: [
                     'modules/initiateimport/planner/view'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
 
             //Initiate Import - Broker
@@ -84,7 +85,7 @@ define([], function() {
                 dependencies: [
                     'modules/initiateimport/broker/controller'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
 
             //Assign Forwarder
@@ -93,7 +94,7 @@ define([], function() {
                 dependencies: [
                     'modules/assignforwarder/controller'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
 
             //Shipment Detail
@@ -102,7 +103,7 @@ define([], function() {
                 dependencies: [
                     'modules/shipmentdetail/controller'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
 
             //Shipment Departure
@@ -111,7 +112,7 @@ define([], function() {
                 dependencies: [
                     'modules/shipmentdeparture/controller'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
 
             //Foreign Invoice
@@ -120,7 +121,7 @@ define([], function() {
                 dependencies: [
                     'modules/foreigninvoice/controller'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
 
             //Foreign Invoice
@@ -129,7 +130,7 @@ define([], function() {
                 dependencies: [
                     'modules/customsclearance/controller'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
 
             //Customs Charges
@@ -138,21 +139,21 @@ define([], function() {
                 dependencies: [
                     'modules/customscharges/fclcharges/controller'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
             ,'/customscharges/lclcharges': {
                 templateUrl: '/modules/customscharges/lclcharges/view.html',
                 dependencies: [
                     'modules/customscharges/lclcharges/controller'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
             ,'/customscharges/aircharges': {
                 templateUrl: '/modules/customscharges/aircharges/view.html',
                 dependencies: [
                     'modules/customscharges/aircharges/controller'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
 
             //Delivery
@@ -161,7 +162,7 @@ define([], function() {
                 dependencies: [
                     'modules/delivery/controller'
                 ]
-                //,authenticate: true
+                ,authenticate: true
             }
         }
     };
