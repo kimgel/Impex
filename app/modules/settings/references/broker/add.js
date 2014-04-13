@@ -16,7 +16,7 @@ define(['app', './services'], function(app, Services) {
                             form[key].message = err.errors[key].message;
                         }
                     }else{
-                        $scope.clear();
+                        $location.path('/settings/references/broker');
                     }
                 });
             };
