@@ -10,12 +10,12 @@ define(['app', './services'], function(app, Services) {
             $scope.broker = {};
 
             $scope.submit = function(form) {
-                BrokersFactory.create($scope.broker, function(err) {
-                    if (err) {
+                BrokersFactory.save($scope.broker, function(err) {
+                    if (err.errors) {
                         for (var key in err.errors) {
                             form[key].message = err.errors[key].message;
                         }
-                    } else {
+                    }else{
                         $scope.clear();
                     }
                 });
