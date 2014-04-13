@@ -80,19 +80,6 @@ var impex = function() {
         // Connect to database
         var db = mongoose.connect(config.mongo.uri, config.mongo.options);
 
-        // Bootstrap models
-        /*
-        var modelsPath = path.join(__dirname, 'lib/models');
-        fs.readdirSync(modelsPath).forEach(function(file) {
-            if (/(.*)\.(js$|coffee$)/.test(file)) {
-                require(modelsPath + '/' + file);
-            }
-        });
-        */
-
-        // Populate DB with sample users
-        //require('./lib/config/dummy');
-
         // Passport Configuration
         var passport = require('./lib/config/passport');
 
@@ -135,9 +122,7 @@ var impex = function() {
                 console.log("SSL server started on: " + self.app.get('sslport'))
             }
         );
-
-
-
+        
         exports = module.exports = self.app;
     };
 
