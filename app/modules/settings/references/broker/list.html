@@ -2,87 +2,35 @@
 <div ng-include="'modules/common/sidenav/view-settings'"></div>
 <div id="content">
     <div class="row">
-        <div class="wizard">
-            <div class="actions">
-                <a href="/settings/references/broker/add" class="btn btn-success"> <i class="fa fa-plus"></i>Add</a>
-            </div>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-12">
-            <div class="box">
+            <div class="box" ng-controller="BrokerList" data-ng-init="all()">
                 <div class="box-header" data-original-title="">
                     <h2><i class="fa fa-chain"></i>Broker List</h2>
+                    <div class="box-icon">
+                        <a href="javascript:;"><i class="fa fa-plus"></i></a>
+                    </div>
                 </div>
                 <div class="box-content">
                     <div class="dataTables_wrapper form-inline" role="grid">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="dataTables_length">
-                                    <label>
-                                        <select size="1">
-                                            <option value="10" selected="selected">10</option>
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
-                                        </select> records per page</label>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="dataTables_filter">
-                                    <label>Search:
-                                        <input type="text">
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
+                        <table class="table bootstrap-datatable datatable">
                             <thead>
                                 <tr role="row">
-                                    <th>Status</th>
                                     <th>No.</th>
                                     <th>Name</th>
-                                    <th>Contact Person</th>
-                                    <th>Email</th>
                                     <th>Telephone No</th>
+                                    <th>Contact Person</th>
+                                    <th>Email</th>                                    
                                 </tr>
                             </thead>
-
                             <tbody>
-                                <tr class="odd">
-                                    <td class="center ">
-                                        <span class="label label-success">Active</span>
-                                    </td>
-                                    <td>1234</td>
-                                    <td>ASDF</td>
-                                    <td>Krystle</td>
-                                    <td>email@broker</td>
-                                    <td>123-3456</td>
+                                <tr ng-repeat="broker in brokers">
+                                    <td>{{broker.no}}</td>
+                                    <td>{{broker.name}}</td>
+                                    <td>{{broker.tel}}</td>
+                                    <td>{{broker.contact}}</td>
+                                    <td>{{broker.email}}</td>                                    
                                 </tr>
                         </table>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="dataTables_info" id="DataTables_Table_0_info">Showing 1 to 10 of 32 entries</div>
-                            </div>
-                            <div class="col-12 center">
-                                <div class="dataTables_paginate paging_bootstrap">
-                                    <ul class="pagination">
-                                        <li class="prev disabled"><a href="#">← Previous</a>
-                                        </li>
-                                        <li class="active"><a href="#">1</a>
-                                        </li>
-                                        <li><a href="#">2</a>
-                                        </li>
-                                        <li><a href="#">3</a>
-                                        </li>
-                                        <li><a href="#">4</a>
-                                        </li>
-                                        <li class="next"><a href="#">Next → </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
