@@ -4307,9 +4307,6 @@ ul.messagesList li span.date {
     background-color: #fff;
     cursor: pointer;
 }
-.fa {
-    margin-right: 5px;
-}
 /* file upload */
  ul.upload-docs {
     list-style: none;
