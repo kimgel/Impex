@@ -7,12 +7,13 @@ require.config({
         'angular-cookies': '/assets/bower_components/angular-cookies/angular-cookies',
         'angular-sanitize': '/assets/bower_components/angular-sanitize/angular-sanitize',
         'angular-route': '/assets/bower_components/angular-route/angular-route',
-        'angular-bootstrap': '/assets/bower_components/angular-bootstrap/ui-bootstrap.min',
-        'angular-bootstrap-tpls': '/assets/bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
+        'angular-strap': '/assets/bower_components/angular-strap/dist/angular-strap.min',
+        'angular-strap-tpl': '/assets/bower_components/angular-strap/dist/angular-strap.tpl.min',
         'ng-file-upload': '/assets/bower_components/ng-file-upload/angular-file-upload.min',
         'auth-factory': '/services/auth',
         'session-factory': '/services/session',
-        'user-factory': '/services/user'
+        'user-factory': '/services/user',
+        'global-directives': '/directives/global'
     },
     shim: {
         'app': {
@@ -23,8 +24,8 @@ require.config({
                 'angular-cookies',
                 'angular-sanitize',
                 'angular-route',
-                'angular-bootstrap',
-                'angular-bootstrap-tpls',
+                'angular-strap',
+                'angular-strap-tpl',
                 'ng-file-upload'
             ]
         },
@@ -40,11 +41,11 @@ require.config({
         'angular-route': {
             deps: ['angular']
         },
-        'angular-bootstrap': {
+        'angular-strap':{
             deps: ['angular']
         },
-        'angular-bootstrap-tpls': {
-            deps: ['angular-bootstrap']
+        'angular-strap-tpl':{
+            deps: ['angular-strap']
         },
         'ng-file-upload': {
             deps: ['angular']
@@ -55,6 +56,7 @@ require.config({
 require(
     [
         'app',
+        'global-directives',
         'auth-factory',
         'session-factory',
         'user-factory'
