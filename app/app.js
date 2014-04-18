@@ -7,7 +7,7 @@ define(['routes', 'services/dependency'], function(config, dependency) {
         'ngSanitize',
         'ngRoute',
         'angularFileUpload',
-        'ui.bootstrap'
+        'mgcrea.ngStrap'
     ]);
     app.config([
         '$routeProvider',

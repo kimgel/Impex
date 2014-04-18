@@ -3,51 +3,51 @@
 <div id="content">
     <div class="row">
         <div class="col-xs-7">
-            <div class="box" ng-controller="SupplierEdit" ng-init="findOne()">
+            <div class="box" ng-controller="ForwarderAdd">
                 <div class="box-header">
                     <h2>
-                        <i class="fa fa-suitcase"></i>Edit Supplier</h2>
+                        <i class="fa fa-truck"></i>Add Forwarder</h2>
                 </div>
-                <div class="box-content">
+                <div class="box-content" >
                     <form role="form" name="form" novalidate>
                         <div class="form-group">
-                            <label class="control-label">Supplier No.</label>
+                            <label class="control-label">Forwarder No.</label>
                             <div class="controls">
-                                <input type="text" class="form-control" name="no" ng-model="supplier.no" required>
+                                <input type="text" class="form-control" name="no" ng-model="forwarder.no" required>
                                 <span class="label label-danger pull-right" ng-show="form.no.$error.required">{{form.no.message}}</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Supplier Name</label>
+                            <label class="control-label">Forwarder Name</label>
                             <div class="controls">
-                                <input type="text" class="form-control" name="name" ng-model="supplier.name" required>
+                                <input type="text" class="form-control" name="name" ng-model="forwarder.name" required>
                                 <span class="label label-danger pull-right" ng-show="form.name.$error.required">{{form.name.message}}</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Supplier Address</label>
+                            <label class="control-label">Forwarder Address</label>
                             <div class="controls">
-                                <textarea class="form-control" name="address" ng-model="supplier.address" required></textarea>
+                                <textarea class="form-control" name="address" ng-model="forwarder.address" required></textarea>
                                 <span class="label label-danger pull-right" ng-show="form.address.$error.required">{{form.address.message}}</span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Telephone no.</label>
                             <div class="controls">
-                                <input type="text" class="form-control" name="tel" ng-model="supplier.tel" required>
+                                <input type="text" class="form-control" name="tel" ng-model="forwarder.tel" required>
                                 <span class="label label-danger pull-right" ng-show="form.tel.$error.required">{{form.tel.message}}</span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Contact Person</label>
                             <div class="controls">
-                                <input type="text" class="form-control" name="contact" ng-model="supplier.contact">
+                                <input type="text" class="form-control" name="contact" ng-model="forwarder.contact">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Email Address</label>
                             <div class="controls">
-                                <input type="text" class="form-control" name="email" ng-model="supplier.email">
+                                <input type="text" class="form-control" name="email" ng-model="forwarder.email">
                             </div>
                         </div>
                         <div class="row">
@@ -59,7 +59,7 @@
                                             <span class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </span>
-                                            <input type="text" name="valid_from" class="form-control" ng-model="supplier.valid_from" data-max-date="{{supplier.valid_to}}" placeholder="From" bs-datepicker required>
+                                             <input type="text" name="valid_from" class="form-control" ng-model="forwarder.valid_from" data-max-date="{{forwarder.valid_to}}" placeholder="From" bs-datepicker required>                                             
                                         </div>
                                         <span class="label label-danger pull-right" ng-show="form.valid_from.$error.required">{{form.valid_from.message}}</span>
                                     </div>
@@ -73,28 +73,23 @@
                                             <span class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </span>
-                                            <input type="text" name="valid_to" class="form-control" ng-model="supplier.valid_to" data-min-date="{{supplier.valid_from}}" placeholder="To" bs-datepicker required>
+                                            <input type="text" name="valid_to" class="form-control" ng-model="forwarder.valid_to" data-min-date="{{forwarder.valid_from}}" placeholder="To" bs-datepicker required>
                                         </div>
                                         <span class="label label-danger pull-right" ng-show="form.valid_to.$error.required">{{form.valid_to.message}}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <span>
-                                <small>Added: {{supplier.creator.name}}, {{supplier.created | date: 'medium'}}</small>
-                            </span>
-                        </div>
                         <div class="form-actions highlight">
-                            <button ng-click="update(form)" class="btn btn-primary">Update</button>
-                            <a href="/settings/supplier" class="btn btn-default">Cancel</a>
+                            <button ng-click="submit(form)" class="btn btn-primary">Add</button>
+                            <button ng-click="clear()" class="btn">Clear</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
         <div class="col-xs-5">
-
+            
         </div>
     </div>
 </div>

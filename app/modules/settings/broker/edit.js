@@ -7,21 +7,16 @@ define(['app', './services'], function(app, Services) {
         '$routeParams',
         'BrokersFactory',
         function($scope, $location, $routeParams, BrokersFactory) {            
-            $scope.update = function(form) {            
-                var updateBroker = $scope.broker;
-                console.log(updateBroker);
-                /*
+            $scope.update = function(form) {       
                 BrokersFactory.update($scope.broker, function(err) {
                     if (err.errors) {
                         for (var key in err.errors) {
                             form[key].message = err.errors[key].message;
                         }
                     }else{
-                        //$location.path('/settings/broker');
-                        console.log('ok')
+                        $location.path('/settings/broker');
                     }
                 });
-                */
             };
 
             $scope.findOne = function() {

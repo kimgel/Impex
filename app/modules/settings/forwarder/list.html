@@ -3,11 +3,11 @@
 <div id="content">
     <div class="row">
         <div class="col-xs-12">
-            <div class="box" ng-controller="BrokerList" ng-init="all()">
+            <div class="box" ng-controller="ForwarderList" data-ng-init="all()">
                 <div class="box-header" data-original-title="">
-                    <h2><i class="fa fa-chain"></i>Broker List</h2>
+                    <h2><i class="fa fa-truck"></i>Forwarders List</h2>
                     <div class="box-icon">
-                        <a href="/settings/broker/add" class="btn"><i class="fa fa-plus"></i> Add</a>
+                        <a href="/settings/forwarder/add" class="btn"><i class="fa fa-plus"></i> Add</a>
                     </div>
                 </div>
                 <div class="box-content">
@@ -27,28 +27,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr data-ng-hide="!brokers || brokers.length">
-                                    <td>No brokers yet.</td>
+                                <tr data-ng-hide="!forwarders || forwarders.length">
+                                    <td>No forwarders yet.</td>
                                 </tr>
-                                <tr ng-repeat="broker in brokers">
+                                <tr ng-repeat="forwarder in forwarders">
                                     <td>
-                                        <span class="label" ng-class="{'label-important': broker.status == 'inactive', 'label-success': broker.status == 'active'}">{{broker.status}}</span>
+                                        <span class="label" ng-class="{'label-important': forwarder.status == 'inactive', 'label-success': forwarder.status == 'active'}">{{forwarder.status}}</span>
                                     </td>
-                                    <td>{{broker.no}}</td>
-                                    <td>{{broker.name}}</td>
-                                    <td>{{broker.tel}}</td>
-                                    <td>{{broker.contact}}</td>
-                                    <td>{{broker.email}}</td>
-                                    <td>{{broker.valid_from | date: 'longDate'}}</td>
-                                    <td>{{broker.valid_to | date: 'longDate'}}</td>
+                                    <td>{{forwarder.no}}</td>
+                                    <td>{{forwarder.name}}</td>
+                                    <td>{{forwarder.tel}}</td>
+                                    <td>{{forwarder.contact}}</td>
+                                    <td>{{forwarder.email}}</td>
+                                    <td>{{forwarder.valid_from | date: 'longDate'}}</td>
+                                    <td>{{forwarder.valid_to | date: 'longDate'}}</td>
                                     <td>
-                                        <a class="btn btn-success btn-xs" ng-href="/settings/broker/{{broker._id}}"> <i class="fa fa-eye"></i></a>
-                                        <a class="btn btn-primary btn-xs" ng-href="/settings/broker/{{broker._id}}/edit"> <i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-success btn-xs" ng-href="/settings/forwarder/{{forwarder._id}}"> <i class="fa fa-eye"></i></a>
+                                        <a class="btn btn-primary btn-xs" ng-href="/settings/forwarder/{{forwarder._id}}/edit"> <i class="fa fa-edit"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>

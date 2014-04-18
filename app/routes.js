@@ -22,43 +22,109 @@ define([], function() {
                 ,authenticate: true
             }
 
-            //Settings - References - Item     
-            ,'/settings/references/item': {
-                templateUrl: '/modules/settings/references/item/list.html',
+            //Settings - Item     
+            ,'/settings/item': {
+                templateUrl: '/modules/settings/item/list.html',
                 dependencies: [
-                    'modules/settings/references/item/list'
+                    'modules/settings/item/list'
                 ]
                 ,authenticate: true
             }
-            ,'/settings/references/item/add': {
-                templateUrl: '/modules/settings/references/item/add.html',
+            ,'/settings/item/add': {
+                templateUrl: '/modules/settings/item/add.html',
                 dependencies: [
-                    'modules/settings/references/item/add'
-                ]
-                ,authenticate: true
-            }
-
-            //Settings - References - Broker            
-            ,'/settings/references/broker': {
-                templateUrl: '/modules/settings/references/broker/list.html',
-                dependencies: [
-                    'modules/settings/references/broker/list'
-                ]
-                ,authenticate: true
-            }
-            ,'/settings/references/broker/add': {
-                templateUrl: '/modules/settings/references/broker/add.html',
-                dependencies: [
-                    'modules/settings/references/broker/add'
+                    'modules/settings/item/add'
                 ]
                 ,authenticate: true
             }
 
-            //Settings - References - Supplier            
-            ,'/settings/references/supplier': {
-                templateUrl: '/modules/settings/references/supplier/view.html',
+            //Settings - Broker            
+            ,'/settings/broker': {
+                templateUrl: '/modules/settings/broker/list.html',
                 dependencies: [
-                    'modules/settings/references/supplier/controller'
+                    'modules/settings/broker/list'
+                ]
+                ,authenticate: true
+            }
+            ,'/settings/broker/add': {
+                templateUrl: '/modules/settings/broker/add.html',
+                dependencies: [
+                    'modules/settings/broker/add'
+                ]
+                ,authenticate: true
+            }
+            ,'/settings/broker/:brokerId': {
+                templateUrl: '/modules/settings/broker/view.html',
+                dependencies: [
+                    'modules/settings/broker/view'
+                ]
+                ,authenticate: true
+            },
+            '/settings/broker/:brokerId/edit': {
+                templateUrl: '/modules/settings/broker/edit.html',
+                dependencies: [
+                    'modules/settings/broker/edit'
+                ]
+                ,authenticate: true
+            }
+
+            //Settings - Supplier          
+            ,'/settings/supplier': {
+                templateUrl: '/modules/settings/supplier/list.html',
+                dependencies: [                    
+                    'modules/settings/supplier/list'
+                ]
+                ,authenticate: true
+            }
+            ,'/settings/supplier/add': {
+                templateUrl: '/modules/settings/supplier/add.html',
+                dependencies: [
+                    'modules/settings/supplier/add'
+                ]
+                ,authenticate: true
+            }
+            ,'/settings/supplier/:supplierId': {
+                templateUrl: '/modules/settings/supplier/view.html',
+                dependencies: [
+                    'modules/settings/supplier/view'
+                ]
+                ,authenticate: true
+            },
+            '/settings/supplier/:supplierId/edit': {
+                templateUrl: '/modules/settings/supplier/edit.html',
+                dependencies: [
+                    'modules/settings/supplier/edit'
+                ]
+                ,authenticate: true
+            }
+
+
+            //Settings - Forwarder          
+            ,'/settings/forwarder': {
+                templateUrl: '/modules/settings/forwarder/list.html',
+                dependencies: [                    
+                    'modules/settings/forwarder/list'
+                ]
+                ,authenticate: true
+            }
+            ,'/settings/forwarder/add': {
+                templateUrl: '/modules/settings/forwarder/add.html',
+                dependencies: [
+                    'modules/settings/forwarder/add'
+                ]
+                ,authenticate: true
+            }
+            ,'/settings/forwarder/:forwarderId': {
+                templateUrl: '/modules/settings/forwarder/view.html',
+                dependencies: [
+                    'modules/settings/forwarder/view'
+                ]
+                ,authenticate: true
+            },
+            '/settings/forwarder/:forwarderId/edit': {
+                templateUrl: '/modules/settings/forwarder/edit.html',
+                dependencies: [
+                    'modules/settings/forwarder/edit'
                 ]
                 ,authenticate: true
             }
