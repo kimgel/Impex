@@ -34,7 +34,7 @@
   ],
   "dependencies": {
     "angular": "~1.2.10",
-    "bootstrap": "~3.1.0"
+    "bootstrap-css": "~3.1.1"
   },
   "devDependencies": {
     "angular-animate": "~1.2.10",
@@ -46,8 +46,7 @@
     "angular-scenario": "~1.2.10",
     "fastclick": "~0.6.11",
     "font-awesome": "~4.0.3",
-    "highlightjs": "~8.0.0",
-    "jquery": "~2.1.0"
+    "highlightjs": "~8.0.0"
   },
   "_release": "2.0.1",
   "_resolution": {
