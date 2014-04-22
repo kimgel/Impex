@@ -6,6 +6,7 @@ define(['routes', 'services/dependency'], function(config, dependency) {
         'ngResource',
         'ngSanitize',
         'ngRoute',
+        'ngAnimate',
         'angularFileUpload',
         'mgcrea.ngStrap'
     ]);
