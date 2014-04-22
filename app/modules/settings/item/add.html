@@ -9,11 +9,12 @@
                         <i class="fa fa-calendar-o"></i>Item</h2>
                 </div>
                 <div class="box-content">
-                    <form role="form">
+                    <form role="form" name="form" novalidate>
                         <div class="form-group">
                             <label class="control-label">Item Code</label>
                             <div class="controls">
-                                <input type="text" class="form-control" ng-model="item.code">
+                                <input type="text" class="form-control" name="code" ng-model="item.code" required>
+                                <span class="label label-danger pull-right" ng-show="form.code.$error.required">{{form.code.message}}</span>
                             </div>
                         </div>
                         <div class="row">
@@ -25,7 +26,7 @@
                                             <span class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </span>
-                                             <input type="text" name="valid_from" class="form-control" ng-model="item.valid_from" data-max-date="{{item.valid_to}}" placeholder="From" bs-datepicker required>                                             
+                                             <input type="text" name="valid_from" class="form-control" ng-model="item.valid_from" data-max-date="{{item.valid_to}}" placeholder="From" bs-datepicker required>
                                         </div>
                                         <span class="label label-danger pull-right" ng-show="form.valid_from.$error.required">{{form.valid_from.message}}</span>
                                     </div>
@@ -49,13 +50,8 @@
                         <div class="form-group">
                             <label class="control-label">Item Description</label>
                             <div class="controls">
-                                <textarea class="form-control" ng-model="item.description"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Item Description</label>
-                            <div class="controls">
-                                <textarea class="form-control" ng-model="item.description"></textarea>
+                                <textarea class="form-control" name="description" ng-model="item.description" required></textarea>
+                                <span class="label label-danger pull-right" ng-show="form.description.$error.required">{{form.description.message}}</span>
                             </div>
                         </div>
                         <div class="form-group">
