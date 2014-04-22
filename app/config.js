@@ -1,7 +1,6 @@
 require.config({
     baseUrl: '/',
     paths: {
-        'ng-file-upload-shim': '/assets/bower_components/ng-file-upload/angular-file-upload-shim.min',
         'angular': '/assets/bower_components/angular/angular',
         'angular-resource': '/assets/bower_components/angular-resource/angular-resource',
         'angular-cookies': '/assets/bower_components/angular-cookies/angular-cookies',
@@ -10,7 +9,6 @@ require.config({
         'angular-animate': '/assets/bower_components/angular-animate/angular-animate',
         'angular-strap': '/assets/bower_components/angular-strap/dist/angular-strap.min',
         'angular-strap-tpl': '/assets/bower_components/angular-strap/dist/angular-strap.tpl.min',
-        'ng-file-upload': '/assets/bower_components/ng-file-upload/angular-file-upload.min',
         'auth-factory': '/services/auth',
         'session-factory': '/services/session',
         'user-factory': '/services/user',
@@ -20,15 +18,13 @@ require.config({
         'app': {
             deps: [
                 'angular',
-                'ng-file-upload-shim',
                 'angular-resource',
                 'angular-cookies',
                 'angular-sanitize',
                 'angular-route',
                 'angular-animate',
                 'angular-strap',
-                'angular-strap-tpl',
-                'ng-file-upload'
+                'angular-strap-tpl'
             ]
         },
         'angular-resource': {
