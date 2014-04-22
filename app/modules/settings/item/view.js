@@ -1,6 +1,6 @@
 'use strict';
 
-define(['app', './services'], function(app, Services) {
+define(['app', 'Items'], function(app, Items) {
     app.controller('ItemView', [
         '$scope',
         '$location',

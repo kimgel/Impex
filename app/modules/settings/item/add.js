@@ -2,11 +2,11 @@
 
 define([
     'app',
-    './services',
-    '../supplier/services',
-    '../broker/services',
-    '../forwarder/services',
-], function(app, Services, Supplier, Broker, Forwarder) {
+    'Items',
+    'Suppliers',
+    'Brokers',
+    'Forwarders',
+], function(app, Items, Suppliers, Brokers, Forwarders) {
     app.controller('ItemAdd', [
         '$scope',
         '$location',

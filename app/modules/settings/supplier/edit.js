@@ -1,6 +1,6 @@
 'use strict';
 
-define(['app', './services'], function(app, Services) {
+define(['app', 'Suppliers'], function(app, Suppliers) {
     app.controller('SupplierEdit', [
         '$scope',
         '$location',
