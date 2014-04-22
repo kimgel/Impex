@@ -1,0 +1,44 @@
+/* Notifications
+=================================================================== */
+ .notification {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    line-height: 16px;
+    height: 16px;
+    padding: 6px 10px;
+    color: white !important;
+    -webkit-border-radius: 50em;
+    -moz-border-radius: 50em;
+    border-radius: 50em;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.notification.small {
+    padding: 2px 7px;
+    color: white !important;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-border-radius: 50em;
+    -moz-border-radius: 50em;
+    border-radius: 50em;
+}
+.notification.small.blue, .notification.blue {
+    background: #36a9e1;
+}
+.notification.small.yellow, .notification.yellow {
+    background: #eae874;
+}
+.notification.small.red, .notification.red {
+    background: #ff5454;
+}
+.notification.small.green, .notification.green {
+    background: #78cd51;
+}
+.notification.small.orange, .notification.orange {
+    background: #fabb3d;
+}
+.notification.small.red, .notification.red {
+    background: #ff5454;
+}

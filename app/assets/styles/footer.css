@@ -1,0 +1,13 @@
+/* Footer
+=================================================================== */
+ footer {
+    background: #383e4b;
+    color: white;
+    padding: 14px 20px 20px 20px!important;
+    margin: 0 !important;
+    font-size: 12px;
+}
+footer a {
+    color: white;
+    font-weight: bold;
+}

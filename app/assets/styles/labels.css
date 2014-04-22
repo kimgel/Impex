@@ -1,0 +1,30 @@
+/* Labels
+=================================================================== */
+.label, .badge {
+    font-family:'Lato', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 3px 6px;
+    border: none;
+    text-shadow: none;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.label {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.label-important, .badge-important, .label-important[href], .badge-important[href] {
+    background: #ff5454;
+}
+.label-warning, .badge-warning, .label-warning[href], .badge-warning[href] {
+    background: #fabb3d;
+}
+.label-success, .badge-success, .label-success[href], .badge-success[href] {
+    background: #78cd51;
+}
+.label-info, .badge-info, .label-info[href], .badge-info[href] {
+    background: #67c2ef;
+}

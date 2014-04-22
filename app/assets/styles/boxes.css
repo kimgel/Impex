@@ -1,0 +1,73 @@
+/* Boxes
+=================================================================== */
+.well {
+    border: 1px solid #ddd;
+    background-color: #f6f6f6;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.box {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 3px 10px 3px #e4e6eb;
+    -moz-box-shadow: 0px 3px 10px 3px #e4e6eb;
+    box-shadow: 0px 3px 10px 3px #e4e6eb;
+    margin: 0px 0px 30px 0px;
+}
+.box.noOverflow {
+    overflow: hidden;
+}
+.box .box-header {
+    background: #36a9e1;
+    color: white;
+    font-size: 16px;
+    overflow: hidden;
+    -webkit-border-radius: 2px 2px 0 0;
+    -moz-border-radius: 2px 2px 0 0;
+    border-radius: 2px 2px 0 0;
+}
+.box .box-header h2 {
+    float: left;
+    padding: 10px 0px;
+    margin: 0px 0px 0px 20px;
+}
+.box .box-header h2 i {
+    background: #1e8fc6;
+    color: white;
+    padding: 10px 0px;
+    width: 36px;
+    display: inline-block;
+    text-align: center;
+    margin: -10px 20px -10px -20px;
+}
+.box .box-header .box-icon {
+    float: right;
+}
+.box .box-header .box-icon a, .box .box-header .box-icon .btn {
+    color: #fff;
+    text-decoration: none;
+    background: #1e8fc6;
+    padding: 8px;
+    margin-left: -1px;
+    border-radius: 0;
+}
+.box .box-header .box-icon i {
+    margin-right: 2px;
+}
+.box .box-header .box-icon i:hover, .box .box-header .box-icon .btn:hover {
+    opacity: 0.75;
+    filter: alpha(opacity=75);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+}
+.box .box-content {
+    padding: 10px;
+    background: white;
+    -webkit-border-radius: 0 0 2px 2px;
+    -moz-border-radius: 0 0 2px 2px;
+    border-radius: 0 0 2px 2px;
+}

@@ -1,0 +1,75 @@
+/* Basic
+=================================================================== */
+ .container {
+    width: 970px !important;
+}
+.no-space[class*="span"] {
+    margin-left: 0;
+}
+.noMarginLeft {
+    margin-left: 0px !important;
+}
+.noPadding {
+    padding: 0px !important;
+}
+html {
+    height: 100%;
+}
+body {
+    background: #383e4b;
+    color: #383e4b;
+    border: none;
+    font-family:'Lato', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    position: relative;
+    height: 100%;
+    min-width: 970px;
+    /* suppose you want minimun width of 1000px */
+    width: auto !important;
+    /* Firefox will set width as auto */
+    width: 970px;
+}
+a {
+    color: #383e4b;
+}
+h1 {
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 300;
+}
+h2 {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 300;
+}
+h3 {
+    font-size: 15px;
+    line-height: 15px;
+}
+h4 {
+    font-size: 14px;
+    line-height: 14px;
+}
+h5 {
+    font-size: 13px;
+    line-height: 13px;
+}
+h6 {
+    font-size: 12px;
+    line-height: 12px;
+}
+#content {
+    padding: 20px 20px;
+    position: absolute;
+    background: #f5f5f5;
+    top: 40px;
+    left: 230px;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+}
+#content.full {
+    width: 100% !important;
+    margin-left: 0px !important;
+}

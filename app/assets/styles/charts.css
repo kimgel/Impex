@@ -1,0 +1,57 @@
+/* Small Chart
+=================================================================== */
+ .smallchart {
+    background: white;
+    text-align: center;
+    overflow: hidden;
+}
+.smallchart .title {
+    padding: 10px;
+    color: white;
+    background: #eaebef;
+}
+.smallchart .content {
+    padding: 40px 0px;
+    background: #e4e6eb;
+}
+.smallchart .content i {
+    font-size: 40px;
+    color: white;
+}
+.smallchart .value {
+    color: #383e4b;
+    padding: 10px;
+}
+.smallchart.blue .title {
+    background: #36a9e1;
+}
+.smallchart.lightBlue .title {
+    background: #67c2ef;
+}
+.smallchart.green .title {
+    background: #bdea74;
+}
+.smallchart.darkGreen .title {
+    background: #78cd51;
+}
+.smallchart.pink .title {
+    background: #e84c8a;
+}
+.smallchart.orange .title {
+    background: #fa603d;
+}
+.smallchart.lightOrange .title {
+    background: #fabb3d;
+}
+.smallchart.red .title {
+    background: #ff5454;
+}
+.smallchart.yellow .title {
+    background: #eae874;
+}
+.smallchart.white .title {
+    background: white;
+}
+.smallchart.grey .title {
+    background: #c7cbd5;
+}

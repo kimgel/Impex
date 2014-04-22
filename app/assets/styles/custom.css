@@ -1,0 +1,89 @@
+/* Custom styles
+=================================================================== */
+.main-container {
+    margin-top: 40px;
+}
+.modal {
+    overflow-y: auto;
+}
+.aside .aside-dialog .aside-header{
+    background: #1e8fc6;
+    padding: 3px 15px;
+}
+.aside .aside-dialog .aside-body {
+    padding: 20px 35px;
+}
+.aside-350{
+    width: 350px;
+}
+
+.aside-400{
+    width: 400px;
+}
+.highlight {
+    background-color: #f7f7f9;
+    border-top: 1px solid #e1e1e8;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 10px;
+}
+
+/* File Upload
+=================================================================== */
+ ul.upload-docs {
+    list-style: none;
+    padding: 0;
+}
+ul.upload-docs li {
+    list-style: none;
+    padding: 7px 0 7px;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
+}
+ul.upload-docs li .label {
+    position: absolute;
+    right: 30px;
+}
+ul.upload-docs li:last-child {
+    border-bottom: 0;
+}
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+.fileUpload input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0;
+}
+.progress {
+    margin-bottom: 0;
+}
+.fa.pull-right {
+    margin-top: 3px;
+}
+.view {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+.form-actions {
+    margin-top: 20px;
+}
+.label-value {
+    background: #eee;
+    padding: 10px;
+}
+.label-value i {
+    margin-right: 5px;
+}
+.toCapitalize{
+    text-transform: capitalize;
+}
+.toUpper{
+    text-transform: uppercase;
+}

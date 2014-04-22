@@ -1,0 +1,79 @@
+/* Buttons
+=================================================================== */
+.btn {
+    border: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    text-shadow: none;
+    background: #d6d9e0;
+    padding: 7px 12px;
+}
+.btn i {
+    margin-top: 2px;
+}
+.btn-primary {
+    color: #ffffff;
+    background: #36a9e1;
+}
+.btn-default:hover{
+    color: #333;
+}
+
+.btn-primary.disabled, .btn-primary[disabled] {
+    color: #fff;
+    background-color: #333;
+}
+.btn-primary:active, .btn-primary.active {
+    background-color: #1c89be;
+}
+.btn-warning {
+    color: #ffffff;
+    background: #fabb3d;
+}
+.btn-warning:hover, .btn-warning.disabled, .btn-warning[disabled] {
+    background-color: #f9aa0b;
+}
+.btn-warning:active, .btn-warning.active {
+    background-color: #f4a406;
+}
+.btn-danger {
+    color: #ffffff;
+    background: #ff5454;
+}
+.btn-danger:hover, .btn-danger.disabled, .btn-danger[disabled] {
+    background-color: #ff2121;
+}
+.btn-danger:active, .btn-danger.active {
+    background-color: #ff1717;
+}
+.btn-success {
+    color: #ffffff;
+    background: #78cd51;
+}
+.btn-success:hover, .btn-success.disabled, .btn-success[disabled] {
+    background-color: #5db734;
+}
+.btn-success:active, .btn-success.active {
+    background-color: #59af32;
+}
+.btn-info {
+    color: #ffffff;
+    background: #67c2ef;
+}
+.btn-info:hover, .btn-info.disabled, .btn-info[disabled] {
+    background-color: #39afea;
+}
+.btn-info:active, .btn-info.active {
+    background-color: #30ace9;
+}
+.btn-inverse {
+    color: #ffffff;
+    background: #444444;
+}
+.btn-inverse:hover, .btn-inverse.disabled, .btn-inverse[disabled] {
+    background-color: #2b2b2b;
+}
+.btn-inverse:active, .btn-inverse.active {
+    background-color: #252525;
+}

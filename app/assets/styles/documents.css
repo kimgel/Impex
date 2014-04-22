@@ -1,0 +1,38 @@
+/* Document List
+=================================================================== */
+ .document-list {
+    padding: 20px;
+    margin-top: -40px;
+    margin-bottom: -30px;
+    height: 100%;
+}
+.document-list-header {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 3px;
+}
+.document-list .document-group, .document-list-item {
+    background: #e4e6eb;
+}
+.document-list-header span {
+    padding: 10px;
+    color: #333;
+    display: inline-block;
+    font-size: 14px;
+}
+.document-list-item {
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+.document-list-header .btn-inverse{
+    padding: 1px 6px;
+    float: right;
+    margin: 10px;
+}
+.document-list-header .btn-inverse:hover {
+    color: #eee;
+}
