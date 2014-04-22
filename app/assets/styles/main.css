@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300);
-@import url(https://fonts.googleapis.com/css?family=Lato:400);
-@import url(https://fonts.googleapis.com/css?family=Kaushan+Script);
+ @import url(https://fonts.googleapis.com/css?family=Lato:400);
+ @import url(https://fonts.googleapis.com/css?family=Kaushan+Script);
 
 /* Non-responsive
 =================================================================== */
@@ -121,10 +121,9 @@ h6 {
     width: 100% !important;
     margin-left: 0px !important;
 }
-.btn{
+.btn {
     border-radius: 0;
 }
-
 .well {
     border: 1px solid #ddd;
     background-color: #f6f6f6;
@@ -173,15 +172,13 @@ h6 {
 .box .box-header .box-icon {
     float: right;
 }
-.box .box-header .box-icon a, .box .box-header .box-icon .btn{
+.box .box-header .box-icon a, .box .box-header .box-icon .btn {
     color: #fff;
-    text-decoration: none;  
+    text-decoration: none;
     background: #1e8fc6;
     padding: 8px;
-    margin-top: -1px;
     margin-left: -1px;
     border-radius: 0;
-
 }
 .box .box-header .box-icon i {
     margin-right: 2px;
@@ -201,6 +198,25 @@ h6 {
 .main-container {
     margin-top: 40px;
 }
+.modal {
+    overflow-y: auto;
+}
+.aside .aside-dialog .aside-header{
+    background: #1e8fc6;
+    padding: 3px 15px;
+}
+.aside .aside-dialog .aside-body {
+    padding: 20px 35px;
+}
+.aside-350{
+    width: 350px;
+}
+
+.aside-400{
+    width: 400px;
+}
+
+
 /* Typography - Blockquote
 =================================================================== */
  blockquote {
@@ -211,7 +227,7 @@ h6 {
 }
 /* Main Colors
 =================================================================== */
-.blue {
+ .blue {
     color: #36a9e1;
 }
 .lightBlue {
@@ -323,7 +339,7 @@ h6 {
 }
 /* Header Section
 =================================================================== */
-.navbar {
+ .navbar {
     margin: 0;
     min-height: 40px;
     border: none;
@@ -441,7 +457,6 @@ a.navbar-brand:hover {
     -moz-box-shadow: none;
     box-shadow: none;
 }
-
 /* Navigation Section
 =================================================================== */
  a#main-menu-toggle {
@@ -561,7 +576,6 @@ a.navbar-brand:hover {
     -moz-border-radius: 0px;
     border-radius: 0px;
 }
-
 /* Tabs
 =================================================================== */
  .tab-menu.nav-tabs {
@@ -602,7 +616,6 @@ a.navbar-brand:hover {
     margin-right: 0px;
     margin-left: 0px;
 }
-
 .input-group-addon {
     border-color: #e4e6eb !important;
 }
@@ -3169,7 +3182,85 @@ div.DTFC_RightFootWrapper table, div.DTFC_LeftFootWrapper table {
     height: 16px;
 }
 
+/* Buttons
+=================================================================== */
+.btn {
+    border: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    text-shadow: none;
+    background: #d6d9e0;
+    padding: 7px 12px;
+}
+.btn i {
+    margin-top: 2px;
+}
+.btn-primary {
+    color: #ffffff;
+    background: #36a9e1;
+}
+.btn-default:hover{
+    color: #333;
+}
 
+.btn-primary.disabled, .btn-primary[disabled] {
+    color: #fff;
+    background-color: #333;
+}
+.btn-primary:active, .btn-primary.active {
+    background-color: #1c89be;
+}
+.btn-warning {
+    color: #ffffff;
+    background: #fabb3d;
+}
+.btn-warning:hover, .btn-warning.disabled, .btn-warning[disabled] {
+    background-color: #f9aa0b;
+}
+.btn-warning:active, .btn-warning.active {
+    background-color: #f4a406;
+}
+.btn-danger {
+    color: #ffffff;
+    background: #ff5454;
+}
+.btn-danger:hover, .btn-danger.disabled, .btn-danger[disabled] {
+    background-color: #ff2121;
+}
+.btn-danger:active, .btn-danger.active {
+    background-color: #ff1717;
+}
+.btn-success {
+    color: #ffffff;
+    background: #78cd51;
+}
+.btn-success:hover, .btn-success.disabled, .btn-success[disabled] {
+    background-color: #5db734;
+}
+.btn-success:active, .btn-success.active {
+    background-color: #59af32;
+}
+.btn-info {
+    color: #ffffff;
+    background: #67c2ef;
+}
+.btn-info:hover, .btn-info.disabled, .btn-info[disabled] {
+    background-color: #39afea;
+}
+.btn-info:active, .btn-info.active {
+    background-color: #30ace9;
+}
+.btn-inverse {
+    color: #ffffff;
+    background: #444444;
+}
+.btn-inverse:hover, .btn-inverse.disabled, .btn-inverse[disabled] {
+    background-color: #2b2b2b;
+}
+.btn-inverse:active, .btn-inverse.active {
+    background-color: #252525;
+}
 /* Login Box
 =================================================================== */
  .login-box {
@@ -3201,6 +3292,44 @@ div.DTFC_RightFootWrapper table, div.DTFC_LeftFootWrapper table {
     margin-top: 20px;
     float: left;
 }
+/* Document List
+=================================================================== */
+ .document-list {
+    padding: 20px;
+    margin-top: -40px;
+    margin-bottom: -30px;
+    height: 100%;
+}
+.document-list-header {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 3px;
+}
+.document-list .document-group, .document-list-item {
+    background: #e4e6eb;
+}
+.document-list-header span {
+    padding: 10px;
+    color: #333;
+    display: inline-block;
+    font-size: 14px;
+}
+.document-list-item {
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+.document-list-header .btn-inverse{
+    padding: 1px 6px;
+    float: right;
+    margin: 10px;
+}
+.document-list-header .btn-inverse:hover {
+    color: #eee;
+}
 /* Higher than 1200 (desktop devices)
 ====================================================================== */
  @media (min-width: 1200px) {
@@ -3225,22 +3354,23 @@ div.DTFC_RightFootWrapper table, div.DTFC_LeftFootWrapper table {
 =================================================================== */
  @media only screen and (max-width: 479px) {
 }
-
 .datepicker.dropdown-menu {
     width: 250px;
     height: 270px
-}.datepicker.dropdown-menu button {
+}
+.datepicker.dropdown-menu button {
     outline: 0;
     border: 0
-}.datepicker.dropdown-menu tbody {
+}
+.datepicker.dropdown-menu tbody {
     height: 180px
-}.datepicker.dropdown- enu tbody button {
+}
+.datepicker.dropdown- enu tbody button {
     padding: 6px
-}.datepicker.dropdown-menu.datepicker-mode-1 tbody button,
-.datepicker.dropdown-menu.datepicker-mode-2 tbody button {
+}
+.datepicker.dropdown-menu.datepicker-mode-1 tbody button, .datepicker.dropdown-menu.datepicker-mode-2 tbody button {
     height: 65px
 }
-
 /* added stuff */
  .highlight {
     background-color: #f7f7f9;
@@ -3293,24 +3423,27 @@ ul.upload-docs li:last-child {
 .marking-error {
     background-color: #ff5454 !important;
 }
-.fa.pull-right{
+.fa.pull-right {
     margin-top: 3px;
 }
-
-.view{
+.view {
     width: 20px;
     height: 20px;
     display: block;
 }
-
-.form-actions{
+.form-actions {
     margin-top: 20px;
 }
-
-.label-value{
+.label-value {
     background: #eee;
     padding: 10px;
 }
-.label-value i{
+.label-value i {
     margin-right: 5px;
+}
+.toCapitalize{
+    text-transform: capitalize;
+}
+.toUpper{
+    text-transform: uppercase;
 }
