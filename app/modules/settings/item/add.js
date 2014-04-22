@@ -10,6 +10,7 @@ define([
     app.controller('ItemAdd', [
         '$scope',
         '$location',
+        '$aside',
         'ItemsFactory',
         'SuppliersFactory',
         'BrokersFactory',
@@ -17,6 +18,7 @@ define([
         function(
             $scope,
             $location,
+            $aside,
             ItemsFactory,
             SuppliersFactory,
             BrokersFactory,
@@ -28,15 +30,18 @@ define([
             $scope.view = false;
             $scope.submit = function(form) {
                 $scope.item.documents = $scope.docs;
-                
+
                 ItemsFactory.save($scope.item, function(err) {
                     if (err.errors) {
                         for (var key in err.errors) {
-                            form[key].message = err.errors[key].message;
+                            if (key != 'documents') {
+                                form[key].message = err.errors[key].message;
+                            } else {
+                                $scope.docError = err.errors['documents'].message;
+                            }
                         }
-                    }else{
+                    } else {
                         $location.path('/settings/item');
-                        console.log($scope.item);
                     }
                 });
             };
@@ -59,11 +64,16 @@ define([
                 });
             };
 
-            $scope.docAdd = function(doc,category) {
-                $scope.docs.push({
-                    document_name: doc,
-                    document_category: category
-                });
+            $scope.docAdd = function(doc, category) {
+                if (doc) {
+                    $scope.docs.push({
+                        document_name: doc,
+                        document_category: category
+                    });
+                    $scope.docNameError = false;
+                }else{
+                    $scope.docNameError = true;
+                }
             };
             $scope.docRemove = function(doc) {
                 $scope.docs.splice($scope.docs.indexOf(doc), 1);

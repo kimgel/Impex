@@ -138,6 +138,7 @@
                         <button class="btn btn-mini btn-inverse" data-template="/modules/settings/item/tpls/dv.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>View ({{(docs|filter:{document_category:'dv'}).length}})</button>
                     </div>
                 </div>
+                <span class="label label-danger pull-right" ng-model="docError" ng-show="docs.length < 1">{{docError}}</span>
                 <div class="clearfix"></div>
 
             </div>
