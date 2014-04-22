@@ -22,7 +22,6 @@
                                     <th>Supplier</th>
                                     <th>Broker</th>
                                     <th>Forwarder</th>
-                                    <th>Date Added</th>
                                     <th>Valid From</th>
                                     <th>Valid To</th>
                                     <th>Actions</th>
@@ -42,9 +41,8 @@
                                     <td>{{item.supplier.name}}</td>
                                     <td>{{item.broker.name}}</td>
                                     <td>{{item.forwarder.name}}</td>
-                                    <td>{{item.created | date: 'longDate'}}</td>
-                                    <td>date from</td>
-                                    <td>date to</td>
+                                    <td>{{item.valid_from | date: 'longDate'}}</td>
+                                    <td>{{item.valid_to | date: 'longDate'}}</td>
                                     <td>
                                         <a class="btn btn-success btn-xs" ng-href="/settings/item/{{item._id}}"> <i class="fa fa-eye"></i></a>
                                     </td>
