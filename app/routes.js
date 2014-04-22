@@ -37,6 +37,20 @@ define([], function() {
                 ]
                 ,authenticate: true
             }
+            ,'/settings/item/:itemId': {
+                templateUrl: '/modules/settings/item/view.html',
+                dependencies: [
+                    'modules/settings/item/view'
+                ]
+                ,authenticate: true
+            },
+            '/settings/item/:itemId/edit': {
+                templateUrl: '/modules/settings/item/edit.html',
+                dependencies: [
+                    'modules/settings/item/edit'
+                ]
+                ,authenticate: true
+            }
 
             //Settings - Broker            
             ,'/settings/broker': {
