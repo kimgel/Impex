@@ -1,6 +1,10 @@
 require.config({
+    appDir: '../../../',
     baseUrl: '/',
     paths: {
+
+        /* 3rd Party
+        =================================================================== */
         'angular': '/assets/bower_components/angular/angular',
         'angular-resource': '/assets/bower_components/angular-resource/angular-resource',
         'angular-cookies': '/assets/bower_components/angular-cookies/angular-cookies',
@@ -9,10 +13,20 @@ require.config({
         'angular-animate': '/assets/bower_components/angular-animate/angular-animate',
         'angular-strap': '/assets/bower_components/angular-strap/dist/angular-strap.min',
         'angular-strap-tpl': '/assets/bower_components/angular-strap/dist/angular-strap.tpl.min',
-        'auth-factory': '/services/auth',
-        'session-factory': '/services/session',
-        'user-factory': '/services/user',
-        'global-directives': '/directives/global'
+
+        /* Global
+        =================================================================== */
+        'Auth': '/services/auth',
+        'Session': '/services/session',
+        'User': '/services/user',
+        'GlobalDirectives': '/directives/global',
+
+        /* Services
+        =================================================================== */
+        'Brokers': '/services/brokers',
+        'Forwarders': '/services/forwarders',
+        'Suppliers': '/services/suppliers',
+        'Items': '/services/items'
     },
     shim: {
         'app': {
@@ -57,10 +71,10 @@ require.config({
 require(
     [
         'app',
-        'global-directives',
-        'auth-factory',
-        'session-factory',
-        'user-factory'
+        'GlobalDirectives',
+        'Auth',
+        'Session',
+        'User'
     ],
     function(app) {
         angular.bootstrap(document, ['app']);
