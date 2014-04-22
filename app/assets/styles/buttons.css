@@ -15,13 +15,8 @@
     color: #ffffff;
     background: #36a9e1;
 }
-.btn-default:hover{
-    color: #333;
-}
-
-.btn-primary.disabled, .btn-primary[disabled] {
-    color: #fff;
-    background-color: #333;
+.btn-primary:hover, .btn-primary.disabled, .btn-primary[disabled] {
+    background-color: #1e8fc6;
 }
 .btn-primary:active, .btn-primary.active {
     background-color: #1c89be;
