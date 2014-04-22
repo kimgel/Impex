@@ -7,6 +7,7 @@ require.config({
         'angular-cookies': '/assets/bower_components/angular-cookies/angular-cookies',
         'angular-sanitize': '/assets/bower_components/angular-sanitize/angular-sanitize',
         'angular-route': '/assets/bower_components/angular-route/angular-route',
+        'angular-animate': '/assets/bower_components/angular-animate/angular-animate',
         'angular-strap': '/assets/bower_components/angular-strap/dist/angular-strap.min',
         'angular-strap-tpl': '/assets/bower_components/angular-strap/dist/angular-strap.tpl.min',
         'ng-file-upload': '/assets/bower_components/ng-file-upload/angular-file-upload.min',
@@ -24,6 +25,7 @@ require.config({
                 'angular-cookies',
                 'angular-sanitize',
                 'angular-route',
+                'angular-animate',
                 'angular-strap',
                 'angular-strap-tpl',
                 'ng-file-upload'
@@ -39,6 +41,9 @@ require.config({
             deps: ['angular']
         },
         'angular-route': {
+            deps: ['angular']
+        },
+        'angular-animate': {
             deps: ['angular']
         },
         'angular-strap':{
