@@ -12,6 +12,7 @@
 @import url(./basic.css);
 @import url(./header.css);
 @import url(./footer.css);
+@import url(./home.css);
 @import url(./login.css);
 @import url(./navigation.css);
 
@@ -26,5 +27,6 @@
 @import url(./notifications.css);
 @import url(./tables.css);
 @import url(./wizard.css);
+@import url(./announcement.css);
 @import url(./responsive.css);
 @import url(./custom.css);

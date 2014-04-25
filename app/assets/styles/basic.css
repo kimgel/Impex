@@ -25,9 +25,7 @@ body {
     position: relative;
     height: 100%;
     min-width: 970px;
-    /* suppose you want minimun width of 1000px */
     width: auto !important;
-    /* Firefox will set width as auto */
     width: 970px;
 }
 a {
@@ -59,6 +57,9 @@ h6 {
     font-size: 12px;
     line-height: 12px;
 }
+.page-header{
+    margin: 0 0 20px;
+}
 #content {
     padding: 20px 20px;
     position: absolute;
@@ -72,4 +73,15 @@ h6 {
 #content.full {
     width: 100% !important;
     margin-left: 0px !important;
+}
+.clearfix {
+    *zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+    display: table;
+    content:"";
+    line-height: 0;
+}
+.clearfix:after {
+    clear: both;
 }
