@@ -1,0 +1,53 @@
+<div ng-include="'modules/common/header/view'"></div>
+<div ng-include="'modules/common/sidenav/view-main'"></div>
+<div id="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box" ng-controller="PlannerList" ng-init="all()">
+                <div class="box-header" data-original-title="">
+                    <h2><i class="fa fa-check-square-o"></i>Customs Clearance List</h2>
+                    <div class="box-icon">
+                        <a href="/customsclearance/add" class="btn"><i class="fa fa-plus"></i> Add</a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="dataTables_wrapper form-inline" role="grid">
+                        <table class="table bootstrap-datatable datatable">
+                            <thead>
+                                <tr role="row">
+                                    <th>Status</th>
+                                    <th>PO Number</th>
+                                    <th>PO Date</th>
+                                    <th>ETA</th>
+                                    <th>ETD</th>
+                                    <th>Date Created</th>
+                                    <th>Created By</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-hide="!planners || planners.length">
+                                    <td>No items yet.</td>
+                                </tr>
+                                <tr ng-repeat="planner in planners">
+                                    <td>
+                                        <span class="label" ng-class="{'label-warning': planner.status == 'on going', 'label-important': item.status != 'delayed'}">{{planner.status}}</span>
+                                    </td>
+                                    <td>{{planner.po_number}}</td>
+                                    <td>{{planner.po_date | date: 'longDate'}}</td>
+                                    <td>{{planner.eta | date: 'longDate'}}</td>
+                                    <td>{{planner.etd | date: 'longDate'}}</td>
+                                    <td>{{planner.created | date: 'longDate'}}</td>
+                                    <td>{{planner.creator.name}}</td>
+                                    <td>
+                                        <a class="btn btn-success btn-xs" ng-href="/settings/planner/{{planner._id}}"> <i class="fa fa-eye"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

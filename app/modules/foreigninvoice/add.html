@@ -1,0 +1,139 @@
+<div ng-include="'modules/common/header/view'"></div>
+<div ng-include="'modules/common/sidenav/view-main'"></div>
+<div id="content" ng-controller="ForeignInvoiceCtrl">
+    <div class="row">
+        <div class="col-xs-7">
+            <div class="box">
+                <div class="box-header">
+                    <h2><i class="fa fa-book"></i>Foreign Invoice</h2>
+                </div>
+                <div class="box-content">
+                    <form role="form">
+                        <div class="form-group">
+                            <label class="control-label">Date</label>
+                            <div class="controls">
+                                <div class="input-group date">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                    <input type="text" name="po_date" class="form-control" ng-model="planner.date" bs-datepicker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Payment Terms</label>
+                            <div class="controls">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Original Receive Date</label>
+                            <div class="controls">
+                                <div class="input-group date">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                    <input type="text" name="po_date" class="form-control" ng-model="planner.date" bs-datepicker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Invoice No.</label>
+                            <div class="controls">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Invoice Amount</label>
+                            <div class="controls">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Invoice Due Date</label>
+                            <div class="controls">
+                                <div class="input-group date">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                    <input type="text" name="po_date" class="form-control" ng-model="planner.date" bs-datepicker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Bank Receive Date for RGI</label>
+                            <div class="controls">
+                                <div class="input-group date">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                    <input type="text" name="po_date" class="form-control" ng-model="planner.date" bs-datepicker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Invoice Receive Date from Bank</label>
+                            <div class="controls">
+                                <div class="input-group date">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                    <input type="text" name="po_date" class="form-control" ng-model="planner.date" bs-datepicker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Transmittal Date for AP</label>
+                            <div class="controls">
+                                <div class="input-group date">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                    <input type="text" name="po_date" class="form-control" ng-model="planner.date" bs-datepicker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions highlight">
+                            <button type="button" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn">Clear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5">
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-file-o"></i>Required Documents</h2>
+                </div>
+                <div class="box-content">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul class="upload-docs">
+                                <li ng-hide="!item.documents || item.documents.length">
+                                    <span class="status">
+                                        <span class="desc">Please select item</span>
+                                    </span>
+                                </li>
+                                <li ng-repeat="doc in item.documents | filter:{document_category:'ii_planner'}">
+                                    <span class="status">
+                                        <span class="desc">{{doc.document_name}}c</span>
+                                        <span class="label label-danger">Not uploaded</span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-actions highlight">
+                        <form>
+                            <input type="file" ng-disabled="!item.documents" ng-model="files" file-change>
+                            <br />
+                            <button type="button" class="btn btn-block" ng-disabled="!item.documents">Upload</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

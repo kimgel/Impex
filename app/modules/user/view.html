@@ -1,0 +1,46 @@
+<div ng-include="'modules/common/header/view'"></div>
+<div ng-include="'modules/common/sidenav/view-settings'"></div>
+<div id="content">
+    <div class="row">
+        <div class="col-xs-7">
+            <div class="box" ng-controller="BrokerView" ng-init="findOne()">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-user"></i>View User</h2>
+                </div>
+                <div class="box-content">
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <div class="controls">
+                            <div class="label-value">{{user.name}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Group</label>
+                        <div class="controls">
+                            <div class="label-value toUpper">{{user.group}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Role</label>
+                        <div class="controls">
+                            <div class="label-value toUpper">{{user.role}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Date Added</label>
+                        <div class="controls">
+                            <div class="label-value toUpper">{{user.date_added | date: 'longDate'}}</div>
+                        </div>
+                    </div>
+                    <div class="form-actions highlight">
+                        <a href="/settings/user" class="btn btn-primary">Ok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5">
+
+        </div>
+    </div>
+</div>

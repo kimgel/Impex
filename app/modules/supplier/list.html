@@ -1,0 +1,56 @@
+<div ng-include="'modules/common/header/view'"></div>
+<div ng-include="'modules/common/sidenav/view-settings'"></div>
+<div id="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box" ng-controller="SupplierList" data-ng-init="all()">
+                <div class="box-header" data-original-title="">
+                    <h2><i class="fa fa-suitcase"></i>Suppliers List</h2>
+                    <div class="box-icon">
+                        <a href="/settings/supplier/add" class="btn"><i class="fa fa-plus"></i> Add</a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="dataTables_wrapper form-inline" role="grid">
+                        <table class="table bootstrap-datatable datatable">
+                            <thead>
+                                <tr role="row">
+                                    <th>Status</th>
+                                    <th>No.</th>
+                                    <th>Name</th>
+                                    <th>Tel. No</th>
+                                    <th>Contact Person</th>
+                                    <th>Email</th>
+                                    <th>Valid From</th>
+                                    <th>Valid To</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-hide="!suppliers || suppliers.length">
+                                    <td>No suppliers yet.</td>
+                                </tr>
+                                <tr ng-repeat="supplier in suppliers">
+                                    <td>
+                                        <span class="label" ng-class="{'label-important': supplier.status == 'inactive', 'label-success': supplier.status == 'active'}">{{supplier.status}}</span>
+                                    </td>
+                                    <td>{{supplier.no}}</td>
+                                    <td>{{supplier.name}}</td>
+                                    <td>{{supplier.tel}}</td>
+                                    <td>{{supplier.contact}}</td>
+                                    <td>{{supplier.email}}</td>
+                                    <td>{{supplier.valid_from | date: 'longDate'}}</td>
+                                    <td>{{supplier.valid_to | date: 'longDate'}}</td>
+                                    <td>
+                                        <a class="btn btn-success btn-xs" ng-href="/settings/supplier/{{supplier._id}}"> <i class="fa fa-eye"></i></a>
+                                        <a class="btn btn-primary btn-xs" ng-href="/settings/supplier/{{supplier._id}}/edit"> <i class="fa fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

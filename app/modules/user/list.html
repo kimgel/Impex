@@ -1,0 +1,45 @@
+<div ng-include="'modules/common/header/view'"></div>
+<div ng-include="'modules/common/sidenav/view-settings'"></div>
+<div id="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box" ng-controller="UserList" ng-init="all()">
+                <div class="box-header" data-original-title="">
+                    <h2><i class="fa fa-user"></i>User List</h2>
+                    <div class="box-icon">
+                        <a href="/settings/user/add" class="btn"><i class="fa fa-plus"></i> Add</a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="dataTables_wrapper form-inline" role="grid">
+                        <table class="table bootstrap-datatable datatable">
+                            <thead>
+                                <tr role="row">
+                                    <th>Name</th>
+                                    <th>Group</th>
+                                    <th>Role</th>
+                                    <th>Date Added</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-hide="!users || users.length">
+                                    <td>No users yet.</td>
+                                </tr>
+                                <tr ng-repeat="user in users">
+                                    <td>{{user.name}}</td>
+                                    <td class="toUpper">{{user.group}}</td>
+                                    <td class="toUpper">{{user.role}}</td>
+                                    <td>{{user.date_added | date: 'longDate'}}</td>
+                                    <td>
+                                        <a class="btn btn-success btn-xs" ng-href="/settings/user/{{user._id}}"> <i class="fa fa-eye"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

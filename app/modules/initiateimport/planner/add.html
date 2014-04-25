@@ -1,0 +1,180 @@
+<div ng-include="'modules/common/header/view'"></div>
+<div ng-include="'modules/common/sidenav/view-main'"></div>
+<div id="content" ng-controller="PlannerCtrl">
+    <div class="row">
+        <div class="col-xs-7">
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-pencil-square-o"></i>Planner</h2>
+                </div>
+                <div class="box-content">
+                    <form role="form" name="form">
+                        <div class="form-group">
+                            <label class="control-label">Item Code</label>
+                            <div class="controls">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="selectedItemCode" ng-options="code._id as code.code for code in getItemCode($viewValue)" data-min-length="3" placeholder="Enter Item Code" bs-typeahead>
+                                    <span class="input-group-btn">
+                                        <button class="btn" type="button" ng-click="findOne()"><i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Impex / PO number</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="planner.po_number">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">PO Date</label>
+                            <div class="controls">
+                                <div class="input-group date">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                    <input type="text" name="po_date" class="form-control" ng-model="planner.po_date" placeholder="PO Date" bs-datepicker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label class="control-label">ETA</label>
+                                    <div class="controls">
+                                        <div class="input-group date">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input type="text" name="eta" class="form-control" ng-model="planner.eta" data-max-date="{{planner.etd}}" placeholder="ETA" bs-datepicker>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label class="control-label">ETD</label>
+                                    <div class="controls">
+                                        <div class="input-group date">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input type="text" name="etd" class="form-control" ng-model="planner.etd" data-min-date="{{planner.eta}}" placeholder="ETD" bs-datepicker>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Item Summary</h3>
+                        <hr />
+                        <div class="form-group">
+                            <label class="control-label">Item Regulatory</label>
+                            <div class="controls">
+                                <div class="label-value toCapitalize">{{item.regulatory}}</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Item Description</label>
+                            <div class="controls">
+                                <div class="label-value">{{item.description}}</div>
+                            </div>
+                        </div>
+                        <h3>Supplier Summary</h3>
+                        <hr />
+                        <div class="form-group">
+                            <label class="control-label">Supplier Name</label>
+                            <div class="controls">
+                                <div class="label-value">{{item.supplier.name}}</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label class="control-label">Valid From</label>
+                                    <div class="controls">
+                                        <div class="label-value"><i class="fa fa-calendar"></i> {{item.supplier.valid_from | date: 'longDate'}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label class="control-label">Valid To</label>
+                                    <div class="controls">
+                                        <div class="label-value"><i class="fa fa-calendar"></i> {{item.supplier.valid_to | date: 'longDate'}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Supplier Address</label>
+                            <div class="controls">
+                                <div class="label-value">{{item.supplier.address}}</div>
+                            </div>
+                        </div>
+                        <h3>Broker Summary</h3>
+                        <hr />
+                        <div class="form-group">
+                            <label class="control-label">Broker No.</label>
+                            <div class="controls">
+                                <div class="label-value">{{item.broker.no}}</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Broker Name</label>
+                            <div class="controls">
+                                <div class="label-value">{{item.broker.name}}</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Email Address</label>
+                            <div class="controls">
+                                <div class="label-value">{{item.broker.email}}</div>
+                            </div>
+                        </div>
+                        <div class="form-actions highlight">
+                            <button ng-click="submit(form)" type="button" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5">
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-file-o"></i>Required Documents</h2>
+                </div>
+                <div class="box-content">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul class="upload-docs">
+                                <li ng-hide="!item.documents || item.documents.length">
+                                    <span class="status">
+                                        <span class="desc">Please select item</span>
+                                    </span>
+                                </li>
+                                <li ng-repeat="doc in item.documents | filter:{document_category:'ii_planner'}">
+                                    <span class="status">
+                                        <span class="desc">{{doc.document_name}}c</span>
+                                        <span class="label label-danger">Not uploaded</span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-actions highlight">
+                        <form>
+                            <input type="file" ng-disabled="!item.documents" ng-model="files" file-change>
+                            <br />
+                            <button type="button" class="btn btn-block" ng-disabled="!item.documents">Upload</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

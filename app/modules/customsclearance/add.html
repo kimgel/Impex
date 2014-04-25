@@ -1,0 +1,109 @@
+<div ng-include="'modules/common/header/view'"></div>
+<div ng-include="'modules/common/sidenav/view-main'"></div>
+<div id="content" ng-controller="CustomsClearanceCtrl">
+    <div class="row">
+        <div class="col-xs-7">
+            <div class="box">
+                <div class="box-header">
+                    <h2><i class="fa fa-check-square-o"></i>Customs Clearance</h2>
+                </div>
+                <div class="box-content">
+                    <form role="form">
+                        <div class="form-group">
+                            <label class="control-label">Duties and Taxes</label>
+                            <div class="controls">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Excise Tax</label>
+                            <div class="controls">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Import Processing Fee (IPF)</label>
+                            <div class="controls">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Container Security Fee (CSF)</label>
+                            <div class="controls">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Customs Charges Details</label>
+                            <div class="controls">
+                                <a href="/customscharges/fclcharges" class="btn"><i class="fa fa-file-text-o"></i>FCL Charges</a>
+                                <a href="/customscharges/lclcharges" class="btn"><i class="fa fa-file-text-o"></i>LCL Charges</a>
+                                <a href="/customscharges/aircharges" class="btn"><i class="fa fa-file-text-o"></i>AIR Charges</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Date of Transmittal (SSDT) to AP</label>
+                            <div class="controls">
+                                <div class="input-group date" ng-controller="DatePicker">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                    <input type="text" class="form-control" datepicker-popup="{{dateFormat}}" ng-model="model.dot" show-weeks="showWeeks" show-button-bar="showButtonBar" is-open="opened" datepicker-options="dateOptions" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Date of Release</label>
+                            <div class="controls">
+                                <div class="input-group date" ng-controller="DatePicker">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                    <input type="text" class="form-control" datepicker-popup="{{dateFormat}}" ng-model="model.dor" show-weeks="showWeeks" show-button-bar="showButtonBar" is-open="opened" datepicker-options="dateOptions" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions highlight">
+                            <button type="button" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn">Clear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5">
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-file-o"></i>Required Documents</h2>
+                </div>
+                <div class="box-content">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul class="upload-docs">
+                                <li ng-hide="!item.documents || item.documents.length">
+                                    <span class="status">
+                                        <span class="desc">Please select item</span>
+                                    </span>
+                                </li>
+                                <li ng-repeat="doc in item.documents | filter:{document_category:'ii_planner'}">
+                                    <span class="status">
+                                        <span class="desc">{{doc.document_name}}c</span>
+                                        <span class="label label-danger">Not uploaded</span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-actions highlight">
+                        <form>
+                            <input type="file" ng-disabled="!item.documents" ng-model="files" file-change>
+                            <br />
+                            <button type="button" class="btn btn-block" ng-disabled="!item.documents">Upload</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

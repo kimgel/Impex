@@ -1,0 +1,122 @@
+<div ng-include="'modules/common/header/view'"></div>
+<div ng-include="'modules/common/sidenav/view-main'"></div>
+<div id="content" ng-controller="BrokerCtrl">
+    <div class="row">
+        <div class="col-xs-7">
+            <div class="box">
+                <div class="box-header">
+                    <h2><i class="fa fa-chain"></i>Broker</h2>
+                </div>
+                <div class="box-content">
+                    <form role="form">
+                        <div class="form-group">
+                            <label class="control-label">Mode of Shipment</label>
+                            <select class="form-control">
+                                <option>FCL</option>
+                                <option>LCL</option>
+                                <option>AIR</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Incoterms</label>
+                            <select class="form-control">
+                                <option>EXW</option>
+                                <option>FOB</option>
+                                <option>CIF</option>
+                                <option>CFR</option>
+                                <option>DAP</option>
+                                <option>DAT</option>
+                                <option>DDP</option>
+                                <option>DPO</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Country of Origin</label>
+                            <div class="controls">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Sourcing Site / Port of Loading</label>
+                            <div class="controls">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Country of Destination</label>
+                            <select class="form-control">
+                                <option>PH - Manila</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="address">Container Details</label>
+                            <div class="controls">
+                                <textarea id="address" rows="6" style="width: 100%; overflow: hidden; word-wrap: break-word; resize: horizontal; height: 126px;"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Gross Weight / Net Weight</label>
+                            <div class="controls">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-actions highlight">
+                            <button type="button" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn">Clear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5">
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-file-o"></i>Transaction Details</h2>
+                </div>
+                <div class="box-content">
+                    <a href="/initiateimport/planner/view" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-file-o"></i>Required Documents</h2>
+                </div>
+                <div class="box-content">
+                    <ul class="upload-docs">
+                        <li>
+                            <span class="status">
+                                <span class="desc">Document-Filename-01.doc</span>
+                                <span class="label label-danger">Not uploaded</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="status">
+                                <span class="desc">Document-Filename-02.doc</span>
+                                <span class="label label-danger">Not uploaded</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="status">
+                                <span class="desc">Document-Filename-03.doc</span>
+                                <span class="label label-danger">Not uploaded</span>
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="form-actions highlight">
+                        <form>
+                            <span class="fileUpload btn btn-primary">
+                                <span class="fa fa-plus-circle"></span>Attach documents
+                                <input type="file" ng-file-select="onFileSelect($files)" />
+                            </span>
+                        </form>
+                        <p id="fileUploadError" class="text-danger hide"></p>
+                        <div class="list-group hide" id="files"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

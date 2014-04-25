@@ -1,0 +1,11 @@
+/* Home
+=================================================================== */
+.home-box {
+    width: 700px;
+    padding: 20px;
+    margin: 100px auto;
+    background: #fff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
