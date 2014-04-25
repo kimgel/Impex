@@ -1,7 +1,7 @@
 <div id="sidebar-left">
-    <!--
-    <input type="text" class="search" placeholder="Enter Impex/PO number..." />
-    -->
+    <div class="search-box">
+        <input type="text" class="search" placeholder="Enter Impex/PO number..." />
+    </div>    
     <div class="sidebar-nav">
         <ul class="nav nav-tabs nav-stacked main-menu">
             <li>
@@ -12,9 +12,9 @@
             <li>
                 <a href="javascript:;" ng-model="initiateimport" ng-click="initiateimport=!initiateimport">
                     <i class="fa fa-bars"></i>Initiate Import 
-                    <span class="label"><i class="fa fa-caret-down"></i></span>
+                    <span class="submenu-icon"><i class="fa fa-plus-square-o"></i></span>
                 </a>
-                <ul ng-show="initiateimport">
+                <ul ng-show="initiateimport" class="nav-submenu">
                     <li>
                         <a class="submenu" href="/initiateimport/planner" active-path>
                             <i class="fa fa-pencil-square-o"></i>Planner
@@ -63,41 +63,6 @@
                     <i class="fa fa-road"></i>
                     <span class="hidden-sm">Delivery</span>
                 </a>
-            </li>
-            <li>
-                <div class="nav-divider"></div>
-            </li>
-            <li>
-                <a href="/settings/item" active-path>
-                    <i class="fa fa-cog"></i>
-                    <span class="hidden-sm">Master Files</span>
-                </a>
-            </li>
-            <li>
-                <div class="nav-divider"></div>
-            </li>
-            <li>
-                <a href="javascript:;" ng-model="customscharges" ng-click="customscharges=!customscharges">
-                    <i class="fa fa-bars"></i>Customs Charges Details
-                    <span class="label"><i class="fa fa-caret-down"></i></span>
-                </a>
-                <ul ng-show="customscharges">
-                    <li>
-                        <a class="submenu" href="/customscharges/fclcharges">
-                            <i class="fa fa-file-text-o"></i>FCL Charges
-                        </a>
-                    </li>
-                    <li>
-                        <a class="submenu" href="/customscharges/lclcharges">
-                            <i class="fa fa-file-text-o"></i>LCL Charges
-                        </a>
-                    </li>
-                    <li>
-                        <a class="submenu" href="/customscharges/aircharges">
-                            <i class="fa fa-file-text-o"></i>AIR Charges
-                        </a>
-                    </li>
-                </ul>
             </li>
         </ul>
     </div>
