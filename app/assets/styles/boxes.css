@@ -33,6 +33,7 @@
 }
 .box .box-header h2 {
     float: left;
+    font-weight: bold;
     padding: 10px 0px;
     margin: 0px 0px 0px 20px;
 }
@@ -52,7 +53,7 @@
     color: #fff;
     text-decoration: none;
     background: #1e8fc6;
-    padding: 8px;
+    padding: 9px;
     margin-left: -1px;
     border-radius: 0;
 }
