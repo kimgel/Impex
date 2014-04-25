@@ -18,11 +18,15 @@ require.config({
         'Auth': '/modules/auth/service',
         'Session': '/modules/session/service',
         'Users': '/modules/user/service',
-        'Brokers': '/modules/brokers/service',
-        'Forwarders': '/modules/forwarders/service',
-        'Suppliers': '/modules/suppliers/service',
+        'Brokers': '/modules/broker/service',
+        'Forwarders': '/modules/forwarder/service',
+        'Suppliers': '/modules/supplier/service',
         'Items': '/modules/items/service',
-        'Planners': '/modules/planners/service'
+        'Planners': '/modules/initiateimport/planner/service',
+
+        /* Directives
+        =================================================================== */
+        'Navigation': '/directives/navigation'
     },
     shim: {
         'app': {
@@ -69,7 +73,8 @@ require(
         'app',
         'Users',
         'Auth',
-        'Session'
+        'Session',
+        'Navigation'
     ],
     function(app) {
         angular.bootstrap(document, ['app']);
