@@ -23,7 +23,7 @@
     overflow: hidden;
 }
 .box .box-header {
-    background: #36a9e1;
+    background: #2d7ca3;
     color: white;
     font-size: 16px;
     overflow: hidden;
@@ -38,7 +38,7 @@
     margin: 0px 0px 0px 20px;
 }
 .box .box-header h2 i {
-    background: #1e8fc6;
+    background: #1c506a;
     color: white;
     padding: 10px 0px;
     width: 36px;
@@ -52,7 +52,7 @@
 .box .box-header .box-icon a, .box .box-header .box-icon .btn {
     color: #fff;
     text-decoration: none;
-    background: #1e8fc6;
+    background: #1c506a;
     padding: 9px;
     margin-left: -1px;
     border-radius: 0;
