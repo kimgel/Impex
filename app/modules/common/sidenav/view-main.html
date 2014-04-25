@@ -1,9 +1,11 @@
 <div id="sidebar-left">
+    <!--
     <input type="text" class="search" placeholder="Enter Impex/PO number..." />
+    -->
     <div class="sidebar-nav">
         <ul class="nav nav-tabs nav-stacked main-menu">
             <li>
-                <a href="/">
+                <a href="/statusboard" active-path>
                     <i class="fa fa-dashboard"></i>Status Board
                 </a>
             </li>
@@ -14,12 +16,12 @@
                 </a>
                 <ul ng-show="initiateimport">
                     <li>
-                        <a class="submenu" href="/initiateimport/planner">
+                        <a class="submenu" href="/initiateimport/planner" active-path>
                             <i class="fa fa-pencil-square-o"></i>Planner
                         </a>
                     </li>
                     <li>
-                        <a class="submenu" href="/initiateimport/broker">
+                        <a class="submenu" href="/initiateimport/broker" active-path>
                             <i class="fa fa-chain"></i>
                             <span class="hidden-sm">Broker</span>
                         </a>
@@ -27,43 +29,50 @@
                 </ul>
             </li>
             <li>
-                <a href="/assignforwarder">
+                <a href="/assignforwarder" active-path>
                     <i class="fa fa-truck"></i>
                     <span class="hidden-sm">Assign Forwarder</span>
                 </a>
             </li>
             <li>
-                <a href="/shipmentdetail">
+                <a href="/shipmentdetail" active-path>
                     <i class="fa fa-building-o"></i>
                     <span class="hidden-sm">Shipment Detail</span>
                 </a>
             </li>
             <li>
-                <a href="/shipmentdeparture">
+                <a href="/shipmentdeparture" active-path>
                     <i class="fa fa-ticket"></i>
                     <span class="hidden-sm">Shipment Departure</span>
                 </a>
             </li>
             <li>
-                <a href="/foreigninvoice">
+                <a href="/foreigninvoice" active-path>
                     <i class="fa fa-book"></i>
                     <span class="hidden-sm">Foreign Invoice</span>
                 </a>
             </li>
             <li>
-                <a href="/customsclearance">
+                <a href="/customsclearance" active-path>
                     <i class="fa fa-check-square-o"></i>
                     <span class="hidden-sm">Customs Clearance</span>
                 </a>
             </li>
             <li>
-                <a href="/delivery">
+                <a href="/delivery" active-path>
                     <i class="fa fa-road"></i>
                     <span class="hidden-sm">Delivery</span>
                 </a>
             </li>
-
-            <!-- Misc Navigation -->
+            <li>
+                <div class="nav-divider"></div>
+            </li>
+            <li>
+                <a href="/settings/item" active-path>
+                    <i class="fa fa-cog"></i>
+                    <span class="hidden-sm">Master Files</span>
+                </a>
+            </li>
             <li>
                 <div class="nav-divider"></div>
             </li>
