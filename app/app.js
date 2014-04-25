@@ -1,6 +1,9 @@
 'use strict';
 
-define(['routes', 'services/dependency'], function(config, dependency) {
+define([
+    'config/routes',
+    'config/dependency'
+], function(config, dependency) {
     var app = angular.module('app', [
         'ngCookies',
         'ngResource',
@@ -39,13 +42,21 @@ define(['routes', 'services/dependency'], function(config, dependency) {
             $httpProvider.interceptors.push(['$q', '$location',
                 function($q, $location) {
                     return {
-                        'responseError': function(response) {
+                        'response': function(response) {
                             if (response.status === 401) {
                                 $location.path('/login');
                                 return $q.reject(response);
-                            } else {
-                                return $q.reject(response);
                             }
+                            return response || $q.when(response);
+                        },
+
+                        'responseError': function(rejection) {
+
+                            if (rejection.status === 401) {
+                                $location.url('/login');
+                                return $q.reject(rejection);
+                            }
+                            return $q.reject(rejection);
                         }
                     };
                 }
@@ -64,14 +75,13 @@ define(['routes', 'services/dependency'], function(config, dependency) {
                     );
                 });
             }
-            if (config.defaultRoutePaths !== undefined) {
+            if (config.defaultRoutePath !== undefined) {
                 $routeProvider.otherwise({
-                    redirectTo: config.defaultRoutePaths
+                    redirectTo: config.defaultRoutePath
                 });
             }
         }
     ]).run(function($rootScope, $location, Auth) {
-        // Redirect to login if route requires auth and you're not logged in
         $rootScope.$on('$routeChangeStart', function(event, next) {
             if (next.authenticate && !Auth.isLoggedIn()) {
                 $location.path('/login');
