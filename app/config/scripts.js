@@ -66,7 +66,10 @@ require.config({
 
 require(
     [
-        'app'
+        'app',
+        'Users',
+        'Auth',
+        'Session'
     ],
     function(app) {
         angular.bootstrap(document, ['app']);
