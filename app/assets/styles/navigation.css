@@ -104,6 +104,16 @@
     color: white;
     background: none;
 }
+
+.nav-tabs.nav-stacked li.active span.active-ptr{
+    position: absolute;
+    right: -5px;
+    visibility: visible;
+    color: #f5f5f5 !important;
+}
+.nav-tabs.nav-stacked li span.active-ptr{
+    visibility: hidden;
+}
 .nav-tabs.nav-stacked > li.active > ul {
     padding: 5px 0px;
     background: #2d323d;
