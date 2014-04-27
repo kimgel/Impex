@@ -19,7 +19,8 @@
     top: 40px;
     left:0;
     bottom: 0;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 #sidebar-left .search-box{
