@@ -21,7 +21,7 @@ require.config({
         'Brokers': '/modules/broker/service',
         'Forwarders': '/modules/forwarder/service',
         'Suppliers': '/modules/supplier/service',
-        'Items': '/modules/items/service',
+        'Items': '/modules/item/service',
         'Planners': '/modules/initiateimport/planner/service',
 
         /* Directives
