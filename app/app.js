@@ -8,13 +8,12 @@ define([
         'ngCookies',
         'ngResource',
         'ngSanitize',
-        'ui.router',
+        'ngRoute',
         'ngAnimate',
         'mgcrea.ngStrap'
     ]);
     app.config([
-        '$stateProvider',
-        '$urlRouterProvider',
+        '$routeProvider',
         '$locationProvider',
         '$httpProvider',
         '$controllerProvider',
@@ -23,8 +22,7 @@ define([
         '$provide',
 
         function(
-            $stateProvider,
-            $urlRouterProvider,
+            $routeProvider,
             $locationProvider,
             $httpProvider,
             $controllerProvider,
@@ -67,10 +65,9 @@ define([
 
 
             if (config.routes !== undefined) {
-                angular.forEach(config.routes, function(route, id) {
-                    $stateProvider.state(
-                        id, {
-                            url: route.url,
+                angular.forEach(config.routes, function(route, path) {
+                    $routeProvider.when(
+                        path, {
                             templateUrl: route.templateUrl,
                             resolve: dependency(route.dependencies),
                             authenticate: route.authenticate
@@ -79,11 +76,13 @@ define([
                 });
             }
             if (config.defaultRoutePath !== undefined) {
-                $urlRouterProvider.otherwise(config.defaultRoutePath);
+                $routeProvider.otherwise({
+                    redirectTo: config.defaultRoutePath
+                });
             }
         }
     ]).run(function($rootScope, $location, Auth) {
-        $rootScope.$on('$stateChangeStart', function(event, next) {
+        $rootScope.$on('$routeChangeStart', function(event, next) {
             if (next.authenticate && !Auth.isLoggedIn()) {
                 $location.path('/login');
             }

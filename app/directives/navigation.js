@@ -12,7 +12,6 @@ define(['app'], function(app) {
                 restrict: 'A',
                 link: function(scope, element) {
                     scope.location = $location;
-                    console.log(element.parent());
                     scope.$watch('location.path()', function(currentPath) {  
                         if (currentPath === element[0].attributes['href'].nodeValue) {
                             element.parent().addClass('active');

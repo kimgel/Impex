@@ -4,23 +4,20 @@ define([], function() {
     return {
         defaultRoutePath: '/welcome',
         routes: {   
-            'welcome': {
-                url: '/welcome',
-                templateUrl: '/modules/landing/index.html',
+            '/welcome': {
+                templateUrl: '/modules/home/index.html',
                 dependencies: [
-                    'modules/landing/index'
+                    'modules/home/index'
                 ]
             }
-            ,'login': {
-                url: '/login',
+            ,'/login': {
                 templateUrl: '/modules/login/index.html',
                 dependencies: [
                     'modules/login/index'
                 ]                
             }
 
-            ,'statusboard': {
-                url: '/statusboard',
+            ,'/statusboard': {
                 templateUrl: '/modules/statusboard/index.html',
                 dependencies: [
                     'modules/statusboard/index'
@@ -29,46 +26,30 @@ define([], function() {
             }
 
 
-/* Settings
-=================================================================== */   
-
-            ,'settings': {
-                url: '/settings',
-                templateUrl: '/modules/landing/settings.html',
-                dependencies: [
-                    'modules/landing/settings'
-                ]
-                ,authenticate: true
-            }
-
 /* Settings Item
 =================================================================== */     
-            ,'settings_item': {
-                url: '/settings/item',
+            ,'/settings/item': {
                 templateUrl: '/modules/item/list.html',
                 dependencies: [
                     'modules/item/list'
                 ]
                 ,authenticate: true
             }
-            ,'settings_item_add': {
-                url: '/settings/item/add',
+            ,'/settings/item/add': {
                 templateUrl: '/modules/item/add.html',
                 dependencies: [
                     'modules/item/add'
                 ]
                 ,authenticate: true
             }
-            ,'settings_item_view': {
-                url: '/settings/item/:itemId',
+            ,'/settings/item/:itemId': {
                 templateUrl: '/modules/item/view.html',
                 dependencies: [
                     'modules/item/view'
                 ]
                 ,authenticate: true
             },
-            'settings_item_edit': {
-                url: '/settings/item/:itemId/edit',
+            '/settings/item/:itemId/edit': {
                 templateUrl: '/modules/settings/item/edit.html',
                 dependencies: [
                     'modules/item/edit'
@@ -78,32 +59,28 @@ define([], function() {
 
 /* Settings Broker
 =================================================================== */           
-            ,'settings_broker': {
-                url: '/settings/broker',
+            ,'/settings/broker': {
                 templateUrl: '/modules/broker/list.html',
                 dependencies: [
                     'modules/broker/list'
                 ]
                 ,authenticate: true
             }
-            ,'settings_broker_add': {
-                url: '/settings/broker/add',
+            ,'/settings/broker/add': {
                 templateUrl: '/modules/broker/add.html',
                 dependencies: [
                     'modules/broker/add'
                 ]
                 ,authenticate: true
             }
-            ,'settings_broker_view': {
-                url: '/settings/broker/:brokerId',
+            ,'/settings/broker/:brokerId': {
                 templateUrl: '/modules/broker/view.html',
                 dependencies: [
                     'modules/broker/view'
                 ]
                 ,authenticate: true
             },
-            'settings_broker_edit': {
-                url: '/settings/broker/:brokerId/edit',
+            '/settings/broker/:brokerId/edit': {
                 templateUrl: '/modules/broker/edit.html',
                 dependencies: [
                     'modules/broker/edit'
@@ -113,32 +90,28 @@ define([], function() {
 
 /* Settings Supplier
 =================================================================== */         
-            ,'settings_supplier': {
-                url: '/settings/supplier',
+            ,'/settings/supplier': {
                 templateUrl: '/modules/supplier/list.html',
                 dependencies: [                    
                     'modules/supplier/list'
                 ]
                 ,authenticate: true
             }
-            ,'settings_supplier_add': {
-                url: '/settings/supplier/add',
+            ,'/settings/supplier/add': {
                 templateUrl: '/modules/supplier/add.html',
                 dependencies: [
                     'modules/supplier/add'
                 ]
                 ,authenticate: true
             }
-            ,'settings_supplier_view': {
-                url: '/settings/supplier/:supplierId',
+            ,'/settings/supplier/:supplierId': {
                 templateUrl: '/modules/supplier/view.html',
                 dependencies: [
                     'modules/supplier/view'
                 ]
                 ,authenticate: true
             },
-            'settings_supplier_edit': {
-                url: '/settings/supplier/:supplierId/edit',
+            '/settings/supplier/:supplierId/edit': {
                 templateUrl: '/modules/supplier/edit.html',
                 dependencies: [
                     'modules/supplier/edit'
@@ -149,32 +122,28 @@ define([], function() {
 
 /* Settings Forwarder
 =================================================================== */        
-            ,'settings_forwarder': {
-                url: '/settings/forwarder',
+            ,'/settings/forwarder': {
                 templateUrl: '/modules/forwarder/list.html',
                 dependencies: [                    
                     'modules/forwarder/list'
                 ]
                 ,authenticate: true
             }
-            ,'settings_forwarder_add': {
-                url: '/settings/forwarder/add',
+            ,'/settings/forwarder/add': {
                 templateUrl: '/modules/forwarder/add.html',
                 dependencies: [
                     'modules/forwarder/add'
                 ]
                 ,authenticate: true
             }
-            ,'settings_forwarder_view': {
-                url: '/settings/forwarder/:forwarderId',
+            ,'/settings/forwarder/:forwarderId': {
                 templateUrl: '/modules/forwarder/view.html',
                 dependencies: [
                     'modules/forwarder/view'
                 ]
                 ,authenticate: true
             },
-            'settings_forwarder_edit': {
-                url: '/settings/forwarder/:forwarderId/edit',
+            '/settings/forwarder/:forwarderId/edit': {
                 templateUrl: '/modules/forwarder/edit.html',
                 dependencies: [
                     'modules/forwarder/edit'
@@ -184,32 +153,28 @@ define([], function() {
 
 /* Settings User
 =================================================================== */        
-            ,'settings_user': {
-                url: '/settings/user',
+            ,'/settings/user': {
                 templateUrl: '/modules/user/list.html',
                 dependencies: [                    
                     'modules/user/list'
                 ]
                 ,authenticate: true
             }
-            ,'settings_user_add': {
-                url: '/settings/user/add',
+            ,'/settings/user/add': {
                 templateUrl: '/modules/user/add.html',
                 dependencies: [
                     'modules/user/add'
                 ]
                 ,authenticate: true
             }
-            ,'settings_user_view': {
-                url: '/settings/user/:userId',
+            ,'/settings/user/:userId': {
                 templateUrl: '/modules/user/view.html',
                 dependencies: [
                     'modules/user/view'
                 ]
                 ,authenticate: true
             },
-            'settings_user_edit': {
-                url: '/settings/user/:userId/edit',
+            '/settings/user/:userId/edit': {
                 templateUrl: '/modules/user/edit.html',
                 dependencies: [
                     'modules/user/edit'
@@ -220,16 +185,14 @@ define([], function() {
 
 /* Initiate Import Planner
 =================================================================== */
-            ,'initiateimport_planner': {
-                url: '/initiateimport/planner',
+            ,'/initiateimport/planner': {
                 templateUrl: '/modules/initiateimport/planner/list.html',
                 dependencies: [
                     'modules/initiateimport/planner/list'
                 ]
                 ,authenticate: true
             }
-            ,'initiateimport_planner_add': {
-                url: '/initiateimport/planner/add',
+            ,'/initiateimport/planner/add': {
                 templateUrl: '/modules/initiateimport/planner/add.html',
                 dependencies: [
                     'modules/initiateimport/planner/add'
@@ -239,16 +202,14 @@ define([], function() {
             
 /* Initiate Import Broker
 =================================================================== */
-            ,'initiateimport_broker': {
-                url: '/initiateimport/broker',
+            ,'/initiateimport/broker': {
                 templateUrl: '/modules/initiateimport/broker/list.html',
                 dependencies: [
                     'modules/initiateimport/broker/list'
                 ]
                 ,authenticate: true
             }
-            ,'initiateimport_broker_add': {
-                url: '/initiateimport/broker/add',
+            ,'/initiateimport/broker/add': {
                 templateUrl: '/modules/initiateimport/broker/add.html',
                 dependencies: [
                     'modules/initiateimport/broker/add'

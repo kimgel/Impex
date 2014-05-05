@@ -8,7 +8,7 @@ require.config({
         'angular-resource': '/assets/bower_components/angular-resource/angular-resource',
         'angular-cookies': '/assets/bower_components/angular-cookies/angular-cookies',
         'angular-sanitize': '/assets/bower_components/angular-sanitize/angular-sanitize',
-        'angular-ui-router': '/assets/bower_components/angular-ui-router/release/angular-ui-router',
+        'angular-route': '/assets/bower_components/angular-route/angular-route',
         'angular-animate': '/assets/bower_components/angular-animate/angular-animate',
         'angular-strap': '/assets/bower_components/angular-strap/dist/angular-strap.min',
         'angular-strap-tpl': '/assets/bower_components/angular-strap/dist/angular-strap.tpl.min',
@@ -21,13 +21,12 @@ require.config({
         'Brokers': '/modules/broker/service',
         'Forwarders': '/modules/forwarder/service',
         'Suppliers': '/modules/supplier/service',
-        'Items': '/modules/items/service',
+        'Items': '/modules/item/service',
         'Planners': '/modules/initiateimport/planner/service',
 
         /* Directives
         =================================================================== */
-        'Navigation': '/directives/navigation',
-        'SlideToggle': '/directives/slidetoggle'
+        'Navigation': '/directives/navigation'
     },
     shim: {
         'app': {
@@ -36,7 +35,7 @@ require.config({
                 'angular-resource',
                 'angular-cookies',
                 'angular-sanitize',
-                'angular-ui-router',
+                'angular-route',
                 'angular-animate',
                 'angular-strap',
                 'angular-strap-tpl'
@@ -51,7 +50,7 @@ require.config({
         'angular-sanitize': {
             deps: ['angular']
         },
-        'angular-ui-router': {
+        'angular-route': {
             deps: ['angular']
         },
         'angular-animate': {
