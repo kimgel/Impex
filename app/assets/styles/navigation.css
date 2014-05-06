@@ -99,6 +99,7 @@
 .nav-tabs.nav-stacked > li.active > a, .nav-tabs.nav-stacked > li > ul > li.active > a {
     color: #fff;
     font-weight: bold;
+    cursor: pointer;
 }
 .nav-tabs.nav-stacked > li.active > a:hover, .nav-tabs.nav-stacked > li > ul > li.active > a:hover {
     border: none;

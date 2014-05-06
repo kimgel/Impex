@@ -6,6 +6,7 @@ define(['app', 'Planners'], function(app, Planners) {
         '$location',
         'PlannerFactory',
         function($scope, $location, PlannerFactory) {
+            
             $scope.all = function() {
                 PlannerFactory.query(function(planners) {
                     $scope.planners = planners;

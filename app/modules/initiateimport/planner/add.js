@@ -6,16 +6,19 @@ define([
     'Planners',
 ], function(app, Items, Planners) {
     app.controller('PlannerCtrl', [
+        '$rootScope',
         '$scope',
         '$http',
         '$location',
         'ItemsFactory',
         'PlannerFactory',
-        function($scope, $http, $location, ItemsFactory, PlannerFactory) {
+        function($rootScope, $scope, $http, $location, ItemsFactory, PlannerFactory) {
+
             $scope.planner = {};
             $scope.selectedItemCode = '';
             $scope.docs = [];
             $scope.view = false;
+
             $scope.submit = function(form) {
                 $scope.planner.item = $scope.selectedItemCode;
 
