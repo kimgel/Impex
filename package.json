@@ -1,24 +1,30 @@
 {
-  "name": "impex",
-  "version": "0.0.1",
-  "dependencies": {
-    "express": "~4.1.0",
-    "express-session": "~1.0.2",
-    "body-parser": "~1.0.1",
-    "cookie-parser": "~1.0.1",
-    "compression": "~1.0.1",
-    "method-override": "~1.0.0",
-    "morgan": "~1.0.0",
-    "mongoose": "~3.8.8",
-    "helmet": "~0.2.1",
-    "passport": "~0.2.0",
-    "passport-local": "~1.0.0",
-    "connect-mongostore": "^0.1.0",
-    "requirejs": "^2.1.11",
-    "errorhandler": "^1.0.1",
-    "connect-mongo": "^0.4.1"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  }
+    "name": "impex",
+    "version": "0.0.1",
+    "dependencies": {
+        "express": "4.1.x",
+        "express-session": "1.0.x",
+        "body-parser": "1.0.x",
+        "cookie-parser": "1.0.x",
+        "compression": "1.0.x",
+        "method-override": "1.0.x",
+        "morgan": "1.0.x",
+        "mongoose": "3.8.x",
+        "helmet": "0.2.x",
+        "passport": "0.2.x",
+        "passport-local": "1.0.x",
+        "requirejs": "2.1.x",
+        "errorhandler": "1.0.x",
+        "connect-mongo": "0.4.x",
+        "lodash": "2.4.x",
+        "ejs": "1.0.x",
+        "serve-static": "1.1.x",
+        "moment": "2.6.x"
+    },
+    "devDependencies": {
+        "fmt": "0.5.x"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    }
 }
