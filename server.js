@@ -1,7 +1,6 @@
 'use strict';
 
 var express = require('express'),
-    path = require('path'),
     fs = require('fs'),
     http = require('http'),
     https = require('https'),
@@ -15,12 +14,12 @@ var credentials = {
     cert: certificate
 };
 
-var impex = function() {
+var Impex = function () {
 
     var self = this;
 
     // Populate cache
-    self.populateCache = function() {
+    self.populateCache = function () {
         if (typeof self.zcache === "undefined") {
             self.zcache = {
                 'index.html': ''
@@ -31,7 +30,7 @@ var impex = function() {
     };
 
     // Retrieve entry content from cache
-    self.cache_get = function(key) {
+    self.cache_get = function (key) {
         return self.zcache[key];
     };
 
@@ -40,14 +39,14 @@ var impex = function() {
      *  Terminate server on receipt of the specified signal.
      *  @param {string} sig  Signal to terminate on.
      */
-    self.terminator = function(sig) {
+    self.terminator = function (sig) {
         if (typeof sig === "string") {
             console.log('%s: Received %s - terminating app ...',
                 Date(Date.now()), sig);
             process.exit(1);
         }
 
-        mongoose.connection.close(function() {
+        mongoose.connection.close(function () {
             console.log('Mongoose default connection disconnected');
             process.exit(0);
         });
@@ -58,30 +57,28 @@ var impex = function() {
     /**
      *  Setup termination handlers (for exit and a list of signals).
      */
-    self.setupTerminationHandlers = function() {
+    self.setupTerminationHandlers = function () {
         //  Process on exit and signals.
-        process.on('exit', function() {
+        
+        process.on('exit', function () {
             self.terminator();
         });
 
-        // Removed 'SIGPIPE' from the list - bugz 852598.
         ['SIGHUP', 'SIGINT', 'SIGQUIT', 'SIGILL', 'SIGTRAP', 'SIGABRT',
             'SIGBUS', 'SIGFPE', 'SIGUSR1', 'SIGSEGV', 'SIGUSR2', 'SIGTERM'
-        ].forEach(function(element, index, array) {
-            process.on(element, function() {
+            ].forEach(function (element, index, array) {
+            process.on(element, function () {
                 self.terminator(element);
             });
         });
     };
-    self.initializeServer = function() {
+    self.initializeServer = function () {
         // Application Config
-        var config = require('./lib/config/config');
-
-        // Connect to database
-        var db = mongoose.connect(config.mongo.uri, config.mongo.options);
-
-        // Passport Configuration
-        var passport = require('./lib/config/passport');
+        var config = require('./lib/config/config'),
+            // Connect to database
+            db = mongoose.connect(config.mongo.uri, config.mongo.options),
+            // Passport Configuration
+            passport = require('./lib/config/passport');
 
         self.app = express();
 
@@ -92,8 +89,8 @@ var impex = function() {
         require('./lib/routes')(self.app);
     };
 
-    self.initialize = function() {
-       //self.setupVariables();
+    self.initialize = function () {
+        //self.setupVariables();
         self.populateCache();
         self.setupTerminationHandlers();
 
@@ -101,16 +98,17 @@ var impex = function() {
         self.initializeServer();
     };
 
-    self.start = function() {
+    self.start = function () {
 
         //  Start the app on the specific interface (and port).
-        self.app.set('port', process.env.OPENSHIFT_INTERNAL_PORT || 9000);
-        self.app.set('sslport', 9001);
+        self.app.set('port', process.env.OPENSHIFT_INTERNAL_PORT || 7777);
+        self.app.set('sslport', 8888);
         self.app.set('ipaddr', process.env.OPENSHIFT_INTERNAL_IP || 'localhost');
 
         // Set http
-        self.app.listen(self.app.get('port'), self.app.get('ipaddr'),
-            function() {
+        self.app.listen(
+            self.app.get('port'), self.app.get('ipaddr'),
+            function () {
                 console.log("Express server listening on port " + self.app.get('port'));
             }
         );
@@ -118,16 +116,16 @@ var impex = function() {
         https.createServer(credentials, self.app).listen(
             self.app.get('sslport'),
             self.app.get('ipaddr'),
-            function() {
-                console.log("SSL server started on: " + self.app.get('sslport'))
+            function () {
+                console.log("SSL server started on: " + self.app.get('sslport'));
             }
         );
-        
+
         exports = module.exports = self.app;
     };
 
 };
 
-var startApp = new impex();
+var startApp = new Impex();
 startApp.initialize();
 startApp.start();
