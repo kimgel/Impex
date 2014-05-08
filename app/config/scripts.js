@@ -2,6 +2,12 @@ require.config({
     baseUrl: '/',
     paths: {
 
+        /* Config
+        =================================================================== */
+        'Routes': '/config/routes',
+        'Router': '/config/router',
+        'Dependency': '/config/dependency',
+
         /* 3rd Party
         =================================================================== */
         'angular': '/assets/bower_components/angular/angular',
@@ -56,27 +62,17 @@ require.config({
         'angular-animate': {
             deps: ['angular']
         },
-        'angular-strap':{
+        'angular-strap': {
             deps: ['angular']
         },
-        'angular-strap-tpl':{
+        'angular-strap-tpl': {
             deps: ['angular-strap']
-        },
-        'ng-file-upload': {
-            deps: ['angular']
         }
     }
 });
 
-require(
-    [
-        'app',
-        'Users',
-        'Auth',
-        'Session',
-        'Navigation'
-    ],
-    function(app) {
+require(['app', 'Users', 'Auth', 'Session', 'Navigation'],
+    function (app) {
         angular.bootstrap(document, ['app']);
     }
 );

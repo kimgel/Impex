@@ -1,13 +1,14 @@
 'use strict';
 
-define([], function() {
-    return function(dependencies) {
+define([], function () {
+    return function (dependencies) {
         var definition = {
-            resolver: ['$q', '$rootScope',
-                function($q, $rootScope) {
+            resolver: [
+                '$q', '$rootScope',
+                function ($q, $rootScope) {
                     var deferred = $q.defer();
-                    require(dependencies, function() {
-                        $rootScope.$apply(function() {
+                    require(dependencies, function () {
+                        $rootScope.$apply(function () {
                             deferred.resolve();
                         });
                     });
