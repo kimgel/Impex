@@ -1,93 +1,91 @@
 'use strict';
 
-define([
-    'config/routes',
-    'config/dependency'
-], function(config, dependency) {
-    var app = angular.module('app', [
-        'ngCookies',
-        'ngResource',
-        'ngSanitize',
-        'ngRoute',
-        'ngAnimate',
-        'mgcrea.ngStrap'
-    ]);
-    app.config([
-        '$routeProvider',
-        '$locationProvider',
-        '$httpProvider',
-        '$controllerProvider',
-        '$compileProvider',
-        '$filterProvider',
-        '$provide',
+define(['Routes', 'Dependency'],
+    function (Routes, Dependency) {
+        var app = angular.module('app', [
+            'ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'ngAnimate', 'mgcrea.ngStrap'
+        ]);
 
-        function(
-            $routeProvider,
-            $locationProvider,
-            $httpProvider,
-            $controllerProvider,
-            $compileProvider,
-            $filterProvider,
-            $provide
-        ) {
+        app.config([
+            '$routeProvider',
+            '$locationProvider',
+            '$controllerProvider',
+            '$compileProvider',
+            '$filterProvider',
+            '$provide',
+            function (
+                $routeProvider,
+                $locationProvider,
+                $controllerProvider,
+                $compileProvider,
+                $filterProvider,
+                $provide
+            ) {
+                app.controller = $controllerProvider.register;
+                app.directive = $compileProvider.directive;
+                app.filter = $filterProvider.register;
+                app.factory = $provide.factory;
+                app.service = $provide.service;
 
-            app.controller = $controllerProvider.register;
-            app.directive = $compileProvider.directive;
-            app.filter = $filterProvider.register;
-            app.factory = $provide.factory;
-            app.service = $provide.service;
+                $locationProvider.html5Mode(true);
 
-            $locationProvider.html5Mode(true);
-
-            $httpProvider.interceptors.push(['$q', '$location',
-                function($q, $location) {
-                    return {
-                        'response': function(response) {
-                            if (response.status === 401) {
-                                $location.path('/login');
-                                return $q.reject(response);
+                if (Routes.routes !== undefined) {
+                    angular.forEach(Routes.routes, function (route, path) {
+                        $routeProvider.when(
+                            path, {
+                                templateUrl: route.templateUrl,
+                                resolve: Dependency(route.dependencies),
+                                authenticate: route.authenticate
                             }
-                            return response || $q.when(response);
-                        },
+                        );
+                    });
+                }
+                if (Routes.defaultRoutePath !== undefined) {
+                    $routeProvider.otherwise({
+                        redirectTo: Routes.defaultRoutePath
+                    });
+                }
+            }
+        ]);
 
-                        'responseError': function(rejection) {
+        app.config(function ($httpProvider) {
 
-                            if (rejection.status === 401) {
-                                $location.url('/login');
-                                return $q.reject(rejection);
-                            }
-                            return $q.reject(rejection);
+            var logsOutUserOn401 = [
+                '$q', '$location',
+                function ($q, $location) {
+                    var success = function (response) {
+                        return response;
+                    };
+
+                    var error = function (response) {
+                        if (response.status === 401) {
+                            //redirect them back to login page
+                            $location.path('/login');
+
+                            return $q.reject(response);
+                        } else {
+                            return $q.reject(response);
                         }
                     };
+                    return function (promise) {
+                        return promise.then(success, error);
+                    };
                 }
-            ]);
+            ];
 
-
-
-            if (config.routes !== undefined) {
-                angular.forEach(config.routes, function(route, path) {
-                    $routeProvider.when(
-                        path, {
-                            templateUrl: route.templateUrl,
-                            resolve: dependency(route.dependencies),
-                            authenticate: route.authenticate
-                        }
-                    );
-                });
-            }
-            if (config.defaultRoutePath !== undefined) {
-                $routeProvider.otherwise({
-                    redirectTo: config.defaultRoutePath
-                });
-            }
-        }
-    ]).run(function($rootScope, $location, Auth) {
-        $rootScope.$on('$routeChangeStart', function(event, next) {
-            if (next.authenticate && !Auth.isLoggedIn()) {
-                $location.path('/login');
-            }
+            $httpProvider.responseInterceptors.push(logsOutUserOn401);
         });
-    });
 
-    return app;
-});
+
+        app.run(function ($http, $cookies, $rootScope, $location, Auth) {
+            $http.defaults.headers.post['x-csrf-token'] = $cookies._csrf;
+            $rootScope.$on('$routeChangeStart', function (event, next, current) {
+                if (next.authenticate && !Auth.isLoggedIn()) {
+                    event.preventDefault();
+                    $location.path('/login');
+                }
+            });
+        });
+
+        return app;
+    });
