@@ -4,9 +4,9 @@ define(['app', 'Suppliers'], function(app, Suppliers) {
     app.controller('SupplierEdit', [
         '$scope',
         '$location',
-        '$routeParams',
+        '$stateParams',
         'SuppliersFactory',
-        function($scope, $location, $routeParams, SuppliersFactory) {            
+        function($scope, $location, $stateParams, SuppliersFactory) {            
             $scope.update = function(form) {            
                 var updateBroker = $scope.supplier;
                 SuppliersFactory.update($scope.supplier, function(err) {
@@ -22,7 +22,7 @@ define(['app', 'Suppliers'], function(app, Suppliers) {
 
             $scope.findOne = function() {
                 SuppliersFactory.get({
-                    supplierId: $routeParams.supplierId
+                    supplierId: $stateParams.supplierId
                 }, function(supplier) {
                     $scope.supplier = supplier;
                 });

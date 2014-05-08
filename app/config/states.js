@@ -95,28 +95,32 @@ define([], function () {
             /* Settings Supplier
             =================================================================== */
             ,
-            '/settings/supplier': {
+            'settings_supplier': {
+                url: '/settings/supplier',
                 templateUrl: '/modules/supplier/list.html',
                 dependencies: [
                     'modules/supplier/list'
                 ],
                 authenticate: true
             },
-            '/settings/supplier/add': {
+            'settings_supplier_add': {
+                url: '/settings/supplier/add',
                 templateUrl: '/modules/supplier/add.html',
                 dependencies: [
                     'modules/supplier/add'
                 ],
                 authenticate: true
             },
-            '/settings/supplier/:supplierId': {
+            'settings_supplier_view': {
+                url: '/settings/supplier/:supplierId',
                 templateUrl: '/modules/supplier/view.html',
                 dependencies: [
                     'modules/supplier/view'
                 ],
                 authenticate: true
             },
-            '/settings/supplier/:supplierId/edit': {
+            'settings_supplier_edit': {
+                url: '/settings/supplier/:supplierId/edit',
                 templateUrl: '/modules/supplier/edit.html',
                 dependencies: [
                     'modules/supplier/edit'
