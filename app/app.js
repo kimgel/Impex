@@ -78,7 +78,8 @@ define(['Routes', 'Dependency'],
 
 
         app.run(function ($http, $cookies, $rootScope, $location, Auth) {
-            $http.defaults.headers.post['x-csrf-token'] = $cookies._csrf;
+            $http.defaults.headers.common['x-csrf-token'] = $cookies._csrf;
+            
             $rootScope.$on('$routeChangeStart', function (event, next, current) {
                 if (next.authenticate && !Auth.isLoggedIn()) {
                     event.preventDefault();
