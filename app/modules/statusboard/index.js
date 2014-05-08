@@ -4,7 +4,8 @@ define(['app'], function(app) {
     app.controller('DashboardCtrl', [
         '$scope',
         '$location',
-        function($scope, $location) {
+        'Auth',
+        function($scope, $location, Auth) {
         	
         }
     ]);
