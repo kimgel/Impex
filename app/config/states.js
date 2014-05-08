@@ -205,14 +205,24 @@ define([], function () {
             /* Initiate Import Planner
             =================================================================== */
             ,
-            '/initiateimport/planner': {
+            'initiateimport_planner': {
+                url: '/initiateimport/planner',
                 templateUrl: '/modules/initiateimport/planner/list.html',
                 dependencies: [
                     'modules/initiateimport/planner/list'
                 ],
                 authenticate: true
             },
-            '/initiateimport/planner/add': {
+            'initiateimport_planner_add': {
+                url: '/initiateimport/planner/add',
+                templateUrl: '/modules/initiateimport/planner/add.html',
+                dependencies: [
+                    'modules/initiateimport/planner/add'
+                ],
+                authenticate: true
+            },
+            'initiateimport_planner_view': {
+                url: '/initiateimport/planner/:plannerId',
                 templateUrl: '/modules/initiateimport/planner/add.html',
                 dependencies: [
                     'modules/initiateimport/planner/add'
