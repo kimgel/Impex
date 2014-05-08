@@ -1,18 +1,18 @@
 'use strict';
 
-define(['app'], function(app) {
+define(['app'], function (app) {
 
-/* Navigation states
-=================================================================== */ 
+    /* Navigation states
+    =================================================================== */
     app.directive('activePath', [
         '$rootScope',
         '$location',
-        function($rootScope, $location) {
+        function ($rootScope, $location) {
             return {
                 restrict: 'A',
-                link: function(scope, element) {
+                link: function (scope, element) {
                     scope.location = $location;
-                    scope.$watch('location.path()', function(currentPath) { 
+                    scope.$watch('location.path()', function (currentPath) {
                         var elementHref = element[0].attributes['href'].nodeValue;
                         var rootPath = currentPath.split('/')[1] + currentPath.split('/')[2];
                         var currenHref = elementHref.split('/')[1] + elementHref.split('/')[2];
@@ -24,6 +24,18 @@ define(['app'], function(app) {
                     });
                 }
             };
+        }
+    ]);
+    
+    /* Header and Navigation state
+    =================================================================== */
+    app.controller('IncludeCtrl', [
+        '$rootScope',
+        '$scope',
+        '$location',
+        'Auth',
+        function ($rootScope, $scope, $location, Auth) {
+            
         }
     ]);
 });

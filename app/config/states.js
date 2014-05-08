@@ -2,15 +2,17 @@
 
 define([], function () {
     return {
-        defaultRoutePath: '/',
-        routes: {
-            '/login': {
+        defaultStatePath: '/',
+        states: {
+            'login': {
+                url: '/login',
                 templateUrl: '/modules/login/index.html',
                 dependencies: [
                     'modules/login/index'
                 ]
             },
-            '/': {
+            'statusboard': {
+                url: '/',
                 templateUrl: '/modules/statusboard/index.html',
                 dependencies: [
                     'modules/statusboard/index'
@@ -21,28 +23,32 @@ define([], function () {
             /* Settings Item
             =================================================================== */
             ,
-            '/settings/item': {
+            'settings_item': {
+                url: '/settings/item',
                 templateUrl: '/modules/item/list.html',
                 dependencies: [
                     'modules/item/list'
                 ],
                 authenticate: true
             },
-            '/settings/item/add': {
+            'settings_item.add': {
+                url: '/settings/item/add',
                 templateUrl: '/modules/item/add.html',
                 dependencies: [
                     'modules/item/add'
                 ],
                 authenticate: true
             },
-            '/settings/item/:itemId': {
+            'settings_item.view': {
+                url: '/settings/item/:itemId',
                 templateUrl: '/modules/item/view.html',
                 dependencies: [
                     'modules/item/view'
                 ],
                 authenticate: true
             },
-            '/settings/item/:itemId/edit': {
+            'settings_item.edit': {
+                url: '/settings/item/:itemId/edit',
                 templateUrl: '/modules/settings/item/edit.html',
                 dependencies: [
                     'modules/item/edit'

@@ -1,13 +1,14 @@
 'use strict';
 
-define(['Routes', 'Dependency'],
-    function (Routes, Dependency) {
+define(['States', 'Dependency'],
+    function (States, Dependency) {
         var app = angular.module('app', [
-            'ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'ngAnimate', 'mgcrea.ngStrap'
+            'ngCookies', 'ngResource', 'ngSanitize', 'ui.router', 'ngAnimate', 'mgcrea.ngStrap'
         ]);
 
         app.config([
-            '$routeProvider',
+            '$stateProvider',
+            '$urlRouterProvider',
             '$httpProvider',
             '$locationProvider',
             '$controllerProvider',
@@ -15,7 +16,8 @@ define(['Routes', 'Dependency'],
             '$filterProvider',
             '$provide',
             function (
-                $routeProvider,
+                $stateProvider,
+                $urlRouterProvider,
                 $httpProvider,
                 $locationProvider,
                 $controllerProvider,
@@ -53,21 +55,20 @@ define(['Routes', 'Dependency'],
                 $httpProvider.responseInterceptors.push(interceptor);
 
 
-                if (Routes.routes !== undefined) {
-                    angular.forEach(Routes.routes, function (route, path) {
-                        $routeProvider.when(
-                            path, {
-                                templateUrl: route.templateUrl,
-                                resolve: new Dependency(route.dependencies),
-                                authenticate: route.authenticate
+                if (States.states !== undefined) {
+                    angular.forEach(States.states, function (param, name) {
+                        $stateProvider.state(
+                            name, {
+                                url: param.url,
+                                templateUrl: param.templateUrl,
+                                resolve: new Dependency(param.dependencies),
+                                authenticate: param.authenticate
                             }
                         );
                     });
                 }
-                if (Routes.defaultRoutePath !== undefined) {
-                    $routeProvider.otherwise({
-                        redirectTo: Routes.defaultRoutePath
-                    });
+                if (States.defaultStatePath !== undefined) {
+                    $urlRouterProvider.otherwise(States.defaultStatePath);
                 }
             }
         ]);
@@ -75,7 +76,7 @@ define(['Routes', 'Dependency'],
         app.run(function ($http, $cookies, $rootScope, $location, Auth) {
             $http.defaults.headers.common['x-csrf-token'] = $cookies._csrf;
 
-            $rootScope.$on('$routeChangeStart', function (event, next) {
+            $rootScope.$on('$stateChangeStart', function (event, next) {
                 if (next.authenticate && !Auth.isLoggedIn()) {
                     $location.path('/login');
                 }

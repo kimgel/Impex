@@ -8,11 +8,16 @@
     <title>Impex</title>
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link rel="stylesheet" href="assets/styles/main.css">
-    <script data-main="config/scripts.js" src="assets/bower_components/requirejs/require.js"></script>
+    <script async data-main="config/scripts.js" src="assets/bower_components/requirejs/require.js"></script>
 </head>
 
 <body>
-    <div ng-view></div>
+    <div ng-controller="IncludeCtrl">
+        <div ng-include="'modules/common/header/main'"></div>
+        <div ng-include="'modules/common/sidenav/main'"></div>
+    </div>
+    <div ui-view></div>
+    
 </body>
 
 </html>
