@@ -2,8 +2,10 @@
 
 define([], function() {
     return {
-        defaultRoutePath: '/statusboard',
-        routes: {  
+        defaultRoutePath: '/',
+        routes: {            
+            
+            
             '/login': {
                 templateUrl: '/modules/login/index.html',
                 dependencies: [
@@ -11,7 +13,7 @@ define([], function() {
                 ]                
             }
 
-            ,'/statusboard': {
+            ,'/': {
                 templateUrl: '/modules/statusboard/index.html',
                 dependencies: [
                     'modules/statusboard/index'
