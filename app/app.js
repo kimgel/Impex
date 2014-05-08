@@ -73,12 +73,12 @@ define(['States', 'Dependency'],
             }
         ]);
 
-        app.run(function ($http, $cookies, $rootScope, $location, Auth) {
+        app.run(function ($http, $state, $cookies, $rootScope, Auth) {
             $http.defaults.headers.common['x-csrf-token'] = $cookies._csrf;
 
-            $rootScope.$on('$stateChangeStart', function (event, next) {
+            $rootScope.$on('$stateChangeStart', function (event, next) {                
                 if (next.authenticate && !Auth.isLoggedIn()) {
-                    $location.path('/login');
+                    $state.go('login');
                 }
             });
 
