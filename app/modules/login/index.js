@@ -1,14 +1,14 @@
 'use strict';
 
-define(['app'], function(app) {
-    app.controller('LoginCtrl',[
+define(['app'], function (app) {
+    app.controller('LoginCtrl', [
         '$scope',
-        'Auth',
         '$location',
-        function($scope, Auth, $location) {
+        'Auth',        
+        function ($scope, $location, Auth) {
             $scope.user = {};
             $scope.errors = {};
-            $scope.login = function(form) {
+            $scope.login = function (form) {
 
                 $scope.submitted = true;
 
@@ -16,14 +16,20 @@ define(['app'], function(app) {
                     Auth.login({
                         username: $scope.user.username,
                         password: $scope.user.password
-                    }).then(function() {
+                    }).then(function () {
                         // Logged in, redirect to home
                         $location.path('/');
                     }).
-                    catch (function(err) {
+                    catch(function (err) {
                         err = err.data;
                         $scope.errors.other = err.message;
                     });
+                }
+            };
+
+            $scope.checkState = function () {
+                if (Auth.isLoggedIn()) {
+                    $location.path('/');
                 }
             };
         }
