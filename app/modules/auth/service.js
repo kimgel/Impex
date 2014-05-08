@@ -38,6 +38,7 @@ define(['app'], function (app) {
 
                     return Session.delete(
                         function () {
+                            $cookieStore.remove('user');
                             $rootScope.currentUser = null;
                             return cb();
                         },
