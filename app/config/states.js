@@ -168,28 +168,32 @@ define([], function () {
             /* Settings User
             =================================================================== */
             ,
-            '/settings/user': {
+            'settings_user': {
+                url: '/settings/user',
                 templateUrl: '/modules/user/list.html',
                 dependencies: [
                     'modules/user/list'
                 ],
                 authenticate: true
             },
-            '/settings/user/add': {
+            'settings_user_add': {
+                url: '/settings/user/add',
                 templateUrl: '/modules/user/add.html',
                 dependencies: [
                     'modules/user/add'
                 ],
                 authenticate: true
             },
-            '/settings/user/:userId': {
+            'settings_user_view': {
+                url: '/settings/user/:userId',
                 templateUrl: '/modules/user/view.html',
                 dependencies: [
                     'modules/user/view'
                 ],
                 authenticate: true
             },
-            '/settings/user/:userId/edit': {
+            'settings_user_edit': {
+                url: '/settings/user/:userId/edit',
                 templateUrl: '/modules/user/edit.html',
                 dependencies: [
                     'modules/user/edit'
