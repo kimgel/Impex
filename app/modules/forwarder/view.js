@@ -4,12 +4,12 @@ define(['app', 'Forwarders'], function(app, Forwarders) {
     app.controller('ForwarderView', [
         '$scope',
         '$location',
-        '$routeParams',
+        '$stateParams',
         'ForwardersFactory',
-        function($scope, $location, $routeParams, ForwardersFactory) {
+        function($scope, $location, $stateParams, ForwardersFactory) {
             $scope.findOne = function() {
                 ForwardersFactory.get({
-                    forwarderId: $routeParams.forwarderId                 
+                    forwarderId: $stateParams.forwarderId                 
                 }, function(forwarder) {
                     $scope.forwarder = forwarder;                    
                 });

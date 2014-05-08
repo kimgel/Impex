@@ -4,9 +4,9 @@ define(['app', 'Forwarders'], function(app, Forwarders) {
     app.controller('ForwarderEdit', [
         '$scope',
         '$location',
-        '$routeParams',
+        '$stateParams',
         'ForwardersFactory',
-        function($scope, $location, $routeParams, ForwardersFactory) {            
+        function($scope, $location, $stateParams, ForwardersFactory) {            
             $scope.update = function(form) {          
                 ForwardersFactory.update($scope.forwarder, function(err) {
                     if (err.errors) {
@@ -21,7 +21,7 @@ define(['app', 'Forwarders'], function(app, Forwarders) {
 
             $scope.findOne = function() {
                 ForwardersFactory.get({
-                    forwarderId: $routeParams.forwarderId
+                    forwarderId: $stateParams.forwarderId
                 }, function(forwarder) {
                     $scope.forwarder = forwarder;
                 });

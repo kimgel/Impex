@@ -132,28 +132,32 @@ define([], function () {
             /* Settings Forwarder
             =================================================================== */
             ,
-            '/settings/forwarder': {
+            'settings_forwarder': {
+                url: '/settings/forwarder',
                 templateUrl: '/modules/forwarder/list.html',
                 dependencies: [
                     'modules/forwarder/list'
                 ],
                 authenticate: true
             },
-            '/settings/forwarder/add': {
+            'settings_forwarder_add': {
+                url: '/settings/forwarder/add',
                 templateUrl: '/modules/forwarder/add.html',
                 dependencies: [
                     'modules/forwarder/add'
                 ],
                 authenticate: true
             },
-            '/settings/forwarder/:forwarderId': {
+            'settings_forwarder_view': {
+                url: '/settings/forwarder/:forwarderId',
                 templateUrl: '/modules/forwarder/view.html',
                 dependencies: [
                     'modules/forwarder/view'
                 ],
                 authenticate: true
             },
-            '/settings/forwarder/:forwarderId/edit': {
+            'settings_forwarder_edit': {
+                url: '/settings/forwarder/:forwarderId/edit',
                 templateUrl: '/modules/forwarder/edit.html',
                 dependencies: [
                     'modules/forwarder/edit'
