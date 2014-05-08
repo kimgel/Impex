@@ -8,6 +8,7 @@ define(['Routes', 'Dependency'],
 
         app.config([
             '$routeProvider',
+            '$httpProvider',
             '$locationProvider',
             '$controllerProvider',
             '$compileProvider',
@@ -15,6 +16,7 @@ define(['Routes', 'Dependency'],
             '$provide',
             function (
                 $routeProvider,
+                $httpProvider,
                 $locationProvider,
                 $controllerProvider,
                 $compileProvider,
@@ -29,12 +31,34 @@ define(['Routes', 'Dependency'],
 
                 $locationProvider.html5Mode(true);
 
+                var interceptor = ['$q', '$location', '$rootScope',
+                    function ($q, $location, $rootScope) {
+                        function success(response) {
+                            return response;
+                        }
+
+                        function error(response) {
+                            var status = response.status;
+                            if (status == 401) {
+                                $location.path('/login');
+                            }
+                            return $q.reject(response);
+                        }
+
+                        return function (promise) {
+                            return promise.then(success, error);
+                        }
+                    }
+                ];
+                $httpProvider.responseInterceptors.push(interceptor);
+
+
                 if (Routes.routes !== undefined) {
                     angular.forEach(Routes.routes, function (route, path) {
                         $routeProvider.when(
                             path, {
                                 templateUrl: route.templateUrl,
-                                resolve: Dependency(route.dependencies),
+                                resolve: new Dependency(route.dependencies),
                                 authenticate: route.authenticate
                             }
                         );
@@ -48,44 +72,17 @@ define(['Routes', 'Dependency'],
             }
         ]);
 
-        app.config(function ($httpProvider) {
-
-            var logsOutUserOn401 = [
-                '$q', '$location',
-                function ($q, $location) {
-                    var success = function (response) {
-                        return response;
-                    };
-
-                    var error = function (response) {
-                        if (response.status === 401) {
-                            //redirect them back to login page
-                            $location.path('/login');
-
-                            return $q.reject(response);
-                        } else {
-                            return $q.reject(response);
-                        }
-                    };
-                    return function (promise) {
-                        return promise.then(success, error);
-                    };
-                }
-            ];
-
-            $httpProvider.responseInterceptors.push(logsOutUserOn401);
-        });
-
-
         app.run(function ($http, $cookies, $rootScope, $location, Auth) {
             $http.defaults.headers.common['x-csrf-token'] = $cookies._csrf;
-            
-            $rootScope.$on('$routeChangeStart', function (event, next, current) {
+
+            $rootScope.$on('$routeChangeStart', function (event, next) {
                 if (next.authenticate && !Auth.isLoggedIn()) {
-                    event.preventDefault();
                     $location.path('/login');
                 }
             });
+
+
+
         });
 
         return app;
