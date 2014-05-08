@@ -4,14 +4,14 @@ define(['app', 'Items'], function(app, Items) {
     app.controller('ItemView', [
         '$scope',
         '$location',
-        '$routeParams',
+        '$stateParams',
         'ItemsFactory',
-        function($scope, $location, $routeParams, ItemsFactory) {
+        function($scope, $location, $stateParams, ItemsFactory) {
             $scope.docs = [];
             $scope.view = true;
             $scope.findOne = function() {
                 ItemsFactory.get({
-                    itemId: $routeParams.itemId                 
+                    itemId: $stateParams.itemId                 
                 }, function(item) {
                     $scope.item = item;      
                     $scope.docs = $scope.item.documents;              

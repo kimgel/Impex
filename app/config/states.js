@@ -31,7 +31,7 @@ define([], function () {
                 ],
                 authenticate: true
             },
-            'settings_item.add': {
+            'settings_item_add': {
                 url: '/settings/item/add',
                 templateUrl: '/modules/item/add.html',
                 dependencies: [
@@ -39,7 +39,7 @@ define([], function () {
                 ],
                 authenticate: true
             },
-            'settings_item.view': {
+            'settings_item_view': {
                 url: '/settings/item/:itemId',
                 templateUrl: '/modules/item/view.html',
                 dependencies: [
@@ -47,7 +47,7 @@ define([], function () {
                 ],
                 authenticate: true
             },
-            'settings_item.edit': {
+            'settings_item_edit': {
                 url: '/settings/item/:itemId/edit',
                 templateUrl: '/modules/settings/item/edit.html',
                 dependencies: [
