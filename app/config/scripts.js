@@ -7,6 +7,7 @@ require.config({
         'Routes': '/config/routes',
         'Router': '/config/router',
         'Dependency': '/config/dependency',
+        'Init': '/config/init',
 
         /* 3rd Party
         =================================================================== */
@@ -30,9 +31,6 @@ require.config({
         'Items': '/modules/item/service',
         'Planners': '/modules/initiateimport/planner/service',
 
-        /* Directives
-        =================================================================== */
-        'Navigation': '/directives/navigation'
     },
     shim: {
         'app': {
@@ -71,7 +69,7 @@ require.config({
     }
 });
 
-require(['app', 'Users', 'Auth', 'Session', 'Navigation'],
+require(['app', 'Users', 'Auth', 'Session', 'Init'],
     function (app) {
         angular.bootstrap(document, ['app']);
     }
