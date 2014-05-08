@@ -59,28 +59,32 @@ define([], function () {
             /* Settings Broker
             =================================================================== */
             ,
-            '/settings/broker': {
+            'settings_broker': {
+                url: '/settings/broker',
                 templateUrl: '/modules/broker/list.html',
                 dependencies: [
                     'modules/broker/list'
                 ],
                 authenticate: true
             },
-            '/settings/broker/add': {
+            'settings_broker_add': {
+                url: '/settings/broker/add',
                 templateUrl: '/modules/broker/add.html',
                 dependencies: [
                     'modules/broker/add'
                 ],
                 authenticate: true
             },
-            '/settings/broker/:brokerId': {
+            'settings_broker_view': {
+                url: '/settings/broker/:brokerId',
                 templateUrl: '/modules/broker/view.html',
                 dependencies: [
                     'modules/broker/view'
                 ],
                 authenticate: true
             },
-            '/settings/broker/:brokerId/edit': {
+            'settings_broker_edit': {
+                url: '/settings/broker/:brokerId/edit',
                 templateUrl: '/modules/broker/edit.html',
                 dependencies: [
                     'modules/broker/edit'

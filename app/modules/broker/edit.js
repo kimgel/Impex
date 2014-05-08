@@ -4,9 +4,9 @@ define(['app', 'Brokers'], function(app, Brokers) {
     app.controller('BrokerEdit', [
         '$scope',
         '$location',
-        '$routeParams',
+        '$stateParams',
         'BrokersFactory',
-        function($scope, $location, $routeParams, BrokersFactory) {            
+        function($scope, $location, $stateParams, BrokersFactory) {            
             $scope.update = function(form) {       
                 BrokersFactory.update($scope.broker, function(err) {
                     if (err.errors) {
@@ -21,7 +21,7 @@ define(['app', 'Brokers'], function(app, Brokers) {
 
             $scope.findOne = function() {
                 BrokersFactory.get({
-                    brokerId: $routeParams.brokerId
+                    brokerId: $stateParams.brokerId
                 }, function(broker) {
                     $scope.broker = broker;
                 });

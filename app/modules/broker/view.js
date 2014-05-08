@@ -4,12 +4,12 @@ define(['app', 'Brokers'], function(app, Brokers) {
     app.controller('BrokerView', [
         '$scope',
         '$location',
-        '$routeParams',
+        '$stateParams',
         'BrokersFactory',
-        function($scope, $location, $routeParams, BrokersFactory) {
+        function($scope, $location, $stateParams, BrokersFactory) {
             $scope.findOne = function() {
                 BrokersFactory.get({
-                    brokerId: $routeParams.brokerId                 
+                    brokerId: $stateParams.brokerId                 
                 }, function(broker) {
                     $scope.broker = broker;                    
                 });
