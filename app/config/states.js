@@ -1,385 +1,372 @@
 'use strict';
 
-define([], function () {
+define(['Dependency'], function (Dependency) {
     return {
         defaultStatePath: '/',
         states: {
-            'login': {
-                url: '/login',
-                templateUrl: '/modules/login/index.html',
-                dependencies: [
-                    'modules/login/index'
-                ]
+            
+            /* Parents
+            =================================================================== */            
+            root: {
+                name: 'root', 
+                abstract: true,
+                template: '<ui-view/>',
+                views: {
+                    'header@': {
+                        templateUrl: '/modules/common/header/main.html'
+                    },
+                    'navigation@': {
+                        templateUrl: '/modules/common/sidenav/main.html'
+                    }
+                }
             },
-            'statusboard': {
+            settings: {
+                name: 'settings',
+                abstract: true,
+                template: '<ui-view/>',
+                views: {
+                    'header@': {
+                        templateUrl: '/modules/common/header/main.html'
+                    },
+                    'navigation@': {
+                        templateUrl: '/modules/common/sidenav/settings.html'
+                    }
+                }
+            },
+            
+            /* Login 
+            =================================================================== */
+            login: {
+                name: 'login',
+                url: '/login',
+                parent: '',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/login/index.html'
+                    }
+                },
+                resolve: new Dependency([
+                    'modules/login/index'
+                ]),
+                authenticate: false
+            },
+            
+            /* Statusboard 
+            =================================================================== */
+            statusboard: {
+                name: 'statusboard',
                 url: '/',
-                templateUrl: '/modules/statusboard/index.html',
-                dependencies: [
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/statusboard/index.html'
+                    }
+                },
+                resolve: new Dependency([
                     'modules/statusboard/index'
-                ],
+                ]),
                 authenticate: true
             }
-
+            
             /* Settings Item
             =================================================================== */
             ,
-            'settings_item': {
+            settings_item: {
+                name: 'settings_item',
                 url: '/settings/item',
-                templateUrl: '/modules/item/list.html',
-                dependencies: [
+                parent: 'settings',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/item/list.html'
+                    }
+                },
+                resolve: new Dependency([
                     'modules/item/list'
-                ],
+                ]),
                 authenticate: true
             },
-            'settings_item_add': {
+            settings_item_add: {
+                name: 'settings_item_add',
                 url: '/settings/item/add',
-                templateUrl: '/modules/item/add.html',
-                dependencies: [
+                parent: 'settings',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/item/add.html'
+                    }
+                },
+                resolve: new Dependency([
                     'modules/item/add'
-                ],
+                ]),
                 authenticate: true
             },
-            'settings_item_view': {
+            settings_item_view: {
+                name: 'settings_item_view',
                 url: '/settings/item/:itemId',
-                templateUrl: '/modules/item/view.html',
-                dependencies: [
+                parent: 'settings',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/item/view.html'
+                    }
+                },
+                resolve: new Dependency([
                     'modules/item/view'
-                ],
+                ]),
                 authenticate: true
             },
-            'settings_item_edit': {
+            settings_item_edit: {
+                name: 'settings_item_edit',
                 url: '/settings/item/:itemId/edit',
-                templateUrl: '/modules/settings/item/edit.html',
-                dependencies: [
+                parent: 'settings',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/item/edit.html'
+                    }
+                },
+                resolve: new Dependency([
                     'modules/item/edit'
-                ],
+                ]),
                 authenticate: true
             }
-
+            
             /* Settings Broker
-            =================================================================== */
-            ,
-            'settings_broker': {
-                url: '/settings/broker',
-                templateUrl: '/modules/broker/list.html',
-                dependencies: [
-                    'modules/broker/list'
-                ],
-                authenticate: true
-            },
-            'settings_broker_add': {
-                url: '/settings/broker/add',
-                templateUrl: '/modules/broker/add.html',
-                dependencies: [
-                    'modules/broker/add'
-                ],
-                authenticate: true
-            },
-            'settings_broker_view': {
-                url: '/settings/broker/:brokerId',
-                templateUrl: '/modules/broker/view.html',
-                dependencies: [
-                    'modules/broker/view'
-                ],
-                authenticate: true
-            },
-            'settings_broker_edit': {
-                url: '/settings/broker/:brokerId/edit',
-                templateUrl: '/modules/broker/edit.html',
-                dependencies: [
-                    'modules/broker/edit'
-                ],
-                authenticate: true
-            }
-
+			=================================================================== */
+			,
+			settings_broker: {
+			    name: 'settings_broker',
+			    url: '/settings/broker',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/broker/list.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/broker/list'
+			    ]),
+			    authenticate: true
+			},
+			settings_broker_add: {
+			    name: 'settings_broker_add',
+			    url: '/settings/broker/add',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/broker/add.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/broker/add'
+			    ]),
+			    authenticate: true
+			},
+			settings_broker_view: {
+			    name: 'settings_broker_view',
+			    url: '/settings/broker/:brokerId',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/broker/view.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/broker/view'
+			    ]),
+			    authenticate: true
+			},
+			settings_broker_edit: {
+			    name: 'settings_broker_edit',
+			    url: '/settings/broker/:brokerId/edit',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/broker/edit.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/broker/edit'
+			    ]),
+			    authenticate: true
+			}
+            
             /* Settings Supplier
-            =================================================================== */
-            ,
-            'settings_supplier': {
-                url: '/settings/supplier',
-                templateUrl: '/modules/supplier/list.html',
-                dependencies: [
-                    'modules/supplier/list'
-                ],
-                authenticate: true
-            },
-            'settings_supplier_add': {
-                url: '/settings/supplier/add',
-                templateUrl: '/modules/supplier/add.html',
-                dependencies: [
-                    'modules/supplier/add'
-                ],
-                authenticate: true
-            },
-            'settings_supplier_view': {
-                url: '/settings/supplier/:supplierId',
-                templateUrl: '/modules/supplier/view.html',
-                dependencies: [
-                    'modules/supplier/view'
-                ],
-                authenticate: true
-            },
-            'settings_supplier_edit': {
-                url: '/settings/supplier/:supplierId/edit',
-                templateUrl: '/modules/supplier/edit.html',
-                dependencies: [
-                    'modules/supplier/edit'
-                ],
-                authenticate: true
-            }
-
-
+			=================================================================== */
+			,
+			settings_supplier: {
+			    name: 'settings_supplier',
+			    url: '/settings/supplier',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/supplier/list.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/supplier/list'
+			    ]),
+			    authenticate: true
+			},
+			settings_supplier_add: {
+			    name: 'settings_supplier_add',
+			    url: '/settings/supplier/add',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/supplier/add.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/supplier/add'
+			    ]),
+			    authenticate: true
+			},
+			settings_supplier_view: {
+			    name: 'settings_supplier_view',
+			    url: '/settings/supplier/:supplierId',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/supplier/view.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/supplier/view'
+			    ]),
+			    authenticate: true
+			},
+			settings_supplier_edit: {
+			    name: 'settings_supplier_edit',
+			    url: '/settings/supplier/:supplierId/edit',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/supplier/edit.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/supplier/edit'
+			    ]),
+			    authenticate: true
+			}
+            
             /* Settings Forwarder
-            =================================================================== */
-            ,
-            'settings_forwarder': {
-                url: '/settings/forwarder',
-                templateUrl: '/modules/forwarder/list.html',
-                dependencies: [
-                    'modules/forwarder/list'
-                ],
-                authenticate: true
-            },
-            'settings_forwarder_add': {
-                url: '/settings/forwarder/add',
-                templateUrl: '/modules/forwarder/add.html',
-                dependencies: [
-                    'modules/forwarder/add'
-                ],
-                authenticate: true
-            },
-            'settings_forwarder_view': {
-                url: '/settings/forwarder/:forwarderId',
-                templateUrl: '/modules/forwarder/view.html',
-                dependencies: [
-                    'modules/forwarder/view'
-                ],
-                authenticate: true
-            },
-            'settings_forwarder_edit': {
-                url: '/settings/forwarder/:forwarderId/edit',
-                templateUrl: '/modules/forwarder/edit.html',
-                dependencies: [
-                    'modules/forwarder/edit'
-                ],
-                authenticate: true
-            }
-
+			=================================================================== */
+			,
+			settings_forwarder: {
+			    name: 'settings_forwarder',
+			    url: '/settings/forwarder',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/forwarder/list.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/forwarder/list'
+			    ]),
+			    authenticate: true
+			},
+			settings_forwarder_add: {
+			    name: 'settings_forwarder_add',
+			    url: '/settings/forwarder/add',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/forwarder/add.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/forwarder/add'
+			    ]),
+			    authenticate: true
+			},
+			settings_forwarder_view: {
+			    name: 'settings_forwarder_view',
+			    url: '/settings/forwarder/:forwarderId',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/forwarder/view.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/forwarder/view'
+			    ]),
+			    authenticate: true
+			},
+			settings_forwarder_edit: {
+			    name: 'settings_forwarder_edit',
+			    url: '/settings/forwarder/:forwarderId/edit',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/forwarder/edit.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/forwarder/edit'
+			    ]),
+			    authenticate: true
+			}
+            
             /* Settings User
-            =================================================================== */
-            ,
-            'settings_user': {
-                url: '/settings/user',
-                templateUrl: '/modules/user/list.html',
-                dependencies: [
-                    'modules/user/list'
-                ],
-                authenticate: true
-            },
-            'settings_user_add': {
-                url: '/settings/user/add',
-                templateUrl: '/modules/user/add.html',
-                dependencies: [
-                    'modules/user/add'
-                ],
-                authenticate: true
-            },
-            'settings_user_view': {
-                url: '/settings/user/:userId',
-                templateUrl: '/modules/user/view.html',
-                dependencies: [
-                    'modules/user/view'
-                ],
-                authenticate: true
-            },
-            'settings_user_edit': {
-                url: '/settings/user/:userId/edit',
-                templateUrl: '/modules/user/edit.html',
-                dependencies: [
-                    'modules/user/edit'
-                ],
-                authenticate: true
-            }
-
-
-            /* Initiate Import Planner
-            =================================================================== */
-            ,
-            'initiateimport_planner': {
-                url: '/initiateimport/planner',
-                templateUrl: '/modules/initiateimport/planner/list.html',
-                dependencies: [
-                    'modules/initiateimport/planner/list'
-                ],
-                authenticate: true
-            },
-            'initiateimport_planner_add': {
-                url: '/initiateimport/planner/add',
-                templateUrl: '/modules/initiateimport/planner/add.html',
-                dependencies: [
-                    'modules/initiateimport/planner/add'
-                ],
-                authenticate: true
-            },
-            'initiateimport_planner_view': {
-                url: '/initiateimport/planner/:plannerId',
-                templateUrl: '/modules/initiateimport/planner/add.html',
-                dependencies: [
-                    'modules/initiateimport/planner/add'
-                ],
-                authenticate: true
-            }
-
-            /* Initiate Import Broker
-            =================================================================== */
-            ,
-            '/initiateimport/broker': {
-                templateUrl: '/modules/initiateimport/broker/list.html',
-                dependencies: [
-                    'modules/initiateimport/broker/list'
-                ],
-                authenticate: true
-            },
-            '/initiateimport/broker/add': {
-                templateUrl: '/modules/initiateimport/broker/add.html',
-                dependencies: [
-                    'modules/initiateimport/broker/add'
-                ],
-                authenticate: true
-            }
-
-            /* Assign Forwarder
-            =================================================================== */
-            ,
-            '/assignforwarder': {
-                templateUrl: '/modules/assignforwarder/list.html',
-                dependencies: [
-                    'modules/assignforwarder/list'
-                ],
-                authenticate: true
-            },
-            '/assignforwarder/add': {
-                templateUrl: '/modules/assignforwarder/add.html',
-                dependencies: [
-                    'modules/assignforwarder/add'
-                ],
-                authenticate: true
-            }
-
-            /* Shipment Detail
-            =================================================================== */
-            ,
-            '/shipmentdetail': {
-                templateUrl: '/modules/shipmentdetail/list.html',
-                dependencies: [
-                    'modules/shipmentdetail/list'
-                ],
-                authenticate: true
-            },
-            '/shipmentdetail/add': {
-                templateUrl: '/modules/shipmentdetail/add.html',
-                dependencies: [
-                    'modules/shipmentdetail/add'
-                ],
-                authenticate: true
-            }
-
-            /* Shipment Departure
-            =================================================================== */
-            ,
-            '/shipmentdeparture': {
-                templateUrl: '/modules/shipmentdeparture/list.html',
-                dependencies: [
-                    'modules/shipmentdeparture/list'
-                ],
-                authenticate: true
-            },
-            '/shipmentdeparture/add': {
-                templateUrl: '/modules/shipmentdeparture/add.html',
-                dependencies: [
-                    'modules/shipmentdeparture/add'
-                ],
-                authenticate: true
-            }
-
-            /* Foreign Invoice
-            =================================================================== */
-            ,
-            '/foreigninvoice': {
-                templateUrl: '/modules/foreigninvoice/list.html',
-                dependencies: [
-                    'modules/foreigninvoice/list'
-                ],
-                authenticate: true
-            },
-            '/foreigninvoice/add': {
-                templateUrl: '/modules/foreigninvoice/add.html',
-                dependencies: [
-                    'modules/foreigninvoice/add'
-                ],
-                authenticate: true
-            }
-
-            /* Customs Clearance
-            =================================================================== */
-            ,
-            '/customsclearance': {
-                templateUrl: '/modules/customsclearance/list.html',
-                dependencies: [
-                    'modules/customsclearance/list'
-                ],
-                authenticate: true
-            },
-            '/customsclearance/add': {
-                templateUrl: '/modules/customsclearance/add.html',
-                dependencies: [
-                    'modules/customsclearance/add'
-                ],
-                authenticate: true
-            }
-
-            /* Delivery
-            =================================================================== */
-            ,
-            '/delivery': {
-                templateUrl: '/modules/delivery/list.html',
-                dependencies: [
-                    'modules/delivery/list'
-                ],
-                authenticate: true
-            },
-            '/delivery/add': {
-                templateUrl: '/modules/delivery/add.html',
-                dependencies: [
-                    'modules/delivery/add'
-                ],
-                authenticate: true
-            }
-
-            /* Customs Charges
-            =================================================================== */
-            ,
-            '/customscharges/fclcharges': {
-                templateUrl: '/modules/customscharges/fclcharges/add.html',
-                dependencies: [
-                    'modules/customscharges/fclcharges/add'
-                ],
-                authenticate: true
-            },
-            '/customscharges/lclcharges': {
-                templateUrl: '/modules/customscharges/lclcharges/add.html',
-                dependencies: [
-                    'modules/customscharges/lclcharges/add'
-                ],
-                authenticate: true
-            },
-            '/customscharges/aircharges': {
-                templateUrl: '/modules/customscharges/aircharges/add.html',
-                dependencies: [
-                    'modules/customscharges/aircharges/add'
-                ],
-                authenticate: true
-            }
+			=================================================================== */
+			,
+			settings_user: {
+			    name: 'settings_user',
+			    url: '/settings/user',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/user/list.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/user/list'
+			    ]),
+			    authenticate: true
+			},
+			settings_user_add: {
+			    name: 'settings_user_add',
+			    url: '/settings/user/add',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/user/add.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/user/add'
+			    ]),
+			    authenticate: true
+			},
+			settings_user_view: {
+			    name: 'settings_user_view',
+			    url: '/settings/user/:userId',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/user/view.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/user/view'
+			    ]),
+			    authenticate: true
+			},
+			settings_user_edit: {
+			    name: 'settings_user_edit',
+			    url: '/settings/user/:userId/edit',
+			    parent: 'settings',
+			    views: {
+			        '@': {
+			            templateUrl: '/modules/user/edit.html'
+			        }
+			    },
+			    resolve: new Dependency([
+			        'modules/user/edit'
+			    ]),
+			    authenticate: true
+			}
         }
     };
 });
