@@ -12,11 +12,17 @@
 </head>
 
 <body>
+    <!--
     <div ng-controller="IncludeCtrl">
         <div ng-include="'modules/common/header/main'"></div>
         <div ng-include="'modules/common/sidenav/main'"></div>
     </div>
-    <div ui-view></div>
+    -->
+    <div ui-view="header"></div>
+    <div ui-view="navigation"></div>
+    <div ui-view>
+    
+    </div>
     
 </body>
 
