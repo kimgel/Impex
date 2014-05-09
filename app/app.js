@@ -1,7 +1,7 @@
 'use strict';
 
-define(['States', 'Dependency'],
-    function (States, Dependency) {
+define(['States'],
+    function (States) {
         var app = angular.module('app', [
             'ngCookies', 'ngResource', 'ngSanitize', 'ui.router', 'ngAnimate', 'mgcrea.ngStrap'
         ]);
@@ -54,17 +54,9 @@ define(['States', 'Dependency'],
                 ];
                 $httpProvider.responseInterceptors.push(interceptor);
 
-
                 if (States.states !== undefined) {
-                    angular.forEach(States.states, function (param, name) {
-                        $stateProvider.state(
-                            name, {
-                                url: param.url,
-                                templateUrl: param.templateUrl,
-                                resolve: new Dependency(param.dependencies),
-                                authenticate: param.authenticate
-                            }
-                        );
+                    angular.forEach(States.states, function (state) {     
+                        $stateProvider.state(state);
                     });
                 }
                 if (States.defaultStatePath !== undefined) {
@@ -76,8 +68,9 @@ define(['States', 'Dependency'],
         app.run(function ($http, $state, $cookies, $rootScope, Auth) {
             $http.defaults.headers.common['x-csrf-token'] = $cookies._csrf;
 
-            $rootScope.$on('$stateChangeStart', function (event, next) {                
+            $rootScope.$on('$stateChangeStart', function (event, next) {
                 if (next.authenticate && !Auth.isLoggedIn()) {
+                    event.preventDefault();
                     $state.go('login');
                 }
             });
