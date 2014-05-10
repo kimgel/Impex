@@ -18,6 +18,7 @@ require.config({
         'angular-animate': '/assets/bower_components/angular-animate/angular-animate.min',
         'angular-strap': '/assets/bower_components/angular-strap/dist/angular-strap.min',
         'angular-strap-tpl': '/assets/bower_components/angular-strap/dist/angular-strap.tpl.min',
+        'angular-loading-bar': '/assets/bower_components/angular-loading-bar/build/loading-bar.min',
 
         /* Services
         =================================================================== */
@@ -41,7 +42,8 @@ require.config({
                 'angular-ui-router',
                 'angular-animate',
                 'angular-strap',
-                'angular-strap-tpl'
+                'angular-strap-tpl',
+                'angular-loading-bar',
             ]
         },
         'angular-resource': {
@@ -64,6 +66,12 @@ require.config({
         },
         'angular-strap-tpl': {
             deps: ['angular-strap']
+        },
+        'angular-loading-bar': {
+            deps: [
+                'angular',
+                'angular-animate'
+            ]
         }
     }
 });

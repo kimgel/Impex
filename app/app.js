@@ -3,7 +3,7 @@
 define(['States'],
     function (States) {
         var app = angular.module('app', [
-            'ngCookies', 'ngResource', 'ngSanitize', 'ui.router', 'ngAnimate', 'mgcrea.ngStrap'
+            'ngCookies', 'ngResource', 'ngSanitize', 'ui.router', 'ngAnimate', 'mgcrea.ngStrap', 'chieffancypants.loadingBar'
         ]);
 
         app.config([
@@ -15,6 +15,7 @@ define(['States'],
             '$compileProvider',
             '$filterProvider',
             '$provide',
+            'cfpLoadingBarProvider',
             function (
                 $stateProvider,
                 $urlRouterProvider,
@@ -23,7 +24,8 @@ define(['States'],
                 $controllerProvider,
                 $compileProvider,
                 $filterProvider,
-                $provide
+                $provide,
+                cfpLoadingBarProvider
             ) {
                 app.controller = $controllerProvider.register;
                 app.directive = $compileProvider.directive;
@@ -32,6 +34,7 @@ define(['States'],
                 app.service = $provide.service;
 
                 $locationProvider.html5Mode(true);
+                cfpLoadingBarProvider.includeSpinner = false;
 
                 var interceptor = ['$q', '$location', '$rootScope',
                     function ($q, $location, $rootScope) {
