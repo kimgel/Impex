@@ -16,7 +16,11 @@ define(['Dependency'], function (Dependency) {
                     'navigation@': {
                         templateUrl: '/modules/common/sidenav/main.html'
                     }
-                }
+                },
+                resolve: new Dependency([
+                    'modules/common/header/main',
+                    'modules/common/sidenav/main'
+                ])
             },
             settings: {
                 name: 'settings',
@@ -344,6 +348,21 @@ define(['Dependency'], function (Dependency) {
                 },
                 resolve: new Dependency([
                    'modules/user/edit'
+                ]),
+                authenticate: true
+            },
+             /* ======= Settings User ======= */
+            initiate_import_planner: {
+                name: 'initiate_import_planner',
+                url: '/initiateimport/planner',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/initiateimport/planner/list.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/initiateimport/planner/list'
                 ]),
                 authenticate: true
             }
