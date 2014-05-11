@@ -7,20 +7,12 @@ define(['States'],
         ]);
 
         app.config([
-            '$stateProvider',
-            '$urlRouterProvider',
-            '$httpProvider',
-            '$locationProvider',
             '$controllerProvider',
             '$compileProvider',
             '$filterProvider',
             '$provide',
             'cfpLoadingBarProvider',
             function (
-                $stateProvider,
-                $urlRouterProvider,
-                $httpProvider,
-                $locationProvider,
                 $controllerProvider,
                 $compileProvider,
                 $filterProvider,
@@ -33,9 +25,26 @@ define(['States'],
                 app.factory = $provide.factory;
                 app.service = $provide.service;
 
-                $locationProvider.html5Mode(true);
                 cfpLoadingBarProvider.includeSpinner = false;
 
+            }
+        ]);
+
+        app.config([
+            '$stateProvider',
+            '$urlRouterProvider',
+            '$httpProvider',
+            '$locationProvider',
+            '$provide',
+            function (
+                $stateProvider,
+                $urlRouterProvider,
+                $httpProvider,
+                $locationProvider,
+                $provide
+            ) {
+                $locationProvider.html5Mode(true);
+                    
                 var interceptor = ['$q', '$location', '$rootScope',
                     function ($q, $location, $rootScope) {
                         function success(response) {
@@ -55,10 +64,11 @@ define(['States'],
                         }
                     }
                 ];
+
                 $httpProvider.responseInterceptors.push(interceptor);
 
                 if (States.states !== undefined) {
-                    angular.forEach(States.states, function (state) {     
+                    angular.forEach(States.states, function (state) {
                         $stateProvider.state(state);
                     });
                 }
@@ -66,6 +76,7 @@ define(['States'],
                     $urlRouterProvider.otherwise(States.defaultStatePath);
                 }
             }
+
         ]);
 
         app.run(function ($http, $state, $cookies, $rootScope, Auth) {
@@ -77,8 +88,6 @@ define(['States'],
                     $state.go('login');
                 }
             });
-
-
 
         });
 
