@@ -1,4 +1,4 @@
-<div id="sidebar-left">
+<div id="sidebar-left" ng-controller="MainNavCtrl">
     <div class="search-box">
         <input type="text" class="search" placeholder="Enter Impex/PO number..." />
     </div>
@@ -7,64 +7,42 @@
             <li>
                 <a href="/" active-path>
                     <i class="fa fa-dashboard"></i>Status Board
-                    <span class="active-ptr"><i class="fa fa-sort-asc fa-rotate-90"></i>
-                    </span>
                 </a>
             </li>
             <li>
-                <a href="/initiateimport/planner" active-path>
+                <a href="javascript:;" data-container="body" placement="right" bs-dropdown="initiateimportDd" active-path>
                     <i class="fa fa-pencil-square-o"></i>Initiate Import
-                    <span class="active-ptr"><i class="fa fa-sort-asc fa-rotate-90"></i>
-                    </span>
+                    <i class="fa fa-angle-right"></i>
                 </a>
-                <!--
-                <a href="/initiateimport/broker" active-path>
-                    <i class="fa fa-chain"></i>Broker
-                    <span class="active-ptr"><i class="fa fa-sort-asc fa-rotate-90"></i>
-                    </span>
-                </a>
-                -->
             </li>
             <li>
                 <a href="/assignforwarder" active-path>
                     <i class="fa fa-truck"></i>Assign Forwarder
-                    <span class="active-ptr"><i class="fa fa-sort-asc fa-rotate-90"></i>
-                    </span>
                 </a>
             </li>
             <li>
                 <a href="/shipmentdetail" active-path>
                     <i class="fa fa-building-o"></i>Shipment Detail
-                    <span class="active-ptr"><i class="fa fa-sort-asc fa-rotate-90"></i>
-                    </span>
                 </a>
             </li>
             <li>
                 <a href="/shipmentdeparture" active-path>
                     <i class="fa fa-ticket"></i>Shipment Departure
-                    <span class="active-ptr"><i class="fa fa-sort-asc fa-rotate-90"></i>
-                    </span>
                 </a>
             </li>
             <li>
                 <a href="/foreigninvoice" active-path>
                     <i class="fa fa-book"></i>Foreign Invoice
-                    <span class="active-ptr"><i class="fa fa-sort-asc fa-rotate-90"></i>
-                    </span>
                 </a>
             </li>
             <li>
                 <a href="/customsclearance" active-path>
                     <i class="fa fa-check-square-o"></i>Customs Clearance
-                    <span class="active-ptr"><i class="fa fa-sort-asc fa-rotate-90"></i>
-                    </span>
                 </a>
             </li>
             <li>
                 <a href="/delivery" active-path>
-                    <i class="fa fa-road"></i>Delivery
-                    <span class="active-ptr"><i class="fa fa-sort-asc fa-rotate-90"></i>
-                    </span>
+                    <i class="fa fa-road"></i>Delivery                    
                 </a>
             </li>
         </ul>
