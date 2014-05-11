@@ -3,9 +3,11 @@
 define(['app'], function (app) {
     app.controller('LoginCtrl', [
         '$scope',
+        '$state',
         '$location',
-        'Auth',        
-        function ($scope, $location, Auth) {
+        '$http',
+        'Auth',
+        function ($scope, $state, $location, $http, Auth) {
             $scope.user = {};
             $scope.errors = {};
             $scope.login = function (form) {
@@ -17,8 +19,8 @@ define(['app'], function (app) {
                         username: $scope.user.username,
                         password: $scope.user.password
                     }).then(function () {
-                        // Logged in, redirect to home
-                        $location.path('/');
+
+                        $state.go('statusboard', null, { reload: true });
                     }).
                     catch(function (err) {
                         err = err.data;
@@ -29,7 +31,7 @@ define(['app'], function (app) {
 
             $scope.checkState = function () {
                 if (Auth.isLoggedIn()) {
-                    $location.path('/');
+                    $state.go('statusboard', null, { reload: true });
                 }
             };
         }
