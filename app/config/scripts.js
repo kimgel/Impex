@@ -7,6 +7,7 @@ require.config({
         'States': '/config/states',
         'Dependency': '/config/dependency',
         'Init': '/config/init',
+        'Templates': '/config/templates',
 
         /* 3rd Party
         =================================================================== */
@@ -17,7 +18,7 @@ require.config({
         'angular-ui-router': '/assets/bower_components/angular-ui-router/release/angular-ui-router.min',
         'angular-animate': '/assets/bower_components/angular-animate/angular-animate.min',
         'angular-strap': '/assets/bower_components/angular-strap/dist/angular-strap.min',
-        'angular-strap-tpl': '/assets/bower_components/angular-strap/dist/angular-strap.tpl.min',
+        'angular-strap-tpl': '/assets/bower_components/angular-strap/dist/angular-strap.tpl',
         'angular-loading-bar': '/assets/bower_components/angular-loading-bar/build/loading-bar.min',
 
         /* Services
@@ -42,7 +43,7 @@ require.config({
                 'angular-ui-router',
                 'angular-animate',
                 'angular-strap',
-                'angular-strap-tpl',
+                'Templates',
                 'angular-loading-bar',
             ]
         },
@@ -64,7 +65,7 @@ require.config({
         'angular-strap': {
             deps: ['angular']
         },
-        'angular-strap-tpl': {
+        'Templates': {
             deps: ['angular-strap']
         },
         'angular-loading-bar': {
