@@ -5,9 +5,8 @@ define(['app'], function (app) {
         '$scope',
         '$state',
         '$location',
-        '$http',
         'Auth',
-        function ($scope, $state, $location, $http, Auth) {
+        function ($scope, $state, $location, Auth) {
             $scope.user = {};
             $scope.errors = {};
             $scope.login = function (form) {
