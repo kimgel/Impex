@@ -27,12 +27,6 @@ define(['app'], function (app) {
                     });
                 }
             };
-
-            $scope.checkState = function () {
-                if (Auth.isLoggedIn()) {
-                    $state.go('statusboard', null, { reload: true });
-                }
-            };
         }
     ]);
 });
