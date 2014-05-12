@@ -2,24 +2,24 @@
     <div class="search-box">
         <input type="text" class="search" placeholder="Enter Impex/PO number..." />
     </div>
-    <div class="sidebar-nav">
+    <div class="sidebar-nav" bs-navbar>
         <ul class="nav nav-tabs nav-stacked main-menu">
-            <li>
-                <a href="/" active-path>
+            <li data-match-route="/statusboard">
+                <a ui-sref="statusboard">
                     <i class="fa fa-dashboard"></i>Status Board
                 </a>
             </li>
-            <li>
-                <a href="javascript:;" data-container="body" placement="right" bs-dropdown="initiateimportDd" active-path>
+            <li data-match-route="/initiateimport.*">
+                <a href="javascript:;" data-container="body" placement="right" bs-dropdown="initiateimportDd">
                     <i class="fa fa-pencil-square-o"></i>Initiate Import
                     <i class="fa fa-angle-right"></i>
                 </a>
             </li>
             <li>
-                <a href="/assignforwarder" active-path>
+                <a href="/assignforwarder" data-parent="assignforwarder" active-path>
                     <i class="fa fa-truck"></i>Assign Forwarder
                 </a>
-            </li>
+            </li>            
             <li>
                 <a href="/shipmentdetail" active-path>
                     <i class="fa fa-building-o"></i>Shipment Detail
