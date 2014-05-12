@@ -54,3 +54,10 @@
 .toUpper{
     text-transform: uppercase;
 }
+.section-title{
+    margin-bottom: 0;
+}
+.sub-header{
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}

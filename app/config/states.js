@@ -65,7 +65,7 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            /* ======= Settings ======= */
+            /* ======= Settings: Item======= */
             settings_item: {
                 name: 'settings_item',
                 url: '/settings/item',
@@ -122,7 +122,7 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            /* ======= Settings Broker======= */
+            /* ======= Settings: Broker======= */
             settings_broker: {
                 name: 'settings_broker',
                 url: '/settings/broker',
@@ -180,7 +180,7 @@ define(['Dependency'], function (Dependency) {
                 authenticate: true
             },
 
-            /* ======= Settings Supplier ======= */
+            /* ======= Settings: Supplier ======= */
             settings_supplier: {
                 name: 'settings_supplier',
                 url: '/settings/supplier',
@@ -237,7 +237,7 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            /* ======= Settings Forwarder ======= */
+            /* ======= Settings: Forwarder ======= */
             settings_forwarder: {
                 name: 'settings_forwarder',
                 url: '/settings/forwarder',
@@ -294,7 +294,7 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            /* ======= Settings User ======= */
+            /* ======= Settings: User ======= */
             settings_user: {
                 name: 'settings_user',
                 url: '/settings/user',
@@ -351,7 +351,7 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-             /* ======= Settings User ======= */
+            /* ======= Initiate Import: Planner ======= */
             initiate_import_planner: {
                 name: 'initiate_import_planner',
                 url: '/initiateimport/planner',
@@ -363,6 +363,50 @@ define(['Dependency'], function (Dependency) {
                 },
                 resolve: new Dependency([
                    'modules/initiateimport/planner/list'
+                ]),
+                authenticate: true
+            },
+            initiate_import_planner_add: {
+                name: 'initiate_import_planner_add',
+                url: '/initiateimport/planner/add',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/initiateimport/planner/add.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/initiateimport/planner/add'
+                ]),
+                authenticate: true
+            },
+            /* ======= Initiate Import: Broker ======= */
+            initiate_import_broker: {
+                name: 'initiate_import_broker',
+                url: '/initiateimport/broker',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/initiateimport/broker/list.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/initiateimport/broker/list'
+                ]),
+                authenticate: true
+            },
+            /* ======= Initiate Import: Assign Forwarder ======= */
+            initiate_import_assignforwarder: {
+                name: 'initiate_import_assignforwarder',
+                url: '/initiateimport/assignforwarder',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/initiateimport/assignforwarder/list.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/initiateimport/assignforwarder/list'
                 ]),
                 authenticate: true
             }
