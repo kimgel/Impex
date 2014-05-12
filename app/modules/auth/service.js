@@ -12,6 +12,7 @@ define(['app'], function (app) {
             /* Get currentUser from cookie
             =================================================================== */
             $rootScope.currentUser = $cookieStore.get('user') || null;
+            //$cookieStore.remove('user');
 
             return {
 
