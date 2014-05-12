@@ -7,12 +7,20 @@ define(['States'],
         ]);
 
         app.config([
+            '$stateProvider',
+            '$urlRouterProvider',
+            '$httpProvider',
+            '$locationProvider',
             '$controllerProvider',
             '$compileProvider',
             '$filterProvider',
             '$provide',
             'cfpLoadingBarProvider',
             function (
+                $stateProvider,
+                $urlRouterProvider,
+                $httpProvider,
+                $locationProvider,
                 $controllerProvider,
                 $compileProvider,
                 $filterProvider,
@@ -27,24 +35,8 @@ define(['States'],
 
                 cfpLoadingBarProvider.includeSpinner = false;
 
-            }
-        ]);
-
-        app.config([
-            '$stateProvider',
-            '$urlRouterProvider',
-            '$httpProvider',
-            '$locationProvider',
-            '$provide',
-            function (
-                $stateProvider,
-                $urlRouterProvider,
-                $httpProvider,
-                $locationProvider,
-                $provide
-            ) {
                 $locationProvider.html5Mode(true);
-                    
+
                 var interceptor = ['$q', '$location', '$rootScope',
                     function ($q, $location, $rootScope) {
                         function success(response) {
@@ -75,13 +67,13 @@ define(['States'],
                 if (States.defaultStatePath !== undefined) {
                     $urlRouterProvider.otherwise(States.defaultStatePath);
                 }
+
             }
-
         ]);
-
+        
         app.run(function ($http, $state, $cookies, $rootScope, Auth) {
+            
             $http.defaults.headers.common['x-csrf-token'] = $cookies._csrf;
-
             $rootScope.$on('$stateChangeStart', function (event, next) {
                 if (next.authenticate && !Auth.isLoggedIn()) {
                     event.preventDefault();
