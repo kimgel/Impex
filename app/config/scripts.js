@@ -29,7 +29,7 @@ require.config({
         'Brokers': '/modules/broker/service',
         'Forwarders': '/modules/forwarder/service',
         'Suppliers': '/modules/supplier/service',
-        'Items': '/modules/item/service',
+        'Materials': '/modules/materials/service',
         'InitiateImportPlanner': '/modules/initiateimport/planner/service',
 
     },

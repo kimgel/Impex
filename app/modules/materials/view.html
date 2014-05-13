@@ -2,9 +2,8 @@
     <div class="sub-header">
         <h3 class="section-title">
             <a ui-sref="settings_home">Settings</a> &gt;
-            Master &gt;
-            <a ui-sref="settings_master_item">Item</a> &gt;
-            <strong>{{item.code}}</strong>
+            <a ui-sref="settings_materials">Materials</a> &gt;
+            <strong>{{material.code}}</strong>
         </h3>
     </div>
     <div class="row" >
@@ -17,54 +16,54 @@
                 <div class="box-content">
                     <div class="form-group">
                         <div>
-                            <span class="label pull-right" ng-class="{'label-important': item.status == 'not started', 'label-info': item.status != 'not started'}">{{item.status}}</span>
+                            <span class="label pull-right" ng-class="{'label-important': material.status == 'not started', 'label-info': material.status != 'not started'}">{{material.status}}</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Item Code</label>
                         <div class="controls">
-                            <div class="label-value">{{item.code}}</div>
+                            <div class="label-value">{{material.code}}</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Item Description</label>
                         <div class="controls">
-                            <div class="label-value">{{item.description}}</div>
+                            <div class="label-value">{{material.description}}</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Item Regulatory</label>
                         <div class="controls">
-                            <div class="label-value toCapitalize">{{item.regulatory}}</div>
+                            <div class="label-value toCapitalize">{{material.regulatory}}</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Item Type</label>
                         <div class="controls">
-                            <div class="label-value toUpper">{{item.type}}</div>
+                            <div class="label-value toUpper">{{material.type}}</div>
                         </div>
                     </div>
                     <hr />
                     <div class="form-group">
                         <label class="control-label">Default Supplier</label>
                         <div class="controls">
-                            <div class="label-value">{{item.supplier.name}}</div>
+                            <div class="label-value">{{material.supplier.name}}</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Default Broker</label>
                         <div class="controls">
-                            <div class="label-value">{{item.broker.name}}</div>
+                            <div class="label-value">{{material.broker.name}}</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Default Forwarder</label>
                         <div class="controls">
-                            <div class="label-value">{{item.forwarder.name}}</div>
+                            <div class="label-value">{{material.forwarder.name}}</div>
                         </div>
                     </div>
                     <div class="form-actions highlight">
-                        <a ui-sref="settings_master_item" class="btn btn-primary">Back</a>
+                        <a ui-sref="settings_materials" class="btn btn-primary">Back</a>
                     </div>
                 </div>
             </div>
@@ -76,7 +75,7 @@
                 <div class="document-group">
                     <div class="document-list-header">
                         <span>Initiate Import (Planner)</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/item/tpls/ii.planner.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/ii.planner.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
                             <i class="fa fa-clock-o"></i> {{schedule.ii_planner || 0}}
                             <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'ii_planner'}).length}}
                         </button>
@@ -85,7 +84,7 @@
                 <div class="document-group">
                     <div class="document-list-header">
                         <span>Initiate Import (Broker)</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/item/tpls/ii.broker.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/ii.broker.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
                             <i class="fa fa-clock-o"></i> {{schedule.ii_broker || 0}}
                             <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'ii_broker'}).length}}
                         </button>
@@ -94,7 +93,7 @@
                 <div class="document-group">
                     <div class="document-list-header">
                         <span>Initiate Import (Assign Forwarder)</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/item/tpls/ii.assignforwarder.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/ii.assignforwarder.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
                             <i class="fa fa-clock-o"></i> {{schedule.ii_assignforwarder || 0}}
                             <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'ii_assignforwarder'}).length}}
                         </button>
@@ -103,7 +102,7 @@
                 <div class="document-group">
                     <div class="document-list-header">
                         <span>Shipment Details</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/item/tpls/ship.details.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/ship.details.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
                             <i class="fa fa-clock-o"></i> {{schedule.ship_details || 0}}
                             <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'ship_details'}).length}}
                         </button>
@@ -112,7 +111,7 @@
                 <div class="document-group">
                     <div class="document-list-header">
                         <span>Shipment Departure</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/item/tpls/ship.departure.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/ship.departure.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
                             <i class="fa fa-clock-o"></i> {{schedule.ship_departure || 0}}
                             <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'ship_departure'}).length}}
                         </button>
@@ -121,7 +120,7 @@
                 <div class="document-group">
                     <div class="document-list-header">
                         <span>Foreign Invoice</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/item/tpls/foreign.invoice.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/foreign.invoice.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
                             <i class="fa fa-clock-o"></i> {{schedule.foreign_invoice || 0}}
                             <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'foreign_invoice'}).length}}
                         </button>
@@ -130,7 +129,7 @@
                 <div class="document-group">
                     <div class="document-list-header">
                         <span>Customs Clearance</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/item/tpls/customs.clearance.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/customs.clearance.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
                             <i class="fa fa-clock-o"></i> {{schedule.customs_clearance || 0}}
                             <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'customs_clearance'}).length}}
                         </button>
@@ -139,7 +138,7 @@
                 <div class="document-group">
                     <div class="document-list-header">
                         <span>Delivery</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/item/tpls/delivery.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/delivery.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
                             <i class="fa fa-clock-o"></i> {{schedule.delivery || 0}}
                             <i class="fa fa-file-text-o"></i>  {{(docs|filter:{document_category:'delivery'}).length}}
                         </button>

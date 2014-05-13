@@ -2,36 +2,36 @@
 
 define([
     'app',
-    'Items',
+    'Materials',
     'Suppliers',
     'Brokers',
     'Forwarders',
-], function(app, Items, Suppliers, Brokers, Forwarders) {
+], function(app, Materials, Suppliers, Brokers, Forwarders) {
     app.controller('ItemAdd', [
         '$scope',
         '$state',
-        'ItemsFactory',
+        'MaterialsFactory',
         'SuppliersFactory',
         'BrokersFactory',
         'ForwardersFactory',
         function(
             $scope,
             $state,
-            ItemsFactory,
+            MaterialsFactory,
             SuppliersFactory,
             BrokersFactory,
             ForwardersFactory
         ) {
 
-            $scope.item = {};
+            $scope.materials = {};
             $scope.schedule = {};
             $scope.docs = [];
             $scope.view = false;
             $scope.submit = function(form) {
-                $scope.item.documents = $scope.docs;
-                $scope.item.schedule = $scope.schedule;
+                $scope.materials.documents = $scope.docs;
+                $scope.materials.schedule = $scope.schedule;
 
-                ItemsFactory.save($scope.item, function(err) {
+                MaterialsFactory.save($scope.materials, function(err) {
                     if (err.errors) {
                         for (var key in err.errors) {
                             if (key != 'documents') {
@@ -41,26 +41,26 @@ define([
                             }
                         }
                     } else {
-                        $state.go('settings_master_item');
+                        $state.go('settings_materials');
                     }
                 });
             };
             $scope.clear = function() {
-                $scope.item = angular.copy({});
+                $scope.material = angular.copy({});
             };
 
             $scope.all = function() {
                 SuppliersFactory.query(function(suppliers) {
                     $scope.suppliers = suppliers;
-                    $scope.item.supplier = $scope.suppliers[0]._id;
+                    $scope.material.supplier = $scope.suppliers[0]._id;
                 });
                 BrokersFactory.query(function(brokers) {
                     $scope.brokers = brokers;
-                    $scope.item.broker = $scope.brokers[0]._id;
+                    $scope.material.broker = $scope.brokers[0]._id;
                 });
                 ForwardersFactory.query(function(forwarders) {
                     $scope.forwarders = forwarders;
-                    $scope.item.forwarder = $scope.forwarders[0]._id;
+                    $scope.material.forwarder = $scope.forwarders[0]._id;
                 });
             };
 

@@ -84,60 +84,60 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            /* ======= Settings: Item======= */
-            settings_master_item: {
-                name: 'settings_master_item',
-                url: '/settings/master/item',
+            /* ======= Settings: Materials ======= */
+            settings_materials: {
+                name: 'settings_materials',
+                url: '/settings/materials',
                 parent: 'settings',
                 views: {
                     '@': {
-                        templateUrl: '/modules/item/list.html'
+                        templateUrl: '/modules/materials/list.html'
                     }
                 },
                 resolve: new Dependency([
-                    'modules/item/list'
+                    'modules/materials/list'
                 ]),
                 authenticate: true
             },
-            settings_master_item_add: {
-                name: 'settings_master_item_add',
-                url: '/settings/master/item/add',
+            settings_materials_add: {
+                name: 'settings_materials_add',
+                url: '/settings/materials/add',
                 parent: 'settings',
                 views: {
                     '@': {
-                        templateUrl: '/modules/item/add.html'
+                        templateUrl: '/modules/materials/add.html'
                     }
                 },
                 resolve: new Dependency([
-                    'modules/item/add'
+                    'modules/materials/add'
                 ]),
                 authenticate: true
             },
-            settings_master_item_view: {
-                name: 'settings_master_item_view',
-                url: '/settings/master/item/:itemId',
+            settings_materials_view: {
+                name: 'settings_materials_view',
+                url: '/settings/materials/:materialId',
                 parent: 'settings',
                 views: {
                     '@': {
-                        templateUrl: '/modules/item/view.html'
+                        templateUrl: '/modules/materials/view.html'
                     }
                 },
                 resolve: new Dependency([
-                    'modules/item/view'
+                    'modules/materials/view'
                 ]),
                 authenticate: true
             },
-            settings_master_item_edit: {
-                name: 'settings_master_item_edit',
-                url: '/settings/master/item/:itemId/edit',
+            settings_materials_edit: {
+                name: 'settings_materials_edit',
+                url: '/settings/materials/:materialId/edit',
                 parent: 'settings',
                 views: {
                     '@': {
-                        templateUrl: '/modules/item/edit.html'
+                        templateUrl: '/modules/materials/edit.html'
                     }
                 },
                 resolve: new Dependency([
-                    'modules/item/edit'
+                    'modules/materials/edit'
                 ]),
                 authenticate: true
             },
