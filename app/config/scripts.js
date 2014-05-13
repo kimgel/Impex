@@ -30,7 +30,7 @@ require.config({
         'Forwarders': '/modules/forwarder/service',
         'Suppliers': '/modules/supplier/service',
         'Items': '/modules/item/service',
-        'Planners': '/modules/initiateimport/planner/service',
+        'InitiateImportPlanner': '/modules/initiateimport/planner/service',
 
     },
     shim: {
