@@ -3,7 +3,7 @@
         <div class="aside-content">
             <div class="aside-header">
                 <button type="button" class="close" ng-click="$hide()">&times;</button>
-                <h4 class="aside-title">Delivery</h4>
+                <h4 class="aside-title">Initiate Import (Assign Forwarder)</h4>
             </div>
             <div class="aside-body aside-350">
                 <div class="row">
@@ -13,7 +13,7 @@
                             <div class="input-group">
                                 <input class="form-control" type="text" ng-model="docName">
                                 <span class="input-group-btn">
-                                    <button class="btn" type="button" ng-click="docAdd(docName,'dv'); docName = '';">
+                                    <button class="btn" type="button" ng-click="docAdd(docName,'ii_assignforwarder'); docName = '';">
                                         <i class="fa fa-plus"></i>
                                     </button>
                                 </span>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="document-list-item" ng-repeat="doc in docs | filter:{document_category:'dv'}">
+                    <div class="document-list-item" ng-repeat="doc in docs | filter:{document_category:'ii_assignforwarder'}">
                         {{doc.document_name}}
                         <a href="javascript:;" class="pull-right" ng-click="docRemove(doc)" ng-hide="view"><i class="fa fa-times"></i></a>
                     </div>

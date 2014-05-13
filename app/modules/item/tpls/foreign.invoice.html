@@ -13,7 +13,7 @@
                             <div class="input-group">
                                 <input class="form-control" type="text" ng-model="docName">
                                 <span class="input-group-btn">
-                                    <button class="btn" type="button" ng-click="docAdd(docName,'fi'); docName = '';">
+                                    <button class="btn" type="button" ng-click="docAdd(docName,'foreign_invoice'); docName = '';">
                                         <i class="fa fa-plus"></i>
                                     </button>
                                 </span>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="document-list-item" ng-repeat="doc in docs | filter:{document_category:'fi'}">
+                    <div class="document-list-item" ng-repeat="doc in docs | filter:{document_category:'foreign_invoice'}">
                         {{doc.document_name}}
                         <a href="javascript:;" class="pull-right" ng-click="docRemove(doc)" ng-hide="view"><i class="fa fa-times"></i></a>
                     </div>
