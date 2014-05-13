@@ -257,9 +257,9 @@ define(['Dependency'], function (Dependency) {
                 authenticate: true
             },
             /* ======= Settings: Forwarder ======= */
-            settings_master_forwarder: {
-                name: 'settings_master_forwarder',
-                url: '/settings/master/forwarder',
+            settings_forwarder: {
+                name: 'settings_forwarder',
+                url: '/settings/forwarders',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -271,9 +271,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_master_forwarder_add: {
-                name: 'settings_master_forwarder_add',
-                url: '/settings/master/forwarder/add',
+            settings_forwarder_add: {
+                name: 'settings_forwarder_add',
+                url: '/settings/forwarders/add',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -285,9 +285,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_master_forwarder_view: {
+            settings_forwarder_view: {
                 name: 'settings_master_forwarder_view',
-                url: '/settings/master/forwarder/:forwarderId',
+                url: '/settings/forwarders/:forwarderId',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -299,9 +299,9 @@ define(['Dependency'], function (Dependency) {
                ]),
                 authenticate: true
             },
-            settings_master_forwarder_edit: {
-                name: 'settings_master_forwarder_edit',
-                url: '/settings/master/forwarder/:forwarderId/edit',
+            settings_forwarder_edit: {
+                name: 'settings_forwarder_edit',
+                url: '/settings/forwarders/:forwarderId/edit',
                 parent: 'settings',
                 views: {
                     '@': {

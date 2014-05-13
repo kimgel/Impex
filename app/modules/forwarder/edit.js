@@ -3,10 +3,10 @@
 define(['app', 'Forwarders'], function(app, Forwarders) {
     app.controller('ForwarderEdit', [
         '$scope',
-        '$location',
+        '$state',
         '$stateParams',
         'ForwardersFactory',
-        function($scope, $location, $stateParams, ForwardersFactory) {            
+        function($scope, $state, $stateParams, ForwardersFactory) {            
             $scope.update = function(form) {          
                 ForwardersFactory.update($scope.forwarder, function(err) {
                     if (err.errors) {
@@ -14,7 +14,7 @@ define(['app', 'Forwarders'], function(app, Forwarders) {
                             form[key].message = err.errors[key].message;
                         }
                     }else{
-                        $location.path('/settings/forwarder');
+                        $state.go('settings_forwarder');
                     }
                 });
             };
