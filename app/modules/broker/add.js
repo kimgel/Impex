@@ -3,9 +3,9 @@
 define(['app', 'Brokers'], function(app, Brokers) {
     app.controller('BrokerAdd', [
         '$scope',
-        '$location',
+        '$state',
         'BrokersFactory',
-        function($scope, $location, BrokersFactory) {
+        function($scope, $state, BrokersFactory) {
 
             $scope.broker = {};
             $scope.submit = function(form) {
@@ -15,7 +15,7 @@ define(['app', 'Brokers'], function(app, Brokers) {
                             form[key].message = err.errors[key].message;
                         }
                     }else{
-                        $location.path('/settings/broker');
+                        $state.go('settings_master_broker');
                     }
                 });
             };
