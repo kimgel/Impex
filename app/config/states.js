@@ -33,7 +33,11 @@ define(['Dependency'], function (Dependency) {
                     'navigation@': {
                         templateUrl: '/modules/common/sidenav/settings.html'
                     }
-                }
+                },
+                resolve: new Dependency([
+                    'modules/common/header/main',
+                    'modules/common/sidenav/settings'
+                ])
             },
             /* ======= Login ======= */
             login: {
@@ -65,10 +69,25 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
+            /* ======= Settings: Main ======= */
+            settings_home: {
+                name: 'settings_home',
+                url: '/settings/home',
+                parent: 'settings',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/settings/index.html'
+                    }
+                },
+                resolve: new Dependency([
+                    'modules/settings/index'
+                ]),
+                authenticate: true
+            },
             /* ======= Settings: Item======= */
-            settings_item: {
-                name: 'settings_item',
-                url: '/settings/item',
+            settings_master_item: {
+                name: 'settings_master_item',
+                url: '/settings/master/item',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -80,9 +99,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_item_add: {
-                name: 'settings_item_add',
-                url: '/settings/item/add',
+            settings_master_item_add: {
+                name: 'settings_master_item_add',
+                url: '/settings/master/item/add',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -94,9 +113,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_item_view: {
-                name: 'settings_item_view',
-                url: '/settings/item/:itemId',
+            settings_master_item_view: {
+                name: 'settings_master_item_view',
+                url: '/settings/master/item/:itemId',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -108,9 +127,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_item_edit: {
-                name: 'settings_item_edit',
-                url: '/settings/item/:itemId/edit',
+            settings_master_item_edit: {
+                name: 'settings_master_item_edit',
+                url: '/settings/master/item/:itemId/edit',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -123,9 +142,9 @@ define(['Dependency'], function (Dependency) {
                 authenticate: true
             },
             /* ======= Settings: Broker======= */
-            settings_broker: {
-                name: 'settings_broker',
-                url: '/settings/broker',
+            settings_master_broker: {
+                name: 'settings_master_broker',
+                url: '/settings/master/broker',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -137,9 +156,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_broker_add: {
-                name: 'settings_broker_add',
-                url: '/settings/broker/add',
+            settings_master_broker_add: {
+                name: 'settings_master_broker_add',
+                url: '/settings/master/broker/add',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -151,9 +170,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_broker_view: {
-                name: 'settings_broker_view',
-                url: '/settings/broker/:brokerId',
+            settings_master_broker_view: {
+                name: 'settings_master_broker_view',
+                url: '/settings/master/broker/:brokerId',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -165,9 +184,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_broker_edit: {
-                name: 'settings_broker_edit',
-                url: '/settings/broker/:brokerId/edit',
+            settings_master_broker_edit: {
+                name: 'settings_master_broker_edit',
+                url: '/settings/master/broker/:brokerId/edit',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -181,9 +200,9 @@ define(['Dependency'], function (Dependency) {
             },
 
             /* ======= Settings: Supplier ======= */
-            settings_supplier: {
-                name: 'settings_supplier',
-                url: '/settings/supplier',
+            settings_master_supplier: {
+                name: 'settings_master_supplier',
+                url: '/settings/master/supplier',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -195,9 +214,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_supplier_add: {
-                name: 'settings_supplier_add',
-                url: '/settings/supplier/add',
+            settings_master_supplier_add: {
+                name: 'settings_master_supplier_add',
+                url: '/settings/master/supplier/add',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -209,9 +228,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_supplier_view: {
-                name: 'settings_supplier_view',
-                url: '/settings/supplier/:supplierId',
+            settings_master_supplier_view: {
+                name: 'settings_master_supplier_view',
+                url: '/settings/master/supplier/:supplierId',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -223,9 +242,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_supplier_edit: {
-                name: 'settings_supplier_edit',
-                url: '/settings/supplier/:supplierId/edit',
+            settings_master_supplier_edit: {
+                name: 'settings_master_supplier_edit',
+                url: '/settings/master/supplier/:supplierId/edit',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -238,9 +257,9 @@ define(['Dependency'], function (Dependency) {
                 authenticate: true
             },
             /* ======= Settings: Forwarder ======= */
-            settings_forwarder: {
-                name: 'settings_forwarder',
-                url: '/settings/forwarder',
+            settings_master_forwarder: {
+                name: 'settings_master_forwarder',
+                url: '/settings/master/forwarder',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -252,9 +271,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_forwarder_add: {
-                name: 'settings_forwarder_add',
-                url: '/settings/forwarder/add',
+            settings_master_forwarder_add: {
+                name: 'settings_master_forwarder_add',
+                url: '/settings/master/forwarder/add',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -266,9 +285,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_forwarder_view: {
-                name: 'settings_forwarder_view',
-                url: '/settings/forwarder/:forwarderId',
+            settings_master_forwarder_view: {
+                name: 'settings_master_forwarder_view',
+                url: '/settings/master/forwarder/:forwarderId',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -280,9 +299,9 @@ define(['Dependency'], function (Dependency) {
                ]),
                 authenticate: true
             },
-            settings_forwarder_edit: {
-                name: 'settings_forwarder_edit',
-                url: '/settings/forwarder/:forwarderId/edit',
+            settings_master_forwarder_edit: {
+                name: 'settings_master_forwarder_edit',
+                url: '/settings/master/forwarder/:forwarderId/edit',
                 parent: 'settings',
                 views: {
                     '@': {

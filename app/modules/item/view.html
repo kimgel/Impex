@@ -1,5 +1,13 @@
-<div id="content">
-    <div class="row" ng-controller="ItemView" ng-init="findOne()">
+<div id="content" ng-controller="ItemView" ng-init="findOne()">
+    <div class="sub-header">
+        <h3 class="section-title">
+            <a ui-sref="settings_home">Settings</a> &gt;
+            Master &gt;
+            <a ui-sref="settings_master_item">Item</a> &gt;
+            <strong>{{item._id}}</strong>
+        </h3>
+    </div>
+    <div class="row" >
         <div class="col-xs-7">
             <div class="box">
                 <div class="box-header">
@@ -50,7 +58,7 @@
                         </div>
                     </div>
                     <div class="form-actions highlight">
-                        <a href="/settings/item" class="btn btn-primary">Ok</a>
+                        <a ui-sref="settings_master_item" class="btn btn-primary">Back</a>
                     </div>
                 </div>
             </div>
