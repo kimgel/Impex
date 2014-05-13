@@ -7,8 +7,8 @@ define(['app', 'Materials'], function(app, Materials) {
         'MaterialsFactory',
         function($scope, $location, MaterialsFactory) {
             $scope.all = function() {
-                MaterialsFactory.query(function(items) {
-                    $scope.items = items;
+                MaterialsFactory.query(function(materials) {
+                    $scope.materials = materials;
                 });
             };
         }
