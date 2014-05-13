@@ -414,6 +414,20 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
+            initiate_import_broker_add: {
+                name: 'initiate_import_broker_add',
+                url: '/initiateimport/broker/add',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/initiateimport/broker/add.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/initiateimport/broker/add'
+                ]),
+                authenticate: true
+            },
             /* ======= Initiate Import: Assign Forwarder ======= */
             initiate_import_assignforwarder: {
                 name: 'initiate_import_assignforwarder',
@@ -428,7 +442,181 @@ define(['Dependency'], function (Dependency) {
                    'modules/initiateimport/assignforwarder/list'
                 ]),
                 authenticate: true
-            }
+            },
+            initiate_import_assignforwarder_add: {
+                name: 'initiate_import_assignforwarder_add',
+                url: '/initiateimport/assignforwarder/add',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/initiateimport/assignforwarder/add.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/initiateimport/assignforwarder/add'
+                ]),
+                authenticate: true
+            },
+            /* ======= Shipment Detail ======= */
+            shipmentdetail: {
+                name: 'shipmentdetail',
+                url: '/shipmentdetail',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/shipmentdetail/list.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/shipmentdetail/list'
+                ]),
+                authenticate: true
+            },
+            shipmentdetail_add: {
+                name: 'shipmentdetail_add',
+                url: '/shipmentdetail/add',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/shipmentdetail/add.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/shipmentdetail/add'
+                ]),
+                authenticate: true
+            },
+            /* ======= Shipment Departure ======= */
+            shipmentdeparture: {
+                name: 'shipmentdeparture',
+                url: '/shipmentdeparture',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/shipmentdeparture/list.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/shipmentdeparture/list'
+                ]),
+                authenticate: true
+            },
+            shipmentdeparture_add: {
+                name: 'shipmentdeparture_add',
+                url: '/shipmentdeparture/add',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/shipmentdeparture/add.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/shipmentdeparture/add'
+                ]),
+                authenticate: true
+            },
+            /* ======= Foreign Invoice ======= */
+            foreigninvoice: {
+                name: 'foreigninvoice',
+                url: '/foreigninvoice',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/foreigninvoice/list.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/foreigninvoice/list'
+                ]),
+                authenticate: true
+            },
+            foreigninvoice_add: {
+                name: 'foreigninvoice_add',
+                url: '/foreigninvoice/add',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/foreigninvoice/add.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/foreigninvoice/add'
+                ]),
+                authenticate: true
+            },
+            /* ======= Customs Clearance ======= */
+            customsclearance: {
+                name: 'customsclearance',
+                url: '/customsclearance',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/customsclearance/list.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/customsclearance/list'
+                ]),
+                authenticate: true
+            },
+            customsclearance_add: {
+                name: 'customsclearance_add',
+                url: '/customsclearance/add',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/customsclearance/add.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/customsclearance/add'
+                ]),
+                authenticate: true
+            },
+            /* ======= Delivery ======= */
+            delivery: {
+                name: 'delivery',
+                url: '/delivery',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/delivery/list.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/delivery/list'
+                ]),
+                authenticate: true
+            },
+            delivery_add: {
+                name: 'delivery_add',
+                url: '/delivery/add',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/delivery/add.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/delivery/add'
+                ]),
+                authenticate: true
+            },
+            /* ======= Custom Charges ======= */
+            customscharges_aircharges_add: {
+                name: 'customscharges_aircharges_add',
+                url: '/customscharges/aircharges',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/customscharges/aircharges/add.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/customscharges/aircharges/add'
+                ]),
+                authenticate: true
+            },
         }
     };
 });
