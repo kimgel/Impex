@@ -142,9 +142,9 @@ define(['Dependency'], function (Dependency) {
                 authenticate: true
             },
             /* ======= Settings: Broker======= */
-            settings_master_broker: {
-                name: 'settings_master_broker',
-                url: '/settings/master/broker',
+            settings_broker: {
+                name: 'settings_broker',
+                url: '/settings/brokers',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -156,9 +156,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_master_broker_add: {
-                name: 'settings_master_broker_add',
-                url: '/settings/master/broker/add',
+            settings_broker_add: {
+                name: 'settings_broker_add',
+                url: '/settings/brokers/add',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -170,9 +170,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_master_broker_view: {
-                name: 'settings_master_broker_view',
-                url: '/settings/master/broker/:brokerId',
+            settings_broker_view: {
+                name: 'settings_broker_view',
+                url: '/settings/brokers/:brokerId',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -184,9 +184,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_master_broker_edit: {
-                name: 'settings_master_broker_edit',
-                url: '/settings/master/broker/:brokerId/edit',
+            settings_broker_edit: {
+                name: 'settings_broker_edit',
+                url: '/settings/brokers/:brokerId/edit',
                 parent: 'settings',
                 views: {
                     '@': {
