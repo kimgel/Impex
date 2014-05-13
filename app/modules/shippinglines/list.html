@@ -1,0 +1,60 @@
+<div id="content" ng-controller="ShippingLinesList" data-ng-init="all()">
+<div class="sub-header">
+    <h3 class="section-title">
+            <a ui-sref="settings_home">Settings</a> &gt;
+            <strong>Shipping Lines</strong>
+        </h3>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header" data-original-title="">
+                    <h2><i class="fa fa-archive"></i>Shipping Lines</h2>
+                    <div class="box-icon">
+                        <a ui-sref="settings_shippinglines_add" class="btn"><i class="fa fa-plus"></i> Add</a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="dataTables_wrapper form-inline" role="grid">
+                        <table class="table bootstrap-datatable datatable">
+                            <thead>
+                                <tr role="row">
+                                    <th>Status</th>
+                                    <th>No.</th>
+                                    <th>Name</th>
+                                    <th>Tel. No</th>
+                                    <th>Contact Person</th>
+                                    <th>Email</th>
+                                    <th>Valid From</th>
+                                    <th>Valid To</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-hide="!shippinglines || shippinglines.length">
+                                    <td>No shipping lines yet.</td>
+                                </tr>
+                                <tr ng-repeat="shippingline in shippinglines">
+                                    <td>
+                                        <span class="label" ng-class="{'label-important': shippingline.status == 'inactive', 'label-success': shippingline.status == 'active'}">{{shippingline.status}}</span>
+                                    </td>
+                                    <td>{{shippingline.no}}</td>
+                                    <td>{{shippingline.name}}</td>
+                                    <td>{{shippingline.tel}}</td>
+                                    <td>{{shippingline.contact}}</td>
+                                    <td>{{shippingline.email}}</td>
+                                    <td>{{shippingline.valid_from | date: 'longDate'}}</td>
+                                    <td>{{shippingline.valid_to | date: 'longDate'}}</td>
+                                    <td>
+                                        <a class="btn btn-success btn-sm" ng-href="/settings/shippinglines/{{shippingline._id}}"> <i class="fa fa-eye"></i></a>
+                                        <a class="btn btn-primary btn-sm" ng-href="/settings/shippinglines/{{shippingline._id}}/edit"> <i class="fa fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

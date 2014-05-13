@@ -286,7 +286,7 @@ define(['Dependency'], function (Dependency) {
                 authenticate: true
             },
             settings_forwarder_view: {
-                name: 'settings_master_forwarder_view',
+                name: 'settings_forwarder_view',
                 url: '/settings/forwarders/:forwarderId',
                 parent: 'settings',
                 views: {
@@ -310,6 +310,63 @@ define(['Dependency'], function (Dependency) {
                 },
                 resolve: new Dependency([
                    'modules/forwarder/edit'
+                ]),
+                authenticate: true
+            },
+            /* ======= Settings: Shipping Lines ======= */
+            settings_shippinglines: {
+                name: 'settings_shippinglines',
+                url: '/settings/shippinglines',
+                parent: 'settings',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/shippinglines/list.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/shippinglines/list'
+                ]),
+                authenticate: true
+            },
+            settings_shippinglines_add: {
+                name: 'settings_shippinglines_add',
+                url: '/settings/shippinglines/add',
+                parent: 'settings',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/shippinglines/add.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/shippinglines/add'
+                ]),
+                authenticate: true
+            },
+            settings_shippinglines_view: {
+                name: 'settings_shippinglines_view',
+                url: '/settings/shippinglines/:shippinglineId',
+                parent: 'settings',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/shippinglines/view.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/shippinglines/view'
+               ]),
+                authenticate: true
+            },
+            settings_shippinglines_edit: {
+                name: 'settings_shippinglines_edit',
+                url: '/settings/shippinglines/:shippinglineId/edit',
+                parent: 'settings',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/shippinglines/edit.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/shippinglines/edit'
                 ]),
                 authenticate: true
             },

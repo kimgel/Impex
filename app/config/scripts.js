@@ -30,6 +30,7 @@ require.config({
         'Forwarders': '/modules/forwarder/service',
         'Suppliers': '/modules/supplier/service',
         'Materials': '/modules/materials/service',
+        'ShippingLines': '/modules/shippinglines/service',
         'InitiateImportPlanner': '/modules/initiateimport/planner/service',
 
     },
