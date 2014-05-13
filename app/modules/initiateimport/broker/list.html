@@ -1,11 +1,17 @@
-<div id="content">
+<div id="content" ng-controller="BrokersList" ng-init="all()">
+    <div class="sub-header">
+        <h3 class="section-title">
+            Initiate Import &gt; 
+            <strong>Broker</strong>
+        </h3>
+    </div>
     <div class="row">
         <div class="col-xs-12">
-            <div class="box" ng-controller="PlannerList" ng-init="all()">
+            <div class="box">
                 <div class="box-header" data-original-title="">
-                    <h2><i class="fa fa-chain"></i>Initiate Import (Broker) List</h2>
+                    <h2><i class="fa fa-chain"></i>Broker</h2>
                     <div class="box-icon">
-                        <a href="/initiateimport/broker/add" class="btn"><i class="fa fa-plus"></i> Add</a>
+                        <a ui-sref="initiate_import_broker_add" class="btn"><i class="fa fa-plus"></i> Add</a>
                     </div>
                 </div>
                 <div class="box-content">

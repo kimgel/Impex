@@ -3,10 +3,10 @@
 define(['app', 'Brokers'], function(app, Brokers) {
     app.controller('BrokerEdit', [
         '$scope',
-        '$location',
+        '$state',
         '$stateParams',
         'BrokersFactory',
-        function($scope, $location, $stateParams, BrokersFactory) {            
+        function($scope, $state, $stateParams, BrokersFactory) {            
             $scope.update = function(form) {       
                 BrokersFactory.update($scope.broker, function(err) {
                     if (err.errors) {
@@ -14,7 +14,7 @@ define(['app', 'Brokers'], function(app, Brokers) {
                             form[key].message = err.errors[key].message;
                         }
                     }else{
-                        $location.path('/settings/broker');
+                        state.go('settings_master_broker');
                     }
                 });
             };

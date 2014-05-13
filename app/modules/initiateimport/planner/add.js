@@ -3,16 +3,16 @@
 define([
     'app',
     'Items',
-    'Planners',
-], function(app, Items, Planners) {
+    'InitiateImportPlanner',
+], function(app, Items, InitiateImportPlanner) {
     app.controller('PlannerCtrl', [
         '$rootScope',
         '$scope',
         '$http',
         '$location',
         'ItemsFactory',
-        'PlannerFactory',
-        function($rootScope, $scope, $http, $location, ItemsFactory, PlannerFactory) {
+        'InitiateImportPlannerFactory',
+        function($rootScope, $scope, $http, $location, ItemsFactory, InitiateImportPlannerFactory) {
 
             $scope.planner = {};
             $scope.selectedItemCode = '';
@@ -22,7 +22,7 @@ define([
             $scope.submit = function(form) {
                 $scope.planner.item = $scope.selectedItemCode;
 
-                PlannerFactory.save($scope.planner, function(err) {
+                InitiateImportPlannerFactory.save($scope.planner, function(err) {
                     if (err.errors) {
                         for (var key in err.errors) {
                             if (key != 'documents') {

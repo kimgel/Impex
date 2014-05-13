@@ -1,4 +1,11 @@
 <div id="content" ng-controller="BrokerCtrl">
+    <div class="sub-header">
+        <h3 class="section-title">
+            Initiate Import &gt; 
+            <a ui-sref="initiate_import_broker">Broker</a> &gt; 
+            <strong>Add</strong>
+        </h3>
+    </div>
     <div class="row">
         <div class="col-xs-7">
             <div class="box">
@@ -70,47 +77,32 @@
             <div class="box">
                 <div class="box-header">
                     <h2>
-                        <i class="fa fa-file-o"></i>Transaction Details</h2>
-                </div>
-                <div class="box-content">
-                    <a href="/initiateimport/planner/view" class="btn btn-primary">View Details</a>
-                </div>
-            </div>
-            <div class="box">
-                <div class="box-header">
-                    <h2>
                         <i class="fa fa-file-o"></i>Required Documents</h2>
                 </div>
                 <div class="box-content">
-                    <ul class="upload-docs">
-                        <li>
-                            <span class="status">
-                                <span class="desc">Document-Filename-01.doc</span>
-                                <span class="label label-danger">Not uploaded</span>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="status">
-                                <span class="desc">Document-Filename-02.doc</span>
-                                <span class="label label-danger">Not uploaded</span>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="status">
-                                <span class="desc">Document-Filename-03.doc</span>
-                                <span class="label label-danger">Not uploaded</span>
-                            </span>
-                        </li>
-                    </ul>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul class="upload-docs">
+                                <li ng-hide="!item.documents || item.documents.length">
+                                    <span class="status">
+                                        <span class="desc">Please select item</span>
+                                    </span>
+                                </li>
+                                <li ng-repeat="doc in item.documents | filter:{document_category:'ii_planner'}">
+                                    <span class="status">
+                                        <span class="desc">{{doc.document_name}}c</span>
+                                        <span class="label label-danger">Not uploaded</span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="form-actions highlight">
                         <form>
-                            <span class="fileUpload btn btn-primary">
-                                <span class="fa fa-plus-circle"></span>Attach documents
-                                <input type="file" ng-file-select="onFileSelect($files)" />
-                            </span>
+                            <input type="file" ng-disabled="!item.documents" ng-model="files" file-change>
+                            <br />
+                            <button type="button" class="btn btn-block" ng-disabled="!item.documents">Upload</button>
                         </form>
-                        <p id="fileUploadError" class="text-danger hide"></p>
-                        <div class="list-group hide" id="files"></div>
                     </div>
                 </div>
             </div>

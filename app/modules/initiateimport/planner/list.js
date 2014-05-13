@@ -1,14 +1,14 @@
 'use strict';
 
-define(['app', 'Planners'], function(app, Planners) {
+define(['app', 'InitiateImportPlanner'], function(app, InitiateImportPlanner) {
     app.controller('PlannerList', [
         '$scope',
         '$location',
-        'PlannerFactory',
-        function($scope, $location, PlannerFactory) {
+        'InitiateImportPlannerFactory',
+        function($scope, $location, InitiateImportPlannerFactory) {
             
             $scope.all = function() {
-                PlannerFactory.query(function(planners) {
+                InitiateImportPlannerFactory.query(function(planners) {
                     $scope.planners = planners;
                 });
             };

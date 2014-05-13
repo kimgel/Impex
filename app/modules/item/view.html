@@ -4,7 +4,7 @@
             <a ui-sref="settings_home">Settings</a> &gt;
             Master &gt;
             <a ui-sref="settings_master_item">Item</a> &gt;
-            <strong>{{item._id}}</strong>
+            <strong>{{item.code}}</strong>
         </h3>
     </div>
     <div class="row" >
@@ -18,6 +18,12 @@
                     <div class="form-group">
                         <div>
                             <span class="label pull-right" ng-class="{'label-important': item.status == 'not started', 'label-info': item.status != 'not started'}">{{item.status}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Item Code</label>
+                        <div class="controls">
+                            <div class="label-value">{{item.code}}</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -65,7 +71,7 @@
         </div>
         <div class="col-xs-5">
             <div class="document-list">
-                <h1>Schedule &amp; Documents</h1>
+                <h1>Processing &amp; Documents</h1>
 
                 <div class="document-group">
                     <div class="document-list-header">
