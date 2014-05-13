@@ -5,7 +5,7 @@ define(['app'], function(app) {
         '$resource',
         function($resource) {
             return $resource('/api/material/:materialId', {
-                itemId: '@_id'                
+                materialId: '@_id'                
             }, {
                 update: {
                     method: 'PUT'
