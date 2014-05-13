@@ -199,10 +199,10 @@ define(['Dependency'], function (Dependency) {
                 authenticate: true
             },
 
-            /* ======= Settings: Supplier ======= */
-            settings_master_supplier: {
-                name: 'settings_master_supplier',
-                url: '/settings/master/supplier',
+            /* ======= Settings: Suppliers ======= */
+            settings_supplier: {
+                name: 'settings_supplier',
+                url: '/settings/suppliers',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -214,9 +214,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_master_supplier_add: {
-                name: 'settings_master_supplier_add',
-                url: '/settings/master/supplier/add',
+            settings_supplier_add: {
+                name: 'settings_supplier_add',
+                url: '/settings/suppliers/add',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -228,9 +228,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_master_supplier_view: {
-                name: 'settings_master_supplier_view',
-                url: '/settings/master/supplier/:supplierId',
+            settings_supplier_view: {
+                name: 'settings_supplier_view',
+                url: '/settings/suppliers/:supplierId',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -242,9 +242,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_master_supplier_edit: {
-                name: 'settings_master_supplier_edit',
-                url: '/settings/master/supplier/:supplierId/edit',
+            settings_supplier_edit: {
+                name: 'settings_supplier_edit',
+                url: '/settings/suppliers/:supplierId/edit',
                 parent: 'settings',
                 views: {
                     '@': {
