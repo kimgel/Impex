@@ -15,7 +15,7 @@ define(['app', 'Forwarders'], function(app, Forwarders) {
                             form[key].message = err.errors[key].message;
                         }
                     }else{
-                        $state.go('/settings_forwarder');
+                        $state.go('settings_forwarder');
                     }
                 });
             };
