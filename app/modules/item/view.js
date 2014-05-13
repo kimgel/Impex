@@ -14,7 +14,8 @@ define(['app', 'Items'], function(app, Items) {
                     itemId: $stateParams.itemId                 
                 }, function(item) {
                     $scope.item = item;      
-                    $scope.docs = $scope.item.documents;              
+                    $scope.docs = $scope.item.documents;
+                    $scope.schedule = $scope.item.schedule;                
                 });
             };
         }

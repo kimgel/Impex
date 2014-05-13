@@ -7,6 +7,15 @@
             </div>
             <div class="aside-body aside-350">
                 <div class="row">
+                    <div class="form-group">
+                        <label class="control-label">Schedule (in days)</label>
+                        <div class="document-list-item" ng-show="view">
+                            {{schedule.ii_assignforwarder}}
+                        </div>
+                        <div class="controls" ng-hide="view">
+                            <input class="form-control" type="number" min="0" ng-model="schedule.ii_assignforwarder">
+                        </div>
+                    </div>
                     <div class="form-group" ng-hide="view">
                         <label class="control-label">Add required document</label>
                         <div class="controls">
@@ -23,6 +32,7 @@
                     </div>
                 </div>
                 <div class="row">
+                    <label ng-show="view" class="control-label">Required documents</label>
                     <div class="document-list-item" ng-repeat="doc in docs | filter:{document_category:'ii_assignforwarder'}">
                         {{doc.document_name}}
                         <a href="javascript:;" class="pull-right" ng-click="docRemove(doc)" ng-hide="view"><i class="fa fa-times"></i></a>

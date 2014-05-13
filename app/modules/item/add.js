@@ -9,14 +9,14 @@ define([
 ], function(app, Items, Suppliers, Brokers, Forwarders) {
     app.controller('ItemAdd', [
         '$scope',
-        '$location',
+        '$state',
         'ItemsFactory',
         'SuppliersFactory',
         'BrokersFactory',
         'ForwardersFactory',
         function(
             $scope,
-            $location,
+            $state,
             ItemsFactory,
             SuppliersFactory,
             BrokersFactory,
@@ -24,10 +24,12 @@ define([
         ) {
 
             $scope.item = {};
+            $scope.schedule = {};
             $scope.docs = [];
             $scope.view = false;
             $scope.submit = function(form) {
                 $scope.item.documents = $scope.docs;
+                $scope.item.schedule = $scope.schedule;
 
                 ItemsFactory.save($scope.item, function(err) {
                     if (err.errors) {
@@ -39,7 +41,7 @@ define([
                             }
                         }
                     } else {
-                        $location.path('/settings/item');
+                        $state.go('settings_master_item');
                     }
                 });
             };
