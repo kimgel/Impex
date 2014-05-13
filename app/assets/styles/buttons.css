@@ -123,3 +123,9 @@
 .quick-button i {
     font-size: 32px;
 }
+
+/* Status Buttons
+=================================================================== */
+.btn.status{
+    border-radius: 17px !important;
+}
