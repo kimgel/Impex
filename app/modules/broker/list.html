@@ -44,11 +44,11 @@
                                     <td>{{broker.tel}}</td>
                                     <td>{{broker.contact}}</td>
                                     <td>{{broker.email}}</td>
-                                    <td>{{broker.valid_from | date: 'longDate'}}</td>
-                                    <td>{{broker.valid_to | date: 'longDate'}}</td>
+                                    <td>{{broker.valid_from | date: 'mediumDate'}}</td>
+                                    <td>{{broker.valid_to | date: 'mediumDate'}}</td>
                                     <td>
-                                        <a class="btn btn-success btn-xs" ng-href="/settings/master/broker/{{broker._id}}"> <i class="fa fa-eye"></i></a>
-                                        <a class="btn btn-primary btn-xs" ng-href="/settings/master/broker/{{broker._id}}/edit"> <i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-success btn-sm" ng-href="/settings/master/broker/{{broker._id}}"> <i class="fa fa-search-plus"></i></a>
+                                        <a class="btn btn-primary btn-sm" ng-href="/settings/master/broker/{{broker._id}}/edit"> <i class="fa fa-edit"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
