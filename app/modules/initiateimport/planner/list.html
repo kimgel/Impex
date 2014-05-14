@@ -35,7 +35,7 @@
                                 </tr>
                                 <tr ng-repeat="planner in planners">
                                     <td>
-                                        <span class="label" ng-class="{'label-warning': planner.status == 'on going', 'label-important': item.status != 'delayed'}">{{planner.status}}</span>
+                                        <span class="label" ng-class="{'label-warning': planner.status == 'on going', 'label-important': item.status != 'delayed', 'label-success': planner.status == 'completed'}">{{planner.status}}</span>
                                     </td>
                                     <td>{{planner.material.code}}</td>
                                     <td>{{planner.po_number}}</td>

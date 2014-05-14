@@ -5,7 +5,7 @@
             <a ui-sref="initiateimport_planner">Planner</a> &gt;
             <strong>{{planner._id}}</strong>
             <div class="process_status pull-right">
-                <span class="label label-danger">Delayed</span>
+                <span class="label label-success">Completed</span>
             </div>
         </h3>
         
@@ -162,7 +162,7 @@
                                 <li ng-repeat="doc in planner.material.documents | filter:{document_category:'ii_planner'}">
                                     <span class="status">
                                         <span class="desc">{{doc.document_name}}</span>
-                                        <span class="label label-danger">Not uploaded</span>
+                                        <span class="label label-success">uploaded</span>
                                     </span>
                                 </li>
                             </ul>
@@ -170,9 +170,9 @@
                     </div>
                     <div class="form-actions highlight">
                         <form>
-                            <input type="file" ng-disabled="!planner.material.documents" ng-model="files" file-change>
+                            <input type="file" ng-disabled="true" ng-model="files" file-change>
                             <br />
-                            <button type="button" class="btn btn-block" ng-disabled="!planner.material.documents">Upload</button>
+                            <button type="button" class="btn btn-block" ng-disabled="true">Upload</button>
                         </form>
                     </div>
                 </div>
