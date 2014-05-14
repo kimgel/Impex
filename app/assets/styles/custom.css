@@ -66,3 +66,7 @@
     font-size: 20px;
     padding: 0 10px 10px 0;
 }
+
+.alert:focus{
+    outline: 0;
+}
