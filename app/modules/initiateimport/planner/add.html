@@ -48,7 +48,8 @@
                         </div>
                         <div class="col-xs-4">
                             <div class="form-group">
-                                <label class="control-label">Supplier Name</label>
+                            <span class="label pull-right" ng-class="{'label-important': material.supplier.status == 'inactive', 'label-success': material.supplier.status == 'active'}">{{material.supplier.status}}</span>
+                                <label class="control-label">Supplier </label>
                                 <div class="controls">
                                     <div class="label-value">{{material.supplier.name}}</div>
                                 </div>
@@ -80,15 +81,16 @@
                         </div>
                         <div class="col-xs-4">
                             <div class="form-group">
-                                <label class="control-label">Broker No.</label>
+                                <span class="label pull-right" ng-class="{'label-important': material.broker.status == 'inactive', 'label-success': material.broker.status == 'active'}">{{material.broker.status}}</span>
+                                <label class="control-label">Broker</label>
                                 <div class="controls">
-                                    <div class="label-value">{{material.broker.no}}</div>
+                                    <div class="label-value">{{material.broker.name}}</div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Broker Name</label>
+                                <label class="control-label">Broker Contact Person</label>
                                 <div class="controls">
-                                    <div class="label-value">{{material.broker.name}}</div>
+                                    <div class="label-value">{{material.broker.contact}}</div>
                                 </div>
                             </div>
                             <div class="form-group">
