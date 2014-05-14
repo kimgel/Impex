@@ -1,4 +1,4 @@
-<div id="content"  ng-controller="PlannerList" ng-init="all()">
+<div id="content" ng-controller="PlannerListCtrl" ng-init="all()">
     <div class="sub-header">
         <h3 class="section-title">
             Initiate Import &gt; 
@@ -44,7 +44,7 @@
                                     <td>{{planner.etd | date: 'mediumDate'}}</td>
                                     <td>{{planner.creator.name}}</td>
                                     <td>
-                                        <a class="btn btn-success btn-sm" ng-href="/initiateimport/planner/id/{{planner._id}}"> <i class="fa fa-eye"></i></a>
+                                        <a class="btn btn-success btn-sm" ng-href="/initiateimport/planner/{{planner._id}}"> <i class="fa fa-eye"></i></a>
                                     </td>
                                 </tr>
                             </tbody>

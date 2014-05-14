@@ -3,8 +3,8 @@
 define([
     'app',
     'Materials',
-    'InitiateImportPlanner',
-], function(app, Materials, InitiateImportPlanner) {
+    'Planners',
+], function(app, Materials, Planners) {
     app.controller('PlannerCtrl', [
         '$rootScope',
         '$scope',
@@ -12,8 +12,8 @@ define([
         '$state',
         '$alert',
         'MaterialsFactory',
-        'InitiateImportPlannerFactory',
-        function($rootScope, $scope, $http, $state, $alert, MaterialsFactory, InitiateImportPlannerFactory) {
+        'PlannerFactory',
+        function($rootScope, $scope, $http, $state, $alert, MaterialsFactory, PlannerFactory) {
 
             $scope.planner = {};
             $scope.docs = [];
@@ -25,7 +25,7 @@ define([
 
                 if (!$scope.noMaterial) {
                     $scope.planner.material = $scope.material._id;
-                    InitiateImportPlannerFactory.save($scope.planner, function(err) {
+                    PlannerFactory.save($scope.planner, function(err) {
                         if (err.errors) {
                             for (var key in err.errors) {
                                 if (key != 'documents') {
