@@ -28,3 +28,7 @@
 .label-info, .badge-info, .label-info[href], .badge-info[href] {
     background: #67c2ef;
 }
+
+.process_status .label{
+    font-size: 16px;
+}
