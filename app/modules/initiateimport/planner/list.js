@@ -3,9 +3,8 @@
 define(['app', 'InitiateImportPlanner'], function(app, InitiateImportPlanner) {
     app.controller('PlannerList', [
         '$scope',
-        '$location',
         'InitiateImportPlannerFactory',
-        function($scope, $location, InitiateImportPlannerFactory) {
+        function($scope, InitiateImportPlannerFactory) {
             
             $scope.all = function() {
                 InitiateImportPlannerFactory.query(function(planners) {
