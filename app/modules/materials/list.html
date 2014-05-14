@@ -37,7 +37,7 @@
                                 </tr>
                                 <tr ng-repeat="material in materials">
                                     <td>
-                                        <span class="label" ng-class="{'label-important': material.status == 'not started', 'label-info': material.status != 'not started'}">{{material.status}}</span>
+                                        <span class="label" ng-class="{'label-important': material.status == 'not started', 'label-success': material.status != 'not started'}">{{material.status}}</span>
                                     </td>
                                     <td>{{material.code}}</td>
                                     <td class="toCapitalize">{{material.regulatory}}</td>
@@ -45,8 +45,8 @@
                                     <td>{{material.supplier.name}}</td>
                                     <td>{{material.broker.name}}</td>
                                     <td>{{material.forwarder.name}}</td>
-                                    <td>{{material.valid_from | date: 'longDate'}}</td>
-                                    <td>{{material.valid_to | date: 'longDate'}}</td>
+                                    <td>{{material.valid_from | date: 'mediumDate'}}</td>
+                                    <td>{{material.valid_to | date: 'mediumDate'}}</td>
                                     <td>
                                         <a class="btn btn-success btn-sm" ng-href="/settings/materials/{{material._id}}"> <i class="fa fa-eye"></i></a>
                                     </td>
