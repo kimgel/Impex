@@ -25,6 +25,8 @@ define([
 
                 if (!$scope.noMaterial) {
                     $scope.planner.material = $scope.material._id;
+                    $scope.planner.material_supplier = $scope.material.supplier._id;
+                    $scope.planner.material_broker = $scope.material.broker._id;
                     PlannerFactory.save($scope.planner, function(err) {
                         if (err.errors) {
                             for (var key in err.errors) {
@@ -35,7 +37,7 @@ define([
                                 }
                             }
                         } else {
-                            $state.go('initiate_import_planner');
+                            $state.go('initiateimport_planner');
                         }
                     });
                 } else {
