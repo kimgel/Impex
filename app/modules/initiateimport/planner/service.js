@@ -1,10 +1,10 @@
 'use strict';
 
 define(['app'], function(app) {
-    app.factory('InitiateImportPlannerFactory', [
+    app.factory('PlannerFactory', [
         '$resource',
         function($resource) {
-            return $resource('/api/initiateimport/planner/:plannerId', {
+            return $resource('/api/planner/:plannerId', {
                 plannerId: '@_id'
             }, {
                 update: {
