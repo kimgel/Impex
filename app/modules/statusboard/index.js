@@ -1,11 +1,10 @@
 'use strict';
 
 define(['app'], function(app) {
-    app.controller('DashboardCtrl', [
+    app.controller('StatusBoardCtrl', [
         '$scope',
         '$location',
-        'Auth',
-        function($scope, $location, Auth) {
+        function($scope, $location) {
         	
         }
     ]);

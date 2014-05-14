@@ -1,4 +1,4 @@
-<div id="content" ng-controller="DashboardCtrl">
+<div id="content" ng-controller="StatusBoardCtrl">
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
@@ -32,33 +32,35 @@
                     </div>
                     
 
-                    <table class="table">
+                    <table class="table table-bordered table-condensed statusboard">
                         <thead>
-                            <tr>
-                                <th>PO No.</th>
+                            <tr>                                
                                 <th>Item Code</th>
-                                <th>Date</th>                                
-                                <th class="center">II</th>
-                                <th class="center">PS</th>
-                                <th class="center">IT</th>
-                                <th class="center">CD</th>
-                                <th class="center">CI</th>
-                                <th class="center">Overall</th>
+                                <th>PO No.</th>
+                                <th>PO Date</th>                                
+                                <th>II-P</th>
+                                <th>II-B</th>
+                                <th>II-A</th>
+                                <th>PS</th>
+                                <th>IT</th>
+                                <th>CD</th>
+                                <th>CI</th>
+                                <th>Overall</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>7774</td>
-                                <td>555</td> 
-                                <td>05/14/14</td>                                
+                                <td>65008676</td>
+                                <td>4504733754</td> 
+                                <td>03/20/13</td>                                
                                 <td>
-                                    <a class="btn btn-success status" href="#">
-                                        <i class="fa fa-check-circle"></i>                                            
+                                    <a class="btn btn-danger status" href="/initiateimport/planner/5373aa13a5710ec408667563">
+                                        <i class="fa fa-exclamation-circle"></i>                                            
                                     </a>
                                 </td>                               
                                 <td>
-                                    <a class="btn btn-danger status" href="#">
-                                        <i class="fa fa-exclamation-circle"></i>                                            
+                                    <a class="btn btn-info status" href="#">
+                                        <i class="fa fa-info-circle"></i>                                            
                                     </a>
                                 </td>
                                 <td>
@@ -77,8 +79,18 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-success status" href="#">
-                                        <i class="fa fa-check-circle"></i>                                            
+                                    <a class="btn btn-info status" href="#">
+                                        <i class="fa fa-info-circle"></i>                                            
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-info status" href="#">
+                                        <i class="fa fa-info-circle"></i>                                            
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger status" href="#">
+                                        <i class="fa fa-exclamation-circle"></i>                                            
                                     </a>
                                 </td>
                             </tr>

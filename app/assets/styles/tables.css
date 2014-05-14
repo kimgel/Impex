@@ -51,7 +51,7 @@ table.table thead .sorting_desc_disabled {
 table.dataTable th:active {
     outline: none;
 }
-th.center,td.center{
+table.statusboard th,table.statusboard td{
     text-align: center;
 }
 
