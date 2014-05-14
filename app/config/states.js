@@ -373,7 +373,7 @@ define(['Dependency'], function (Dependency) {
             /* ======= Settings: User ======= */
             settings_user: {
                 name: 'settings_user',
-                url: '/settings/user',
+                url: '/settings/users',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -387,7 +387,7 @@ define(['Dependency'], function (Dependency) {
             },
             settings_user_add: {
                 name: 'settings_user_add',
-                url: '/settings/user/add',
+                url: '/settings/users/add',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -401,7 +401,7 @@ define(['Dependency'], function (Dependency) {
             },
             settings_user_view: {
                 name: 'settings_user_view',
-                url: '/settings/user/:userId',
+                url: '/settings/users/:userId',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -415,7 +415,7 @@ define(['Dependency'], function (Dependency) {
             },
             settings_user_edit: {
                 name: 'settings_user_edit',
-                url: '/settings/user/:userId/edit',
+                url: '/settings/users/:userId/edit',
                 parent: 'settings',
                 views: {
                     '@': {
