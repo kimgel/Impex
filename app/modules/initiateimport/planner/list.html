@@ -38,13 +38,13 @@
                                         <span class="label" ng-class="{'label-warning': planner.status == 'on going', 'label-important': item.status != 'delayed'}">{{planner.status}}</span>
                                     </td>
                                     <td>{{planner.po_number}}</td>
-                                    <td>{{planner.po_date | date: 'longDate'}}</td>
-                                    <td>{{planner.eta | date: 'longDate'}}</td>
-                                    <td>{{planner.etd | date: 'longDate'}}</td>
-                                    <td>{{planner.created | date: 'longDate'}}</td>
+                                    <td>{{planner.po_date | date: 'mediumDate'}}</td>
+                                    <td>{{planner.eta | date: 'mediumDate'}}</td>
+                                    <td>{{planner.etd | date: 'mediumDate'}}</td>
+                                    <td>{{planner.created | date: 'mediumDate'}}</td>
                                     <td>{{planner.creator.name}}</td>
                                     <td>
-                                        <a class="btn btn-success btn-xs" ng-href="/settings/planner/{{planner._id}}"> <i class="fa fa-eye"></i></a>
+                                        <a class="btn btn-success btn-sm" ng-href="/settings/planner/{{planner._id}}"> <i class="fa fa-eye"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
