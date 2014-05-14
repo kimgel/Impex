@@ -48,8 +48,8 @@
                         </div>
                         <div class="col-xs-4">
                             <div class="form-group">
-                            <span class="label pull-right" ng-class="{'label-important': material.supplier.status == 'inactive', 'label-success': material.supplier.status == 'active'}">{{material.supplier.status}}</span>
-                                <label class="control-label">Supplier </label>
+                                <span class="label pull-right" ng-class="{'label-important': material.supplier.status == 'inactive', 'label-success': material.supplier.status == 'active'}">{{material.supplier.status}}</span>
+                                <label class="control-label">Supplier</label>
                                 <div class="controls">
                                     <div class="label-value">{{material.supplier.name}}</div>
                                 </div>
@@ -133,30 +133,31 @@
                         <div class="row">
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <label class="control-label">ETA</label>
-                                    <div class="controls">
-                                        <div class="input-group date">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                            <input type="text" name="eta" class="form-control" ng-model="planner.eta" data-max-date="{{planner.etd}}" placeholder="ETA" bs-datepicker>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="form-group">
                                     <label class="control-label">ETD</label>
                                     <div class="controls">
                                         <div class="input-group date">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </span>
-                                            <input type="text" name="etd" class="form-control" ng-model="planner.etd" data-min-date="{{planner.eta}}" placeholder="ETD" bs-datepicker>
+                                            <input type="text" name="etd" class="form-control" ng-model="planner.etd" data-max-date="{{planner.eta}}" placeholder="ETD" bs-datepicker>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label class="control-label">ETA</label>
+                                    <div class="controls">
+                                        <div class="input-group date">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input type="text" name="eta" class="form-control" ng-model="planner.eta" data-min-date="{{planner.etd}}" placeholder="ETA" bs-datepicker>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="form-actions highlight">
                             <button ng-click="submit(form)" type="button" class="btn btn-primary">Submit</button>
