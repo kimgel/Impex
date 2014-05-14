@@ -31,7 +31,7 @@ require.config({
         'Suppliers': '/modules/supplier/service',
         'Materials': '/modules/materials/service',
         'ShippingLines': '/modules/shippinglines/service',
-        'Planners': '/modules/initiateimport/planner/service',
+        'Planners': '/modules/initiateimport/planner/service'
 
     },
     shim: {
@@ -45,7 +45,7 @@ require.config({
                 'angular-animate',
                 'angular-strap',
                 'Templates',
-                'angular-loading-bar',
+                'angular-loading-bar'
             ]
         },
         'angular-resource': {
