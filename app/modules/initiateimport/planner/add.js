@@ -2,25 +2,27 @@
 
 define([
     'app',
-    'Items',
+    'Materials',
     'InitiateImportPlanner',
-], function(app, Items, InitiateImportPlanner) {
+], function(app, Materials, InitiateImportPlanner) {
     app.controller('PlannerCtrl', [
         '$rootScope',
         '$scope',
         '$http',
         '$location',
-        'ItemsFactory',
+        'MaterialsFactory',
         'InitiateImportPlannerFactory',
-        function($rootScope, $scope, $http, $location, ItemsFactory, InitiateImportPlannerFactory) {
+        function($rootScope, $scope, $http, $location, MaterialsFactory, InitiateImportPlannerFactory) {
 
             $scope.planner = {};
-            $scope.selectedItemCode = '';
+            $scope.selectedMaterialCode = '';
             $scope.docs = [];
             $scope.view = false;
+            $scope.notFound = false;
+            $scope.noMaterial = true;
 
             $scope.submit = function(form) {
-                $scope.planner.item = $scope.selectedItemCode;
+                $scope.planner.material = $scope.material._id;
 
                 InitiateImportPlannerFactory.save($scope.planner, function(err) {
                     if (err.errors) {
@@ -40,23 +42,21 @@ define([
                 $scope.planner = angular.copy({});
             };
 
-            $scope.getItemCode = function(viewValue) {
-                var params = {
-                    code: viewValue
-                };
-                return $http.get('/api/item')
-                    .then(function(res) {
-                        return res.data;
-                    });
-            };
-            $scope.findOne = function() {
-                ItemsFactory.get({
-                    itemId: $scope.selectedItemCode
-                }, function(item) {
-                    $scope.item = item;
-                    $scope.docs = $scope.item.documents;
+            $scope.findMaterial = function(code) {
+                MaterialsFactory.get({
+                    materialCode: code,
+                    searchCode: true
+                }, function(material) {
+                    $scope.notFound = false;
+                    $scope.noMaterial = false;
+                    $scope.material = material;
+                    $scope.docs = $scope.material.documents;
+                }, function(err) {
+                    $scope.notFoundCode = code;
+                    $scope.notFound = true;
                 });
             };
+
         }
     ]);
 });
