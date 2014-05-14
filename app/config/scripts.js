@@ -31,7 +31,7 @@ require.config({
         'Suppliers': '/modules/supplier/service',
         'Materials': '/modules/materials/service',
         'ShippingLines': '/modules/shippinglines/service',
-        'InitiateImportPlanner': '/modules/initiateimport/planner/service',
+        'Planners': '/modules/initiateimport/planner/service',
 
     },
     shim: {
