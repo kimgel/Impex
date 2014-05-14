@@ -415,7 +415,7 @@ define(['Dependency'], function (Dependency) {
             },
             settings_user_edit: {
                 name: 'settings_user_edit',
-                url: '/settings/users/:userId/edit',
+                url: '/settings/user/:userId/edit',
                 parent: 'settings',
                 views: {
                     '@': {
@@ -439,6 +439,20 @@ define(['Dependency'], function (Dependency) {
                 },
                 resolve: new Dependency([
                    'modules/initiateimport/planner/list'
+                ]),
+                authenticate: true
+            },
+            initiate_import_planner_view: {
+                name: 'initiate_import_planner_view',
+                url: '/initiateimport/planner/id/:plannerId',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/initiateimport/planner/view.html'
+                    }
+                },
+                resolve: new Dependency([
+                   'modules/initiateimport/planner/view'
                 ]),
                 authenticate: true
             },
