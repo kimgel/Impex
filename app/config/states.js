@@ -688,6 +688,34 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
+            customscharges_lclcharges_add: {
+                name: 'customscharges_lclcharges_add',
+                url: '/customscharges/lclcharges',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/customscharges/lclcharges/add.html'
+                    }
+                },
+                resolve: new Dependency([
+                    'modules/customscharges/lclcharges/add'
+                ]),
+                authenticate: true
+            },
+            customscharges_fclcharges_add: {
+                name: 'customscharges_fclcharges_add',
+                url: '/customscharges/fclcharges',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/customscharges/fclcharges/add.html'
+                    }
+                },
+                resolve: new Dependency([
+                    'modules/customscharges/fclcharges/add'
+                ]),
+                authenticate: true
+            }
         }
     };
 });
