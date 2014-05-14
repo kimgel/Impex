@@ -25,7 +25,7 @@
                                     <th>PO Date</th>
                                     <th>ETA</th>
                                     <th>ETD</th>
-                                    <th>Date Created</th>
+                                    <th>Planner</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -42,9 +42,9 @@
                                     <td>{{planner.po_date | date: 'mediumDate'}}</td>
                                     <td>{{planner.eta | date: 'mediumDate'}}</td>
                                     <td>{{planner.etd | date: 'mediumDate'}}</td>
-                                    <td>{{planner.created | date: 'mediumDate'}}</td>
+                                    <td>{{planner.creator.name}}</td>
                                     <td>
-                                        <a class="btn btn-success btn-sm" ng-href="/settings/planner/{{planner._id}}"> <i class="fa fa-eye"></i></a>
+                                        <a class="btn btn-success btn-sm" ng-href="/initiateimport/planner/id/{{planner._id}}"> <i class="fa fa-eye"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
