@@ -515,9 +515,9 @@ define(['Dependency'], function (Dependency) {
                 authenticate: true
             },
             /* ======= Shipment Detail ======= */
-            prepareshipment_detail: {
-                name: 'prepareshipment_detail',
-                url: '/prepareshipment/shipmentdetail',
+            shipmentdetail: {
+                name: 'shipmentdetail',
+                url: '/shipmentdetail',
                 parent: 'root',
                 views: {
                     '@': {
@@ -529,9 +529,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            prepareshipment_detail_add: {
-                name: 'prepareshipment_detail_add',
-                url: '/prepareshipment/shipmentdetail/add',
+            shipmentdetail_add: {
+                name: 'shipmentdetail_add',
+                url: '/shipmentdetail/add',
                 parent: 'root',
                 views: {
                     '@': {
@@ -544,9 +544,9 @@ define(['Dependency'], function (Dependency) {
                 authenticate: true
             },
             /* ======= Shipment Departure ======= */
-            prepareshipment_departure: {
-                name: 'prepareshipment_departure',
-                url: '/prepareshipment/shipmentdeparture',
+            shipmentdeparture: {
+                name: 'shipmentdeparture',
+                url: '/shipmentdeparture',
                 parent: 'root',
                 views: {
                     '@': {
@@ -558,9 +558,9 @@ define(['Dependency'], function (Dependency) {
                 ]),
                 authenticate: true
             },
-            prepareshipment_departure_add: {
-                name: 'prepareshipment_departure_add',
-                url: '/prepareshipment/shipmentdeparture/add',
+            shipmentdeparture_add: {
+                name: 'shipmentdeparture_add',
+                url: '/shipmentdeparture/add',
                 parent: 'root',
                 views: {
                     '@': {
