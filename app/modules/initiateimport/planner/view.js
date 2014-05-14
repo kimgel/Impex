@@ -1,12 +1,18 @@
 'use strict';
 
-define(['app'], function(app) {
+define(['app', 'InitiateImportPlanner'], function(app, InitiateImportPlanner) {
     app.controller('PlannerViewCtrl', [
         '$scope',
-        'Auth',
-        function($scope, Auth) {
-
-           
+        '$stateParams',
+        'InitiateImportPlannerFactory',
+        function($scope,  $stateParams, InitiateImportPlannerFactory) {
+            $scope.findOne = function() {
+                InitiateImportPlannerFactory.get({
+                    plannerId: $stateParams.plannerId                 
+                }, function(planner) {
+                    $scope.planner = planner;                    
+                });
+            };
         }
     ]);
 });
