@@ -7,15 +7,15 @@ define(['app'], function (app) {
             $scope.initiateimportDd = [
                 {
                     "text": "Planner",
-                    "ui_sref": "initiate_import_planner"
+                    "ui_sref": "initiateimport_planner"
                 },
                 {
                     "text": "Broker",
-                    "ui_sref": "initiate_import_broker"
+                    "ui_sref": "initiateimport_broker"
                 },
                 {
                     "text": "Assign Forwarder",
-                    "ui_sref": "initiate_import_assignforwarder"
+                    "ui_sref": "initiateimport_assignforwarder"
                 }
             ];
         }
