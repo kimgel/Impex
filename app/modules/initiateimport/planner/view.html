@@ -1,7 +1,13 @@
-<div id="content" ng-controller="PlannerViewCtrl">
-    <div ng-include="'modules/common/wizard/ongoing'"></div>
+<div id="content" ng-controller="PlannerViewCtrl" ng-init="findOne()">
+    <div class="sub-header">
+        <h3 class="section-title">
+            Initiate Import &gt;
+            <a ui-sref="initiate_import_planner">Planner</a> &gt;
+            <strong>{{planner._id}}</strong>
+        </h3>
+    </div>
     <div class="row">
-        <div class="col-7">
+        <div class="col-xs-7">
             <div class="box">
                 <div class="box-header">
                     <h2>
@@ -12,44 +18,29 @@
                         <div class="form-group">
                             <label class="control-label">Impex / PO number</label>
                             <div class="controls">
-                                <input type="text" class="form-control" value="1243"> 
+                                
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">PO Date</label>
                             <div class="controls">
-                                <div class="input-group date" ng-controller="DatePicker">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </span>
-                                    <input type="text" class="form-control" value="02-April-2014"> 
-                                </div>
+                                
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-xs-6">
                                 <div class="form-group">
                                     <label class="control-label">ETD</label>
                                     <div class="controls">
-                                        <div class="input-group date" ng-controller="DatePicker">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                            <input type="text" class="form-control" value="02-April-2014"> 
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-xs-6">
                                 <div class="form-group">
                                     <label class="control-label">ETA</label>
                                     <div class="controls">
-                                        <div class="input-group date" ng-controller="DatePicker">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                            <input type="text" class="form-control" value="02-April-2014"> 
-                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +48,7 @@
                         <div class="form-group">
                             <label class="control-label">Item Code / Description</label>
                             <div class="controls">
-                                <input type="text" class="form-control" value="Food">
+                                
                             </div>
                         </div>
                         <div class="form-group">
@@ -106,7 +97,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-5">
+        <div class="col-xs-5">
             <div class="box">
                 <div class="box-header">
                     <h2>
