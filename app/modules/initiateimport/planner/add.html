@@ -1,12 +1,107 @@
 <div id="content" ng-controller="PlannerCtrl">
     <div class="sub-header">
         <h3 class="section-title">
-            Initiate Import &gt; 
-            <a ui-sref="initiate_import_planner">Planner</a> &gt; 
+            Initiate Import &gt;
+            <a ui-sref="initiate_import_planner">Planner</a> &gt;
             <strong>Add</strong>
         </h3>
     </div>
     <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-calendar-o"></i>Material Summary
+                    </h2>
+                    <div class="box-icon">
+                        <button class="btn" container="body" data-template="/modules/initiateimport/planner/material.tpl.html" bs-modal>
+                            <i class="fa fa-search"></i> Load
+                        </button>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="row" ng-show="noMaterial">
+                        <div class="col-xs-12">
+                            Please select Material.
+                        </div>
+                    </div>
+                    <div class="row" ng-hide="noMaterial">
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label class="control-label">Material Code</label>
+                                <div class="controls">
+                                    <div class="label-value">{{material.code}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Item Description</label>
+                                <div class="controls">
+                                    <div class="label-value">{{material.description}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Item Regulatory</label>
+                                <div class="controls">
+                                    <div class="label-value toCapitalize">{{material.regulatory}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label class="control-label">Supplier Name</label>
+                                <div class="controls">
+                                    <div class="label-value">{{material.supplier.name}}</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Valid From</label>
+                                        <div class="controls">
+                                            <div class="label-value"><i class="fa fa-calendar"></i> {{material.supplier.valid_from | date: 'mediumDate'}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Valid To</label>
+                                        <div class="controls">
+                                            <div class="label-value"><i class="fa fa-calendar"></i> {{material.supplier.valid_to | date: 'mediumDate'}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Supplier Address</label>
+                                <div class="controls">
+                                    <div class="label-value">{{material.supplier.address}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label class="control-label">Broker No.</label>
+                                <div class="controls">
+                                    <div class="label-value">{{material.broker.no}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Broker Name</label>
+                                <div class="controls">
+                                    <div class="label-value">{{material.broker.name}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Broker Email</label>
+                                <div class="controls">
+                                    <div class="label-value">{{material.broker.email}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-xs-7">
             <div class="box">
                 <div class="box-header">
@@ -16,19 +111,6 @@
                 </div>
                 <div class="box-content">
                     <form role="form" name="form">
-                        <div class="form-group">
-                            <label class="control-label">Item Code</label>
-                            <div class="controls">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" ng-model="selectedItemCode" ng-options="code._id as code.code for code in getItemCode($viewValue)" data-min-length="3" placeholder="Enter Item Code" bs-typeahead>
-                                    <span class="input-group-btn">
-                                        <button class="btn" type="button" ng-click="findOne()"><i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                            </div>
-
-                        </div>
                         <div class="form-group">
                             <label class="control-label">Impex / PO number</label>
                             <div class="controls">
@@ -74,72 +156,6 @@
                                 </div>
                             </div>
                         </div>
-                        <h3>Item Summary</h3>
-                        <hr />
-                        <div class="form-group">
-                            <label class="control-label">Item Regulatory</label>
-                            <div class="controls">
-                                <div class="label-value toCapitalize">{{item.regulatory}}</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Item Description</label>
-                            <div class="controls">
-                                <div class="label-value">{{item.description}}</div>
-                            </div>
-                        </div>
-                        <h3>Supplier Summary</h3>
-                        <hr />
-                        <div class="form-group">
-                            <label class="control-label">Supplier Name</label>
-                            <div class="controls">
-                                <div class="label-value">{{item.supplier.name}}</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="form-group">
-                                    <label class="control-label">Valid From</label>
-                                    <div class="controls">
-                                        <div class="label-value"><i class="fa fa-calendar"></i> {{item.supplier.valid_from | date: 'longDate'}}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="form-group">
-                                    <label class="control-label">Valid To</label>
-                                    <div class="controls">
-                                        <div class="label-value"><i class="fa fa-calendar"></i> {{item.supplier.valid_to | date: 'longDate'}}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Supplier Address</label>
-                            <div class="controls">
-                                <div class="label-value">{{item.supplier.address}}</div>
-                            </div>
-                        </div>
-                        <h3>Broker Summary</h3>
-                        <hr />
-                        <div class="form-group">
-                            <label class="control-label">Broker No.</label>
-                            <div class="controls">
-                                <div class="label-value">{{item.broker.no}}</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Broker Name</label>
-                            <div class="controls">
-                                <div class="label-value">{{item.broker.name}}</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Email Address</label>
-                            <div class="controls">
-                                <div class="label-value">{{item.broker.email}}</div>
-                            </div>
-                        </div>
                         <div class="form-actions highlight">
                             <button ng-click="submit(form)" type="button" class="btn btn-primary">Submit</button>
                             <button type="reset" class="btn">Reset</button>
@@ -158,14 +174,14 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <ul class="upload-docs">
-                                <li ng-hide="!item.documents || item.documents.length">
+                                <li ng-hide="!material.documents || material.documents.length">
                                     <span class="status">
                                         <span class="desc">Please select item</span>
                                     </span>
                                 </li>
-                                <li ng-repeat="doc in item.documents | filter:{document_category:'ii_planner'}">
+                                <li ng-repeat="doc in material.documents | filter:{document_category:'ii_planner'}">
                                     <span class="status">
-                                        <span class="desc">{{doc.document_name}}c</span>
+                                        <span class="desc">{{doc.document_name}}</span>
                                         <span class="label label-danger">Not uploaded</span>
                                     </span>
                                 </li>
@@ -174,9 +190,9 @@
                     </div>
                     <div class="form-actions highlight">
                         <form>
-                            <input type="file" ng-disabled="!item.documents" ng-model="files" file-change>
+                            <input type="file" ng-disabled="!material.documents" ng-model="files" file-change>
                             <br />
-                            <button type="button" class="btn btn-block" ng-disabled="!item.documents">Upload</button>
+                            <button type="button" class="btn btn-block" ng-disabled="!material.documents">Upload</button>
                         </form>
                     </div>
                 </div>
