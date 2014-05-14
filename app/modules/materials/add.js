@@ -23,15 +23,15 @@ define([
             ForwardersFactory
         ) {
 
-            $scope.materials = {};
+            $scope.material = {};
             $scope.schedule = {};
             $scope.docs = [];
             $scope.view = false;
             $scope.submit = function(form) {
-                $scope.materials.documents = $scope.docs;
-                $scope.materials.schedule = $scope.schedule;
+                $scope.material.documents = $scope.docs;
+                $scope.material.schedule = $scope.schedule;
 
-                MaterialsFactory.save($scope.materials, function(err) {
+                MaterialsFactory.save($scope.material, function(err) {
                     if (err.errors) {
                         for (var key in err.errors) {
                             if (key != 'documents') {
