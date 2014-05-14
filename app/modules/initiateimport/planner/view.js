@@ -11,7 +11,8 @@ define(['app', 'Planners'], function(app, Planners) {
                 PlannerFactory.get({
                     plannerId: $stateParams.plannerId                 
                 }, function(planner) {
-                    $scope.planner = planner;                    
+                    $scope.planner = planner;
+                    $scope.docs = planner.material.documents;               
                 });
             };
         }

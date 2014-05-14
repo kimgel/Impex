@@ -7,6 +7,93 @@
         </h3>
     </div>
     <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-calendar-o"></i>Material Summary
+                    </h2>
+                </div>
+                <div class="box-content">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label class="control-label">Material Code</label>
+                                <div class="controls">
+                                    <div class="label-value">{{planner.material.code}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Item Description</label>
+                                <div class="controls">
+                                    <div class="label-value">{{planner.material.description}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Item Regulatory</label>
+                                <div class="controls">
+                                    <div class="label-value toCapitalize">{{planner.material.regulatory}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <span class="label pull-right" ng-class="{'label-important': planner.material_supplier.status == 'inactive', 'label-success': planner.material_supplier.status == 'active'}">{{planner.material_supplier.status}}</span>
+                                <label class="control-label">Supplier</label>
+                                <div class="controls">
+                                    <div class="label-value">{{planner.material_supplier.name}}</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Valid From</label>
+                                        <div class="controls">
+                                            <div class="label-value"><i class="fa fa-calendar"></i> {{planner.material_supplier.valid_from | date: 'mediumDate'}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Valid To</label>
+                                        <div class="controls">
+                                            <div class="label-value"><i class="fa fa-calendar"></i> {{planner.material_supplier.valid_to | date: 'mediumDate'}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Supplier Address</label>
+                                <div class="controls">
+                                    <div class="label-value">{{planner.material_supplier.address}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <span class="label pull-right" ng-class="{'label-important': planner.material_broker.status == 'inactive', 'label-success':planner.material_broker.status == 'active'}">{{planner.material_broker.status}}</span>
+                                <label class="control-label">Broker</label>
+                                <div class="controls">
+                                    <div class="label-value">{{planner.material_broker.name}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Broker Contact Person</label>
+                                <div class="controls">
+                                    <div class="label-value">{{planner.material_broker.contact}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Broker Email</label>
+                                <div class="controls">
+                                    <div class="label-value">{{planner.material_broker.email}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-xs-7">
             <div class="box">
                 <div class="box-header">
@@ -16,15 +103,15 @@
                 <div class="box-content">
                     <form role="form">
                         <div class="form-group">
-                            <label class="control-label">Impex / PO number</label>
+                            <label class="control-label">PO number</label>
                             <div class="controls">
-                                
+                                <div class="label-value">{{planner.po_number}}</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">PO Date</label>
                             <div class="controls">
-                                
+                                <div class="label-value"> {{planner.po_date | date: 'mediumDate'}}</div>
                             </div>
                         </div>
                         <div class="row">
@@ -32,7 +119,7 @@
                                 <div class="form-group">
                                     <label class="control-label">ETD</label>
                                     <div class="controls">
-                                        
+                                        <div class="label-value"> {{planner.etd | date: 'mediumDate'}}</div>
                                     </div>
                                 </div>
                             </div>
@@ -40,62 +127,52 @@
                                 <div class="form-group">
                                     <label class="control-label">ETA</label>
                                     <div class="controls">
-                                       
+                                        <div class="label-value"> {{planner.eta | date: 'mediumDate'}}</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label">Item Code / Description</label>
-                            <div class="controls">
-                                
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">With regulatory</label>
-                            
-                        </div>
-                        <hr />
-                        <div class="form-group">
-                            <label class="control-label">Supplier Name</label>
-                            <div class="controls">
-                               
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Supplier Validity Date</label>
-                            <div class="controls">
-                                
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="address">Supplier Address</label>
-                            <div class="controls">
-                               
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Broker Code / Name</label>
-                            <div class="controls">
-                               
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Email Broker</label>
-                            <div class="controls">
-                                
-                            </div>
-                        </div>
                         <div class="form-actions highlight">
-                            <button type="button" class="btn btn-primary">Submit</button>
-                            <button type="reset" class="btn">Clear</button>
+                            <button type="button" class="btn btn-primary">Update</button>
+                            <button type="reset" class="btn">Cancel</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
         <div class="col-xs-5">
-            
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-file-o"></i>Required Documents</h2>
+                </div>
+                <div class="box-content">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul class="upload-docs">
+                                <li ng-hide="!planner.material.documents || planner.material.documents.length">
+                                    <span class="status">
+                                        <span class="desc">Please select item</span>
+                                    </span>
+                                </li>
+                                <li ng-repeat="doc in planner.material.documents | filter:{document_category:'ii_planner'}">
+                                    <span class="status">
+                                        <span class="desc">{{doc.document_name}}</span>
+                                        <span class="label label-danger">Not uploaded</span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-actions highlight">
+                        <form>
+                            <input type="file" ng-disabled="!planner.material.documents" ng-model="files" file-change>
+                            <br />
+                            <button type="button" class="btn btn-block" ng-disabled="!planner.material.documents">Upload</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
