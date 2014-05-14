@@ -1,6 +1,6 @@
 'use strict';
 
-define(['Dependency'], function (Dependency) {
+define(['Dependency'], function(Dependency) {
     return {
         defaultStatePath: '/login',
         states: {
@@ -267,7 +267,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/forwarder/list'
+                    'modules/forwarder/list'
                 ]),
                 authenticate: true
             },
@@ -281,7 +281,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/forwarder/add'
+                    'modules/forwarder/add'
                 ]),
                 authenticate: true
             },
@@ -295,8 +295,8 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/forwarder/view'
-               ]),
+                    'modules/forwarder/view'
+                ]),
                 authenticate: true
             },
             settings_forwarder_edit: {
@@ -309,7 +309,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/forwarder/edit'
+                    'modules/forwarder/edit'
                 ]),
                 authenticate: true
             },
@@ -324,7 +324,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/shippinglines/list'
+                    'modules/shippinglines/list'
                 ]),
                 authenticate: true
             },
@@ -338,7 +338,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/shippinglines/add'
+                    'modules/shippinglines/add'
                 ]),
                 authenticate: true
             },
@@ -352,8 +352,8 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/shippinglines/view'
-               ]),
+                    'modules/shippinglines/view'
+                ]),
                 authenticate: true
             },
             settings_shippinglines_edit: {
@@ -366,7 +366,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/shippinglines/edit'
+                    'modules/shippinglines/edit'
                 ]),
                 authenticate: true
             },
@@ -381,7 +381,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/user/list'
+                    'modules/user/list'
                 ]),
                 authenticate: true
             },
@@ -395,7 +395,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/user/add'
+                    'modules/user/add'
                 ]),
                 authenticate: true
             },
@@ -409,7 +409,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/user/view'
+                    'modules/user/view'
                 ]),
                 authenticate: true
             },
@@ -423,13 +423,13 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/user/edit'
+                    'modules/user/edit'
                 ]),
                 authenticate: true
             },
             /* ======= Initiate Import: Planner ======= */
-            initiate_import_planner: {
-                name: 'initiate_import_planner',
+            initiateimport_planner: {
+                name: 'initiateimport_planner',
                 url: '/initiateimport/planner',
                 parent: 'root',
                 views: {
@@ -438,26 +438,12 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/initiateimport/planner/list'
+                    'modules/initiateimport/planner/list'
                 ]),
                 authenticate: true
-            },
-            initiate_import_planner_view: {
-                name: 'initiate_import_planner_view',
-                url: '/initiateimport/planner/id/:plannerId',
-                parent: 'root',
-                views: {
-                    '@': {
-                        templateUrl: '/modules/initiateimport/planner/view.html'
-                    }
-                },
-                resolve: new Dependency([
-                   'modules/initiateimport/planner/view'
-                ]),
-                authenticate: true
-            },
-            initiate_import_planner_add: {
-                name: 'initiate_import_planner_add',
+            },            
+            initiateimport_planner_add: {
+                name: 'initiateimport_planner_add',
                 url: '/initiateimport/planner/add',
                 parent: 'root',
                 views: {
@@ -466,13 +452,27 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/initiateimport/planner/add'
+                    'modules/initiateimport/planner/add'
+                ]),
+                authenticate: true
+            },
+            initiateimport_planner_view: {
+                name: 'initiateimport_planner_view',
+                url: '/initiateimport/planner/:plannerId',
+                parent: 'root',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/initiateimport/planner/view.html'
+                    }
+                },
+                resolve: new Dependency([
+                    'modules/initiateimport/planner/view'
                 ]),
                 authenticate: true
             },
             /* ======= Initiate Import: Broker ======= */
-            initiate_import_broker: {
-                name: 'initiate_import_broker',
+            initiateimport_broker: {
+                name: 'initiateimport_broker',
                 url: '/initiateimport/broker',
                 parent: 'root',
                 views: {
@@ -481,12 +481,12 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/initiateimport/broker/list'
+                    'modules/initiateimport/broker/list'
                 ]),
                 authenticate: true
             },
-            initiate_import_broker_add: {
-                name: 'initiate_import_broker_add',
+            initiateimport_broker_add: {
+                name: 'initiateimport_broker_add',
                 url: '/initiateimport/broker/add',
                 parent: 'root',
                 views: {
@@ -495,13 +495,13 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/initiateimport/broker/add'
+                    'modules/initiateimport/broker/add'
                 ]),
                 authenticate: true
             },
             /* ======= Initiate Import: Assign Forwarder ======= */
-            initiate_import_assignforwarder: {
-                name: 'initiate_import_assignforwarder',
+            initiateimport_assignforwarder: {
+                name: 'initiateimport_assignforwarder',
                 url: '/initiateimport/assignforwarder',
                 parent: 'root',
                 views: {
@@ -510,12 +510,12 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/initiateimport/assignforwarder/list'
+                    'modules/initiateimport/assignforwarder/list'
                 ]),
                 authenticate: true
             },
-            initiate_import_assignforwarder_add: {
-                name: 'initiate_import_assignforwarder_add',
+            initiateimport_assignforwarder_add: {
+                name: 'initiateimport_assignforwarder_add',
                 url: '/initiateimport/assignforwarder/add',
                 parent: 'root',
                 views: {
@@ -524,7 +524,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/initiateimport/assignforwarder/add'
+                    'modules/initiateimport/assignforwarder/add'
                 ]),
                 authenticate: true
             },
@@ -539,7 +539,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/shipmentdetail/list'
+                    'modules/shipmentdetail/list'
                 ]),
                 authenticate: true
             },
@@ -553,7 +553,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/shipmentdetail/add'
+                    'modules/shipmentdetail/add'
                 ]),
                 authenticate: true
             },
@@ -568,7 +568,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/shipmentdeparture/list'
+                    'modules/shipmentdeparture/list'
                 ]),
                 authenticate: true
             },
@@ -582,7 +582,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/shipmentdeparture/add'
+                    'modules/shipmentdeparture/add'
                 ]),
                 authenticate: true
             },
@@ -597,7 +597,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/foreigninvoice/list'
+                    'modules/foreigninvoice/list'
                 ]),
                 authenticate: true
             },
@@ -611,7 +611,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/foreigninvoice/add'
+                    'modules/foreigninvoice/add'
                 ]),
                 authenticate: true
             },
@@ -626,7 +626,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/customsclearance/list'
+                    'modules/customsclearance/list'
                 ]),
                 authenticate: true
             },
@@ -640,7 +640,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/customsclearance/add'
+                    'modules/customsclearance/add'
                 ]),
                 authenticate: true
             },
@@ -655,7 +655,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/delivery/list'
+                    'modules/delivery/list'
                 ]),
                 authenticate: true
             },
@@ -669,7 +669,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/delivery/add'
+                    'modules/delivery/add'
                 ]),
                 authenticate: true
             },
@@ -684,7 +684,7 @@ define(['Dependency'], function (Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                   'modules/customscharges/aircharges/add'
+                    'modules/customscharges/aircharges/add'
                 ]),
                 authenticate: true
             },
