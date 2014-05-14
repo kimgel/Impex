@@ -18,6 +18,17 @@ define(['app'], function (app) {
                     "ui_sref": "initiate_import_assignforwarder"
                 }
             ];
+
+            $scope.prepareshipmentDd = [
+                {
+                    "text": "Shipment Detail",
+                    "ui_sref": "prepareshipment_detail"
+                },
+                {
+                    "text": "Shipment Departure",
+                    "ui_sref": "prepareshipment_departure"
+                }
+            ];
         }
     ]);
 });
