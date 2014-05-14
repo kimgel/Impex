@@ -7,16 +7,39 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label class="control-label">Enter Material Code</label>
                     <div class="controls">
-                        <input type="text" class="form-control" ng-model="material.code">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="selectedMaterialCode" placeholder="Enter Material Code">
+                            <span class="input-group-btn">
+                                <button class="btn" type="button" ng-click="findMaterial(selectedMaterialCode)"><i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
                     </div>
                 </div>
-
+                <div class="dataTables_wrapper form-inline" role="grid">
+                    <table class="table bootstrap-datatable datatable">
+                        <thead>
+                            <tr role="row">
+                                <th>Material Code</th>
+                                <th>Item Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-show="notFound">
+                                <td colspan="2">No material code: '{{notFoundCode}}' found.</td>
+                            </tr>
+                            <tr>
+                                <td>{{material.code}}</td>
+                                <td>{{material.description}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" ng-click="$hide()">Close</button>
             </div>
         </div>
     </div>
-</div>
