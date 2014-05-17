@@ -3,14 +3,17 @@
         <ul class="nav nav-tabs nav-stacked main-menu">
             <li>
                 <a ui-sref="statusboard">
-                    <i class="fa fa-dashboard"></i>Return to Status Board
+                    <i class="fa fa-home"></i>Return to Home
                 </a>
             </li>
             <li data-match-route="/settings/home">
                 <a ui-sref="settings_home">
-                    <i class="fa fa-cogs"></i>Settings Home
+                    <i class="fa fa-cogs"></i>Settings
                 </a>
             </li> 
+            <li>
+                <div class="nav-title">Master Files</div>
+            </li>
             <li data-match-route="/settings/materials">
                 <a ui-sref="settings_materials">
                     <i class="fa fa-calendar-o"></i>Materials
@@ -35,6 +38,9 @@
                 <a ui-sref="settings_shippinglines">
                     <i class="fa fa-archive"></i>Shipping Lines
                 </a>
+            </li>
+            <li>
+                <div class="nav-title">Admin</div>
             </li>
             <li data-match-route="/settings/users">
                 <a ui-sref="settings_user">
