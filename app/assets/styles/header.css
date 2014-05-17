@@ -114,6 +114,6 @@ a.navbar-brand.noBg {
     text-align: center;
 }
 .dropdown-menu.dropdown-user{
-    left: -32px !important;
-    border-top: 5px solid #333;
+    left: -6px !important;
+    /*border-top: 5px solid #333;*/
 }
