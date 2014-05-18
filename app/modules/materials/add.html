@@ -1,0 +1,176 @@
+<div id="content" ng-controller="ItemAdd" ng-init="all()">
+    <div class="row">
+        <div class="col-xs-7">
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-calendar-o"></i>Material</h2>
+                </div>
+                <div class="box-content">
+                    <form role="form" name="form" novalidate>
+                        <div class="form-group">
+                            <label class="control-label">Material Code</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" name="code" ng-model="material.code" required>
+                                <span class="label label-danger pull-right" ng-show="form.code.$error.required">{{form.code.message}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label class="control-label">Valid From</label>
+                                    <div class="controls">
+                                        <div class="input-group date">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                             <input type="text" name="valid_from" class="form-control" ng-model="material.valid_from" data-max-date="{{material.valid_to}}" placeholder="From" bs-datepicker required>
+                                        </div>
+                                        <span class="label label-danger pull-right" ng-show="form.valid_from.$error.required">{{form.valid_from.message}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label class="control-label">Valid To</label>
+                                    <div class="controls">
+                                        <div class="input-group date">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input type="text" name="valid_to" class="form-control" ng-model="material.valid_to" data-min-date="{{material.valid_from}}" placeholder="To" bs-datepicker required>
+                                        </div>
+                                        <span class="label label-danger pull-right" ng-show="form.valid_to.$error.required">{{form.valid_to.message}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Item Description</label>
+                            <div class="controls">
+                                <textarea class="form-control" name="description" ng-model="material.description" required></textarea>
+                                <span class="label label-danger pull-right" ng-show="form.description.$error.required">{{form.description.message}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Item Regulatory</label>
+                            <select class="form-control" ng-init="material.regulatory='yes'" ng-model="material.regulatory">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Item Type</label>
+                            <select class="form-control" ng-init="material.type='pm'" ng-model="material.type">
+                                <option value="pm">Packaging Material (PM)</option>
+                                <option value="rm">Raw Material (RM)</option>
+                            </select>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label class="control-label">Default Supplier</label>
+                            <select class="form-control" ng-model="material.supplier" ng-options="supplier._id as supplier.name for supplier in suppliers" required>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Default Broker</label>
+                            <select class="form-control" ng-model="material.broker" ng-options="broker._id as broker.name for broker in brokers" required>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Default Forwarder</label>
+                            <select class="form-control" ng-model="material.forwarder" ng-options="forwarder._id as forwarder.name for forwarder in forwarders" required>
+                            </select>
+                        </div>
+                        <div class="form-actions highlight">
+                            <button ng-click="submit(form)" type="button" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5">
+            <div class="document-list">
+                <div class="title-non-box">Standard Processing Time &amp; Documents</div>
+
+                <div class="document-group">
+                    <div class="document-list-header">
+                        <span>Initiate Import (Planner)</span>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/ii.planner.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                            <i class="fa fa-clock-o"></i> {{schedule.ii_planner || 0}}
+                            <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'ii_planner'}).length}}
+                        </button>
+                    </div>
+                </div>
+                <div class="document-group">
+                    <div class="document-list-header">
+                        <span>Initiate Import (Broker)</span>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/ii.broker.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                            <i class="fa fa-clock-o"></i> {{schedule.ii_broker || 0}}
+                            <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'ii_broker'}).length}}
+                        </button>
+                    </div>
+                </div>
+                <div class="document-group">
+                    <div class="document-list-header">
+                        <span>Initiate Import (Assign Forwarder)</span>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/ii.assignforwarder.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                            <i class="fa fa-clock-o"></i> {{schedule.ii_assignforwarder || 0}}
+                            <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'ii_assignforwarder'}).length}}
+                        </button>
+                    </div>
+                </div>
+                <div class="document-group">
+                    <div class="document-list-header">
+                        <span>Shipment Details</span>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/ship.details.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                            <i class="fa fa-clock-o"></i> {{schedule.ship_details || 0}}
+                            <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'ship_details'}).length}}
+                        </button>
+                    </div>
+                </div>
+                <div class="document-group">
+                    <div class="document-list-header">
+                        <span>Shipment Departure</span>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/ship.departure.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                            <i class="fa fa-clock-o"></i> {{schedule.ship_departure || 0}}
+                            <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'ship_departure'}).length}}
+                        </button>
+                    </div>
+                </div>
+                <div class="document-group">
+                    <div class="document-list-header">
+                        <span>Foreign Invoice</span>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/foreign.invoice.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                            <i class="fa fa-clock-o"></i> {{schedule.foreign_invoice || 0}}
+                            <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'foreign_invoice'}).length}}
+                        </button>
+                    </div>
+                </div>
+                <div class="document-group">
+                    <div class="document-list-header">
+                        <span>Customs Clearance</span>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/customs.clearance.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                            <i class="fa fa-clock-o"></i> {{schedule.customs_clearance || 0}}
+                            <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'customs_clearance'}).length}}
+                        </button>
+                    </div>
+                </div>
+                <div class="document-group">
+                    <div class="document-list-header">
+                        <span>Delivery</span>
+                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/delivery.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
+                            <i class="fa fa-clock-o"></i> {{schedule.delivery || 0}}
+                            <i class="fa fa-file-text-o"></i>  {{(docs|filter:{document_category:'delivery'}).length}}
+                        </button>
+                    </div>
+                </div>
+                <span class="label label-danger pull-right" ng-model="docError" ng-show="docs.length < 1">{{docError}}</span>
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

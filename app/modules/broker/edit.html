@@ -2,9 +2,8 @@
     <div class="sub-header">
         <h3 class="section-title">
             <a ui-sref="settings_home">Settings</a> &gt;
-            Master &gt;
-            <a ui-sref="settings_master_broker">Broker</a> &gt;
-            <a ng-href="/settings/master/broker/{{broker._id}}">{{broker.name}}</a> &gt;
+            <a ui-sref="settings_broker">Brokers</a> &gt;
+            <a ng-href="/settings/brokers/{{broker._id}}">{{broker.name}}</a> &gt;
             <strong>Edit</strong>
         </h3>
     </div>
@@ -94,7 +93,7 @@
                         </div>
                         <div class="form-actions highlight">
                             <button ng-click="update(form)" class="btn btn-primary">Update</button>
-                            <a href="/settings/broker" class="btn btn-default">Cancel</a>
+                            <a ui-sref="settings_broker" class="btn btn-default">Cancel</a>
                         </div>
                     </form>
                 </div>

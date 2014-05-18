@@ -1,0 +1,55 @@
+<div id="content" ng-controller="MaterialList" ng-init="all()">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header" data-original-title="">
+                    <h2><i class="fa fa-calendar-o"></i>Materials</h2>
+                    <div class="box-icon">
+                        <a ui-sref="settings_materials_add" class="btn"><i class="fa fa-plus"></i> Add</a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="dataTables_wrapper form-inline" role="grid">
+                        <table class="table bootstrap-datatable datatable">
+                            <thead>
+                                <tr role="row">
+                                    <th>Status</th>
+                                    <th>Material Code</th>
+                                    <th>Item Regulatory</th>
+                                    <th>Type</th>
+                                    <th>Supplier</th>
+                                    <th>Broker</th>
+                                    <th>Forwarder</th>
+                                    <th>Valid From</th>
+                                    <th>Valid To</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-hide="!materials || materials.length">
+                                    <td>No materials yet.</td>
+                                </tr>
+                                <tr ng-repeat="material in materials">
+                                    <td>
+                                        <span class="label" ng-class="{'label-important': material.status == 'not started', 'label-success': material.status != 'not started'}">{{material.status}}</span>
+                                    </td>
+                                    <td>{{material.code}}</td>
+                                    <td class="toCapitalize">{{material.regulatory}}</td>
+                                    <td class="toUpper">{{material.type}}</td>
+                                    <td>{{material.supplier.name}}</td>
+                                    <td>{{material.broker.name}}</td>
+                                    <td>{{material.forwarder.name}}</td>
+                                    <td>{{material.valid_from | date: 'mediumDate'}}</td>
+                                    <td>{{material.valid_to | date: 'mediumDate'}}</td>
+                                    <td>
+                                        <a class="btn btn-success btn-sm" ng-href="/settings/materials/{{material._id}}"> <i class="fa fa-search-plus"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,12 +1,4 @@
 <div id="content" ng-controller="ForwarderView" ng-init="findOne()">
-    <div class="sub-header">
-        <h3 class="section-title">
-            <a ui-sref="settings_home">Settings</a> &gt;
-            Master &gt;
-            <a ui-sref="settings_master_forwarder">Forwarder</a> &gt;
-            <strong>{{forwarder.name}}</strong>
-        </h3>
-    </div>
     <div class="row">
         <div class="col-xs-7">
             <div class="box">
@@ -78,7 +70,7 @@
                         <span><small>Added: {{forwarder.creator.name}}, {{forwarder.created | date: 'medium'}}</small></span>
                     </div>
                     <div class="form-actions highlight">
-                        <a ui-sref="settings_master_forwarder" class="btn btn-primary">Back</a>
+                        <a ui-sref="settings_forwarder" class="btn btn-primary">Back</a>
                     </div>
                 </div>
             </div>

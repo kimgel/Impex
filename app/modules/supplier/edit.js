@@ -3,10 +3,10 @@
 define(['app', 'Suppliers'], function(app, Suppliers) {
     app.controller('SupplierEdit', [
         '$scope',
-        '$location',
+        '$state',
         '$stateParams',
         'SuppliersFactory',
-        function($scope, $location, $stateParams, SuppliersFactory) {            
+        function($scope, $state, $stateParams, SuppliersFactory) {            
             $scope.update = function(form) {            
                 var updateBroker = $scope.supplier;
                 SuppliersFactory.update($scope.supplier, function(err) {
@@ -15,7 +15,7 @@ define(['app', 'Suppliers'], function(app, Suppliers) {
                             form[key].message = err.errors[key].message;
                         }
                     }else{
-                        $location.path('/settings/supplier');
+                        $state.go('settings_supplier');
                     }
                 });
             };

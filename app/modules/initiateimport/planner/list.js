@@ -1,7 +1,7 @@
 'use strict';
 
 define(['app', 'Planners'], function(app, Planners) {
-    app.controller('PlannerList', [
+    app.controller('PlannerListCtrl', [
         '$scope',
         '$location',
         'PlannerFactory',

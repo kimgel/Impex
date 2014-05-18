@@ -2,61 +2,76 @@
 
 define([
     'app',
-    'Items',
+    'Materials',
     'Planners',
-], function(app, Items, Planners) {
+], function(app, Materials, Planners) {
     app.controller('PlannerCtrl', [
         '$rootScope',
         '$scope',
         '$http',
-        '$location',
-        'ItemsFactory',
+        '$state',
+        '$alert',
+        'MaterialsFactory',
         'PlannerFactory',
-        function($rootScope, $scope, $http, $location, ItemsFactory, PlannerFactory) {
+        function($rootScope, $scope, $http, $state, $alert, MaterialsFactory, PlannerFactory) {
 
             $scope.planner = {};
-            $scope.selectedItemCode = '';
             $scope.docs = [];
             $scope.view = false;
+            $scope.notFound = false;
+            $scope.noMaterial = true;
 
-            $scope.submit = function(form) {
-                $scope.planner.item = $scope.selectedItemCode;
+            $scope.submit = function(form) {    
 
-                PlannerFactory.save($scope.planner, function(err) {
-                    if (err.errors) {
-                        for (var key in err.errors) {
-                            if (key != 'documents') {
-                                form[key].message = err.errors[key].message;
-                            } else {
-                                $scope.docError = err.errors['documents'].message;
+                if (!$scope.noMaterial) {
+                    $scope.planner.material = $scope.material._id;
+                    $scope.planner.material_supplier = $scope.material.supplier._id;
+                    $scope.planner.material_broker = $scope.material.broker._id;
+                    PlannerFactory.save($scope.planner, function(err) {
+                        if (err.errors) {
+                            for (var key in err.errors) {
+                                if (key != 'documents') {
+                                    form[key].message = err.errors[key].message;
+                                } else {
+                                    $scope.docError = err.errors['documents'].message;
+                                }
                             }
+                        } else {
+                            $state.go('initiateimport_planner');
                         }
-                    } else {
-                        $location.path('/initiateimport/planner');
-                    }
-                });
+                    });
+                } else {
+                    $alert({
+                        title: 'Error:',
+                        content: 'No material is selected.',
+                        placement: 'top-right',
+                        type: 'danger',
+                        show: true,
+                        duration: 5
+                    });
+                }
+
             };
             $scope.clear = function() {
                 $scope.planner = angular.copy({});
             };
 
-            $scope.getItemCode = function(viewValue) {
-                var params = {
-                    code: viewValue
-                };
-                return $http.get('/api/item')
-                    .then(function(res) {
-                        return res.data;
-                    });
-            };
-            $scope.findOne = function() {
-                ItemsFactory.get({
-                    itemId: $scope.selectedItemCode
-                }, function(item) {
-                    $scope.item = item;
-                    $scope.docs = $scope.item.documents;
+            $scope.findMaterial = function(code) {
+                $scope.material = '';
+                MaterialsFactory.get({
+                    materialCode: code,
+                    searchCode: true
+                }, function(material) {
+                    $scope.notFound = false;
+                    $scope.noMaterial = false;
+                    $scope.material = material;
+                    $scope.docs = $scope.material.documents;
+                }, function(err) {
+                    $scope.notFoundCode = code;
+                    $scope.notFound = true;
                 });
             };
+
         }
     ]);
 });

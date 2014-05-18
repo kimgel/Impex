@@ -1,12 +1,20 @@
 'use strict';
 
-define(['app'], function(app) {
+define(['app', 'Planners'], function(app, Planners) {
     app.controller('PlannerViewCtrl', [
         '$scope',
-        'Auth',
-        function($scope, Auth) {
-
-           
+        '$location',
+        '$stateParams',
+        'PlannerFactory',
+        function($scope, $location, $stateParams, PlannerFactory) {
+            $scope.findOne = function() {
+                PlannerFactory.get({
+                    plannerId: $stateParams.plannerId                 
+                }, function(planner) {
+                    $scope.planner = planner;
+                    $scope.docs = planner.material.documents;               
+                });
+            };
         }
     ]);
 });

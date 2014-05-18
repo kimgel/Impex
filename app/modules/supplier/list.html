@@ -1,18 +1,11 @@
 <div id="content" ng-controller="SupplierList" data-ng-init="all()">
-    <div class="sub-header">
-        <h3 class="section-title">
-            <a ui-sref="settings_home">Settings</a> &gt;
-            Master &gt;
-            <strong>Supplier</strong>
-        </h3>
-    </div>
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header" data-original-title="">
-                    <h2><i class="fa fa-suitcase"></i>Suppliers List</h2>
+                    <h2><i class="fa fa-suitcase"></i>Suppliers</h2>
                     <div class="box-icon">
-                        <a ui-sref="settings_master_supplier_add" class="btn"><i class="fa fa-plus"></i> Add</a>
+                        <a ui-sref="settings_supplier_add" class="btn"><i class="fa fa-plus"></i> Add</a>
                     </div>
                 </div>
                 <div class="box-content">
@@ -47,8 +40,8 @@
                                     <td>{{supplier.valid_from | date: 'longDate'}}</td>
                                     <td>{{supplier.valid_to | date: 'longDate'}}</td>
                                     <td>
-                                        <a class="btn btn-success btn-xs" ng-href="/settings/master/supplier/{{supplier._id}}"> <i class="fa fa-eye"></i></a>
-                                        <a class="btn btn-primary btn-xs" ng-href="/settings/master/supplier/{{supplier._id}}/edit"> <i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-success btn-sm" ng-href="/settings/suppliers/{{supplier._id}}"> <i class="fa fa-search-plus"></i></a>
+                                        <a class="btn btn-primary btn-sm" ng-href="/settings/suppliers/{{supplier._id}}/edit"> <i class="fa fa-edit"></i></a>
                                     </td>
                                 </tr>
                             </tbody>

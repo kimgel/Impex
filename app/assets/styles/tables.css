@@ -51,3 +51,18 @@ table.table thead .sorting_desc_disabled {
 table.dataTable th:active {
     outline: none;
 }
+table.statusboard th,table.statusboard td{
+    text-align: center;
+}
+
+td.ontime,td.completed{
+    background-color: #78cd51 !important;
+}
+
+td.delayed{
+    background-color: #ff5454 !important;
+}
+
+td.notstarted{
+    background-color: #67c2ef !important;
+}

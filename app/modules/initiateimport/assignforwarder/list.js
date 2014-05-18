@@ -1,16 +1,11 @@
 'use strict';
 
-define(['app', 'Planners'], function(app, Planners) {
-    app.controller('PlannerList', [
+define(['app'], function(app) {
+    app.controller('AssignForwarderList', [
         '$scope',
         '$location',
-        'PlannerFactory',
-        function($scope, $location, PlannerFactory) {
-            $scope.all = function() {
-                PlannerFactory.query(function(planners) {
-                    $scope.planners = planners;
-                });
-            };
+        function($scope, $location) {
+            
         }
     ]);
 });

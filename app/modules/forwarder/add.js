@@ -3,9 +3,9 @@
 define(['app', 'Forwarders'], function(app, Forwarders) {
     app.controller('ForwarderAdd', [
         '$scope',
-        '$location',
+        '$state',
         'ForwardersFactory',
-        function($scope, $location, ForwardersFactory) {
+        function($scope, $state, ForwardersFactory) {
 
             $scope.forwarder = {};
             $scope.submit = function(form) {
@@ -15,7 +15,7 @@ define(['app', 'Forwarders'], function(app, Forwarders) {
                             form[key].message = err.errors[key].message;
                         }
                     }else{
-                        $location.path('/settings/forwarder');
+                        $state.go('settings_forwarder');
                     }
                 });
             };

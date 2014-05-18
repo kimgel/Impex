@@ -11,10 +11,10 @@
     "angular-strap": "~2.0.1",
     "angular-motion": "~0.3.2",
     "bootstrap-css": "~3.1.1",
-    "components-font-awesome": "~4.0.3",
     "bootstrap-additions": "~0.2.2",
     "angular-ui-router": "~0.2.10",
-    "angular-loading-bar": "~0.4.1"
+    "angular-loading-bar": "~0.4.1",
+    "fontawesome": "~4.1.0"
   },
   "devDependencies": {
     "angular-mocks": "1.2.11",

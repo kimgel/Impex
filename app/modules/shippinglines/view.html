@@ -1,0 +1,82 @@
+<div id="content" ng-controller="ShippingLineView" ng-init="findOne()">
+    <div class="row">
+        <div class="col-xs-7">
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-truck"></i>View Shipping Line</h2>
+                </div>
+                <div class="box-content">
+                    <div class="form-group">
+                        <div>
+                            <span class="label pull-right" ng-class="{'label-important': shippingline.status == 'inactive', 'label-success': shippingline.status == 'active'}">{{shippingline.status}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Shipping Line No.</label>
+                        <div class="controls">
+                            <div class="label-value">{{shippingline.no}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Shipping Line Name</label>
+                        <div class="controls">
+                            <div class="label-value">{{shippingline.name}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Shipping Line Address</label>
+                        <div class="controls">
+                            <div class="label-value">{{shippingline.address}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Telephone no.</label>
+                        <div class="controls">
+                            <div class="label-value">{{shippingline.tel}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Contact Person</label>
+                        <div class="controls">
+                            <div class="label-value">{{shippingline.contact}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Email Address</label>
+                        <div class="controls">
+                            <div class="label-value">{{shippingline.email}}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Valid From</label>
+                                <div class="controls">
+                                    <div class="label-value"><i class="fa fa-calendar"></i> {{shippingline.valid_from | date: 'longDate'}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Valid To</label>
+                                <div class="controls">
+                                    <div class="label-value"><i class="fa fa-calendar"></i> {{shippingline.valid_to | date: 'longDate'}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span><small>Added: {{shippingline.creator.name}}, {{shippingline.created | date: 'medium'}}</small></span>
+                    </div>
+                    <div class="form-actions highlight">
+                        <a ui-sref="settings_shippinglines" class="btn btn-primary">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5">
+
+        </div>
+    </div>
+</div>

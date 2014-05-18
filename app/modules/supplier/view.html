@@ -1,12 +1,4 @@
 <div id="content" ng-controller="SupplierView" ng-init="findOne()">
-    <div class="sub-header">
-        <h3 class="section-title">
-            <a ui-sref="settings_home">Settings</a> &gt;
-            Master &gt;
-            <a ui-sref="settings_master_supplier">Supplier</a> &gt;
-            <strong>{{supplier.name}}</strong>
-        </h3>
-    </div>
     <div class="row">
         <div class="col-xs-7">
             <div class="box">
@@ -56,6 +48,12 @@
                             <div class="label-value">{{supplier.email}}</div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="control-label">Country of Origin</label>
+                        <div class="controls">
+                            <div class="label-value">{{supplier.country_origin}}</div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-xs-6">
                             <div class="form-group">
@@ -78,7 +76,7 @@
                         <span><small>Added: {{supplier.creator.name}}, {{supplier.created | date: 'medium'}}</small></span>
                     </div>
                     <div class="form-actions highlight">
-                        <a ui-sref="settings_master_supplier" class="btn btn-primary">Back</a>
+                        <a ui-sref="settings_supplier" class="btn btn-primary">Back</a>
                     </div>
                 </div>
             </div>
