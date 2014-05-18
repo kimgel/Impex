@@ -10,8 +10,14 @@
                 </a>
             </li>
             <li>
-                <div class="nav-title">Initiate Import</div>
-                <ul>
+                <div class="nav-header">
+                    <span class="nav-title">Initiate Import</span>
+                    <a href="javascript:;" class="nav-toggle" ng-click="initiateimport = !initiateimport">
+                        <i class="fa fa-plus-square-o" ng-show="!initiateimport"></i>
+                        <i class="fa fa-minus-square-o" ng-show="initiateimport"></i>
+                    </a>
+                </div>
+                <ul ng-show="initiateimport" ng-animate="'slide'">
                     <li data-match-route="/initiateimport/planner.*">
                         <a ui-sref="initiateimport_planner">
                             <i class="fa fa-pencil-square-o"></i>Planner
@@ -29,19 +35,26 @@
                     </li>
                 </ul>
             </li>
-
             <li>
-                <div class="nav-title">Prepare Shipment</div>
-            </li>
-            <li data-match-route="/shipmentdetail.*">
-                <a ui-sref="shipmentdetail">
-                    <i class="fa fa-building-o"></i>Shipment Detail
-                </a>
-            </li>
-            <li data-match-route="/shipmentdeparture.*">
-                <a ui-sref="shipmentdeparture">
-                    <i class="fa fa-ticket"></i>Shipment Departure
-                </a>
+                <div class="nav-header">
+                    <span class="nav-title">Prepare Shipment</span>
+                    <a href="javascript:;" class="nav-toggle" ng-click="prepareshipment = !prepareshipment">
+                        <i class="fa fa-plus-square-o" ng-show="!prepareshipment"></i>
+                        <i class="fa fa-minus-square-o" ng-show="prepareshipment"></i>
+                    </a>
+                </div>
+                <ul ng-show="prepareshipment">
+                    <li data-match-route="/shipmentdetail.*">
+                        <a ui-sref="shipmentdetail">
+                            <i class="fa fa-building-o"></i>Shipment Detail
+                        </a>
+                    </li>
+                    <li data-match-route="/shipmentdeparture.*">
+                        <a ui-sref="shipmentdeparture">
+                            <i class="fa fa-ticket"></i>Shipment Departure
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li data-match-route="/foreigninvoice.*">
                 <a ui-sref="foreigninvoice">
