@@ -3,7 +3,7 @@
 define(['States'],
     function (States) {
         var app = angular.module('app', [
-            'ngCookies', 'ngResource', 'ngSanitize', 'ui.router', 'ngAnimate', 'mgcrea.ngStrap', 'chieffancypants.loadingBar'
+            'ngCookies', 'ngResource', 'ngSanitize', 'ui.router', 'ngAnimate', 'mgcrea.ngStrap', 'chieffancypants.loadingBar', 'ncy-angular-breadcrumb'
         ]);
 
         app.config([
