@@ -1,6 +1,6 @@
 <div id="sidebar-left" ng-controller="MainNavCtrl">
     <div class="search-box">
-        <input type="text" class="search" placeholder="Enter Impex/PO number..." />
+        <input type="text" class="search" placeholder="Search Impex/PO number..." />
     </div>
     <div class="sidebar-nav" bs-navbar>
         <ul class="nav nav-tabs nav-stacked main-menu">
@@ -9,12 +9,30 @@
                     <i class="fa fa-dashboard"></i>Status Board
                 </a>
             </li>
-            <li data-match-route="/initiateimport.*">
-                <a href="javascript:;" data-container="body" placement="right" bs-dropdown="initiateimportDd">
-                    <i class="fa fa-pencil-square-o"></i>Initiate Import
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>          
+            <li>
+                <div class="nav-title">Initiate Import</div>
+                <ul>
+                    <li data-match-route="/initiateimport/planner.*">
+                        <a ui-sref="initiateimport_planner">
+                            <i class="fa fa-pencil-square-o"></i>Planner
+                        </a>
+                    </li>
+                    <li data-match-route="/initiateimport/broker.*">
+                        <a ui-sref="initiateimport_broker">
+                            <i class="fa fa-chain"></i>Broker
+                        </a>
+                    </li>
+                    <li data-match-route="/initiateimport/assignforwarder.*">
+                        <a ui-sref="initiateimport_assignforwarder">
+                            <i class="fa fa-truck"></i>Assign Forwarder
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <div class="nav-title">Prepare Shipment</div>
+            </li>
             <li data-match-route="/shipmentdetail.*">
                 <a ui-sref="shipmentdetail">
                     <i class="fa fa-building-o"></i>Shipment Detail
@@ -37,7 +55,7 @@
             </li>
             <li data-match-route="/delivery.*">
                 <a ui-sref="delivery">
-                    <i class="fa fa-road"></i>Delivery                    
+                    <i class="fa fa-road"></i>Delivery
                 </a>
             </li>
         </ul>
