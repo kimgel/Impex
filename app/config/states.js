@@ -437,6 +437,9 @@ define(['Dependency'], function(Dependency) {
                         templateUrl: '/modules/initiateimport/planner/list.html'
                     }
                 },
+                data: {
+                    displayName: 'Planner'
+                },
                 resolve: new Dependency([
                     'modules/initiateimport/planner/list'
                 ]),
@@ -444,12 +447,15 @@ define(['Dependency'], function(Dependency) {
             },            
             initiateimport_planner_add: {
                 name: 'initiateimport_planner_add',
-                url: '/initiateimport/planner/add',
-                parent: 'root',
+                url: '/add',
+                parent: 'initiateimport_planner',
                 views: {
                     '@': {
                         templateUrl: '/modules/initiateimport/planner/add.html'
                     }
+                },
+                data: {
+                    displayName: 'Add'
                 },
                 resolve: new Dependency([
                     'modules/initiateimport/planner/add'
@@ -458,12 +464,15 @@ define(['Dependency'], function(Dependency) {
             },
             initiateimport_planner_view: {
                 name: 'initiateimport_planner_view',
-                url: '/initiateimport/planner/:plannerId',
-                parent: 'root',
+                url: '/:plannerId',
+                parent: 'initiateimport_planner',
                 views: {
                     '@': {
                         templateUrl: '/modules/initiateimport/planner/view.html'
                     }
+                },
+                data: {
+                    displayName: 'View'
                 },
                 resolve: new Dependency([
                     'modules/initiateimport/planner/view'
@@ -480,6 +489,9 @@ define(['Dependency'], function(Dependency) {
                         templateUrl: '/modules/initiateimport/broker/list.html'
                     }
                 },
+                data: {
+                    displayName: 'Broker'
+                },
                 resolve: new Dependency([
                     'modules/initiateimport/broker/list'
                 ]),
@@ -488,11 +500,14 @@ define(['Dependency'], function(Dependency) {
             initiateimport_broker_add: {
                 name: 'initiateimport_broker_add',
                 url: '/initiateimport/broker/add',
-                parent: 'root',
+                parent: 'initiateimport_broker',
                 views: {
                     '@': {
                         templateUrl: '/modules/initiateimport/broker/add.html'
                     }
+                },
+                data: {
+                    displayName: 'Add'
                 },
                 resolve: new Dependency([
                     'modules/initiateimport/broker/add'
@@ -509,6 +524,9 @@ define(['Dependency'], function(Dependency) {
                         templateUrl: '/modules/initiateimport/assignforwarder/list.html'
                     }
                 },
+                data: {
+                    displayName: 'Assign Forwarder'
+                },
                 resolve: new Dependency([
                     'modules/initiateimport/assignforwarder/list'
                 ]),
@@ -517,11 +535,14 @@ define(['Dependency'], function(Dependency) {
             initiateimport_assignforwarder_add: {
                 name: 'initiateimport_assignforwarder_add',
                 url: '/initiateimport/assignforwarder/add',
-                parent: 'root',
+                parent: 'initiateimport_assignforwarder',
                 views: {
                     '@': {
                         templateUrl: '/modules/initiateimport/assignforwarder/add.html'
                     }
+                },
+                data: {
+                    displayName: 'Add'
                 },
                 resolve: new Dependency([
                     'modules/initiateimport/assignforwarder/add'
@@ -538,6 +559,9 @@ define(['Dependency'], function(Dependency) {
                         templateUrl: '/modules/shipmentdetail/list.html'
                     }
                 },
+                data: {
+                    displayName: 'Shipment Detail'
+                },
                 resolve: new Dependency([
                     'modules/shipmentdetail/list'
                 ]),
@@ -546,11 +570,14 @@ define(['Dependency'], function(Dependency) {
             shipmentdetail_add: {
                 name: 'shipmentdetail_add',
                 url: '/shipmentdetail/add',
-                parent: 'root',
+                parent: 'shipmentdetail',
                 views: {
                     '@': {
                         templateUrl: '/modules/shipmentdetail/add.html'
                     }
+                },
+                data: {
+                    displayName: 'Add'
                 },
                 resolve: new Dependency([
                     'modules/shipmentdetail/add'
@@ -567,6 +594,9 @@ define(['Dependency'], function(Dependency) {
                         templateUrl: '/modules/shipmentdeparture/list.html'
                     }
                 },
+                data: {
+                    displayName: 'Shipment Departure'
+                },
                 resolve: new Dependency([
                     'modules/shipmentdeparture/list'
                 ]),
@@ -575,11 +605,14 @@ define(['Dependency'], function(Dependency) {
             shipmentdeparture_add: {
                 name: 'shipmentdeparture_add',
                 url: '/shipmentdeparture/add',
-                parent: 'root',
+                parent: 'shipmentdeparture',
                 views: {
                     '@': {
                         templateUrl: '/modules/shipmentdeparture/add.html'
                     }
+                },
+                data: {
+                    displayName: 'Add'
                 },
                 resolve: new Dependency([
                     'modules/shipmentdeparture/add'
@@ -596,6 +629,9 @@ define(['Dependency'], function(Dependency) {
                         templateUrl: '/modules/foreigninvoice/list.html'
                     }
                 },
+                data: {
+                    displayName: 'Foreign Invoice'
+                },
                 resolve: new Dependency([
                     'modules/foreigninvoice/list'
                 ]),
@@ -604,11 +640,14 @@ define(['Dependency'], function(Dependency) {
             foreigninvoice_add: {
                 name: 'foreigninvoice_add',
                 url: '/foreigninvoice/add',
-                parent: 'root',
+                parent: 'foreigninvoice',
                 views: {
                     '@': {
                         templateUrl: '/modules/foreigninvoice/add.html'
                     }
+                },
+                data: {
+                    displayName: 'Add'
                 },
                 resolve: new Dependency([
                     'modules/foreigninvoice/add'
@@ -625,6 +664,9 @@ define(['Dependency'], function(Dependency) {
                         templateUrl: '/modules/customsclearance/list.html'
                     }
                 },
+                data: {
+                    displayName: 'Customs Clearance'
+                },
                 resolve: new Dependency([
                     'modules/customsclearance/list'
                 ]),
@@ -633,11 +675,14 @@ define(['Dependency'], function(Dependency) {
             customsclearance_add: {
                 name: 'customsclearance_add',
                 url: '/customsclearance/add',
-                parent: 'root',
+                parent: 'customsclearance',
                 views: {
                     '@': {
                         templateUrl: '/modules/customsclearance/add.html'
                     }
+                },
+                data: {
+                    displayName: 'Add'
                 },
                 resolve: new Dependency([
                     'modules/customsclearance/add'
@@ -654,6 +699,9 @@ define(['Dependency'], function(Dependency) {
                         templateUrl: '/modules/delivery/list.html'
                     }
                 },
+                data: {
+                    displayName: 'Delivery'
+                },
                 resolve: new Dependency([
                     'modules/delivery/list'
                 ]),
@@ -662,11 +710,14 @@ define(['Dependency'], function(Dependency) {
             delivery_add: {
                 name: 'delivery_add',
                 url: '/delivery/add',
-                parent: 'root',
+                parent: 'delivery',
                 views: {
                     '@': {
                         templateUrl: '/modules/delivery/add.html'
                     }
+                },
+                data: {
+                    displayName: 'Add'
                 },
                 resolve: new Dependency([
                     'modules/delivery/add'
