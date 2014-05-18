@@ -20,7 +20,6 @@ require.config({
         'angular-strap': '/assets/bower_components/angular-strap/dist/angular-strap.min',
         'angular-strap-tpl': '/assets/bower_components/angular-strap/dist/angular-strap.tpl',
         'angular-loading-bar': '/assets/bower_components/angular-loading-bar/build/loading-bar.min',
-        'angular-breadcrumb': '/assets/bower_components/angular-breadcrumb/dist/angular-breadcrumb.min',
 
         /* Services
         =================================================================== */
@@ -46,8 +45,7 @@ require.config({
                 'angular-animate',
                 'angular-strap',
                 'Templates',
-                'angular-loading-bar',
-                'angular-breadcrumb'
+                'angular-loading-bar'
             ]
         },
         'angular-resource': {
@@ -76,9 +74,6 @@ require.config({
                 'angular',
                 'angular-animate'
             ]
-        },
-        'angular-breadcrumb': {
-            deps: ['angular']
         }
     }
 });
