@@ -56,6 +56,33 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <div class="nav-header">
+                    <span class="nav-title">In-Transit</span>
+                    <a href="javascript:;" class="nav-toggle" ng-click="intransit = !intransit">
+                        <i class="fa fa-plus-square-o" ng-show="!intransit"></i>
+                        <i class="fa fa-minus-square-o" ng-show="intransit"></i>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="nav-header">
+                    <span class="nav-title">Customs &amp; Delivery</span>
+                    <a href="javascript:;" class="nav-toggle" ng-click="customsdelivery = !customsdelivery">
+                        <i class="fa fa-plus-square-o" ng-show="!customsdelivery"></i>
+                        <i class="fa fa-minus-square-o" ng-show="customsdelivery"></i>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="nav-header">
+                    <span class="nav-title">Close Import</span>
+                    <a href="javascript:;" class="nav-toggle" ng-click="closeimport = !closeimport">
+                        <i class="fa fa-plus-square-o" ng-show="!closeimport"></i>
+                        <i class="fa fa-minus-square-o" ng-show="closeimport"></i>
+                    </a>
+                </div>
+            </li>
             <li data-match-route="/foreigninvoice.*">
                 <a ui-sref="foreigninvoice">
                     <i class="fa fa-book"></i>Foreign Invoice
