@@ -40,8 +40,8 @@
                                     <td>{{forwarder.valid_from | date: 'longDate'}}</td>
                                     <td>{{forwarder.valid_to | date: 'longDate'}}</td>
                                     <td>
-                                        <a class="btn btn-success btn-sm" ng-href="/settings/forwarders/{{forwarder._id}}"> <i class="fa fa-search-plus"></i></a>
-                                        <a class="btn btn-primary btn-sm" ng-href="/settings/forwarders/{{forwarder._id}}/edit"> <i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-success btn-sm" ui-sref="settings_forwarder_view({ forwarderId: forwarder._id})"> <i class="fa fa-search-plus"></i></a>
+                                        <a class="btn btn-primary btn-sm" ui-sref="settings_forwarder_edit({ forwarderId: forwarder._id})"> <i class="fa fa-edit"></i></a>
                                     </td>
                                 </tr>
                             </tbody>

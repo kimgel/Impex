@@ -30,7 +30,7 @@
                                     <td class="toUpper">{{user.role}}</td>
                                     <td>{{user.date_added | date: 'mediumDate'}}</td>
                                     <td>
-                                        <a class="btn btn-success btn-sm" ng-href="/settings/users/{{user._id}}"> <i class="fa fa-search-plus"></i></a>
+                                        <a class="btn btn-success btn-sm" ui-sref="settings_user_view({ userId: user._id})"> <i class="fa fa-search-plus"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
