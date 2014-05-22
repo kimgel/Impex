@@ -595,7 +595,7 @@ define(['Dependency'], function(Dependency) {
             /* ======= Initiate Import: Assign Forwarder ======= */
             initiateimport_assignforwarder: {
                 name: 'initiateimport_assignforwarder',
-                url: '/initiate-import/assignforwarder',
+                url: '/initiate-import/assign-forwarder',
                 parent: 'root',
                 views: {
                     '@': {
@@ -630,7 +630,7 @@ define(['Dependency'], function(Dependency) {
             /* ======= Shipment Detail ======= */
             shipmentdetail: {
                 name: 'shipmentdetail',
-                url: '/shipment-detail',
+                url: '/prepare-shipment/shipment-detail',
                 parent: 'root',
                 views: {
                     '@': {
@@ -665,7 +665,7 @@ define(['Dependency'], function(Dependency) {
             /* ======= Shipment Departure ======= */
             shipmentdeparture: {
                 name: 'shipmentdeparture',
-                url: '/shipment-departure',
+                url: '/prepare-shipment/shipment-departure',
                 parent: 'root',
                 views: {
                     '@': {
