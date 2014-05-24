@@ -14,7 +14,7 @@
                             <thead>
                                 <tr role="row">
                                     <th>Status</th>
-                                    <th>Material Code</th>
+                                    <th>Material No.</th>
                                     <th>Item Regulatory</th>
                                     <th>Type</th>
                                     <th>Supplier</th>
@@ -33,7 +33,7 @@
                                     <td>
                                         <span class="label" ng-class="{'label-important': material.status == 'not started', 'label-success': material.status != 'not started'}">{{material.status}}</span>
                                     </td>
-                                    <td>{{material.code}}</td>
+                                    <td>{{material.no}}</td>
                                     <td class="toCapitalize">{{material.regulatory}}</td>
                                     <td class="toUpper">{{material.type}}</td>
                                     <td>{{material.supplier.name}}</td>
