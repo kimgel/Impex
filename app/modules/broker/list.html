@@ -1,10 +1,4 @@
 <div id="content" ng-controller="BrokerList" ng-init="all()">
-    <div class="sub-header">
-        <h3 class="section-title">
-            <a ui-sref="settings_home">Settings</a> &gt;
-            <strong>Brokers</strong>
-        </h3>
-    </div>
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
@@ -46,8 +40,8 @@
                                     <td>{{broker.valid_from | date: 'mediumDate'}}</td>
                                     <td>{{broker.valid_to | date: 'mediumDate'}}</td>
                                     <td>
-                                        <a class="btn btn-success btn-sm" ng-href="/settings/brokers/{{broker._id}}"> <i class="fa fa-search-plus"></i></a>
-                                        <a class="btn btn-primary btn-sm" ng-href="/settings/brokers/{{broker._id}}/edit"> <i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-success btn-sm" ui-sref="settings_broker_view({ brokerId: broker._id})"> <i class="fa fa-search-plus"></i></a>
+                                        <a class="btn btn-primary btn-sm" ui-sref="settings_broker_edit({ brokerId: broker._id})"> <i class="fa fa-edit"></i></a>
                                     </td>
                                 </tr>
                             </tbody>

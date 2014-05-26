@@ -14,7 +14,7 @@ define(['app', 'Brokers'], function(app, Brokers) {
                             form[key].message = err.errors[key].message;
                         }
                     }else{
-                        state.go('settings_broker');
+                        $state.go('settings_broker');
                     }
                 });
             };

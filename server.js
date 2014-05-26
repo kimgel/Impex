@@ -34,11 +34,9 @@ var Impex = function () {
         return self.zcache[key];
     };
 
-    /**
-     *  terminator === the termination handler
-     *  Terminate server on receipt of the specified signal.
-     *  @param {string} sig  Signal to terminate on.
-     */
+    // terminator === the termination handler
+    // Terminate server on receipt of the specified signal.
+    // @param {string} sig  Signal to terminate on.
     self.terminator = function (sig) {
         if (typeof sig === "string") {
             console.log('%s: Received %s - terminating app ...',
@@ -54,9 +52,8 @@ var Impex = function () {
     };
 
 
-    /**
-     *  Setup termination handlers (for exit and a list of signals).
-     */
+    // Setup termination handlers (for exit and a list of signals).
+    
     self.setupTerminationHandlers = function () {
         //  Process on exit and signals.
         

@@ -40,8 +40,8 @@
                                     <td>{{supplier.valid_from | date: 'longDate'}}</td>
                                     <td>{{supplier.valid_to | date: 'longDate'}}</td>
                                     <td>
-                                        <a class="btn btn-success btn-sm" ng-href="/settings/suppliers/{{supplier._id}}"> <i class="fa fa-search-plus"></i></a>
-                                        <a class="btn btn-primary btn-sm" ng-href="/settings/suppliers/{{supplier._id}}/edit"> <i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-success btn-sm" ui-sref="settings_supplier_view({supplierId: supplier._id})"> <i class="fa fa-search-plus"></i></a>
+                                        <a class="btn btn-primary btn-sm" ui-sref="settings_supplier_edit({supplierId: supplier._id})"> <i class="fa fa-edit"></i></a>
                                     </td>
                                 </tr>
                             </tbody>

@@ -4,7 +4,7 @@
     </div>
     <div class="sidebar-nav" bs-navbar>
         <ul class="nav nav-tabs nav-stacked main-menu">
-            <li data-match-route="/statusboard">
+            <li data-match-route="statusboard">
                 <a ui-sref="statusboard">
                     <i class="fa fa-dashboard"></i>Status Board
                 </a>
@@ -18,17 +18,17 @@
                     </a>
                 </div>
                 <ul ng-show="initiateimport" ng-animate="'slide'">
-                    <li data-match-route="/initiateimport/planner.*">
+                    <li data-match-route="planner.*">
                         <a ui-sref="initiateimport_planner">
                             <i class="fa fa-pencil-square-o"></i>Planner
                         </a>
                     </li>
-                    <li data-match-route="/initiateimport/broker.*">
+                    <li data-match-route="broker.*">
                         <a ui-sref="initiateimport_broker">
                             <i class="fa fa-chain"></i>Broker
                         </a>
                     </li>
-                    <li data-match-route="/initiateimport/assignforwarder.*">
+                    <li data-match-route="assign-forwarder.*">
                         <a ui-sref="initiateimport_assignforwarder">
                             <i class="fa fa-truck"></i>Assign Forwarder
                         </a>
@@ -44,12 +44,12 @@
                     </a>
                 </div>
                 <ul ng-show="prepareshipment">
-                    <li data-match-route="/shipmentdetail.*">
+                    <li data-match-route="shipment-detail.*">
                         <a ui-sref="shipmentdetail">
                             <i class="fa fa-building-o"></i>Shipment Detail
                         </a>
                     </li>
-                    <li data-match-route="/shipmentdeparture.*">
+                    <li data-match-route="shipment-departure.*">
                         <a ui-sref="shipmentdeparture">
                             <i class="fa fa-ticket"></i>Shipment Departure
                         </a>

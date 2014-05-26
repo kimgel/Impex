@@ -1,23 +1,22 @@
 /* Custom styles
 =================================================================== */
-.main-container {
+ .main-container {
     margin-top: 40px;
 }
 .modal {
     overflow-y: auto;
 }
-.aside .aside-dialog .aside-header{
+.aside .aside-dialog .aside-header {
     background: #1e8fc6;
     padding: 3px 15px;
 }
 .aside .aside-dialog .aside-body {
     padding: 20px 35px;
 }
-.aside-350{
+.aside-350 {
     width: 350px;
 }
-
-.aside-400{
+.aside-400 {
     width: 400px;
 }
 .highlight {
@@ -48,20 +47,39 @@
 .label-value i {
     margin-right: 5px;
 }
-.toCapitalize{
+.toCapitalize {
     text-transform: capitalize;
 }
-.toUpper{
+.toUpper {
     text-transform: uppercase;
 }
-.section-title{
+.section-title {
     margin-bottom: 0;
 }
-.title-non-box{
+.title-non-box {
     font-size: 20px;
     padding: 0 10px 10px 0;
 }
-
-.alert:focus{
+.alert:focus {
     outline: 0;
+}
+.forohfor {
+    width: 300px;
+    padding: 20px;
+    margin: 100px auto 0;
+    background: #fff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    text-align: center;
+}
+.forohfor h1 {
+    font-size: 10em;
+}
+.forohfortext {
+    color: #fff;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 3em;
 }
