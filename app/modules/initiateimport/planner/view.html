@@ -38,7 +38,7 @@
                         </div>
                         <div class="col-xs-4">
                             <div class="form-group">
-                                <span class="label pull-right" ng-class="{'label-important': planner.material_supplier.status == 'inactive', 'label-success': planner.material_supplier.status == 'active'}">{{planner.material_supplier.status}}</span>
+                                <span class="label pull-right" ng-class="{'label-important': planner.material_supplier.expired == true, 'label-success': planner.material_supplier.expired == false}">{{planner.material_supplier.status}}</span>
                                 <label class="control-label">Supplier</label>
                                 <div class="controls">
                                     <div class="label-value">{{planner.material_supplier.name}}</div>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-xs-4">
                             <div class="form-group">
-                                <span class="label pull-right" ng-class="{'label-important': planner.material_broker.status == 'inactive', 'label-success':planner.material_broker.status == 'active'}">{{planner.material_broker.status}}</span>
+                                <span class="label pull-right" ng-class="{'label-important': planner.material_broker.expired == true, 'label-success': planner.material_broker.expired == false}">{{planner.material_broker.status}}</span>
                                 <label class="control-label">Broker</label>
                                 <div class="controls">
                                     <div class="label-value">{{planner.material_broker.name}}</div>
