@@ -7,6 +7,11 @@
                         <i class="fa fa-cog"></i>Edit Shipping Line</h2>
                 </div>
                 <div class="box-content">
+                    <div class="form-group">
+                        <div>
+                            <span class="label pull-right" ng-class="{'label-important': shippingline.expired == true, 'label-success': shippingline.expired == false}">{{shippingline.status}}</span>
+                        </div>
+                    </div>
                     <form role="form" name="form" novalidate>
                         <div class="form-group">
                             <label class="control-label">Shipping Line No.</label>

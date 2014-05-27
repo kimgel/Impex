@@ -30,7 +30,7 @@
                                 </tr>
                                 <tr ng-repeat="shippingline in shippinglines">
                                     <td>
-                                        <span class="label" ng-class="{'label-important': shippingline.status == 'inactive', 'label-success': shippingline.status == 'active'}">{{shippingline.status}}</span>
+                                        <span class="label" ng-class="{'label-important': shippingline.expired == true, 'label-success': shippingline.expired == false}">{{shippingline.status}}</span>
                                     </td>
                                     <td>{{shippingline.no}}</td>
                                     <td>{{shippingline.name}}</td>
