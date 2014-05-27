@@ -30,7 +30,7 @@
                                 </tr>
                                 <tr ng-repeat="forwarder in forwarders">
                                     <td>
-                                        <span class="label" ng-class="{'label-important': forwarder.status == 'inactive', 'label-success': forwarder.status == 'active'}">{{forwarder.status}}</span>
+                                        <span class="label" ng-class="{'label-important': forwarder.expired == true, 'label-success': forwarder.expired == false}">{{forwarder.status}}</span>
                                     </td>
                                     <td>{{forwarder.no}}</td>
                                     <td>{{forwarder.name}}</td>
