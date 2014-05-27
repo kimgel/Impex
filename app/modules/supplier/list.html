@@ -30,7 +30,7 @@
                                 </tr>
                                 <tr ng-repeat="supplier in suppliers">
                                     <td>
-                                        <span class="label" ng-class="{'label-important': supplier.status == 'inactive', 'label-success': supplier.status == 'active'}">{{supplier.status}}</span>
+                                        <span class="label" ng-class="{'label-important': supplier.active == true, 'label-success': supplier.active == false}">{{supplier.status}}</span>
                                     </td>
                                     <td>{{supplier.no}}</td>
                                     <td>{{supplier.name}}</td>
