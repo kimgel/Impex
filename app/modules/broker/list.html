@@ -30,7 +30,7 @@
                                 </tr>
                                 <tr ng-repeat="broker in brokers">
                                     <td>
-                                        <span class="label" ng-class="{'label-important': broker.status == 'inactive', 'label-success': broker.status == 'active'}">{{broker.status}}</span>
+                                        <span class="label" ng-class="{'label-important': broker.expired == true, 'label-success': broker.expired == false}">{{broker.status}}</span>
                                     </td>
                                     <td>{{broker.no}}</td>
                                     <td>{{broker.name}}</td>

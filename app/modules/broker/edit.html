@@ -7,6 +7,11 @@
                         <i class="fa fa-cog"></i>Edit Broker</h2>
                 </div>
                 <div class="box-content">
+                    <div class="form-group">
+                        <div>
+                            <span class="label pull-right" ng-class="{'label-important': broker.expired == true, 'label-success': broker.expired == false}">{{broker.status}}</span>
+                        </div>
+                    </div>
                     <form role="form" name="form" novalidate>
                         <div class="form-group">
                             <label class="control-label">Broker No.</label>
