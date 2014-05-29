@@ -31,6 +31,7 @@ require.config({
         'Suppliers': '/modules/supplier/service',
         'Materials': '/modules/materials/service',
         'ShippingLines': '/modules/shippinglines/service',
+        'RegulatoryDocuments': '/modules/regulatorydocuments/service',
         'Planners': '/modules/initiateimport/planner/service'
 
     },
