@@ -71,6 +71,9 @@
 .btn-inverse:active, .btn-inverse.active {
     background-color: #252525;
 }
+.btn-mini{
+    padding: 1px 6px;
+}
 /* Quick Buttons
 =================================================================== */
 .quick-button {
