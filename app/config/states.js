@@ -97,14 +97,14 @@ define(['Dependency'], function(Dependency) {
                 parent: 'settings',
                 views: {
                     '@': {
-                        templateUrl: '/modules/regulatory-documents/list.html'
+                        templateUrl: '/modules/regulatorydocuments/list.html'
                     }
                 },
                 data: {
                     displayName: 'Regulatory Documents'
                 },
                 resolve: new Dependency([
-                    'modules/regulatory-documents/list'
+                    'modules/regulatorydocuments/list'
                 ]),
                 authenticate: true
             },
@@ -114,14 +114,14 @@ define(['Dependency'], function(Dependency) {
                 parent: 'settings_regulatory_docs',
                 views: {
                     '@': {
-                        templateUrl: '/modules/regulatory-documents/add.html'
+                        templateUrl: '/modules/regulatorydocuments/add.html'
                     }
                 },
                 data: {
                     displayName: 'Add Regulatory Document'
                 },
                 resolve: new Dependency([
-                    'modules/regulatory-documents/add'
+                    'modules/regulatorydocuments/add'
                 ]),
                 authenticate: true
             },
@@ -131,14 +131,14 @@ define(['Dependency'], function(Dependency) {
                 parent: 'settings_regulatory_docs',
                 views: {
                     '@': {
-                        templateUrl: '/modules/regulatory-documents/view.html'
+                        templateUrl: '/modules/regulatorydocuments/view.html'
                     }
                 },
                 data: {
                     displayName: 'View Regulatory Document'
                 },
                 resolve: new Dependency([
-                    'modules/regulatory-documents/view'
+                    'modules/regulatorydocuments/view'
                 ]),
                 authenticate: true
             },
@@ -148,14 +148,14 @@ define(['Dependency'], function(Dependency) {
                 parent: 'settings_regulatory_docs',
                 views: {
                     '@': {
-                        templateUrl: '/modules/regulatory-documents/edit.html'
+                        templateUrl: '/modules/regulatorydocuments/edit.html'
                     }
                 },
                 data: {
                     displayName: 'Edit Regulatory Document'
                 },
                 resolve: new Dependency([
-                    'modules/regulatory-documents/edit'
+                    'modules/regulatorydocuments/edit'
                 ]),
                 authenticate: true
             },
