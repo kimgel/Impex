@@ -2,12 +2,12 @@
 =================================================================== */
  .login-box {
     width: 300px;
-    padding: 20px;
+    padding: 35px 20px 10px;
     margin: 100px auto;
     background: #fff;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 .login-box input[type="text"], .login-box input[type="password"] {
     border: none;
@@ -28,4 +28,18 @@
 .login-box .remember {
     margin-top: 20px;
     float: left;
+}
+.login-box h2{
+    text-align: center;
+}
+.login-box .login-logo{
+    background: #2d7ca3 url('../images/logo.png') no-repeat center center;
+    width: 32px;
+    height: 32px;
+    padding: 25px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
 }
