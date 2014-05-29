@@ -90,6 +90,76 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
+            /* ======= Settings: Regulatory Documents ======= */
+            settings_regulatory_docs: {
+                name: 'settings_regulatory_docs',
+                url: '/settings/regulatory-documents',
+                parent: 'settings',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/regulatory-documents/list.html'
+                    }
+                },
+                data: {
+                    displayName: 'Regulatory Documents'
+                },
+                resolve: new Dependency([
+                    'modules/regulatory-documents/list'
+                ]),
+                authenticate: true
+            },
+            settings_regulatory_docs_add: {
+                name: 'settings_regulatory_docs_add',
+                url: '/add',
+                parent: 'settings_regulatory_docs',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/regulatory-documents/add.html'
+                    }
+                },
+                data: {
+                    displayName: 'Add Regulatory Document'
+                },
+                resolve: new Dependency([
+                    'modules/regulatory-documents/add'
+                ]),
+                authenticate: true
+            },
+            settings_regulatory_docs_view: {
+                name: 'settings_regulatory_docs_view',
+                url: '/:regulatoryDocumentId',
+                parent: 'settings_regulatory_docs',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/regulatory-documents/view.html'
+                    }
+                },
+                data: {
+                    displayName: 'View Regulatory Document'
+                },
+                resolve: new Dependency([
+                    'modules/regulatory-documents/view'
+                ]),
+                authenticate: true
+            },
+            settings_regulatory_docs_edit: {
+                name: 'settings_regulatory_docs_edit',
+                url: '/:regulatoryDocumentId/edit',
+                parent: 'settings_regulatory_docs',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/regulatory-documents/edit.html'
+                    }
+                },
+                data: {
+                    displayName: 'Edit Regulatory Document'
+                },
+                resolve: new Dependency([
+                    'modules/regulatory-documents/edit'
+                ]),
+                authenticate: true
+            },
+
             /* ======= Settings: Materials ======= */
             settings_materials: {
                 name: 'settings_materials',
