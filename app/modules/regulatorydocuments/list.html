@@ -1,0 +1,47 @@
+<div id="content" ng-controller="RegulatoryDocumentsList" data-ng-init="all()">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header" data-original-title="">
+                    <h2><i class="fa fa-institution"></i>Regulatory Documents</h2>
+                    <div class="box-icon">
+                        <a ui-sref="settings_regulatory_docs_add" class="btn"><i class="fa fa-plus"></i> Add</a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="dataTables_wrapper form-inline" role="grid">
+                        <table class="table bootstrap-datatable datatable">
+                            <thead>
+                                <tr role="row">
+                                    <th>Status</th>
+                                    <th>License No.</th>
+                                    <th>Name</th>
+                                    <th>Date Issued</th>
+                                    <th>Valid Until</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-hide="!regulatories || regulatories.length">
+                                    <td>No regulatory documents yet.</td>
+                                </tr>
+                                <tr ng-repeat="regulatory in regulatories">
+                                    <td>
+                                        <span class="label" ng-class="{'label-important': regulatory.expired == true, 'label-success': regulatory.expired == false}">{{regulatory.status}}</span>
+                                    </td>
+                                    <td>{{regulatory.license_no}}</td>
+                                    <td>{{regulatory.name}}</td>
+                                    <td>{{regulatory.date_issued | date: 'longDate'}}</td>
+                                    <td>{{regulatory.valid_until | date: 'longDate'}}</td>
+                                    <td>
+                                        <a class="btn btn-success btn-sm" ui-sref="settings_regulatory_docs_view({regulatoryDocumentId: regulatory._id})"> <i class="fa fa-search-plus"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

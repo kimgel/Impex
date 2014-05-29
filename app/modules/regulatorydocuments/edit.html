@@ -1,0 +1,81 @@
+<div id="content" ng-controller="RegulatoryDocumentEdit" ng-init="findOne()">
+    <div class="row">
+        <div class="col-xs-7">
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-institution"></i>Edit Regulatory Document</h2>
+                </div>
+                <div class="box-content">
+                    <div class="form-group">
+                        <div>
+                            <span class="label pull-right" ng-class="{'label-important': regulatory.expired == true, 'label-success': regulatory.expired == false}">{{regulatory.status}}</span>
+                        </div>
+                    </div>
+                    <form role="form" name="form" novalidate>
+                        <div class="form-group">
+                            <label class="control-label">License No.</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" name="license_no" ng-model="regulatory.license_no" required>
+                                <span class="label label-danger pull-right" ng-show="form.license_no.$error.required">{{form.license_no.message}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Name</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" name="name" ng-model="regulatory.name" required>
+                                <span class="label label-danger pull-right" ng-show="form.name.$error.required">{{form.name.message}}</span>
+                            </div>
+                        </div>                       
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label class="control-label">Date Issued</label>
+                                    <div class="controls">
+                                        <div class="input-group date">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input type="text" name="date_issued" class="form-control" ng-model="regulatory.date_issued" data-max-date="{{regulatory.valid_until}}" placeholder="Date Issued" bs-datepicker required>
+                                        </div>
+                                        <span class="label label-danger pull-right" ng-show="form.date_issued.$error.required">{{form.date_issued.message}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label class="control-label">Valid Until</label>
+                                    <div class="controls">
+                                        <div class="input-group date">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input type="text" name="valid_until" class="form-control" ng-model="regulatory.valid_until" data-min-date="{{supplier.date_issued}}" placeholder="To" bs-datepicker required>
+                                        </div>
+                                        <span class="label label-danger pull-right" ng-show="form.valid_until.$error.required">{{form.valid_until.message}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Remarks</label>
+                            <div class="controls">
+                                <textarea class="form-control" name="remarks" ng-model="regulatory.remarks"></textarea>
+                               
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span>
+                                <small>Modified: {{regulatory.creator.name}}, {{regulatory.created | date: 'medium'}}</small>
+                            </span>
+                        </div>
+                        <div class="form-actions highlight">
+                            <button ng-click="update(form)" class="btn btn-primary">Update</button>
+                            <a ui-sref="settings_regulatory_docs" class="btn btn-default">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
