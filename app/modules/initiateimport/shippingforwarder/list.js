@@ -1,7 +1,7 @@
 'use strict';
 
 define(['app'], function(app) {
-    app.controller('AssignForwarderList', [
+    app.controller('ShippingForwarderList', [
         '$scope',
         '$location',
         function($scope, $location) {
