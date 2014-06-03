@@ -139,3 +139,6 @@ ol.breadcrumb > .active {
 ol.breadcrumb > li + li:before {
     padding: 0 0 0 6px;
 }
+ol.breadcrumb > li + li:before {
+    content: "\00BB";
+}
