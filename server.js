@@ -4,7 +4,6 @@ var express = require('express'),
     fs = require('fs'),
     http = require('http'),
     https = require('https'),
-    crypto = require('crypto'),
     mongoose = require('mongoose');
 
 var privateKey = fs.readFileSync('./lib/certs/privatekey.pem').toString();
@@ -40,7 +39,7 @@ var Impex = function () {
     self.terminator = function (sig) {
         if (typeof sig === "string") {
             console.log('%s: Received %s - terminating app ...',
-                Date(Date.now()), sig);
+                new Date(Date.now()), sig);
             process.exit(1);
         }
 
@@ -48,22 +47,22 @@ var Impex = function () {
             console.log('Mongoose default connection disconnected');
             process.exit(0);
         });
-        console.log('%s: Node server stopped.', Date(Date.now()));
+        console.log('%s: Node server stopped.', new Date(Date.now()));
     };
 
 
     // Setup termination handlers (for exit and a list of signals).
-    
+
     self.setupTerminationHandlers = function () {
         //  Process on exit and signals.
-        
+
         process.on('exit', function () {
             self.terminator();
         });
 
         ['SIGHUP', 'SIGINT', 'SIGQUIT', 'SIGILL', 'SIGTRAP', 'SIGABRT',
             'SIGBUS', 'SIGFPE', 'SIGUSR1', 'SIGSEGV', 'SIGUSR2', 'SIGTERM'
-            ].forEach(function (element, index, array) {
+            ].forEach(function (element) {
             process.on(element, function () {
                 self.terminator(element);
             });
@@ -72,11 +71,10 @@ var Impex = function () {
     self.initializeServer = function () {
         // Application Config
         var config = require('./lib/config/config'),
-            // Connect to database
-            db = mongoose.connect(config.mongo.uri, config.mongo.options),
             // Passport Configuration
             passport = require('./lib/config/passport');
-
+        // Connect to database
+        mongoose.connect(config.mongo.uri, config.mongo.options);
         self.app = express();
 
         // Express settings
@@ -98,9 +96,9 @@ var Impex = function () {
     self.start = function () {
 
         //  Start the app on the specific interface (and port).
-        self.app.set('port', process.env.OPENSHIFT_INTERNAL_PORT || 7777);
+        self.app.set('port', 7777);
         self.app.set('sslport', 8888);
-        self.app.set('ipaddr', process.env.OPENSHIFT_INTERNAL_IP || 'localhost');
+        self.app.set('ipaddr', 'localhost');
 
         // Set http
         self.app.listen(
@@ -118,7 +116,7 @@ var Impex = function () {
             }
         );
 
-        exports = module.exports = self.app;
+        module.exports = self.app;
     };
 
 };
