@@ -1,0 +1,36 @@
+/* Tabs
+=================================================================== */
+.tabs .nav-tabs {
+    margin-top: -48px;
+    margin-left: 30px;
+    border-bottom: none;
+}
+.tabs .nav-tabs > li {
+    float: left;
+    margin-bottom: -1px;
+}
+.tabs .nav-tabs > li > a {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    line-height: 16px;
+    margin-left: -3px;
+    border: none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    color: white;
+    cursor: pointer;
+}
+.tabs .nav-tabs > li > a:hover {
+    background: #1e8fc6;
+}
+.tabs .nav-tabs > .active > a {
+    border: none;
+    color: #36a9e1;
+    cursor: default;
+    background: white;
+}
+.tabs .nav-tabs > .active > a:hover {
+    border: none;
+    background: white;
+}
