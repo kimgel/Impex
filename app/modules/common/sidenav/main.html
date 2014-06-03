@@ -101,15 +101,15 @@
                         <i class="fa fa-minus-square-o" ng-show="closeimport"></i>
                     </a>
                 </div>
-                <ul ng-show="customsdelivery">
-                    <li data-match-route="customs-clearance.*">
-                        <a ui-sref="customsclearance">
-                            <i class="fa fa-check-square-o"></i>Customs Clearance
+                <ul ng-show="closeimport">
+                    <li data-match-route="shipment-charges.*">
+                        <a ui-sref="shipmentcharges">
+                            <i class="fa fa-money"></i>Shipment Charges
                         </a>
                     </li>
-                    <li data-match-route="delivery.*">
-                        <a ui-sref="delivery">
-                            <i class="fa fa-road"></i>Delivery
+                    <li data-match-route="payment-details.*">
+                        <a ui-sref="paymentdetails">
+                            <i class="fa fa-envelope-square"></i>Payment Details
                         </a>
                     </li>
                 </ul>
