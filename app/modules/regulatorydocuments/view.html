@@ -1,0 +1,79 @@
+<div id="content" ng-controller="RegulatoryDocumentView" ng-init="findOne()">
+    <div class="row">
+        <div class="col-xs-7">
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-institution"></i>View Regulatory Document</h2>
+                </div>
+                <div class="box-content">
+                    <div class="form-group">
+                        <div>
+                            <span class="label pull-right" ng-class="{'label-important': regulatory.expired == true, 'label-success': regulatory.expired == false}">{{regulatory.status}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Document No.</label>
+                        <div class="controls">
+                            <div class="label-value">{{regulatory.license_no}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <div class="controls">
+                            <div class="label-value">{{regulatory.name}}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Date Issued</label>
+                                <div class="controls">
+                                    <div class="label-value"><i class="fa fa-calendar"></i> {{regulatory.date_issued | date: 'longDate'}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Valid Until</label>
+                                <div class="controls">
+                                    <div class="label-value"><i class="fa fa-calendar"></i> {{regulatory.valid_until | date: 'longDate'}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Remarks</label>
+                        <div class="controls">
+                            <div class="label-value">{{regulatory.remarks}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span><small>Added: {{regulatory.creator.name}}, {{regulatory.created | date: 'medium'}}</small></span>
+                    </div>
+                    <div class="form-actions highlight">
+                        <a ui-sref="settings_regulatory_docs" class="btn btn-primary">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5">
+            <div class="box">
+                <div class="box-header">
+                    <h2>
+                        <i class="fa fa-file-o"></i>Attached Document</h2>
+                </div>
+                <div class="box-content">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div>
+                                <span><i class="fa fa-file-pdf-o"></i> {{regulatory.document_data.FileName}}</span>
+                                <a class="pull-right btn btn-mini btn-primary" href="{{regulatory.document_data.Location}}" target="_blank">view</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,7 +9,7 @@
                 <div class="box-content">
                     <div class="form-group">
                         <div>
-                            <span class="label pull-right" ng-class="{'label-important': forwarder.status == 'inactive', 'label-success': forwarder.status == 'active'}">{{forwarder.status}}</span>
+                            <span class="label pull-right" ng-class="{'label-important': forwarder.expired == true, 'label-success': forwarder.expired == false}">{{forwarder.status}}</span>
                         </div>
                     </div>
                     <div class="form-group">

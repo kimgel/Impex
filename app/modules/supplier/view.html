@@ -9,7 +9,7 @@
                 <div class="box-content">
                     <div class="form-group">
                         <div>
-                            <span class="label pull-right" ng-class="{'label-important': supplier.status == 'inactive', 'label-success': supplier.status == 'active'}">{{supplier.status}}</span>
+                            <span class="label pull-right" ng-class="{'label-important': supplier.expired == true, 'label-success': supplier.expired == false}">{{supplier.status}}</span>
                         </div>
                     </div>
                     <div class="form-group">

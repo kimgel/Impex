@@ -124,6 +124,7 @@ a.navbar-brand.noBg {
     padding: 10px;
     list-style: none;
     background: none;
+    font-size: 12px;
 }
 ol.breadcrumbs li {
     text-transform: capitalize;
@@ -137,4 +138,7 @@ ol.breadcrumb > .active {
 }
 ol.breadcrumb > li + li:before {
     padding: 0 0 0 6px;
+}
+ol.breadcrumb > li + li:before {
+    content: "\00BB";
 }

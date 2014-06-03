@@ -7,6 +7,11 @@
                         <i class="fa fa-suitcase"></i>Edit Supplier</h2>
                 </div>
                 <div class="box-content">
+                    <div class="form-group">
+                        <div>
+                            <span class="label pull-right" ng-class="{'label-important': supplier.expired == true, 'label-success': supplier.expired == false}">{{supplier.status}}</span>
+                        </div>
+                    </div>
                     <form role="form" name="form" novalidate>
                         <div class="form-group">
                             <label class="control-label">Supplier No.</label>

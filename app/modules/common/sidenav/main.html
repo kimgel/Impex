@@ -28,9 +28,9 @@
                             <i class="fa fa-chain"></i>Broker
                         </a>
                     </li>
-                    <li data-match-route="assign-forwarder.*">
-                        <a ui-sref="initiateimport_assignforwarder">
-                            <i class="fa fa-truck"></i>Assign Forwarder
+                    <li data-match-route="shipping-forwarder.*">
+                        <a ui-sref="initiateimport_shippingforwarder">
+                            <i class="fa fa-location-arrow"></i>Shipping Line / Forwarder
                         </a>
                     </li>
                 </ul>
@@ -49,11 +49,6 @@
                             <i class="fa fa-building-o"></i>Shipment Detail
                         </a>
                     </li>
-                    <li data-match-route="shipment-departure.*">
-                        <a ui-sref="shipmentdeparture">
-                            <i class="fa fa-ticket"></i>Shipment Departure
-                        </a>
-                    </li>
                 </ul>
             </li>
             <li>
@@ -64,6 +59,18 @@
                         <i class="fa fa-minus-square-o" ng-show="intransit"></i>
                     </a>
                 </div>
+                <ul ng-show="intransit">
+                    <li data-match-route="shipment-departure.*">
+                        <a ui-sref="shipmentdeparture">
+                            <i class="fa fa-ticket"></i>Shipment Departure
+                        </a>
+                    </li>
+                    <li data-match-route="foreign-invoice.*">
+                        <a ui-sref="foreigninvoice">
+                            <i class="fa fa-book"></i>Foreign Invoice
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <div class="nav-header">
@@ -73,6 +80,18 @@
                         <i class="fa fa-minus-square-o" ng-show="customsdelivery"></i>
                     </a>
                 </div>
+                <ul ng-show="customsdelivery">
+                    <li data-match-route="customs-clearance.*">
+                        <a ui-sref="customsclearance">
+                            <i class="fa fa-check-square-o"></i>Customs Clearance
+                        </a>
+                    </li>
+                    <li data-match-route="delivery.*">
+                        <a ui-sref="delivery">
+                            <i class="fa fa-road"></i>Delivery
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <div class="nav-header">
@@ -82,21 +101,18 @@
                         <i class="fa fa-minus-square-o" ng-show="closeimport"></i>
                     </a>
                 </div>
-            </li>
-            <li data-match-route="/foreigninvoice.*">
-                <a ui-sref="foreigninvoice">
-                    <i class="fa fa-book"></i>Foreign Invoice
-                </a>
-            </li>
-            <li data-match-route="/customsclearance.*">
-                <a ui-sref="customsclearance">
-                    <i class="fa fa-check-square-o"></i>Customs Clearance
-                </a>
-            </li>
-            <li data-match-route="/delivery.*">
-                <a ui-sref="delivery">
-                    <i class="fa fa-road"></i>Delivery
-                </a>
+                <ul ng-show="customsdelivery">
+                    <li data-match-route="customs-clearance.*">
+                        <a ui-sref="customsclearance">
+                            <i class="fa fa-check-square-o"></i>Customs Clearance
+                        </a>
+                    </li>
+                    <li data-match-route="delivery.*">
+                        <a ui-sref="delivery">
+                            <i class="fa fa-road"></i>Delivery
+                        </a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>

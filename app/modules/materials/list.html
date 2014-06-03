@@ -31,7 +31,7 @@
                                 </tr>
                                 <tr ng-repeat="material in materials">
                                     <td>
-                                        <span class="label" ng-class="{'label-important': material.status == 'not started', 'label-success': material.status != 'not started'}">{{material.status}}</span>
+                                        <span class="label" ng-class="{'label-important': material.expired == true, 'label-success': material.expired == false}">{{material.status}}</span>
                                     </td>
                                     <td>{{material.no}}</td>
                                     <td class="toCapitalize">{{material.regulatory}}</td>

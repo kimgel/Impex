@@ -1,43 +1,45 @@
 {
-    "name": "impex",
-    "description": "import and export system",
-    "version": "0.0.1",
-    "author": "Jan Dantes",
-    "license": "MIT",
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/jandantes/Impex.git"
-    },
-    "engines": {
-        "node": ">=0.10.0"
-    },
-    "scripts": {
-        "start": "node server.js"
-    },
-    "dependencies": {
-        "express": "4.1.x",
-        "express-session": "1.0.x",
-        "body-parser": "1.0.x",
-        "cookie-parser": "1.0.x",
-        "compression": "1.0.x",
-        "method-override": "1.0.x",
-        "mongoose": "3.8.x",
-        "helmet": "0.2.x",
-        "passport": "0.2.x",
-        "passport-local": "1.0.x",
-        "requirejs": "2.1.x",
-        "errorhandler": "1.0.x",
-        "connect-mongo": "0.4.x",
-        "lodash": "2.4.x",
-        "ejs": "1.0.x",
-        "serve-static": "1.1.x",
-        "moment": "2.6.x",
-        "acl": "0.3.x",
-        "csurf": "1.1.x"
-    },
-    "devDependencies": {
-        "morgan": "1.0.x",
-        "fmt": "0.5.x"
-    }
+  "name": "impex",
+  "description": "import and export system",
+  "version": "0.0.1",
+  "author": "Jan Dantes",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jandantes/Impex.git"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "4.3.x",
+    "express-session": "1.0.x",
+    "body-parser": "1.0.x",
+    "cookie-parser": "1.0.x",
+    "compression": "1.0.x",
+    "method-override": "1.0.x",
+    "mongoose": "3.8.x",
+    "helmet": "0.2.x",
+    "passport": "0.2.x",
+    "passport-local": "1.0.x",
+    "requirejs": "2.1.x",
+    "errorhandler": "1.0.x",
+    "connect-mongo": "0.4.x",
+    "lodash": "2.4.x",
+    "ejs": "1.0.x",
+    "serve-static": "1.1.x",
+    "moment": "2.6.x",
+    "acl": "0.3.x",
+    "csurf": "1.1.x",
+    "multiparty": "3.2.x",
+    "streaming-s3": "0.3.x"
+  },
+  "devDependencies": {
+    "morgan": "1.0.x",
+    "fmt": "0.5.x"
+  }
 }

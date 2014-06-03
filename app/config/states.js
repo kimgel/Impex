@@ -90,6 +90,76 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
+            /* ======= Settings: Regulatory Documents ======= */
+            settings_regulatory_docs: {
+                name: 'settings_regulatory_docs',
+                url: '/settings/regulatory-documents',
+                parent: 'settings',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/regulatorydocuments/list.html'
+                    }
+                },
+                data: {
+                    displayName: 'Regulatory Documents'
+                },
+                resolve: new Dependency([
+                    'modules/regulatorydocuments/list'
+                ]),
+                authenticate: true
+            },
+            settings_regulatory_docs_add: {
+                name: 'settings_regulatory_docs_add',
+                url: '/add',
+                parent: 'settings_regulatory_docs',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/regulatorydocuments/add.html'
+                    }
+                },
+                data: {
+                    displayName: 'Add Regulatory Document'
+                },
+                resolve: new Dependency([
+                    'modules/regulatorydocuments/add'
+                ]),
+                authenticate: true
+            },
+            settings_regulatory_docs_view: {
+                name: 'settings_regulatory_docs_view',
+                url: '/:regulatoryDocumentId',
+                parent: 'settings_regulatory_docs',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/regulatorydocuments/view.html'
+                    }
+                },
+                data: {
+                    displayName: 'View Regulatory Document'
+                },
+                resolve: new Dependency([
+                    'modules/regulatorydocuments/view'
+                ]),
+                authenticate: true
+            },
+            settings_regulatory_docs_edit: {
+                name: 'settings_regulatory_docs_edit',
+                url: '/:regulatoryDocumentId/edit',
+                parent: 'settings_regulatory_docs',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/regulatorydocuments/edit.html'
+                    }
+                },
+                data: {
+                    displayName: 'Edit Regulatory Document'
+                },
+                resolve: new Dependency([
+                    'modules/regulatorydocuments/edit'
+                ]),
+                authenticate: true
+            },
+
             /* ======= Settings: Materials ======= */
             settings_materials: {
                 name: 'settings_materials',
@@ -592,38 +662,38 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            /* ======= Initiate Import: Assign Forwarder ======= */
-            initiateimport_assignforwarder: {
-                name: 'initiateimport_assignforwarder',
-                url: '/initiate-import/assign-forwarder',
+            /* ======= Initiate Import: Shipping Line / Forwarder ======= */
+            initiateimport_shippingforwarder: {
+                name: 'initiateimport_shippingforwarder',
+                url: '/initiate-import/shipping-forwarder',
                 parent: 'root',
                 views: {
                     '@': {
-                        templateUrl: '/modules/initiateimport/assignforwarder/list.html'
+                        templateUrl: '/modules/initiateimport/shippingforwarder/list.html'
                     }
                 },
                 data: {
-                    displayName: 'Assign Forwarder'
+                    displayName: 'Shipping Line / Forwarder'
                 },
                 resolve: new Dependency([
-                    'modules/initiateimport/assignforwarder/list'
+                    'modules/initiateimport/shippingforwarder/list'
                 ]),
                 authenticate: true
             },
             initiateimport_assignforwarder_add: {
-                name: 'initiateimport_assignforwarder_add',
+                name: 'initiateimport_shippingforwarder_add',
                 url: '/add',
-                parent: 'initiateimport_assignforwarder',
+                parent: 'initiateimport_shippingforwarder',
                 views: {
                     '@': {
-                        templateUrl: '/modules/initiateimport/assignforwarder/add.html'
+                        templateUrl: '/modules/initiateimport/shippingforwarder/add.html'
                     }
                 },
                 data: {
                     displayName: 'Add'
                 },
                 resolve: new Dependency([
-                    'modules/initiateimport/assignforwarder/add'
+                    'modules/initiateimport/shippingforwarder/add'
                 ]),
                 authenticate: true
             },

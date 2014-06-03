@@ -7,6 +7,11 @@
                         <i class="fa fa-cog"></i>Edit Forwarder</h2>
                 </div>
                 <div class="box-content">
+                    <div class="form-group">
+                        <div>
+                            <span class="label pull-right" ng-class="{'label-important': forwarder.expired == true, 'label-success': forwarder.expired == false}">{{forwarder.status}}</span>
+                        </div>
+                    </div>
                     <form role="form" name="form" novalidate>
                         <div class="form-group">
                             <label class="control-label">Forwarder No.</label>
