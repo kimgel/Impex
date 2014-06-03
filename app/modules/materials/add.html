@@ -1,6 +1,6 @@
 <div id="content" ng-controller="ItemAdd" ng-init="all()">
     <div class="row">
-        <div class="col-xs-7">
+        <div class="col-xs-6">
             <div class="box">
                 <div class="box-header">
                     <h2>
@@ -24,7 +24,7 @@
                                             <span class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </span>
-                                             <input type="text" name="valid_from" class="form-control" ng-model="material.valid_from" data-max-date="{{material.valid_to}}" placeholder="From" bs-datepicker required>
+                                            <input type="text" name="valid_from" class="form-control" ng-model="material.valid_from" data-max-date="{{material.valid_to}}" placeholder="From" bs-datepicker required>
                                         </div>
                                         <span class="label label-danger pull-right" ng-show="form.valid_from.$error.required">{{form.valid_from.message}}</span>
                                     </div>
@@ -89,87 +89,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-5">
-            <div class="document-list">
-                <div class="title-non-box">Standard Processing Time &amp; Documents</div>
-
-                <div class="document-group">
-                    <div class="document-list-header">
-                        <span>Initiate Import (Planner)</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/ii.planner.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
-                            <i class="fa fa-clock-o"></i> {{schedule.ii_planner || 0}}
-                            <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'ii_planner'}).length}}
-                        </button>
+        <div class="col-xs-6">
+            <div class="box">
+                <div class="box-header">
+                    <h2><i class="fa fa-list"></i></h2>
+                </div>
+                <div class="box-content">
+                    <div bs-tabs="requirements">
                     </div>
                 </div>
-                <div class="document-group">
-                    <div class="document-list-header">
-                        <span>Initiate Import (Broker)</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/ii.broker.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
-                            <i class="fa fa-clock-o"></i> {{schedule.ii_broker || 0}}
-                            <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'ii_broker'}).length}}
-                        </button>
-                    </div>
-                </div>
-                <div class="document-group">
-                    <div class="document-list-header">
-                        <span>Initiate Import (Assign Forwarder)</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/ii.assignforwarder.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
-                            <i class="fa fa-clock-o"></i> {{schedule.ii_assignforwarder || 0}}
-                            <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'ii_assignforwarder'}).length}}
-                        </button>
-                    </div>
-                </div>
-                <div class="document-group">
-                    <div class="document-list-header">
-                        <span>Shipment Details</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/ship.details.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
-                            <i class="fa fa-clock-o"></i> {{schedule.ship_details || 0}}
-                            <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'ship_details'}).length}}
-                        </button>
-                    </div>
-                </div>
-                <div class="document-group">
-                    <div class="document-list-header">
-                        <span>Shipment Departure</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/ship.departure.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
-                            <i class="fa fa-clock-o"></i> {{schedule.ship_departure || 0}}
-                            <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'ship_departure'}).length}}
-                        </button>
-                    </div>
-                </div>
-                <div class="document-group">
-                    <div class="document-list-header">
-                        <span>Foreign Invoice</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/foreign.invoice.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
-                            <i class="fa fa-clock-o"></i> {{schedule.foreign_invoice || 0}}
-                            <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'foreign_invoice'}).length}}
-                        </button>
-                    </div>
-                </div>
-                <div class="document-group">
-                    <div class="document-list-header">
-                        <span>Customs Clearance</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/customs.clearance.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
-                            <i class="fa fa-clock-o"></i> {{schedule.customs_clearance || 0}}
-                            <i class="fa fa-file-text-o"></i> {{(docs|filter:{document_category:'customs_clearance'}).length}}
-                        </button>
-                    </div>
-                </div>
-                <div class="document-group">
-                    <div class="document-list-header">
-                        <span>Delivery</span>
-                        <button class="btn btn-mini btn-inverse" data-template="/modules/materials/tpls/delivery.html"  data-placement="right" data-animation="am-slide-right" data-container="body" bs-aside>
-                            <i class="fa fa-clock-o"></i> {{schedule.delivery || 0}}
-                            <i class="fa fa-file-text-o"></i>  {{(docs|filter:{document_category:'delivery'}).length}}
-                        </button>
-                    </div>
-                </div>
-                <span class="label label-danger pull-right" ng-model="docError" ng-show="docs.length < 1">{{docError}}</span>
-                <div class="clearfix"></div>
-
             </div>
         </div>
     </div>
 </div>
-

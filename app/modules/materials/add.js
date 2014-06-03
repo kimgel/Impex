@@ -78,6 +78,15 @@ define([
             $scope.docRemove = function(doc) {
                 $scope.docs.splice($scope.docs.indexOf(doc), 1);
             };
+
+            $scope.requirements = [{
+                    title: 'Processing Time'
+                },{
+                    title: 'Process Documents'
+                },{
+                    title: 'Regulatory Documents'
+                }
+            ];
         }
     ]);
 
