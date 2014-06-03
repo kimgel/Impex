@@ -662,38 +662,38 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            /* ======= Initiate Import: Assign Forwarder ======= */
-            initiateimport_assignforwarder: {
-                name: 'initiateimport_assignforwarder',
-                url: '/initiate-import/assign-forwarder',
+            /* ======= Initiate Import: Shipping Line / Forwarder ======= */
+            initiateimport_shippingforwarder: {
+                name: 'initiateimport_shippingforwarder',
+                url: '/initiate-import/shipping-forwarder',
                 parent: 'root',
                 views: {
                     '@': {
-                        templateUrl: '/modules/initiateimport/assignforwarder/list.html'
+                        templateUrl: '/modules/initiateimport/shippingforwarder/list.html'
                     }
                 },
                 data: {
-                    displayName: 'Assign Forwarder'
+                    displayName: 'Shipping Line / Forwarder'
                 },
                 resolve: new Dependency([
-                    'modules/initiateimport/assignforwarder/list'
+                    'modules/initiateimport/shippingforwarder/list'
                 ]),
                 authenticate: true
             },
             initiateimport_assignforwarder_add: {
-                name: 'initiateimport_assignforwarder_add',
+                name: 'initiateimport_shippingforwarder_add',
                 url: '/add',
-                parent: 'initiateimport_assignforwarder',
+                parent: 'initiateimport_shippingforwarder',
                 views: {
                     '@': {
-                        templateUrl: '/modules/initiateimport/assignforwarder/add.html'
+                        templateUrl: '/modules/initiateimport/shippingforwarder/add.html'
                     }
                 },
                 data: {
                     displayName: 'Add'
                 },
                 resolve: new Dependency([
-                    'modules/initiateimport/assignforwarder/add'
+                    'modules/initiateimport/shippingforwarder/add'
                 ]),
                 authenticate: true
             },
