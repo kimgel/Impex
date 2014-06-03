@@ -36,7 +36,7 @@
     "acl": "0.3.x",
     "csurf": "1.1.x",
     "multiparty": "3.2.x",
-    "streaming-s3": "^0.3.0"
+    "streaming-s3": "0.3.x"
   },
   "devDependencies": {
     "morgan": "1.0.x",
