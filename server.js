@@ -6,13 +6,6 @@ var express = require('express'),
     https = require('https'),
     mongoose = require('mongoose');
 
-var privateKey = fs.readFileSync('./lib/certs/privatekey.pem').toString();
-var certificate = fs.readFileSync('./lib/certs/certificate.pem').toString();
-var credentials = {
-    key: privateKey,
-    cert: certificate
-};
-
 var Impex = function () {
 
     var self = this;
@@ -70,11 +63,15 @@ var Impex = function () {
     };
     self.initializeServer = function () {
         // Application Config
-        var config = require('./lib/config/config'),
-            // Passport Configuration
-            passport = require('./lib/config/passport');
+        var config = require('./lib/config/config');
+
+        // Passport Configuration
+        require('./lib/config/passport');
+
         // Connect to database
         mongoose.connect(config.mongo.uri, config.mongo.options);
+
+        // Init Express
         self.app = express();
 
         // Express settings
@@ -97,7 +94,6 @@ var Impex = function () {
 
         //  Start the app on the specific interface (and port).
         self.app.set('port', 7777);
-        self.app.set('sslport', 8888);
         self.app.set('ipaddr', 'localhost');
 
         // Set http
@@ -105,14 +101,6 @@ var Impex = function () {
             self.app.get('port'), self.app.get('ipaddr'),
             function () {
                 console.log("Express server listening on port " + self.app.get('port'));
-            }
-        );
-        // Set https
-        https.createServer(credentials, self.app).listen(
-            self.app.get('sslport'),
-            self.app.get('ipaddr'),
-            function () {
-                console.log("SSL server started on: " + self.app.get('sslport'));
             }
         );
 
