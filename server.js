@@ -33,12 +33,12 @@ var Impex = function () {
         if (typeof sig === "string") {
             console.log('%s: Received %s - terminating app ...',
                 new Date(Date.now()), sig);
-            process.exit(1);
+            process.exit();
         }
 
         mongoose.connection.close(function () {
             console.log('Mongoose default connection disconnected');
-            process.exit(0);
+            process.exit();
         });
         console.log('%s: Node server stopped.', new Date(Date.now()));
     };
