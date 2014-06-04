@@ -26,42 +26,7 @@ var Impex = function () {
         return self.zcache[key];
     };
 
-    // terminator === the termination handler
-    // Terminate server on receipt of the specified signal.
-    // @param {string} sig  Signal to terminate on.
-    self.terminator = function (sig) {
-        if (typeof sig === "string") {
-            console.log('%s: Received %s - terminating app ...',
-                new Date(Date.now()), sig);
-            process.exit();
-        }
 
-        mongoose.connection.close(function () {
-            console.log('Mongoose default connection disconnected');
-            process.exit();
-        });
-        console.log('%s: Node server stopped.', new Date(Date.now()));
-    };
-
-
-    // Setup termination handlers (for exit and a list of signals).
-
-    self.setupTerminationHandlers = function () {
-        //  Process on exit and signals.
-
-        process.on('exit', function () {
-            self.terminator();
-        });
-
-        ['SIGHUP', 'SIGINT', 'SIGQUIT', 'SIGILL', 'SIGTRAP', 'SIGABRT',
-            'SIGBUS', 'SIGFPE', 'SIGUSR1', 'SIGSEGV', 'SIGUSR2', 'SIGTERM',
-            'uncaughtException'
-            ].forEach(function (element) {
-            process.on(element, function () {
-                self.terminator(element);
-            });
-        });
-    };
     self.initializeServer = function () {
         // Application Config
         var config = require('./lib/config/config');
@@ -85,7 +50,6 @@ var Impex = function () {
     self.initialize = function () {
         //self.setupVariables();
         self.populateCache();
-        self.setupTerminationHandlers();
 
         // Create the express server and routes.
         self.initializeServer();
