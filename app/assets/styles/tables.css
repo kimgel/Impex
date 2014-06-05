@@ -27,7 +27,10 @@ table.table {
     margin-bottom: 6px !important;
     max-width: none !important;
 }
-table.table .btn {
+table.table > .input-group .btn {
+    margin: 0;
+}
+table.table > .btn {
     margin: 1px 0;
 }
 table.table thead .sorting,
