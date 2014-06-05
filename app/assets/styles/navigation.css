@@ -47,6 +47,7 @@
     padding-bottom: 1px;
     font-size: 14px;
     white-space: nowrap;
+    margin-top: 5px;
 }
 
 .nav-tabs.nav-stacked > li > a {
