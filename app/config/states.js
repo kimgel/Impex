@@ -19,7 +19,7 @@ define(['Dependency'], function(Dependency) {
                 },
                 resolve: new Dependency([
                     'modules/common/header/main',
-                    'modules/common/sidenav/main'
+                    'modules/directives/navigation'
                 ])
             },
             settings: {
@@ -35,8 +35,7 @@ define(['Dependency'], function(Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                    'modules/common/header/main',
-                    'modules/common/sidenav/settings'
+                    'modules/common/header/main'
                 ])
             },
             /* ======= Login ======= */
