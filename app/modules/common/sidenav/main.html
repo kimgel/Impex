@@ -1,4 +1,4 @@
-<div id="sidebar-left" ng-controller="MainNavCtrl">
+<div id="sidebar-left">
     <div class="search-box">
         <input type="text" class="search" placeholder="Search Impex/PO number..." />
     </div>
@@ -12,107 +12,112 @@
             <li>
                 <div class="nav-header">
                     <span class="nav-title">Initiate Import</span>
-                    <a href="javascript:;" class="nav-toggle" ng-click="initiateimport = !initiateimport">
-                        <i class="fa fa-plus-square-o" ng-show="!initiateimport"></i>
-                        <i class="fa fa-minus-square-o" ng-show="initiateimport"></i>
+                    <a href="javascript:;" class="nav-toggle" slide-toggle="#initiateimport">
+                        <i class="fa fa-plus-square-o"></i>
                     </a>
                 </div>
-                <ul ng-show="initiateimport" ng-animate="'slide'">
-                    <li data-match-route="planner.*">
-                        <a ui-sref="initiateimport_planner">
-                            <i class="fa fa-pencil-square-o"></i>Planner
-                        </a>
-                    </li>
-                    <li data-match-route="broker.*">
-                        <a ui-sref="initiateimport_broker">
-                            <i class="fa fa-chain"></i>Broker
-                        </a>
-                    </li>
-                    <li data-match-route="shipping-forwarder.*">
-                        <a ui-sref="initiateimport_shippingforwarder">
-                            <i class="fa fa-location-arrow"></i>Shipping Line / Forwarder
-                        </a>
-                    </li>
-                </ul>
+                <div id="initiateimport" class="slideable">
+                    <ul>
+                        <li data-match-route="planner.*">
+                            <a ui-sref="initiateimport_planner">
+                                <i class="fa fa-pencil-square-o"></i>Planner
+                            </a>
+                        </li>
+                        <li data-match-route="broker.*">
+                            <a ui-sref="initiateimport_broker">
+                                <i class="fa fa-chain"></i>Broker
+                            </a>
+                        </li>
+                        <li data-match-route="shipping-forwarder.*">
+                            <a ui-sref="initiateimport_shippingforwarder">
+                                <i class="fa fa-location-arrow"></i>Shipping Line / Forwarder
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li>
                 <div class="nav-header">
                     <span class="nav-title">Prepare Shipment</span>
-                    <a href="javascript:;" class="nav-toggle" ng-click="prepareshipment = !prepareshipment">
-                        <i class="fa fa-plus-square-o" ng-show="!prepareshipment"></i>
-                        <i class="fa fa-minus-square-o" ng-show="prepareshipment"></i>
+                    <a href="javascript:;" class="nav-toggle" slide-toggle="#prepareshipment">
+                        <i class="fa fa-plus-square-o"></i>
                     </a>
                 </div>
-                <ul ng-show="prepareshipment">
-                    <li data-match-route="shipment-detail.*">
-                        <a ui-sref="shipmentdetail">
-                            <i class="fa fa-building-o"></i>Shipment Detail
-                        </a>
-                    </li>
-                </ul>
+                <div id="prepareshipment" class="slideable">
+                    <ul>
+                        <li data-match-route="shipment-detail.*">
+                            <a ui-sref="shipmentdetail">
+                                <i class="fa fa-building-o"></i>Shipment Detail
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li>
                 <div class="nav-header">
                     <span class="nav-title">In-Transit</span>
-                    <a href="javascript:;" class="nav-toggle" ng-click="intransit = !intransit">
-                        <i class="fa fa-plus-square-o" ng-show="!intransit"></i>
-                        <i class="fa fa-minus-square-o" ng-show="intransit"></i>
+                    <a href="javascript:;" class="nav-toggle" slide-toggle="#intransit">
+                        <i class="fa fa-plus-square-o"></i>
                     </a>
                 </div>
-                <ul ng-show="intransit">
-                    <li data-match-route="shipment-departure.*">
-                        <a ui-sref="shipmentdeparture">
-                            <i class="fa fa-ticket"></i>Shipment Departure
-                        </a>
-                    </li>
-                    <li data-match-route="foreign-invoice.*">
-                        <a ui-sref="foreigninvoice">
-                            <i class="fa fa-book"></i>Foreign Invoice
-                        </a>
-                    </li>
-                </ul>
+                <div id="intransit" class="slideable">
+                    <ul>
+                        <li data-match-route="shipment-departure.*">
+                            <a ui-sref="shipmentdeparture">
+                                <i class="fa fa-ticket"></i>Shipment Departure
+                            </a>
+                        </li>
+                        <li data-match-route="foreign-invoice.*">
+                            <a ui-sref="foreigninvoice">
+                                <i class="fa fa-book"></i>Foreign Invoice
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li>
                 <div class="nav-header">
                     <span class="nav-title">Customs &amp; Delivery</span>
-                    <a href="javascript:;" class="nav-toggle" ng-click="customsdelivery = !customsdelivery">
-                        <i class="fa fa-plus-square-o" ng-show="!customsdelivery"></i>
-                        <i class="fa fa-minus-square-o" ng-show="customsdelivery"></i>
+                    <a href="javascript:;" class="nav-toggle" slide-toggle="#customsdelivery">
+                        <i class="fa fa-plus-square-o"></i>
                     </a>
                 </div>
-                <ul ng-show="customsdelivery">
-                    <li data-match-route="customs-clearance.*">
-                        <a ui-sref="customsclearance">
-                            <i class="fa fa-check-square-o"></i>Customs Clearance
-                        </a>
-                    </li>
-                    <li data-match-route="delivery.*">
-                        <a ui-sref="delivery">
-                            <i class="fa fa-road"></i>Delivery
-                        </a>
-                    </li>
-                </ul>
+                <div id="customsdelivery" class="slideable">
+                    <ul>
+                        <li data-match-route="customs-clearance.*">
+                            <a ui-sref="customsclearance">
+                                <i class="fa fa-check-square-o"></i>Customs Clearance
+                            </a>
+                        </li>
+                        <li data-match-route="delivery.*">
+                            <a ui-sref="delivery">
+                                <i class="fa fa-road"></i>Delivery
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li>
                 <div class="nav-header">
                     <span class="nav-title">Close Import</span>
-                    <a href="javascript:;" class="nav-toggle" ng-click="closeimport = !closeimport">
-                        <i class="fa fa-plus-square-o" ng-show="!closeimport"></i>
-                        <i class="fa fa-minus-square-o" ng-show="closeimport"></i>
+                    <a href="javascript:;" class="nav-toggle" slide-toggle="#closeimport">
+                        <i class="fa fa-plus-square-o"></i>
                     </a>
                 </div>
-                <ul ng-show="closeimport">
-                    <li data-match-route="shipment-charges.*">
-                        <a ui-sref="shipmentcharges">
-                            <i class="fa fa-money"></i>Shipment Charges
-                        </a>
-                    </li>
-                    <li data-match-route="payment-details.*">
-                        <a ui-sref="paymentdetails">
-                            <i class="fa fa-envelope-square"></i>Payment Details
-                        </a>
-                    </li>
-                </ul>
+                <div id="closeimport" class="slideable">
+                    <ul>
+                        <li data-match-route="shipment-charges.*">
+                            <a ui-sref="shipmentcharges">
+                                <i class="fa fa-money"></i>Shipment Charges
+                            </a>
+                        </li>
+                        <li data-match-route="payment-details.*">
+                            <a ui-sref="paymentdetails">
+                                <i class="fa fa-envelope-square"></i>Payment Details
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
         </ul>
     </div>
