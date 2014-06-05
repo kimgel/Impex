@@ -96,3 +96,8 @@
 .font-12{
     font-size: 12px;
 }
+
+/* Input width */
+.form-w-25{
+    width: 25%;
+}
