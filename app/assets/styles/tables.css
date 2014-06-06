@@ -61,6 +61,9 @@ table.dataTable th:active {
 table.table tbody td{
     vertical-align: middle;
 }
+table.table tbody td.v-top{
+    vertical-align: top;
+}
 
 /* Statusboard */
 table.statusboard th,table.statusboard td{
