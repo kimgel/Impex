@@ -1,0 +1,25 @@
+<div class="row" ng-init="loadRegulatoryDocuments()">
+    <div class="col-xs-12">
+        <table class="table table-condensed">
+            <thead>
+            <tr role="row">
+                <th width="20%">Select</th>
+                <th>Regulatory Documents</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-hide="!regulatoryDocuments || regulatoryDocuments.length">
+                    <td colspan="3">No regulatory documents yet.</td>
+                </tr>
+                <tr ng-repeat="doc in regulatoryDocuments">
+                    <td><input type="checkbox"></td>
+                    <td>{{doc.name}}</td>
+                    <td>
+                        <span class="label" ng-class="{'label-important': doc.expired == true, 'label-success': doc.expired == false}">{{doc.status}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
