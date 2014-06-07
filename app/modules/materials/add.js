@@ -6,7 +6,9 @@ define([
     'Suppliers',
     'Brokers',
     'Forwarders',
-], function(app, Materials, Suppliers, Brokers, Forwarders) {
+    'ShippingLines',
+    'RegulatoryDocuments'
+], function(app, Materials, Suppliers, Brokers, Forwarders, ShippingLines, RegulatoryDocuments) {
     app.controller('ItemAdd', [
         '$scope',
         '$state',
@@ -14,31 +16,33 @@ define([
         'SuppliersFactory',
         'BrokersFactory',
         'ForwardersFactory',
+        'ShippingLinesFactory',
+        'RegulatoryDocsFactory',
         function(
             $scope,
             $state,
             MaterialsFactory,
             SuppliersFactory,
             BrokersFactory,
-            ForwardersFactory
+            ForwardersFactory,
+            ShippingLinesFactory,
+            RegulatoryDocsFactory
         ) {
 
             $scope.material = {};
-            $scope.schedule = {};
-            $scope.docs = [];
+            $scope.process = {};
+            $scope.documents = [];
+            $scope.regulatory_documents
+
             $scope.view = false;
+
             $scope.submit = function(form) {
-                $scope.material.documents = $scope.docs;
-                $scope.material.schedule = $scope.schedule;
+                $scope.material.process = $scope.process;
 
                 MaterialsFactory.save($scope.material, function(err) {
                     if (err.errors) {
                         for (var key in err.errors) {
-                            if (key != 'documents') {
-                                form[key].message = err.errors[key].message;
-                            } else {
-                                $scope.docError = err.errors['documents'].message;
-                            }
+                            form[key].message = err.errors[key].message;
                         }
                     } else {
                         $state.go('settings_materials');
@@ -62,31 +66,43 @@ define([
                     $scope.forwarders = forwarders;
                     $scope.material.forwarder = $scope.forwarders[0]._id;
                 });
-            };
-
-            $scope.docAdd = function(doc, category) {
-                if (doc) {
-                    $scope.docs.push({
-                        document_name: doc,
-                        document_category: category
-                    });
-                    $scope.docNameError = false;
-                }else{
-                    $scope.docNameError = true;
-                }
-            };
-            $scope.docRemove = function(doc) {
-                $scope.docs.splice($scope.docs.indexOf(doc), 1);
+                ShippingLinesFactory.query(function(shippinglines) {
+                    $scope.shippinglines = shippinglines;
+                    $scope.material.shipping_line = $scope.shippinglines[0]._id;
+                });
             };
 
             $scope.requirements = [{
-                    title: 'Processing Time'
+                    title: 'Processing Time',
+                    template: '/modules/materials/tpls/processingtime.tpl.html'
                 },{
-                    title: 'Process Documents'
+                    title: 'Processing Documents',
+                    template: '/modules/materials/tpls/processingdocuments.tpl.html'
                 },{
-                    title: 'Regulatory Documents'
+                    title: 'Regulatory Documents',
+                    template: '/modules/materials/tpls/regulatorydocuments.tpl.html'
                 }
             ];
+
+            $scope.addDocument = function(stepNumber, documentName){
+                if (documentName) {
+
+                    $scope.documents.push({
+                        stepNumber: stepNumber,
+                        requiredDocument: documentName
+                    });
+                }
+            };
+
+            $scope.removeDocument = function(doc) {
+                $scope.documents.splice($scope.documents.indexOf(doc), 1);
+            };
+
+            $scope.loadRegulatoryDocuments = function() {
+                RegulatoryDocsFactory.query(function(regulatoryDocuments) {
+                    $scope.regulatoryDocuments = regulatoryDocuments;
+                });
+            };
         }
     ]);
 
