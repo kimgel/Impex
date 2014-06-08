@@ -3,9 +3,8 @@
         <table class="table table-condensed">
             <thead>
             <tr role="row">
-                <th width="20%">Select</th>
-                <th>Regulatory Documents</th>
-                <th>Status</th>
+                <th width="20%">Status</th>
+                <th colspan="2">Regulatory Documents</th>
             </tr>
             </thead>
             <tbody>
@@ -13,11 +12,11 @@
                     <td colspan="3">No regulatory documents yet.</td>
                 </tr>
                 <tr ng-repeat="doc in regulatoryDocuments">
-                    <td><input type="checkbox"></td>
-                    <td>{{doc.name}}</td>
                     <td>
-                        <span class="label" ng-class="{'label-important': doc.expired == true, 'label-success': doc.expired == false}">{{doc.status}}</span>
+                        <span class="label" ng-class="{'label-important': doc.status == 'expired', 'label-success': doc.status == 'active'}">{{doc.status}}</span>
                     </td>
+                    <td>{{doc.name}}</td>
+                    <td><button class="btn btn-mini btn-success" type="button"><i class="fa fa-plus"></i></button></td>
                 </tr>
             </tbody>
         </table>
