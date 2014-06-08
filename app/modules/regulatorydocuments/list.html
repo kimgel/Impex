@@ -27,7 +27,7 @@
                                 </tr>
                                 <tr ng-repeat="regulatory in regulatories">
                                     <td>
-                                        <span class="label" ng-class="{'label-important': regulatory.expired == true, 'label-success': regulatory.expired == false}">{{regulatory.status}}</span>
+                                        <span class="label" ng-class="{'label-important': regulatory.status == 'expired', 'label-success': regulatory.status == 'active'}">{{regulatory.status}}</span>
                                     </td>
                                     <td>{{regulatory.license_no}}</td>
                                     <td>{{regulatory.name}}</td>
