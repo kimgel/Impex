@@ -8,7 +8,7 @@ define([
     'Forwarders',
     'ShippingLines',
     'RegulatoryDocuments'
-], function(app, Materials, Suppliers, Brokers, Forwarders, ShippingLines, RegulatoryDocuments) {
+], function(app) {
     app.controller('ItemAdd', [
         '$scope',
         '$state',
@@ -32,7 +32,6 @@ define([
             $scope.material = {};
             $scope.process = {};
             $scope.documents = [];
-            $scope.regulatory_documents
 
             $scope.view = false;
 
@@ -99,7 +98,9 @@ define([
             };
 
             $scope.loadRegulatoryDocuments = function() {
-                RegulatoryDocsFactory.query(function(regulatoryDocuments) {
+                RegulatoryDocsFactory.query({
+                    select: "name,valid_until"
+                },function(regulatoryDocuments) {
                     $scope.regulatoryDocuments = regulatoryDocuments;
                 });
             };
