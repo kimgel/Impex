@@ -5,8 +5,13 @@
     <div ui-breadcrumbs displayname-property="data.displayName"></div>
     <div class="nav-no-collapse header-nav">
         <ul class="nav navbar-nav pull-right">
+            <li>
+                <a class="btn" ui-sref="settings_home">
+                    <i class="fa fa-cogs"></i>
+                </a>
+            </li>
             <li class="dropdown">
-                <a href="javascript:;" class="btn account" bs-dropdown="dropdown" data-template="/modules/common/header/dropdown.tpl.html">
+                <a href="javascript:;" class="btn account" bs-dropdown="dropdown" data-template="/modules/common/header/userdropdown.tpl.html">
                     <div class="avatar">
                         <img src="assets/images/avatar.jpg" alt="Avatar">
                     </div>
