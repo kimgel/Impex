@@ -6,6 +6,7 @@ require.config({
         "Dependency": "/config/dependency",
 
         // 3rd Party
+        "angular-file-upload-shim": "/assets/bower_components/ng-file-upload/angular-file-upload-shim.min",
         "angular": "/assets/bower_components/angular/angular.min",
         "angular-resource": "/assets/bower_components/angular-resource/angular-resource.min",
         "angular-cookies": "/assets/bower_components/angular-cookies/angular-cookies.min",
@@ -15,7 +16,7 @@ require.config({
         "angular-strap": "/assets/bower_components/angular-strap/dist/angular-strap.min",
         "angular-strap-tpl": "/config/templates",
         "angular-loading-bar": "/assets/bower_components/angular-loading-bar/build/loading-bar.min",
-        "ng-upload": "/assets/bower_components/ngUpload/ng-upload.min",
+        "angular-file-upload": "/assets/bower_components/ng-file-upload/angular-file-upload.min",
 
         // Services
         "Auth": "/modules/auth/service",
@@ -32,6 +33,7 @@ require.config({
     shim: {
         "app": {
             deps: [
+                "angular-file-upload-shim",
                 "angular",
                 "angular-resource",
                 "angular-cookies",
@@ -41,7 +43,7 @@ require.config({
                 "angular-strap",
                 "angular-strap-tpl",
                 "angular-loading-bar",
-                "ng-upload"
+                "angular-file-upload"
             ]
         },
         "angular-resource": {
@@ -71,7 +73,7 @@ require.config({
                 "angular-animate"
             ]
         },
-        "ng-upload": {
+        "angular-file-upload": {
             deps: ["angular"]
         }
     }
