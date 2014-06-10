@@ -1,7 +1,4 @@
 node_modules
-lib/certs
-lib/config/credentials
-external
 app/assets/bower_components
 logs
 .idea

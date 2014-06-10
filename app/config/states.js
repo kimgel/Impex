@@ -19,7 +19,7 @@ define(['Dependency'], function(Dependency) {
                 },
                 resolve: new Dependency([
                     'modules/common/header/main',
-                    'modules/common/sidenav/main'
+                    'modules/directives/navigation'
                 ])
             },
             settings: {
@@ -35,8 +35,7 @@ define(['Dependency'], function(Dependency) {
                     }
                 },
                 resolve: new Dependency([
-                    'modules/common/header/main',
-                    'modules/common/sidenav/settings'
+                    'modules/common/header/main'
                 ])
             },
             /* ======= Login ======= */
@@ -575,6 +574,65 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
+
+            /* ======= Settings: Duties and Taxes======= */
+            settings_duties_taxes: {
+                name: 'settings_duties_taxes',
+                url: '/settings/duties-and-taxes',
+                parent: 'settings',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/dutiestaxes/list.html'
+                    }
+                },
+                data: {
+                    displayName: 'Duties and Taxes'
+                },
+                authenticate: true
+            },
+            settings_duties_taxes_add: {
+                name: 'settings_duties_taxes_add',
+                url: '/add',
+                parent: 'settings_duties_taxes',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/dutiestaxes/add.html'
+                    }
+                },
+                data: {
+                    displayName: 'Add Duties and Taxes'
+                },
+                authenticate: true
+            },
+            settings_duties_taxes_view: {
+                name: 'settings_duties_taxes_view',
+                url: '/view',
+                parent: 'settings_duties_taxes',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/dutiestaxes/view.html'
+                    }
+                },
+                data: {
+                    displayName: 'Add'
+                },
+                authenticate: true
+            },
+            settings_duties_taxes_edit: {
+                name: 'settings_duties_taxes_edit',
+                url: '/edit',
+                parent: 'settings_duties_taxes',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/dutiestaxes/edit.html'
+                    }
+                },
+                data: {
+                    displayName: 'Edit'
+                },
+                authenticate: true
+            },
+
             /* ======= Initiate Import: Planner ======= */
             initiateimport_planner: {
                 name: 'initiateimport_planner',

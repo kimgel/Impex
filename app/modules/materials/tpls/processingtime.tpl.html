@@ -1,0 +1,89 @@
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-condensed">
+            <thead>
+                <tr role="row">
+                    <th width="50%">Process</th>
+                    <th>No. of days</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="active">
+                    <td colspan="2"><strong>Initiate Import</strong></td>
+                </tr>
+                <tr>
+                    <td>Planner</td>
+                    <td>
+                        <input class="form-control input-sm form-w-25" min="0" type="number" ng-model="process.step_one">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Broker</td>
+                    <td>
+                        <input class="form-control input-sm form-w-25" min="0" type="number" ng-model="process.step_two">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Shipping Line / Forwarder</td>
+                    <td>
+                        <input class="form-control input-sm form-w-25" min="0" type="number" ng-model="process.step_three">
+                    </td>
+                </tr>
+                <tr class="active">
+                    <td colspan="2"><strong>Prepare Shipment</strong></td>
+                </tr>
+                <tr>
+                    <td>Shipment Detail</td>
+                    <td>
+                        <input class="form-control input-sm form-w-25" min="0" type="number" ng-model="process.step_four">
+                    </td>
+                </tr>
+                <tr class="active">
+                    <td colspan="2"><strong>In-Transit</strong></td>
+                </tr>
+                <tr>
+                    <td>Shipment Departure</td>
+                    <td>
+                        <input class="form-control input-sm form-w-25" min="0" type="number" ng-model="process.step_five">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Foreign Invoice</td>
+                    <td>
+                        <input class="form-control input-sm form-w-25" min="0" type="number" ng-model="process.step_six">
+                    </td>
+                </tr>
+                <tr class="active">
+                    <td colspan="2"><strong>Customs &amp; Delivery</strong></td>
+                </tr>
+                <tr>
+                    <td>Customs Clearance</td>
+                    <td>
+                        <input class="form-control input-sm form-w-25" min="0" type="number" ng-model="process.step_seven">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Delivery</td>
+                    <td>
+                        <input class="form-control input-sm form-w-25" min="0" type="number" ng-model="process.step_eight">
+                    </td>
+                </tr>
+                <tr class="active">
+                    <td colspan="2"><strong>Close Import</strong></td>
+                </tr>
+                <tr>
+                    <td>Shipment Charges</td>
+                    <td>
+                        <input class="form-control input-sm form-w-25" min="0" type="number" ng-model="process.step_nine">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Payment Details</td>
+                    <td>
+                        <input class="form-control input-sm form-w-25" min="0" type="number" ng-model="process.step_ten">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

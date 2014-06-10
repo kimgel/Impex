@@ -1,0 +1,219 @@
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-condensed">
+            <thead>
+            <tr role="row">
+                <th width="50%">Process</th>
+                <th>Required Documents</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr class="active">
+                    <td colspan="2"><strong>Initiate Import</strong></td>
+                </tr>
+                <tr>
+                    <td class="v-top">Planner</td>
+                    <td>
+                        <div class="input-group">
+                            <input class="form-control" size="16" type="text" placeholder="Enter document name" ng-model="document.step_one">
+                            <span class="input-group-btn">
+                                <button class="btn" type="button" ng-click="addDocument('step_one',document.step_one); document.step_one = '';">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="document-list-item" ng-repeat="doc in documents | filter:{stepNumber:'step_one'}">
+                            {{doc.requiredDocument}}
+                            <a href="javascript:;" class="pull-right" ng-click="removeDocument(doc)">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-top">Broker</td>
+                    <td>
+                        <div class="input-group">
+                            <input class="form-control" size="16" type="text" placeholder="Enter document name" ng-model="stepTwoDocument">
+                            <span class="input-group-btn">
+                                <button class="btn" type="button" ng-click="addDocument('step_two',stepTwoDocument); stepTwoDocument = '';">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="document-list-item" ng-repeat="doc in documents | filter:{stepNumber:'step_two'}">
+                            {{doc.requiredDocument}}
+                            <a href="javascript:;" class="pull-right" ng-click="removeDocument(doc)">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-top">Shipping Line / Forwarder</td>
+                    <td>
+                        <div class="input-group">
+                            <input class="form-control" size="16" type="text" placeholder="Enter document name" ng-model="stepThreeDocument">
+                            <span class="input-group-btn">
+                                <button class="btn" type="button" ng-click="addDocument('step_three',stepThreeDocument); stepThreeDocument = '';">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="document-list-item" ng-repeat="doc in documents | filter:{stepNumber:'step_three'}">
+                            {{doc.requiredDocument}}
+                            <a href="javascript:;" class="pull-right" ng-click="removeDocument(doc)">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="active">
+                    <td colspan="2"><strong>Prepare Shipment</strong></td>
+                </tr>
+                <tr>
+                    <td class="v-top">Shipment Detail</td>
+                    <td>
+                        <div class="input-group">
+                            <input class="form-control" size="16" type="text" placeholder="Enter document name" ng-model="stepFourDocument">
+                            <span class="input-group-btn">
+                                <button class="btn" type="button" ng-click="addDocument('step_four',stepFourDocument); stepFourDocument = '';">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="document-list-item" ng-repeat="doc in documents | filter:{stepNumber:'step_four'}">
+                            {{doc.requiredDocument}}
+                            <a href="javascript:;" class="pull-right" ng-click="removeDocument(doc)">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="active">
+                    <td colspan="2"><strong>In-Transit</strong></td>
+                </tr>
+                <tr>
+                    <td class="v-top">Shipment Departure</td>
+                    <td>
+                        <div class="input-group">
+                            <input class="form-control" size="16" type="text" placeholder="Enter document name" ng-model="stepFiveDocument">
+                            <span class="input-group-btn">
+                                <button class="btn" type="button" ng-click="addDocument('step_five',stepFiveDocument); stepFiveDocument = '';">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="document-list-item" ng-repeat="doc in documents | filter:{stepNumber:'step_five'}">
+                            {{doc.requiredDocument}}
+                            <a href="javascript:;" class="pull-right" ng-click="removeDocument(doc)">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-top">Foreign Invoice</td>
+                    <td>
+                        <div class="input-group">
+                            <input class="form-control" size="16" type="text" placeholder="Enter document name" ng-model="stepSixDocument">
+                            <span class="input-group-btn">
+                                <button class="btn" type="button" ng-click="addDocument('step_six',stepSixDocument); stepSixDocument = '';">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="document-list-item" ng-repeat="doc in documents | filter:{stepNumber:'step_six'}">
+                            {{doc.requiredDocument}}
+                            <a href="javascript:;" class="pull-right" ng-click="removeDocument(doc)">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="active">
+                    <td colspan="2"><strong>Customs Delivery</strong></td>
+                </tr>
+                <tr>
+                    <td class="v-top">Customs Clearance</td>
+                    <td>
+                        <div class="input-group">
+                            <input class="form-control" size="16" type="text" placeholder="Enter document name" ng-model="stepSevenDocument">
+                            <span class="input-group-btn">
+                                <button class="btn" type="button" ng-click="addDocument('step_seven',stepSevenDocument); stepSevenDocument = '';">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="document-list-item" ng-repeat="doc in documents | filter:{stepNumber:'step_seven'}">
+                            {{doc.requiredDocument}}
+                            <a href="javascript:;" class="pull-right" ng-click="removeDocument(doc)">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-top">Delivery</td>
+                    <td>
+                        <div class="input-group">
+                            <input class="form-control" size="16" type="text" placeholder="Enter document name" ng-model="stepEightDocument">
+                            <span class="input-group-btn">
+                                <button class="btn" type="button" ng-click="addDocument('step_eight',stepEightDocument); stepEightDocument = '';">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="document-list-item" ng-repeat="doc in documents | filter:{stepNumber:'step_eight'}">
+                            {{doc.requiredDocument}}
+                            <a href="javascript:;" class="pull-right" ng-click="removeDocument(doc)">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="active">
+                    <td colspan="2"><strong>Close Import</strong></td>
+                </tr>
+                <tr>
+                    <td class="v-top">Shipment Charges</td>
+                    <td>
+                        <div class="input-group">
+                            <input class="form-control" size="16" type="text" placeholder="Enter document name" ng-model="stepNineDocument">
+                            <span class="input-group-btn">
+                                <button class="btn" type="button" ng-click="addDocument('step_nine',stepNineDocument); stepNineDocument = '';">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="document-list-item" ng-repeat="doc in documents | filter:{stepNumber:'step_nine'}">
+                            {{doc.requiredDocument}}
+                            <a href="javascript:;" class="pull-right" ng-click="removeDocument(doc)">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-top">Payment Details</td>
+                    <td>
+                        <div class="input-group">
+                            <input class="form-control" size="16" type="text" placeholder="Enter document name" ng-model="stepTenDocument">
+                            <span class="input-group-btn">
+                                <button class="btn" type="button" ng-click="addDocument('step_ten',stepEightDocument); stepTenDocument = '';">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="document-list-item" ng-repeat="doc in documents | filter:{stepNumber:'step_ten'}">
+                            {{doc.requiredDocument}}
+                            <a href="javascript:;" class="pull-right" ng-click="removeDocument(doc)">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

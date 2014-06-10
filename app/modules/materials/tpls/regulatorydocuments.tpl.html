@@ -1,0 +1,24 @@
+<div class="row" ng-init="loadRegulatoryDocuments()">
+    <div class="col-xs-12">
+        <table class="table table-condensed">
+            <thead>
+            <tr role="row">
+                <th width="20%">Status</th>
+                <th colspan="2">Regulatory Documents</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-hide="!regulatoryDocuments || regulatoryDocuments.length">
+                    <td colspan="3">No regulatory documents yet.</td>
+                </tr>
+                <tr ng-repeat="doc in regulatoryDocuments">
+                    <td>
+                        <span class="label" ng-class="{'label-important': doc.status == 'expired', 'label-success': doc.status == 'active'}">{{doc.status}}</span>
+                    </td>
+                    <td>{{doc.name}}</td>
+                    <td><button class="btn btn-mini btn-success" type="button"><i class="fa fa-plus"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

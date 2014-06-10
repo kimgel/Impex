@@ -88,6 +88,19 @@
 .m-t-15{
     margin-top: 15px;
 }
+.m-b-10{
+    margin-bottom: 10px;
+}
 .m-b-30{
     margin-bottom: 30px;
+}
+
+/* Font Sizes */
+.font-12{
+    font-size: 12px;
+}
+
+/* Input width */
+.form-w-25{
+    width: 25%;
 }
