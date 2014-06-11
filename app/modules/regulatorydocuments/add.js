@@ -48,7 +48,7 @@ define(['app', 'RegulatoryDocuments'], function(app) {
             };
 
             $scope.resetFileInput = function() {
-                document.getElementById('file').value = null;
+                document.getElementById('fileUpload').value = null;
             };
         }
     ]);
