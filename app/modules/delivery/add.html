@@ -1,4 +1,4 @@
-<div id="content" ng-controller="DeliveryCtrl">
+<div id="content">
     <div class="row">
         <div class="col-xs-7">
             <div class="box">
@@ -8,66 +8,101 @@
                 <div class="box-content">
                     <form role="form">
                         <div class="form-group">
-                            <label class="control-label">IBD No.</label>
+                            <label class="control-label">Inbound Delivery (IBD) No.</label>
                             <div class="controls">
                                 <input type="text" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Warehouse No.</label>
+                            <label class="control-label">Warehouse Name</label>
                             <div class="controls">
-                                <input type="text" class="form-control">
+                                <select class="form-control">
+                                    <option>CDC - IDS</option>
+                                    <option>PC Cavite</option>
+                                    <option>PC Paco</option>
+                                    <option>URIC</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="form-group">
-                                    <label class="control-label">Date Start</label>
-                                    <div class="controls">
-                                        <div class="input-group date" ng-controller="DatePicker">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                            <input type="text" class="form-control" datepicker-popup="{{dateFormat}}" ng-model="model.ds" show-weeks="showWeeks" show-button-bar="showButtonBar" is-open="opened" datepicker-options="dateOptions" />
+                        <div class="form-group">
+                            <label class="control-label">Date of Pickup at Port</label>
+                            <div class="controls">
+                                <div class="input-group date">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                     </span>
+                                    <input type="text" class="form-control" name="pickup_date" ng-model="pickup_date" bs-datepicker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outer-label">Warehouse Delivery Duration</div>
+                        <div class="well">
+                            <div class="outer-label">Start Date and Time</div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <div class="controls">
+                                            <div class="input-group date">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </span>
+                                                <input type="text" class="form-control" name="start_date" ng-model="start_date" bs-datepicker>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <div class="controls">
+                                            <div class="input-group date">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-clock-o"></i>
+                                                    </span>
+                                                <input type="text" class="form-control" name="start_time" ng-model="start_date" bs-timepicker>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <div class="form-group">
-                                    <label class="control-label">Date Finish</label>
-                                    <div class="controls">
-                                        <div class="input-group date" ng-controller="DatePicker">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                            <input type="text" class="form-control" datepicker-popup="{{dateFormat}}" ng-model="model.df" show-weeks="showWeeks" show-button-bar="showButtonBar" is-open="opened" datepicker-options="dateOptions" />
+                            <div class="outer-label">Finish Date and Time</div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <div class="controls">
+                                            <div class="input-group date">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </span>
+                                                <input type="text" class="form-control" name="finish_date" ng-model="finish_date" bs-datepicker>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <div class="controls">
+                                            <div class="input-group date">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-clock-o"></i>
+                                                    </span>
+                                                <input type="text" class="form-control" name="finish_time" ng-model="finish_date" bs-timepicker>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="issues">Issues</label>
-                            <div class="controls">
-                                <textarea id="issues" rows="6" style="width: 100%; overflow: hidden; word-wrap: break-word; resize: horizontal; height: 126px;"></textarea>
-                            </div>
+                            <label class="control-label">Bad Order</label>
+                            <select class="form-control">
+                                <option>Yes - Attach Bad Order Report</option>
+                                <option>No</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="remarks">Remarks</label>
                             <div class="controls">
                                 <textarea id="remarks" rows="6" style="width: 100%; overflow: hidden; word-wrap: break-word; resize: horizontal; height: 126px;"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Delivery Receipt Date</label>
-                            <div class="controls">
-                                <div class="input-group date" ng-controller="DatePicker">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </span>
-                                    <input type="text" class="form-control" datepicker-popup="{{dateFormat}}" ng-model="model.drd" show-weeks="showWeeks" show-button-bar="showButtonBar" is-open="opened" datepicker-options="dateOptions" />
-                                </div>
                             </div>
                         </div>
                         <div class="form-actions highlight">
@@ -81,33 +116,21 @@
         <div class="col-xs-5">
             <div class="box">
                 <div class="box-header">
-                    <h2>
-                        <i class="fa fa-file-o"></i>Required Documents</h2>
+                    <h2><i class="fa fa-file-o"></i>Required Documents</h2>
+                    <div class="box-icon">
+                        <span class="btn btn-file">
+                            <i class="fa fa-upload"></i> Upload
+                            <input type="file" ng-file-select="onFileSelect($files)" id="fileUpload">
+                        </span>
+                    </div>
                 </div>
                 <div class="box-content">
                     <div class="row">
                         <div class="col-xs-12">
-                            <ul class="upload-docs">
-                                <li ng-hide="!item.documents || item.documents.length">
-                                    <span class="status">
-                                        <span class="desc">Please select item</span>
-                                    </span>
-                                </li>
-                                <li ng-repeat="doc in item.documents | filter:{document_category:'ii_planner'}">
-                                    <span class="status">
-                                        <span class="desc">{{doc.document_name}}c</span>
-                                        <span class="label label-danger">Not uploaded</span>
-                                    </span>
-                                </li>
-                            </ul>
+                            <div>
+                                No file has been uploaded.
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-actions highlight">
-                        <form>
-                            <input type="file" ng-disabled="!item.documents" ng-model="files" file-change>
-                            <br />
-                            <button type="button" class="btn btn-block" ng-disabled="!item.documents">Upload</button>
-                        </form>
                     </div>
                 </div>
             </div>
