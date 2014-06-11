@@ -83,6 +83,14 @@
     text-align: center;
     font-size: 3em;
 }
+.back-link{
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+.back-link a{
+   color: #fff;
+}
 
 /* Margins */
 .m-t-15{

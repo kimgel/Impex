@@ -2,7 +2,7 @@
 
 define(['Dependency'], function(Dependency) {
     return {
-        defaultStatePath: '/login',
+        defaultStatePath: '/404',
         states: {
             /* ======= Parents ======= */
             root: {
@@ -51,6 +51,18 @@ define(['Dependency'], function(Dependency) {
                 resolve: new Dependency([
                     'modules/login/index'
                 ]),
+                authenticate: false
+            },
+            /* ======= 404 ======= */
+            four_o_four: {
+                name: 'fourofour',
+                url: '/404',
+                parent: '',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/common/404/404.html'
+                    }
+                },
                 authenticate: false
             },
             /* ======= Statusboard ======= */
