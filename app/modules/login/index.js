@@ -4,9 +4,8 @@ define(['app'], function (app) {
     app.controller('LoginCtrl', [
         '$scope',
         '$state',
-        '$location',
         'Auth',
-        function ($scope, $state, $location, Auth) {
+        function ($scope, $state, Auth) {
             $scope.user = {};
             $scope.errors = {};
             $scope.login = function (form) {
@@ -18,8 +17,7 @@ define(['app'], function (app) {
                         username: $scope.user.username,
                         password: $scope.user.password
                     }).then(function () {
-
-                        $state.go('statusboard', null, { reload: true });
+                        $state.go('statusboard');
                     }).
                     catch(function (err) {
                         err = err.data;
