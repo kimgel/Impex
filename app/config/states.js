@@ -2,7 +2,7 @@
 
 define(['Dependency'], function(Dependency) {
     return {
-        defaultStatePath: '/404',
+        defaultStatePath: '/',
         states: {
             /* ======= Parents ======= */
             root: {
@@ -68,7 +68,7 @@ define(['Dependency'], function(Dependency) {
             /* ======= Statusboard ======= */
             statusboard: {
                 name: 'statusboard',
-                url: '/statusboard',
+                url: '/',
                 parent: 'root',
                 views: {
                     '@': {
