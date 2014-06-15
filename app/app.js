@@ -10,7 +10,8 @@ define(['States'],
             'ngAnimate',
             'mgcrea.ngStrap',
             'chieffancypants.loadingBar',
-            'angularFileUpload'
+            'angularFileUpload',
+            'tc.chartjs'
         ]);
 
         app.config([
