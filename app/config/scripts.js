@@ -6,7 +6,6 @@ require.config({
         "Dependency": "/config/dependency",
 
         // 3rd Party
-        "angular-chart":"/assets/bower_components/Chart.js/Chart.min",
         "angular-file-upload-shim": "/assets/bower_components/ng-file-upload/angular-file-upload-shim.min",
         "angular": "/assets/bower_components/angular/angular.min",
         "angular-resource": "/assets/bower_components/angular-resource/angular-resource.min",
@@ -18,7 +17,8 @@ require.config({
         "angular-strap-tpl": "/config/templates",
         "angular-loading-bar": "/assets/bower_components/angular-loading-bar/build/loading-bar.min",
         "angular-file-upload": "/assets/bower_components/ng-file-upload/angular-file-upload.min",
-        "angular-chart-tc": "/assets/bower_components/tc-angular-chartjs/dist/tc-angular-chartjs.min",
+        "angular-chart":"/assets/bower_components/angular-chartjs-directive/lib/Chart.min",
+        "angular-chart-directive": "/assets/bower_components/angular-chartjs-directive/chartjs-directive",
 
         // Services
         "Auth": "/modules/auth/service",
@@ -35,7 +35,6 @@ require.config({
     shim: {
         "app": {
             deps: [
-                "angular-chart",
                 "angular-file-upload-shim",
                 "angular",
                 "angular-resource",
@@ -47,7 +46,8 @@ require.config({
                 "angular-strap-tpl",
                 "angular-loading-bar",
                 "angular-file-upload",
-                "angular-chart-tc"
+                "angular-chart",
+                "angular-chart-directive"
             ]
         },
         "angular-resource": {
@@ -80,8 +80,11 @@ require.config({
         "angular-file-upload": {
             deps: ["angular"]
         },
-        "angular-chart-tc": {
-            deps: ["angular"]
+        "angular-chart-directive": {
+            deps: [
+                "angular",
+                "angular-chart"
+            ]
         }
     }
 });

@@ -11,7 +11,7 @@ define(['States'],
             'mgcrea.ngStrap',
             'chieffancypants.loadingBar',
             'angularFileUpload',
-            'tc.chartjs'
+            'chartjs-directive'
         ]);
 
         app.config([
