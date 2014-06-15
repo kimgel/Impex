@@ -38,6 +38,19 @@ define(['Dependency'], function(Dependency) {
                     'modules/common/header/main'
                 ])
             },
+            blank: {
+                name: 'blank',
+                abstract: true,
+                template: '<ui-view/>',
+                views: {
+                    'header@': {
+                        templateUrl: '/modules/common/header/blank.html'
+                    },
+                    'navigation@': {
+                        templateUrl: '/modules/common/sidenav/blank.html'
+                    }
+                }
+            },
             /* ======= Login ======= */
             login: {
                 name: 'login',
@@ -984,6 +997,19 @@ define(['Dependency'], function(Dependency) {
                     'modules/customscharges/fclcharges/add'
                 ]),
                 authenticate: true
+            },
+            tools: {
+                name: 'tools',
+                url: '/tools',
+                parent: 'blank',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/tools/index.html'
+                    }
+                },
+                resolve: new Dependency([
+                    'modules/tools/index'
+                ])
             }
         }
     };
