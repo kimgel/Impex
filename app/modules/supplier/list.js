@@ -1,6 +1,6 @@
 'use strict';
 
-define(['app', 'Suppliers'], function(app, Suppliers) {
+define(['app', 'Suppliers'], function(app) {
     app.controller('SupplierList', [
         '$scope',
         '$location',

@@ -1,6 +1,6 @@
 'use strict';
 
-define(['app', 'Suppliers'], function(app, Suppliers) {
+define(['app', 'Suppliers'], function(app) {
     app.controller('SupplierEdit', [
         '$scope',
         '$state',
@@ -15,7 +15,7 @@ define(['app', 'Suppliers'], function(app, Suppliers) {
                             form[key].message = err.errors[key].message;
                         }
                     }else{
-                        $state.go('settings_supplier');
+                        $state.go('administration_supplier');
                     }
                 });
             };
