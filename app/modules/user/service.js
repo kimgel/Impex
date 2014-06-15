@@ -4,7 +4,7 @@ define(['app'], function(app) {
     app.factory('UsersFactory', [
         '$resource',
         function($resource) {
-            return $resource('/api/users/:userId', {
+            return $resource('/api/user/:userId', {
                 id: '@_id'
             }, { 
                 update: {
