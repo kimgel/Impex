@@ -3,6 +3,6 @@ lib/certs
 lib/config/credentials
 external
 app/assets/bower_components
-tools
+app/modules/tools
 logs
 .idea
