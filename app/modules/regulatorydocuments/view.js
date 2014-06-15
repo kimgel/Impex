@@ -1,6 +1,6 @@
 'use strict';
 
-define(['app', 'RegulatoryDocuments'], function(app, RegulatoryDocuments) {
+define(['app', 'RegulatoryDocuments'], function(app) {
     app.controller('RegulatoryDocumentView', [
         '$scope',
         '$location',

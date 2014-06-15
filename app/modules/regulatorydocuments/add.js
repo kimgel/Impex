@@ -19,7 +19,7 @@ define(['app', 'RegulatoryDocuments'], function(app) {
                             form[key].message = err.errors[key].message;
                         }
                     } else {
-                        $state.go('settings_regulatory_docs');
+                        $state.go('administration_regulatory_docs');
                     }
                 });
             };
