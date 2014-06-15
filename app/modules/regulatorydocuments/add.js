@@ -30,7 +30,7 @@ define(['app', 'RegulatoryDocuments'], function(app) {
 
             $scope.onFileSelect = function($files) {
                 $scope.upload = $upload.upload({
-                    url: '/api/regulatorydocuments/file',
+                    url: '/api/regulatorydocument/file',
                     method: 'POST',
                     file: $files
                 }).progress(function() {
