@@ -1,0 +1,60 @@
+<div id="content" ng-controller="WarehouseList" ng-init="all()">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header" data-original-title="">
+                    <h2><i class="fa fa-chain"></i>Warehouses</h2>
+                    <div class="box-icon">
+                        <a ui-sref="administration_warehouse_add" class="btn"><i class="fa fa-plus"></i> Add</a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="dataTables_wrapper form-inline" role="grid">
+                        <table class="table bootstrap-datatable datatable">
+                            <thead>
+                                <tr role="row">
+                                    <th>Status</th>
+                                    <th>Name</th>
+                                    <th>Tel. No</th>
+                                    <th>Contact Person</th>
+                                    <th>Email</th>
+                                    <th>Valid From</th>
+                                    <th>Valid To</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-hide="!warehouses || warehouses.length">
+                                    <td>No warehouses yet.</td>
+                                </tr>
+                                <tr ng-repeat="warehouse in warehouses">
+                                    <td>
+                                        <span class="label" ng-class="{'label-important': warehouse.expired == true, 'label-success': warehouse.expired == false}">{{warehouse.status}}</span>
+                                    </td>
+                                    <td>{{warehouse.name}}</td>
+                                    <td>{{warehouse.tel}}</td>
+                                    <td>{{warehouse.contact}}</td>
+                                    <td>{{warehouse.email}}</td>
+                                    <td>{{warehouse.valid_from | date: 'mediumDate'}}</td>
+                                    <td>{{warehouse.valid_to | date: 'mediumDate'}}</td>
+                                    <td>
+                                        <a class="btn btn-success btn-sm"
+                                           data-title="View" data-trigger="hover" data-placement="top" bs-tooltip
+                                           ui-sref="administration_warehouse_view({ warehouseId: warehouse._id})">
+                                            <i class="fa fa-search-plus"></i>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm"
+                                           data-title="Edit" data-trigger="hover" data-placement="top" bs-tooltip
+                                           ui-sref="administration_warehouse_edit({ warehouseId: warehouse._id})">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

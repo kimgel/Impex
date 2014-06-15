@@ -530,6 +530,75 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
+            /* ======= administration: Warehouse ======= */
+            administration_warehouse: {
+                name: 'administration_warehouse',
+                url: '/administration/warehouses',
+                parent: 'administration',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/warehouse/list.html'
+                    }
+                },
+                data: {
+                    displayName: 'Warehouses'
+                },
+                resolve: new Dependency([
+                    'modules/warehouse/list'
+                ]),
+                authenticate: true
+            },
+            administration_warehouse_add: {
+                name: 'administration_warehouse_add',
+                url: '/add',
+                parent: 'administration_warehouse',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/warehouse/add.html'
+                    }
+                },
+                data: {
+                    displayName: 'Add Warehouse'
+                },
+                resolve: new Dependency([
+                    'modules/warehouse/add'
+                ]),
+                authenticate: true
+            },
+            administration_warehouse_view: {
+                name: 'administration_warehouse_view',
+                url: '/:warehouseId',
+                parent: 'administration_warehouse',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/warehouse/view.html'
+                    }
+                },
+                data: {
+                    displayName: 'View Warehouse'
+                },
+                resolve: new Dependency([
+                    'modules/warehouse/view'
+                ]),
+                authenticate: true
+            },
+            administration_warehouse_edit: {
+                name: 'administration_warehouse_edit',
+                url: '/:warehouseId/edit',
+                parent: 'administration_warehouse',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/warehouse/edit.html'
+                    }
+                },
+                data: {
+                    displayName: 'Edit Warehouse'
+                },
+                resolve: new Dependency([
+                    'modules/warehouse/edit'
+                ]),
+                authenticate: true
+            },
             /* ======= administration: User ======= */
             administration_user: {
                 name: 'administration_user',

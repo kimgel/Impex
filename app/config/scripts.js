@@ -30,7 +30,8 @@ require.config({
         "Materials": "/modules/materials/service",
         "ShippingLines": "/modules/shippinglines/service",
         "RegulatoryDocuments": "/modules/regulatorydocuments/service",
-        "Planners": "/modules/initiateimport/planner/service"
+        "Planners": "/modules/initiateimport/planner/service",
+        "Warehouses": "/modules/warehouse/service"
     },
     shim: {
         "app": {
