@@ -1,6 +1,6 @@
 'use strict';
 
-define(['app', 'ShippingLines'], function(app, ShippingLines) {
+define(['app', 'ShippingLines'], function(app) {
     app.controller('ShippingLineEdit', [
         '$scope',
         '$state',
@@ -14,7 +14,7 @@ define(['app', 'ShippingLines'], function(app, ShippingLines) {
                             form[key].message = err.errors[key].message;
                         }
                     }else{
-                        $state.go('settings_shippinglines');
+                        $state.go('administration_shippinglines');
                     }
                 });
             };
