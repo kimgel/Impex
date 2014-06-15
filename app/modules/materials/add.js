@@ -44,7 +44,7 @@ define([
                             form[key].message = err.errors[key].message;
                         }
                     } else {
-                        $state.go('settings_materials');
+                        $state.go('administration_materials');
                     }
                 });
             };
