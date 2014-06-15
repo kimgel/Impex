@@ -1,6 +1,6 @@
 'use strict';
 
-define(['app', 'Users'], function(app, Users) {
+define(['app', 'Users'], function(app) {
     app.controller('UserList', [
         '$scope',
         '$location',
