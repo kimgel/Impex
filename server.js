@@ -56,8 +56,8 @@ var Impex = function () {
     self.start = function () {
 
         //  Start the app on the specific interface (and port).
-        self.app.set('port', 80);
-        self.app.set('ipaddr', process.env.IP);
+        self.app.set('port', config.port);
+        self.app.set('ipaddr', config.ip);
 
         // Set http
         self.app.listen(
