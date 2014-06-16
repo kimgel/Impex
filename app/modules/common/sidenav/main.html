@@ -4,7 +4,7 @@
     </div>
     <div class="sidebar-nav" bs-navbar>
         <ul class="nav nav-tabs nav-stacked main-menu">
-            <li data-match-route="statusboard">
+            <li ui-sref-active="active">
                 <a ui-sref="statusboard">
                     <i class="fa fa-dashboard"></i>Status Board
                 </a>
@@ -72,23 +72,23 @@
                                 <i class="fa fa-book"></i>Foreign Invoice
                             </a>
                         </li>
+                        <li data-match-route="customs-clearance.*">
+                            <a ui-sref="customsclearance">
+                                <i class="fa fa-check-square-o"></i>Customs Clearance
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </li>
             <li>
                 <div class="nav-header">
-                    <span class="nav-title">Customs &amp; Delivery</span>
+                    <span class="nav-title">Delivery</span>
                     <a href="javascript:;" class="nav-toggle" slide-toggle="#customsdelivery">
                         <i class="fa fa-plus-square-o"></i>
                     </a>
                 </div>
                 <div id="customsdelivery" class="slideable">
                     <ul>
-                        <li data-match-route="customs-clearance.*">
-                            <a ui-sref="customsclearance">
-                                <i class="fa fa-check-square-o"></i>Customs Clearance
-                            </a>
-                        </li>
                         <li data-match-route="delivery.*">
                             <a ui-sref="delivery">
                                 <i class="fa fa-road"></i>Delivery

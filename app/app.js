@@ -3,7 +3,15 @@
 define(['States'],
     function (States) {
         var app = angular.module('app', [
-            'ngCookies', 'ngResource', 'ngSanitize', 'ui.router', 'ngAnimate', 'mgcrea.ngStrap', 'chieffancypants.loadingBar', 'angularFileUpload'
+            'ngCookies',
+            'ngResource',
+            'ngSanitize',
+            'ui.router',
+            'ngAnimate',
+            'mgcrea.ngStrap',
+            'chieffancypants.loadingBar',
+            'angularFileUpload',
+            'chartjs-directive'
         ]);
 
         app.config([
@@ -37,8 +45,8 @@ define(['States'],
 
                 $locationProvider.html5Mode(true);
 
-                var interceptor = ['$q', '$location', '$rootScope',
-                    function ($q, $location, $rootScope) {
+                var interceptor = ['$q', '$location',
+                    function ($q, $location) {
                         function success(response) {
                             return response;
                         }

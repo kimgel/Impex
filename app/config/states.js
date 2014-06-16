@@ -2,7 +2,7 @@
 
 define(['Dependency'], function(Dependency) {
     return {
-        defaultStatePath: '/login',
+        defaultStatePath: '/',
         states: {
             /* ======= Parents ======= */
             root: {
@@ -22,8 +22,8 @@ define(['Dependency'], function(Dependency) {
                     'modules/directives/navigation'
                 ])
             },
-            settings: {
-                name: 'settings',
+            administration: {
+                name: 'administration',
                 abstract: true,
                 template: '<ui-view/>',
                 views: {
@@ -31,12 +31,25 @@ define(['Dependency'], function(Dependency) {
                         templateUrl: '/modules/common/header/main.html'
                     },
                     'navigation@': {
-                        templateUrl: '/modules/common/sidenav/settings.html'
+                        templateUrl: '/modules/common/sidenav/administration.html'
                     }
                 },
                 resolve: new Dependency([
                     'modules/common/header/main'
                 ])
+            },
+            blank: {
+                name: 'blank',
+                abstract: true,
+                template: '<ui-view/>',
+                views: {
+                    'header@': {
+                        templateUrl: '/modules/common/header/blank.html'
+                    },
+                    'navigation@': {
+                        templateUrl: '/modules/common/sidenav/blank.html'
+                    }
+                }
             },
             /* ======= Login ======= */
             login: {
@@ -53,10 +66,22 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: false
             },
+            /* ======= 404 ======= */
+            four_o_four: {
+                name: 'fourofour',
+                url: '/404',
+                parent: '',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/common/404/404.html'
+                    }
+                },
+                authenticate: false
+            },
             /* ======= Statusboard ======= */
             statusboard: {
                 name: 'statusboard',
-                url: '/statusboard',
+                url: '/',
                 parent: 'root',
                 views: {
                     '@': {
@@ -71,29 +96,29 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            /* ======= Settings: Main ======= */
-            settings_home: {
-                name: 'settings_home',
-                url: '/settings/home',
-                parent: 'settings',
+            /* ======= administration: Main ======= */
+            administration_home: {
+                name: 'administration_home',
+                url: '/administration',
+                parent: 'administration',
                 views: {
                     '@': {
-                        templateUrl: '/modules/settings/index.html'
+                        templateUrl: '/modules/administration/index.html'
                     }
                 },
                 data: {
-                    displayName: 'Settings'
+                    displayName: 'Administration'
                 },
                 resolve: new Dependency([
-                    'modules/settings/index'
+                    'modules/administration/index'
                 ]),
                 authenticate: true
             },
-            /* ======= Settings: Regulatory Documents ======= */
-            settings_regulatory_docs: {
-                name: 'settings_regulatory_docs',
-                url: '/settings/regulatory-documents',
-                parent: 'settings',
+            /* ======= administration: Regulatory Documents ======= */
+            administration_regulatory_docs: {
+                name: 'administration_regulatory_docs',
+                url: '/administration/regulatory-documents',
+                parent: 'administration',
                 views: {
                     '@': {
                         templateUrl: '/modules/regulatorydocuments/list.html'
@@ -107,10 +132,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_regulatory_docs_add: {
-                name: 'settings_regulatory_docs_add',
+            administration_regulatory_docs_add: {
+                name: 'administration_regulatory_docs_add',
                 url: '/add',
-                parent: 'settings_regulatory_docs',
+                parent: 'administration_regulatory_docs',
                 views: {
                     '@': {
                         templateUrl: '/modules/regulatorydocuments/add.html'
@@ -124,10 +149,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_regulatory_docs_view: {
-                name: 'settings_regulatory_docs_view',
+            administration_regulatory_docs_view: {
+                name: 'administration_regulatory_docs_view',
                 url: '/:regulatoryDocumentId',
-                parent: 'settings_regulatory_docs',
+                parent: 'administration_regulatory_docs',
                 views: {
                     '@': {
                         templateUrl: '/modules/regulatorydocuments/view.html'
@@ -141,10 +166,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_regulatory_docs_edit: {
-                name: 'settings_regulatory_docs_edit',
+            administration_regulatory_docs_edit: {
+                name: 'administration_regulatory_docs_edit',
                 url: '/:regulatoryDocumentId/edit',
-                parent: 'settings_regulatory_docs',
+                parent: 'administration_regulatory_docs',
                 views: {
                     '@': {
                         templateUrl: '/modules/regulatorydocuments/edit.html'
@@ -159,11 +184,11 @@ define(['Dependency'], function(Dependency) {
                 authenticate: true
             },
 
-            /* ======= Settings: Materials ======= */
-            settings_materials: {
-                name: 'settings_materials',
-                url: '/settings/materials',
-                parent: 'settings',
+            /* ======= administration: Materials ======= */
+            administration_materials: {
+                name: 'administration_materials',
+                url: '/administration/materials',
+                parent: 'administration',
                 views: {
                     '@': {
                         templateUrl: '/modules/materials/list.html'
@@ -177,10 +202,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_materials_add: {
-                name: 'settings_materials_add',
+            administration_materials_add: {
+                name: 'administration_materials_add',
                 url: '/add',
-                parent: 'settings_materials',
+                parent: 'administration_materials',
                 views: {
                     '@': {
                         templateUrl: '/modules/materials/add.html'
@@ -194,10 +219,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_materials_view: {
-                name: 'settings_materials_view',
+            administration_materials_view: {
+                name: 'administration_materials_view',
                 url: '/:materialId',
-                parent: 'settings_materials',
+                parent: 'administration_materials',
                 views: {
                     '@': {
                         templateUrl: '/modules/materials/view.html'
@@ -211,10 +236,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_materials_edit: {
-                name: 'settings_materials_edit',
+            administration_materials_edit: {
+                name: 'administration_materials_edit',
                 url: '/:materialId/edit',
-                parent: 'settings_materials',
+                parent: 'administration_materials',
                 views: {
                     '@': {
                         templateUrl: '/modules/materials/edit.html'
@@ -228,11 +253,11 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            /* ======= Settings: Broker======= */
-            settings_broker: {
-                name: 'settings_broker',
-                url: '/settings/brokers',
-                parent: 'settings',
+            /* ======= administration: Broker======= */
+            administration_broker: {
+                name: 'administration_broker',
+                url: '/administration/brokers',
+                parent: 'administration',
                 views: {
                     '@': {
                         templateUrl: '/modules/broker/list.html'
@@ -246,10 +271,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_broker_add: {
-                name: 'settings_broker_add',
+            administration_broker_add: {
+                name: 'administration_broker_add',
                 url: '/add',
-                parent: 'settings_broker',
+                parent: 'administration_broker',
                 views: {
                     '@': {
                         templateUrl: '/modules/broker/add.html'
@@ -263,10 +288,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_broker_view: {
-                name: 'settings_broker_view',
+            administration_broker_view: {
+                name: 'administration_broker_view',
                 url: '/:brokerId',
-                parent: 'settings_broker',
+                parent: 'administration_broker',
                 views: {
                     '@': {
                         templateUrl: '/modules/broker/view.html'
@@ -280,10 +305,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_broker_edit: {
-                name: 'settings_broker_edit',
+            administration_broker_edit: {
+                name: 'administration_broker_edit',
                 url: '/:brokerId/edit',
-                parent: 'settings_broker',
+                parent: 'administration_broker',
                 views: {
                     '@': {
                         templateUrl: '/modules/broker/edit.html'
@@ -298,11 +323,11 @@ define(['Dependency'], function(Dependency) {
                 authenticate: true
             },
 
-            /* ======= Settings: Suppliers ======= */
-            settings_supplier: {
-                name: 'settings_supplier',
-                url: '/settings/suppliers',
-                parent: 'settings',
+            /* ======= administration: Suppliers ======= */
+            administration_supplier: {
+                name: 'administration_supplier',
+                url: '/administration/suppliers',
+                parent: 'administration',
                 views: {
                     '@': {
                         templateUrl: '/modules/supplier/list.html'
@@ -316,10 +341,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_supplier_add: {
-                name: 'settings_supplier_add',
+            administration_supplier_add: {
+                name: 'administration_supplier_add',
                 url: '/add',
-                parent: 'settings_supplier',
+                parent: 'administration_supplier',
                 views: {
                     '@': {
                         templateUrl: '/modules/supplier/add.html'
@@ -333,10 +358,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_supplier_view: {
-                name: 'settings_supplier_view',
+            administration_supplier_view: {
+                name: 'administration_supplier_view',
                 url: '/:supplierId',
-                parent: 'settings_supplier',
+                parent: 'administration_supplier',
                 views: {
                     '@': {
                         templateUrl: '/modules/supplier/view.html'
@@ -350,10 +375,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_supplier_edit: {
-                name: 'settings_supplier_edit',
+            administration_supplier_edit: {
+                name: 'administration_supplier_edit',
                 url: '/:supplierId/edit',
-                parent: 'settings_supplier',
+                parent: 'administration_supplier',
                 views: {
                     '@': {
                         templateUrl: '/modules/supplier/edit.html'
@@ -367,11 +392,11 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            /* ======= Settings: Forwarder ======= */
-            settings_forwarder: {
-                name: 'settings_forwarder',
-                url: '/settings/forwarders',
-                parent: 'settings',
+            /* ======= administration: Forwarder ======= */
+            administration_forwarder: {
+                name: 'administration_forwarder',
+                url: '/administration/forwarders',
+                parent: 'administration',
                 views: {
                     '@': {
                         templateUrl: '/modules/forwarder/list.html'
@@ -385,10 +410,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_forwarder_add: {
-                name: 'settings_forwarder_add',
+            administration_forwarder_add: {
+                name: 'administration_forwarder_add',
                 url: '/add',
-                parent: 'settings_forwarder',
+                parent: 'administration_forwarder',
                 views: {
                     '@': {
                         templateUrl: '/modules/forwarder/add.html'
@@ -402,10 +427,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_forwarder_view: {
-                name: 'settings_forwarder_view',
+            administration_forwarder_view: {
+                name: 'administration_forwarder_view',
                 url: '/:forwarderId',
-                parent: 'settings_forwarder',
+                parent: 'administration_forwarder',
                 views: {
                     '@': {
                         templateUrl: '/modules/forwarder/view.html'
@@ -419,10 +444,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_forwarder_edit: {
-                name: 'settings_forwarder_edit',
+            administration_forwarder_edit: {
+                name: 'administration_forwarder_edit',
                 url: '/:forwarderId/edit',
-                parent: 'settings_forwarder',
+                parent: 'administration_forwarder',
                 views: {
                     '@': {
                         templateUrl: '/modules/forwarder/edit.html'
@@ -436,11 +461,11 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            /* ======= Settings: Shipping Lines ======= */
-            settings_shippinglines: {
-                name: 'settings_shippinglines',
-                url: '/settings/shipping-lines',
-                parent: 'settings',
+            /* ======= administration: Shipping Lines ======= */
+            administration_shippinglines: {
+                name: 'administration_shippinglines',
+                url: '/administration/shipping-lines',
+                parent: 'administration',
                 views: {
                     '@': {
                         templateUrl: '/modules/shippinglines/list.html'
@@ -454,10 +479,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_shippinglines_add: {
-                name: 'settings_shippinglines_add',
+            administration_shippinglines_add: {
+                name: 'administration_shippinglines_add',
                 url: '/add',
-                parent: 'settings_shippinglines',
+                parent: 'administration_shippinglines',
                 views: {
                     '@': {
                         templateUrl: '/modules/shippinglines/add.html'
@@ -471,10 +496,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_shippinglines_view: {
-                name: 'settings_shippinglines_view',
+            administration_shippinglines_view: {
+                name: 'administration_shippinglines_view',
                 url: '/:shippinglineId',
-                parent: 'settings_shippinglines',
+                parent: 'administration_shippinglines',
                 views: {
                     '@': {
                         templateUrl: '/modules/shippinglines/view.html'
@@ -488,10 +513,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_shippinglines_edit: {
-                name: 'settings_shippinglines_edit',
+            administration_shippinglines_edit: {
+                name: 'administration_shippinglines_edit',
                 url: '/:shippinglineId/edit',
-                parent: 'settings_shippinglines',
+                parent: 'administration_shippinglines',
                 views: {
                     '@': {
                         templateUrl: '/modules/shippinglines/edit.html'
@@ -505,11 +530,80 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            /* ======= Settings: User ======= */
-            settings_user: {
-                name: 'settings_user',
-                url: '/settings/users',
-                parent: 'settings',
+            /* ======= administration: Warehouse ======= */
+            administration_warehouse: {
+                name: 'administration_warehouse',
+                url: '/administration/warehouses',
+                parent: 'administration',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/warehouse/list.html'
+                    }
+                },
+                data: {
+                    displayName: 'Warehouses'
+                },
+                resolve: new Dependency([
+                    'modules/warehouse/list'
+                ]),
+                authenticate: true
+            },
+            administration_warehouse_add: {
+                name: 'administration_warehouse_add',
+                url: '/add',
+                parent: 'administration_warehouse',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/warehouse/add.html'
+                    }
+                },
+                data: {
+                    displayName: 'Add Warehouse'
+                },
+                resolve: new Dependency([
+                    'modules/warehouse/add'
+                ]),
+                authenticate: true
+            },
+            administration_warehouse_view: {
+                name: 'administration_warehouse_view',
+                url: '/:warehouseId',
+                parent: 'administration_warehouse',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/warehouse/view.html'
+                    }
+                },
+                data: {
+                    displayName: 'View Warehouse'
+                },
+                resolve: new Dependency([
+                    'modules/warehouse/view'
+                ]),
+                authenticate: true
+            },
+            administration_warehouse_edit: {
+                name: 'administration_warehouse_edit',
+                url: '/:warehouseId/edit',
+                parent: 'administration_warehouse',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/warehouse/edit.html'
+                    }
+                },
+                data: {
+                    displayName: 'Edit Warehouse'
+                },
+                resolve: new Dependency([
+                    'modules/warehouse/edit'
+                ]),
+                authenticate: true
+            },
+            /* ======= administration: User ======= */
+            administration_user: {
+                name: 'administration_user',
+                url: '/administration/users',
+                parent: 'administration',
                 views: {
                     '@': {
                         templateUrl: '/modules/user/list.html'
@@ -523,10 +617,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_user_add: {
-                name: 'settings_user_add',
+            administration_user_add: {
+                name: 'administration_user_add',
                 url: '/add',
-                parent: 'settings_user',
+                parent: 'administration_user',
                 views: {
                     '@': {
                         templateUrl: '/modules/user/add.html'
@@ -540,10 +634,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_user_view: {
-                name: 'settings_user_view',
+            administration_user_view: {
+                name: 'administration_user_view',
                 url: '/:userId',
-                parent: 'settings_user',
+                parent: 'administration_user',
                 views: {
                     '@': {
                         templateUrl: '/modules/user/view.html'
@@ -557,10 +651,10 @@ define(['Dependency'], function(Dependency) {
                 ]),
                 authenticate: true
             },
-            settings_user_edit: {
-                name: 'settings_user_edit',
+            administration_user_edit: {
+                name: 'administration_user_edit',
                 url: '/:userId/edit',
-                parent: 'settings_user',
+                parent: 'administration_user',
                 views: {
                     '@': {
                         templateUrl: '/modules/user/edit.html'
@@ -575,11 +669,11 @@ define(['Dependency'], function(Dependency) {
                 authenticate: true
             },
 
-            /* ======= Settings: Duties and Taxes======= */
-            settings_duties_taxes: {
-                name: 'settings_duties_taxes',
-                url: '/settings/duties-and-taxes',
-                parent: 'settings',
+            /* ======= administration: Duties and Taxes======= */
+            administration_duties_taxes: {
+                name: 'administration_duties_taxes',
+                url: '/administration/duties-and-taxes',
+                parent: 'administration',
                 views: {
                     '@': {
                         templateUrl: '/modules/dutiestaxes/list.html'
@@ -590,10 +684,10 @@ define(['Dependency'], function(Dependency) {
                 },
                 authenticate: true
             },
-            settings_duties_taxes_add: {
-                name: 'settings_duties_taxes_add',
+            administration_duties_taxes_add: {
+                name: 'administration_duties_taxes_add',
                 url: '/add',
-                parent: 'settings_duties_taxes',
+                parent: 'administration_duties_taxes',
                 views: {
                     '@': {
                         templateUrl: '/modules/dutiestaxes/add.html'
@@ -604,10 +698,10 @@ define(['Dependency'], function(Dependency) {
                 },
                 authenticate: true
             },
-            settings_duties_taxes_view: {
-                name: 'settings_duties_taxes_view',
+            administration_duties_taxes_view: {
+                name: 'administration_duties_taxes_view',
                 url: '/view',
-                parent: 'settings_duties_taxes',
+                parent: 'administration_duties_taxes',
                 views: {
                     '@': {
                         templateUrl: '/modules/dutiestaxes/view.html'
@@ -618,10 +712,10 @@ define(['Dependency'], function(Dependency) {
                 },
                 authenticate: true
             },
-            settings_duties_taxes_edit: {
-                name: 'settings_duties_taxes_edit',
+            administration_duties_taxes_edit: {
+                name: 'administration_duties_taxes_edit',
                 url: '/edit',
-                parent: 'settings_duties_taxes',
+                parent: 'administration_duties_taxes',
                 views: {
                     '@': {
                         templateUrl: '/modules/dutiestaxes/edit.html'
@@ -972,6 +1066,19 @@ define(['Dependency'], function(Dependency) {
                     'modules/customscharges/fclcharges/add'
                 ]),
                 authenticate: true
+            },
+            tools: {
+                name: 'tools',
+                url: '/tools',
+                parent: 'blank',
+                views: {
+                    '@': {
+                        templateUrl: '/modules/tools/index.html'
+                    }
+                },
+                resolve: new Dependency([
+                    'modules/tools/index'
+                ])
             }
         }
     };

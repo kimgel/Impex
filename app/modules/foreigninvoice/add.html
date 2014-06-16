@@ -8,7 +8,7 @@
                 <div class="box-content">
                     <form role="form">
                         <div class="form-group">
-                            <label class="control-label">Date</label>
+                            <label class="control-label">Foreign Invoice Date</label>
                             <div class="controls">
                                 <div class="input-group date">
                                     <span class="input-group-addon">
@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Original Receive Date</label>
+                            <label class="control-label">Date Received Foreign Invoice</label>
                             <div class="controls">
                                 <div class="input-group date">
                                     <span class="input-group-addon">
@@ -78,6 +78,13 @@
                                     </span>
                                     <input type="text" name="po_date" class="form-control" ng-model="planner.date" bs-datepicker>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Registered Good Imported (RGI) No.</label>
+                            <div class="controls">
+                                <input type="text" class="form-control">
+                                <span class="help-block">exempted if less than 10,000 USD</span>
                             </div>
                         </div>
                         <div class="form-group">

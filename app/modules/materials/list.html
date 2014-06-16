@@ -5,7 +5,7 @@
                 <div class="box-header" data-original-title="">
                     <h2><i class="fa fa-calendar-o"></i>Materials</h2>
                     <div class="box-icon">
-                        <a ui-sref="settings_materials_add" class="btn"><i class="fa fa-plus"></i> Add</a>
+                        <a ui-sref="administration_materials_add" class="btn"><i class="fa fa-plus"></i> Add</a>
                     </div>
                 </div>
                 <div class="box-content">
@@ -42,7 +42,11 @@
                                     <td>{{material.valid_from | date: 'mediumDate'}}</td>
                                     <td>{{material.valid_to | date: 'mediumDate'}}</td>
                                     <td>
-                                        <a class="btn btn-success btn-sm" ui-sref="settings_materials_view({ materialId: material._id})"> <i class="fa fa-search-plus"></i></a>
+                                        <a class="btn btn-success btn-sm"
+                                           data-title="View" data-trigger="hover" data-placement="top" bs-tooltip
+                                           ui-sref="settings_materials_view({ materialId: material._id})">
+                                            <i class="fa fa-search-plus"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             </tbody>

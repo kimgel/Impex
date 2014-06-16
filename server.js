@@ -4,7 +4,8 @@ var express = require('express'),
     fs = require('fs'),
     http = require('http'),
     https = require('https'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    config = require('./lib/config/credentials/config');
 
 var Impex = function () {
 
@@ -28,9 +29,6 @@ var Impex = function () {
 
 
     self.initializeServer = function () {
-        // Application Config
-        var config = require('./lib/config/config');
-
         // Passport Configuration
         require('./lib/config/passport');
 
@@ -58,14 +56,15 @@ var Impex = function () {
     self.start = function () {
 
         //  Start the app on the specific interface (and port).
-        self.app.set('port', 7777);
-        self.app.set('ipaddr', 'localhost');
+        self.app.set('port', config.port);
+        self.app.set('ipaddr', config.ip);
 
         // Set http
         self.app.listen(
             self.app.get('port'), self.app.get('ipaddr'),
             function () {
                 console.log("Express server listening on port " + self.app.get('port'));
+                console.log("Environment: " + config.env);
             }
         );
 

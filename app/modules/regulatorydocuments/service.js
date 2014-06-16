@@ -5,7 +5,7 @@ define(['app'], function(app) {
         '$resource',
         function($resource) {
             return $resource(
-                '/api/regulatorydocuments/data/:regulatoryDocumentId', {
+                '/api/regulatorydocument/data/:regulatoryDocumentId', {
                     regulatoryDocumentId: '@_id'
                 }, {
                     update: {

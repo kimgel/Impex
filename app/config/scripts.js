@@ -1,17 +1,12 @@
 require.config({
     baseUrl: "/",
     paths: {
-
-        /* Config
-        =================================================================== */
+        // Config
         "States": "/config/states",
         "Dependency": "/config/dependency",
-        "Init": "/config/init",
-        "Templates": "/config/templates",
 
-        /* 3rd Party
-        =================================================================== */
-        "ng-upload-shim": "/assets/bower_components/ng-file-upload/angular-file-upload-shim.min",
+        // 3rd Party
+        "angular-file-upload-shim": "/assets/bower_components/ng-file-upload/angular-file-upload-shim.min",
         "angular": "/assets/bower_components/angular/angular.min",
         "angular-resource": "/assets/bower_components/angular-resource/angular-resource.min",
         "angular-cookies": "/assets/bower_components/angular-cookies/angular-cookies.min",
@@ -19,12 +14,13 @@ require.config({
         "angular-ui-router": "/assets/bower_components/angular-ui-router/release/angular-ui-router.min",
         "angular-animate": "/assets/bower_components/angular-animate/angular-animate.min",
         "angular-strap": "/assets/bower_components/angular-strap/dist/angular-strap.min",
-        "angular-strap-tpl": "/assets/bower_components/angular-strap/dist/angular-strap.tpl",
+        "angular-strap-tpl": "/config/templates",
         "angular-loading-bar": "/assets/bower_components/angular-loading-bar/build/loading-bar.min",
-        "ng-upload": "/assets/bower_components/ng-file-upload/angular-file-upload.min",
+        "angular-file-upload": "/assets/bower_components/ng-file-upload/angular-file-upload.min",
+        "angular-chart":"/assets/bower_components/angular-chartjs-directive/lib/Chart.min",
+        "angular-chart-directive": "/assets/bower_components/angular-chartjs-directive/chartjs-directive",
 
-        /* Services
-        =================================================================== */
+        // Services
         "Auth": "/modules/auth/service",
         "Session": "/modules/session/service",
         "Users": "/modules/user/service",
@@ -34,13 +30,13 @@ require.config({
         "Materials": "/modules/materials/service",
         "ShippingLines": "/modules/shippinglines/service",
         "RegulatoryDocuments": "/modules/regulatorydocuments/service",
-        "Planners": "/modules/initiateimport/planner/service"
-
+        "Planners": "/modules/initiateimport/planner/service",
+        "Warehouses": "/modules/warehouse/service"
     },
     shim: {
         "app": {
             deps: [
-                "ng-upload-shim",
+                "angular-file-upload-shim",
                 "angular",
                 "angular-resource",
                 "angular-cookies",
@@ -48,9 +44,11 @@ require.config({
                 "angular-ui-router",
                 "angular-animate",
                 "angular-strap",
-                "Templates",
+                "angular-strap-tpl",
                 "angular-loading-bar",
-                "ng-upload"
+                "angular-file-upload",
+                "angular-chart",
+                "angular-chart-directive"
             ]
         },
         "angular-resource": {
@@ -71,7 +69,7 @@ require.config({
         "angular-strap": {
             deps: ["angular"]
         },
-        "Templates": {
+        "angular-strap-tpl": {
             deps: ["angular-strap"]
         },
         "angular-loading-bar": {
@@ -80,14 +78,20 @@ require.config({
                 "angular-animate"
             ]
         },
-        "ng-upload": {
+        "angular-file-upload": {
             deps: ["angular"]
+        },
+        "angular-chart-directive": {
+            deps: [
+                "angular",
+                "angular-chart"
+            ]
         }
     }
 });
 
-require(['app', 'Users', 'Auth', 'Session', 'Init'],
-    function (app) {
+require(['app', 'Users', 'Auth', 'Session'],
+    function () {
         angular.bootstrap(document, ['app']);
     }
 );

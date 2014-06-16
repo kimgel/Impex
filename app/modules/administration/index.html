@@ -1,5 +1,5 @@
 <div id="content">
-    <h1><i class="fa fa-cogs"></i> Settings</h1>
+    <h1><i class="fa fa-cogs"></i> Administration</h1>
     <hr />
     <h3>Master Files</h3>
     <br />
@@ -10,7 +10,7 @@
                     <i class="fa fa-institution fa-2x"></i>
                 </div>
                 <div class="col-xs-10">
-                    <a ui-sref="settings_regulatory_docs">
+                    <a ui-sref="administration_regulatory_docs">
                         <strong>Regulatory Documents</strong>
                     </a>
                     <div class="font-12">
@@ -25,7 +25,7 @@
                     <i class="fa fa-database fa-2x"></i>
                 </div>
                 <div class="col-xs-10">
-                    <a ui-sref="settings_duties_taxes">
+                    <a ui-sref="administration_duties_taxes">
                         <strong>Duties and Taxes</strong>
                     </a>
                     <div class="font-12">
@@ -34,28 +34,14 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-3 m-b-30">
-            <div class="row">
-                <div class="col-xs-2">
-                    <i class="fa fa-calendar-o fa-2x"></i>
-                </div>
-                <div class="col-xs-10">
-                    <a ui-sref="settings_materials">
-                        <strong>Materials</strong>
-                    </a>
-                    <div class="font-12">
-                        Organize materials. Set validity dates. Set processing time and required documents.
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="col-xs-3 m-b-30">
             <div class="row">
                 <div class="col-xs-2">
                     <i class="fa fa-suitcase fa-2x"></i>
                 </div>
                 <div class="col-xs-10">
-                    <a ui-sref="settings_supplier">
+                    <a ui-sref="administration_supplier">
                         <strong>Suppliers</strong>
                     </a>
                     <div class="font-12">
@@ -64,15 +50,13 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
         <div class="col-xs-3 m-b-30">
             <div class="row">
                 <div class="col-xs-2">
                     <i class="fa fa-chain fa-2x"></i>
                 </div>
                 <div class="col-xs-10">
-                    <a ui-sref="settings_broker">
+                    <a ui-sref="administration_broker">
                         <strong>Brokers</strong>
                     </a>
                     <div class="font-12">
@@ -81,13 +65,16 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+
         <div class="col-xs-3 m-b-30">
             <div class="row">
                 <div class="col-xs-2">
                     <i class="fa fa-truck fa-2x"></i>
                 </div>
                 <div class="col-xs-10">
-                    <a ui-sref="settings_forwarder">
+                    <a ui-sref="administration_forwarder">
                         <strong>Forwarders</strong>
                     </a>
                     <div class="font-12">
@@ -102,7 +89,7 @@
                     <i class="fa fa-archive fa-2x"></i>
                 </div>
                 <div class="col-xs-10">
-                    <a ui-sref="settings_shippinglines">
+                    <a ui-sref="administration_shippinglines">
                         <strong>Shipping Lines</strong>
                     </a>
                     <div class="font-12">
@@ -111,9 +98,57 @@
                 </div>
             </div>
         </div>
+        <div class="col-xs-3 m-b-30">
+            <div class="row">
+                <div class="col-xs-2">
+                    <i class="fa fa-cubes fa-2x"></i>
+                </div>
+                <div class="col-xs-10">
+                    <a ui-sref="administration_warehouse">
+                        <strong>Warehouses</strong>
+                    </a>
+                    <div class="font-12">
+                        Manage and organize list of warehouses.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3 m-b-30">
+            <div class="row">
+                <div class="col-xs-2">
+                    <i class="fa fa-anchor fa-2x"></i>
+                </div>
+                <div class="col-xs-10">
+                    <a ui-sref="administration_arrivalports">
+                        <strong>Arrival Ports</strong>
+                    </a>
+                    <div class="font-12">
+                        Manage and organize list of arrival ports.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3 m-b-30">
+            <div class="row">
+                <div class="col-xs-2">
+                    <i class="fa fa-calendar-o fa-2x"></i>
+                </div>
+                <div class="col-xs-10">
+                    <a ui-sref="administration_materials">
+                        <strong>Materials</strong>
+                    </a>
+                    <div class="font-12">
+                        Organize materials. Set validity dates. Set processing time and required documents.
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <hr />
-    <h3>Admin</h3>
+    <h3>Management</h3>
     <br />
     <div class="row">
         <div class="col-xs-3 m-b-30">
@@ -122,7 +157,7 @@
                     <i class="fa fa-user fa-2x"></i>
                 </div>
                 <div class="col-xs-10">
-                    <a ui-sref="settings_user">
+                    <a ui-sref="administration_user">
                         <strong>Users</strong>
                     </a>
                     <div class="font-12">

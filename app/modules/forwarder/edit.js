@@ -1,6 +1,6 @@
 'use strict';
 
-define(['app', 'Forwarders'], function(app, Forwarders) {
+define(['app', 'Forwarders'], function(app) {
     app.controller('ForwarderEdit', [
         '$scope',
         '$state',
@@ -14,7 +14,7 @@ define(['app', 'Forwarders'], function(app, Forwarders) {
                             form[key].message = err.errors[key].message;
                         }
                     }else{
-                        $state.go('settings_forwarder');
+                        $state.go('administration_forwarder');
                     }
                 });
             };

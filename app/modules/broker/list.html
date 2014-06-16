@@ -5,7 +5,7 @@
                 <div class="box-header" data-original-title="">
                     <h2><i class="fa fa-chain"></i>Brokers</h2>
                     <div class="box-icon">
-                        <a ui-sref="settings_broker_add" class="btn"><i class="fa fa-plus"></i> Add</a>
+                        <a ui-sref="administration_broker_add" class="btn"><i class="fa fa-plus"></i> Add</a>
                     </div>
                 </div>
                 <div class="box-content">
@@ -40,8 +40,16 @@
                                     <td>{{broker.valid_from | date: 'mediumDate'}}</td>
                                     <td>{{broker.valid_to | date: 'mediumDate'}}</td>
                                     <td>
-                                        <a class="btn btn-success btn-sm" ui-sref="settings_broker_view({ brokerId: broker._id})"> <i class="fa fa-search-plus"></i></a>
-                                        <a class="btn btn-primary btn-sm" ui-sref="settings_broker_edit({ brokerId: broker._id})"> <i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-success btn-sm"
+                                           data-title="View" data-trigger="hover" data-placement="top" bs-tooltip
+                                           ui-sref="administration_broker_view({ brokerId: broker._id})">
+                                            <i class="fa fa-search-plus"></i>
+                                        </a>
+                                        <a class="btn btn-primary btn-sm"
+                                           data-title="Edit" data-trigger="hover" data-placement="top" bs-tooltip
+                                           ui-sref="administration_broker_edit({ brokerId: broker._id})">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             </tbody>

@@ -1,6 +1,6 @@
 'use strict';
 
-define(['app', 'Forwarders'], function(app, Forwarders) {
+define(['app', 'Forwarders'], function(app) {
     app.controller('ForwarderView', [
         '$scope',
         '$location',

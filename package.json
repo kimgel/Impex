@@ -35,8 +35,9 @@
     "moment": "2.6.x",
     "csurf": "1.2.x",
     "multiparty": "3.2.x",
-    "streaming-s3": "0.3.x",
-    "mongoose-json-select": "0.2.x"
+    "mongoose-json-select": "0.2.x",
+    "knox": "0.8.x",
+    "knox-mpu": "0.1.x"
   },
   "devDependencies": {
     "morgan": "1.1.x",

@@ -1,6 +1,6 @@
 'use strict';
 
-define(['app', 'RegulatoryDocuments'], function(app, RegulatoryDocuments) {
+define(['app', 'RegulatoryDocuments'], function(app) {
     app.controller('RegulatoryDocumentsAdd', [
         '$scope',
         '$state',
@@ -10,7 +10,6 @@ define(['app', 'RegulatoryDocuments'], function(app, RegulatoryDocuments) {
 
             $scope.noFiles = true;
             $scope.fileOkay = false;
-            $scope.uploadDisabled = true;
             $scope.regulatory = {};
             $scope.regulatory.document_data = {};
             $scope.submit = function(form) {
@@ -20,7 +19,7 @@ define(['app', 'RegulatoryDocuments'], function(app, RegulatoryDocuments) {
                             form[key].message = err.errors[key].message;
                         }
                     } else {
-                        $state.go('settings_regulatory_docs');
+                        $state.go('administration_regulatory_docs');
                     }
                 });
             };
@@ -30,37 +29,26 @@ define(['app', 'RegulatoryDocuments'], function(app, RegulatoryDocuments) {
             };
 
             $scope.onFileSelect = function($files) {
-                $scope.selectedFiles = [];
-                $scope.selectedFiles = $files;
-                $scope.uploadDisabled = false;
-            };
-
-            $scope.startUpload = function() {
                 $scope.upload = $upload.upload({
-                    url: '/api/regulatorydocuments/file',
+                    url: '/api/regulatorydocument/file',
                     method: 'POST',
-                    file: $scope.selectedFiles,
-                }).progress(function(evt) {
+                    file: $files
+                }).progress(function() {
                     $scope.noFiles = false;
                     $scope.uploading = true;
-                    $scope.uploadDisabled = true; 
-                }).success(function(document_data, status, headers, config) {
+                }).success(function(document_data) {
                     // file is uploaded successfully
                     // add object to scope
                     
                     $scope.noFiles = false;
                     $scope.uploading = false;
-                    $scope.fileOkay = true;  
-                    $scope.uploadDisabled = true;                 
+                    $scope.fileOkay = true;
                     $scope.regulatory.document_data = document_data;
-
-                    document.getElementById('file').value = null;
-
                 });
             };
 
             $scope.resetFileInput = function() {
-                document.getElementById('file').value = null;
+                document.getElementById('fileUpload').value = null;
             };
         }
     ]);
